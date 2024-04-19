@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyThienNguyen.GUI;
 
 namespace QuanLyThienNguyen
 {
@@ -16,7 +17,7 @@ namespace QuanLyThienNguyen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Login());
+            Application.Run(new Main_Form());
         }
     }
 }
