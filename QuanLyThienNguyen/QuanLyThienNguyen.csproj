@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\Admin\HD_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\HD_Form.Designer.cs">
+      <DependentUpon>HD_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Guest\Activity_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Admin\HD_Form.resx">
+      <DependentUpon>HD_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Guest\Activity_Form.resx">
       <DependentUpon>Activity_Form.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyThienNguyen.GUI
+namespace QuanLyThienNguyen.GUI.Admin
 {
-    public partial class Form_QuanLy : Form
+    public partial class HD_Form : Form
     {
-        public Form_QuanLy()
+        public HD_Form()
         {
             InitializeComponent();
-        }
-
-        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

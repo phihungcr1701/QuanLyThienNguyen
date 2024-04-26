@@ -37,6 +37,7 @@
             this.panelRight = new Guna.UI2.WinForms.Guna2Panel();
             this.panelChildForm = new Guna.UI2.WinForms.Guna2Panel();
             this.panelInformation = new Guna.UI2.WinForms.Guna2Panel();
+            //this.buttonThongTin = new Guna.UI2.WinForms.Guna2Button();
             this.panelLeft.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.SuspendLayout();
@@ -161,6 +162,25 @@
             this.panelInformation.Name = "panelInformation";
             this.panelInformation.Size = new System.Drawing.Size(993, 22);
             this.panelInformation.TabIndex = 0;
+            // 
+            // guna2Button4
+            // 
+            //this.guna2Button4.AutoRoundedCorners = true;
+            //this.guna2Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            //this.guna2Button4.BorderRadius = 20;
+            //this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            //this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            //this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            //this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            //this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            //this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            //this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            //this.guna2Button4.HoverState.FillColor = System.Drawing.Color.Yellow;
+            //this.guna2Button4.Location = new System.Drawing.Point(12, 319);
+            //this.guna2Button4.Name = "guna2Button4";
+            //this.guna2Button4.Size = new System.Drawing.Size(170, 42);
+            //this.guna2Button4.TabIndex = 6;
+            //this.guna2Button4.Text = "Thông tin";
             // 
             // Main_Form
             // 
