@@ -152,5 +152,8 @@
     <Folder Include="DAL\" />
     <Folder Include="DTO\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_Home.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
