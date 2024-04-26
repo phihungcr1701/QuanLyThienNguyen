@@ -52,22 +52,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\Guest\Activity_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Guest\Activity_Form.Designer.cs">
+      <DependentUpon>Activity_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Activity_Form_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Activity_Form_Admin.Designer.cs">
+      <DependentUpon>Activity_Form_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\DVUH_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\DVUH_Form.Designer.cs">
+      <DependentUpon>DVUH_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Form_Login.Designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Main_Form.cs">
+    <Compile Include="GUI\Guest\Main_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Main_Form.Designer.cs">
+    <Compile Include="GUI\Guest\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Guest\Activity_Form.resx">
+      <DependentUpon>Activity_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Activity_Form_Admin.resx">
+      <DependentUpon>Activity_Form_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\DVUH_Form.resx">
+      <DependentUpon>DVUH_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Guest\Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +137,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BBL\" />
+    <Folder Include="DAL\" />
+    <Folder Include="DTO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

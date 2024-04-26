@@ -15,6 +15,7 @@ namespace QuanLyThienNguyen.GUI
         public Main_Form()
         {
             InitializeComponent();
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThienNguyen.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace QuanLyThienNguyen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Login());
+            Application.Run(new Main_Form());
         }
     }
 }
