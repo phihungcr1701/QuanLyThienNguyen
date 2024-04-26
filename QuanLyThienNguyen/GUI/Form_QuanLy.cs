@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.GUI
 {
-    public partial class Main_Form : Form
+    public partial class Form_QuanLy : Form
     {
-        public Main_Form()
+        public Form_QuanLy()
         {
             InitializeComponent();
-            
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
