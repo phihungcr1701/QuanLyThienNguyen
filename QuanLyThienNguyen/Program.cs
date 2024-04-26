@@ -17,7 +17,7 @@ namespace QuanLyThienNguyen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DVUH_Form());
+            Application.Run(new Main_Form());
         }
     }
 }
