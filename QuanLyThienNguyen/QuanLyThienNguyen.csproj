@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\Admin\HD_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\HD_Form.Designer.cs">
+      <DependentUpon>HD_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Guest\Activity_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,14 +82,17 @@
     <Compile Include="GUI\Form_Login.Designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Guest\Main_Form.cs">
+    <Compile Include="GUI\Main_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Guest\Main_Form.Designer.cs">
+    <Compile Include="GUI\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Admin\HD_Form.resx">
+      <DependentUpon>HD_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Guest\Activity_Form.resx">
       <DependentUpon>Activity_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,7 +105,7 @@
     <EmbeddedResource Include="GUI\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Guest\Main_Form.resx">
+    <EmbeddedResource Include="GUI\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
