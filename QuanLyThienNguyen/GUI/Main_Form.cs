@@ -54,5 +54,10 @@ namespace QuanLyThienNguyen.GUI
             Form form = new Form_Login();
             form.ShowDialog();
         }
+
+        private void Main_Form_Load(object sender, EventArgs e)
+        {
+            labelNgayThang.Text = "Đà Nẵng, Ngày " + DateTime.Now.ToString("dd, MM/yyyy");
+        }
     }
 }

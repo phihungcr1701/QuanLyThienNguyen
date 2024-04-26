@@ -106,12 +106,6 @@
     <Compile Include="GUI\Form_Login.Designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Home_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Home_Form.Designer.cs">
-      <DependentUpon>Home_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Main_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,9 +140,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Home_Form.resx">
-      <DependentUpon>Home_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
