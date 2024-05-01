@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.panelLeft = new Guna.UI2.WinForms.Guna2Panel();
+            this.button_ThongKe = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
+            this.button_HoatDong = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonHome = new Guna.UI2.WinForms.Guna2Button();
             this.panelRight = new Guna.UI2.WinForms.Guna2Panel();
             this.panelChildForm = new Guna.UI2.WinForms.Guna2Panel();
             this.panelInformation = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_ThongKe = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.button_Login = new Guna.UI2.WinForms.Guna2Button();
-            this.button_HoatDong = new Guna.UI2.WinForms.Guna2Button();
-            this.buttonHome = new Guna.UI2.WinForms.Guna2Button();
             this.panelLeft.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.panelLeft.Controls.Add(this.button_ThongKe);
             this.panelLeft.Controls.Add(this.guna2Button1);
-            this.panelLeft.Controls.Add(this.button_Login);
+            this.panelLeft.Controls.Add(this.btnLogin);
             this.panelLeft.Controls.Add(this.button_HoatDong);
             this.panelLeft.Controls.Add(this.buttonHome);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -55,34 +55,6 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(199, 664);
             this.panelLeft.TabIndex = 0;
-            // 
-            // panelRight
-            // 
-            this.panelRight.BackColor = System.Drawing.Color.White;
-            this.panelRight.Controls.Add(this.panelChildForm);
-            this.panelRight.Controls.Add(this.panelInformation);
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Location = new System.Drawing.Point(199, 0);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(993, 664);
-            this.panelRight.TabIndex = 1;
-            // 
-            // panelChildForm
-            // 
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(0, 22);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(993, 642);
-            this.panelChildForm.TabIndex = 1;
-            // 
-            // panelInformation
-            // 
-            this.panelInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelInformation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelInformation.Location = new System.Drawing.Point(0, 0);
-            this.panelInformation.Name = "panelInformation";
-            this.panelInformation.Size = new System.Drawing.Size(993, 22);
-            this.panelInformation.TabIndex = 0;
             // 
             // button_ThongKe
             // 
@@ -127,28 +99,28 @@
             this.guna2Button1.TabIndex = 6;
             this.guna2Button1.Text = "Thông tin";
             // 
-            // button_Login
+            // btnLogin
             // 
-            this.button_Login.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_Login.AutoRoundedCorners = true;
-            this.button_Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button_Login.BorderRadius = 20;
-            this.button_Login.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_Login.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button_Login.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button_Login.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button_Login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button_Login.ForeColor = System.Drawing.Color.Black;
-            this.button_Login.HoverState.FillColor = System.Drawing.Color.White;
-            this.button_Login.HoverState.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button_Login.Location = new System.Drawing.Point(-21, 564);
-            this.button_Login.Name = "button_Login";
-            this.button_Login.PressedColor = System.Drawing.Color.White;
-            this.button_Login.Size = new System.Drawing.Size(170, 42);
-            this.button_Login.TabIndex = 5;
-            this.button_Login.Text = "Đăng nhập";
-            this.button_Login.Click += new System.EventHandler(this.button_Login_Click);
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogin.AutoRoundedCorners = true;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnLogin.BorderRadius = 20;
+            this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
+            this.btnLogin.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnLogin.HoverState.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnLogin.Location = new System.Drawing.Point(-21, 564);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.PressedColor = System.Drawing.Color.White;
+            this.btnLogin.Size = new System.Drawing.Size(170, 42);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.Click += new System.EventHandler(this.button_Login_Click);
             // 
             // button_HoatDong
             // 
@@ -194,6 +166,34 @@
             this.buttonHome.Text = "Trang chủ";
             this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
+            // panelRight
+            // 
+            this.panelRight.BackColor = System.Drawing.Color.White;
+            this.panelRight.Controls.Add(this.panelChildForm);
+            this.panelRight.Controls.Add(this.panelInformation);
+            this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRight.Location = new System.Drawing.Point(199, 0);
+            this.panelRight.Name = "panelRight";
+            this.panelRight.Size = new System.Drawing.Size(993, 664);
+            this.panelRight.TabIndex = 1;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(0, 22);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(993, 642);
+            this.panelChildForm.TabIndex = 1;
+            // 
+            // panelInformation
+            // 
+            this.panelInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelInformation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelInformation.Location = new System.Drawing.Point(0, 0);
+            this.panelInformation.Name = "panelInformation";
+            this.panelInformation.Size = new System.Drawing.Size(993, 22);
+            this.panelInformation.TabIndex = 0;
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,7 +218,7 @@
         private Guna.UI2.WinForms.Guna2Panel panelRight;
         private Guna.UI2.WinForms.Guna2Button buttonHome;
         private Guna.UI2.WinForms.Guna2Panel panelInformation;
-        private Guna.UI2.WinForms.Guna2Button button_Login;
+        private Guna.UI2.WinForms.Guna2Button btnLogin;
         private Guna.UI2.WinForms.Guna2Button button_ThongKe;
         private Guna.UI2.WinForms.Guna2Button button_HoatDong;
         private Guna.UI2.WinForms.Guna2Panel panelChildForm;

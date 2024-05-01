@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen
 {
@@ -15,6 +17,22 @@ namespace QuanLyThienNguyen
         public Form_Login()
         {
             InitializeComponent();
+        }
+        public bool check;
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string user = txtUser.Text;
+            string pass = txtPass.Text;
+            check = BBL_Account.Instance.PhanQuyen(user, pass);
+            if (check)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Sai mật khẩu");
+            }
         }
     }
 }
