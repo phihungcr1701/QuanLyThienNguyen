@@ -70,5 +70,10 @@ namespace QuanLyThienNguyen.GUI
                 btnLogin.Text = "Đăng xuất";
             }
         }
+
+        private void Main_Form_Load(object sender, EventArgs e)
+        {
+            labelNgayThang.Text = "Đà Nẵng, Ngày " + DateTime.Now.ToString("dd, MM/yyyy");
+        }
     }
 }

@@ -362,6 +362,7 @@
             this.ClientSize = new System.Drawing.Size(993, 642);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Activity_Form_Admin";
             this.Text = "Activity_Form_Admin";
             this.guna2Panel1.ResumeLayout(false);

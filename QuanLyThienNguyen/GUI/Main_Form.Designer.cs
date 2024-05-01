@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.panelLeft = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelUser = new System.Windows.Forms.Label();
             this.button_ThongKe = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
@@ -38,13 +39,18 @@
             this.panelRight = new Guna.UI2.WinForms.Guna2Panel();
             this.panelChildForm = new Guna.UI2.WinForms.Guna2Panel();
             this.panelInformation = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelNgayThang = new System.Windows.Forms.Label();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panelLeft.SuspendLayout();
             this.panelRight.SuspendLayout();
+            this.panelInformation.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.panelLeft.Controls.Add(this.guna2ImageButton1);
+            this.panelLeft.Controls.Add(this.labelUser);
             this.panelLeft.Controls.Add(this.button_ThongKe);
             this.panelLeft.Controls.Add(this.guna2Button1);
             this.panelLeft.Controls.Add(this.btnLogin);
@@ -55,6 +61,16 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(199, 664);
             this.panelLeft.TabIndex = 0;
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.Location = new System.Drawing.Point(62, 22);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(76, 20);
+            this.labelUser.TabIndex = 7;
+            this.labelUser.Text = "Chào ...!";
             // 
             // button_ThongKe
             // 
@@ -179,6 +195,7 @@
             // 
             // panelChildForm
             // 
+            this.panelChildForm.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(0, 22);
             this.panelChildForm.Name = "panelChildForm";
@@ -188,11 +205,36 @@
             // panelInformation
             // 
             this.panelInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelInformation.BorderColor = System.Drawing.Color.White;
+            this.panelInformation.Controls.Add(this.labelNgayThang);
             this.panelInformation.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInformation.Location = new System.Drawing.Point(0, 0);
             this.panelInformation.Name = "panelInformation";
             this.panelInformation.Size = new System.Drawing.Size(993, 22);
             this.panelInformation.TabIndex = 0;
+            // 
+            // labelNgayThang
+            // 
+            this.labelNgayThang.AutoSize = true;
+            this.labelNgayThang.Location = new System.Drawing.Point(848, 5);
+            this.labelNgayThang.Name = "labelNgayThang";
+            this.labelNgayThang.Size = new System.Drawing.Size(85, 13);
+            this.labelNgayThang.TabIndex = 0;
+            this.labelNgayThang.Text = "labelNgayThang";
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::QuanLyThienNguyen.Properties.Resources.logo_User;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(3, 5);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(63, 54);
+            this.guna2ImageButton1.TabIndex = 8;
             // 
             // Main_Form
             // 
@@ -206,8 +248,12 @@
             this.Name = "Main_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hoạt động thiện nguyện";
+            this.Load += new System.EventHandler(this.Main_Form_Load);
             this.panelLeft.ResumeLayout(false);
+            this.panelLeft.PerformLayout();
             this.panelRight.ResumeLayout(false);
+            this.panelInformation.ResumeLayout(false);
+            this.panelInformation.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -223,5 +269,8 @@
         private Guna.UI2.WinForms.Guna2Button button_HoatDong;
         private Guna.UI2.WinForms.Guna2Panel panelChildForm;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label labelNgayThang;
+        private System.Windows.Forms.Label labelUser;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }
