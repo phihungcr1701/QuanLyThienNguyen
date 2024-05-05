@@ -12,7 +12,7 @@ namespace QuanLyThienNguyen.DAL
     {
         private static DataProvider instance;
 
-        private string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=PBL3;Integrated Security=True;";
+        private string connectionString = "Data Source=HAOVIPPRO\\HAO;Initial Catalog=PBL3;Integrated Security=True;";
 
         public static DataProvider Instance 
         { 

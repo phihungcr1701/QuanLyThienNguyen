@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.panelLeft = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.labelUser = new System.Windows.Forms.Label();
             this.button_ThongKe = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.button_ThongTin = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.button_HoatDong = new Guna.UI2.WinForms.Guna2Button();
             this.buttonHome = new Guna.UI2.WinForms.Guna2Button();
@@ -40,7 +41,6 @@
             this.panelChildForm = new Guna.UI2.WinForms.Guna2Panel();
             this.panelInformation = new Guna.UI2.WinForms.Guna2Panel();
             this.labelNgayThang = new System.Windows.Forms.Label();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panelLeft.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.panelInformation.SuspendLayout();
@@ -52,7 +52,7 @@
             this.panelLeft.Controls.Add(this.guna2ImageButton1);
             this.panelLeft.Controls.Add(this.labelUser);
             this.panelLeft.Controls.Add(this.button_ThongKe);
-            this.panelLeft.Controls.Add(this.guna2Button1);
+            this.panelLeft.Controls.Add(this.button_ThongTin);
             this.panelLeft.Controls.Add(this.btnLogin);
             this.panelLeft.Controls.Add(this.button_HoatDong);
             this.panelLeft.Controls.Add(this.buttonHome);
@@ -62,15 +62,29 @@
             this.panelLeft.Size = new System.Drawing.Size(199, 664);
             this.panelLeft.TabIndex = 0;
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::QuanLyThienNguyen.Properties.Resources.logo_User;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(3, 5);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(63, 54);
+            this.guna2ImageButton1.TabIndex = 8;
+            // 
             // labelUser
             // 
             this.labelUser.AutoSize = true;
             this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.Location = new System.Drawing.Point(62, 22);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(76, 20);
+            this.labelUser.Size = new System.Drawing.Size(99, 20);
             this.labelUser.TabIndex = 7;
-            this.labelUser.Text = "Chào ...!";
+            this.labelUser.Text = "Chào User!";
             // 
             // button_ThongKe
             // 
@@ -94,26 +108,27 @@
             this.button_ThongKe.Text = "Thống kê";
             this.button_ThongKe.Click += new System.EventHandler(this.button_ThongKe_Click);
             // 
-            // guna2Button1
+            // button_ThongTin
             // 
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.guna2Button1.BorderRadius = 20;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2Button1.Location = new System.Drawing.Point(-21, 261);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.White;
-            this.guna2Button1.Size = new System.Drawing.Size(170, 42);
-            this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "Thông tin";
+            this.button_ThongTin.AutoRoundedCorners = true;
+            this.button_ThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button_ThongTin.BorderRadius = 20;
+            this.button_ThongTin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_ThongTin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_ThongTin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_ThongTin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_ThongTin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button_ThongTin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.button_ThongTin.ForeColor = System.Drawing.Color.Black;
+            this.button_ThongTin.HoverState.FillColor = System.Drawing.Color.White;
+            this.button_ThongTin.HoverState.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.button_ThongTin.Location = new System.Drawing.Point(-21, 261);
+            this.button_ThongTin.Name = "button_ThongTin";
+            this.button_ThongTin.PressedColor = System.Drawing.Color.White;
+            this.button_ThongTin.Size = new System.Drawing.Size(170, 42);
+            this.button_ThongTin.TabIndex = 6;
+            this.button_ThongTin.Text = "Thông tin";
+            this.button_ThongTin.Click += new System.EventHandler(this.button_ThongTin_Click);
             // 
             // btnLogin
             // 
@@ -222,20 +237,6 @@
             this.labelNgayThang.TabIndex = 0;
             this.labelNgayThang.Text = "labelNgayThang";
             // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::QuanLyThienNguyen.Properties.Resources.logo_User;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(3, 5);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(63, 54);
-            this.guna2ImageButton1.TabIndex = 8;
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,7 +269,7 @@
         private Guna.UI2.WinForms.Guna2Button button_ThongKe;
         private Guna.UI2.WinForms.Guna2Button button_HoatDong;
         private Guna.UI2.WinForms.Guna2Panel panelChildForm;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button button_ThongTin;
         private System.Windows.Forms.Label labelNgayThang;
         private System.Windows.Forms.Label labelUser;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;

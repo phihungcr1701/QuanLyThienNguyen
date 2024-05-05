@@ -16,5 +16,10 @@ namespace QuanLyThienNguyen.GUI
         {
             InitializeComponent();
         }
+
+        public void GetLabel_GioiThieu(string st)
+        {
+            label_GioiThieu.Text = st;
+        }
     }
 }
