@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThienNguyen.GUI
 {
-    partial class Activity_Form
+    partial class Information_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -65,9 +65,9 @@
             this.label_GioiThieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_GioiThieu.Location = new System.Drawing.Point(277, 29);
             this.label_GioiThieu.Name = "label_GioiThieu";
-            this.label_GioiThieu.Size = new System.Drawing.Size(438, 42);
+            this.label_GioiThieu.Size = new System.Drawing.Size(421, 42);
             this.label_GioiThieu.TabIndex = 0;
-            this.label_GioiThieu.Text = "Hoạt động thiện nguyện";
+            this.label_GioiThieu.Text = "Thông tin thiện nguyện";
             // 
             // guna2Panel2
             // 
@@ -230,12 +230,18 @@
             this.combobox_TimKiem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.combobox_TimKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.combobox_TimKiem.ItemHeight = 30;
+            this.combobox_TimKiem.Items.AddRange(new object[] {
+            "Đơn vị ủng hộ",
+            "Thành viên đơn vị ủng hộ",
+            "Hộ dân",
+            "Đợt ủng hộ",
+            "Hình thức ủng hộ"});
             this.combobox_TimKiem.Location = new System.Drawing.Point(12, 32);
             this.combobox_TimKiem.Name = "combobox_TimKiem";
             this.combobox_TimKiem.Size = new System.Drawing.Size(140, 36);
             this.combobox_TimKiem.TabIndex = 11;
             // 
-            // Activity_Form
+            // Information_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,7 +250,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Activity_Form";
+            this.Name = "Information_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Activity_Form";
             this.guna2Panel1.ResumeLayout(false);
@@ -263,7 +269,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private System.Windows.Forms.Label label_GioiThieu; 
+        private System.Windows.Forms.Label label_GioiThieu;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView;
         private Guna.UI2.WinForms.Guna2ComboBox combobox_SapXep;
         private Guna.UI2.WinForms.Guna2Button button_SapXep;

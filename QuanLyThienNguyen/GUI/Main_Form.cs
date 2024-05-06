@@ -46,15 +46,11 @@ namespace QuanLyThienNguyen.GUI
         {
             if (btnLogin.Text == "Đăng xuất")
             {
-                Activity_Form_Admin afa = new Activity_Form_Admin();
-                afa.GetLabel_GioiThieu("Hoạt động thiện nguyện");
-                openChildForm(afa);
+                openChildForm(new Activity_Form_Admin());
             }
             else
             {
-                Activity_Form afa = new Activity_Form();
-                afa.GetLabel_GioiThieu("Hoạt động thiện nguyện");
-                openChildForm(afa);
+                openChildForm(new Activity_Form());
             }
         }
 
@@ -62,15 +58,11 @@ namespace QuanLyThienNguyen.GUI
         {
             if (btnLogin.Text == "Đăng xuất")
             {
-                Activity_Form_Admin afa = new Activity_Form_Admin();
-                afa.GetLabel_GioiThieu("Thông tin thiện nguyện");
-                openChildForm(afa);
+                openChildForm(new Information_Form_Admin());
             }
             else
             {
-                Activity_Form afa = new Activity_Form();
-                afa.GetLabel_GioiThieu("Thông tin thiện nguyện");
-                openChildForm(afa);
+                openChildForm(new Information_Form());
             }
         }
 
