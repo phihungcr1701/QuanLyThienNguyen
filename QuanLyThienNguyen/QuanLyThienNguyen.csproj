@@ -58,6 +58,58 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BBL\BBL_Account.cs" />
+    <Compile Include="DAL\DAL_Account.cs" />
+    <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DTO\Account.cs" />
+    <Compile Include="GUI\Admin\CTUH_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\CTUH_Form.Designer.cs">
+      <DependentUpon>CTUH_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\DUH_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\DUH_Form.Designer.cs">
+      <DependentUpon>DUH_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\HD_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\HD_Form.Designer.cs">
+      <DependentUpon>HD_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\HTUH_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\HTUH_Form.Designer.cs">
+      <DependentUpon>HTUH_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\TV_DVUH_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\TV_DVUH_Form.Designer.cs">
+      <DependentUpon>TV_DVUH_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Guest\Activity_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Guest\Activity_Form.Designer.cs">
+      <DependentUpon>Activity_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Activity_Form_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Activity_Form_Admin.Designer.cs">
+      <DependentUpon>Activity_Form_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\DVUH_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\DVUH_Form.Designer.cs">
+      <DependentUpon>DVUH_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,16 +117,10 @@
       <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Home_Form.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Home_Form.Designer.cs">
       <DependentUpon>Home_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Login.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Main_Form.cs">
       <SubType>Form</SubType>
@@ -84,14 +130,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Admin\CTUH_Form.resx">
+      <DependentUpon>CTUH_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\DUH_Form.resx">
+      <DependentUpon>DUH_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\HD_Form.resx">
+      <DependentUpon>HD_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\HTUH_Form.resx">
+      <DependentUpon>HTUH_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\TV_DVUH_Form.resx">
+      <DependentUpon>TV_DVUH_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Guest\Activity_Form.resx">
+      <DependentUpon>Activity_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Activity_Form_Admin.resx">
+      <DependentUpon>Activity_Form_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\DVUH_Form.resx">
+      <DependentUpon>DVUH_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Home_Form.resx">
       <DependentUpon>Home_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
@@ -135,6 +202,7 @@
   <ItemGroup>
     <None Include="Resources\logo_pass.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\logo_Home.png" />
   </ItemGroup>

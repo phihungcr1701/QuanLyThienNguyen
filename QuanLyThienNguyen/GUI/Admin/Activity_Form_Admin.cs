@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.GUI
 {
-    public partial class Home_Form : Form
+    public partial class Activity_Form_Admin : Form
     {
-        public Home_Form()
+        public Activity_Form_Admin()
         {
             InitializeComponent();
+        }
+
+        public void GetLabel_GioiThieu(string st)
+        {
+            label_GioiThieu.Text = st;
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.GUI
 {
-    public partial class Home_Form : Form
+    public partial class DVUH_Form : Form
     {
-        public Home_Form()
+        public DVUH_Form()
         {
             InitializeComponent();
         }

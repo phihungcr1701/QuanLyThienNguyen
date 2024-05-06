@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyThienNguyen.GUI
+namespace QuanLyThienNguyen.GUI.Admin
 {
-    public partial class Home_Form : Form
+    public partial class HTUH_Form : Form
     {
-        public Home_Form()
+        public HTUH_Form()
         {
             InitializeComponent();
         }
