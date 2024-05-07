@@ -62,6 +62,13 @@
     <Compile Include="DAL\DAL_Account.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\ChiTietUngHo.cs" />
+    <Compile Include="DTO\DonViUngHo.cs" />
+    <Compile Include="DTO\DotUngHo.cs" />
+    <Compile Include="DTO\HinhThucUngHo.cs" />
+    <Compile Include="DTO\HoDan.cs" />
+    <Compile Include="DTO\ThanhVienDonViUngHo.cs" />
+    <Compile Include="DTO\ThongKe.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -11,6 +11,7 @@ namespace QuanLyThienNguyen.DTO
         private string _id;
         private string _username;
         private string _password;
+
         public Account(string user, string pass) 
         {
             this.Username = user;
