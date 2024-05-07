@@ -12,6 +12,7 @@ namespace QuanLyThienNguyen.DTO
         private string _TenHTUH;
         private string _DonViTinh;
 
+        public HinhThucUngHo() { }
         public HinhThucUngHo(int ma, string ten, string donvitinh) 
         {
             this.MaHTUH = ma;
@@ -21,5 +22,10 @@ namespace QuanLyThienNguyen.DTO
         public int MaHTUH { get => _MaHTUH; set => _MaHTUH = value; }
         public string TenHTUH { get => _TenHTUH; set => _TenHTUH = value; }
         public string DonViTinh { get => _DonViTinh; set => _DonViTinh = value;}
+
+        public List<string> items = new List<string>(new string[]
+        {
+            "MaHTUH", "TenHTUH", "DonViTinh"
+        });
     }
 }

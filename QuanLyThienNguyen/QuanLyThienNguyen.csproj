@@ -59,7 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BBL\BBL_Account.cs" />
+    <Compile Include="BBL\BBL_Information.cs" />
     <Compile Include="DAL\DAL_Account.cs" />
+    <Compile Include="DAL\DAL_Information.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\ChiTietUngHo.cs" />
