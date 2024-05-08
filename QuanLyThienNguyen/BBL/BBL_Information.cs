@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.DAL;
+using QuanLyThienNguyen.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,6 +46,38 @@ namespace QuanLyThienNguyen.BBL
         {
             nametable = ConvertToNameTable (nametable);
             return DAL_Information.Instance.DAL_InformationView(nametable, text, namerow);
+        }
+
+        /// Đơn vị ủng hộ
+        public void BBL_Add_DVUH(DonViUngHo dvuh)
+        {
+            DAL_Information.Instance.DAL_Add_DVUH(dvuh);
+        }
+        public void BBL_Update_DVUH(DonViUngHo dvuh)
+        {
+            DAL_Information.Instance.DAL_Update_DVUH(dvuh);
+        }
+        public void BBL_Delete_DVUH(DonViUngHo dvuh)
+        {
+            DAL_Information.Instance.DAL_Delete_DVUH(dvuh);
+        }
+
+        /// Thành viên đơn vị ủng hộ
+        public void BBL_Add_TVDVUH(ThanhVienDonViUngHo tvdvuh)
+        {
+            DAL_Information.Instance.DAL_Add_TVDVUH(tvdvuh);
+        }
+        public void BBL_Update_TVDVUH(ThanhVienDonViUngHo tvdvuh, ThanhVienDonViUngHo tvdvuhchange)
+        {
+            DAL_Information.Instance.DAL_Update_TVDVUH(tvdvuh, tvdvuhchange);
+        }
+        public void BBL_Delete_TVDVUH(ThanhVienDonViUngHo tvdvuh)
+        {
+            DAL_Information.Instance.DAL_Delete_TVDVUH(tvdvuh);
+        }
+        public int BBL_Check_TVDVUH(ThanhVienDonViUngHo tvdvuh)
+        {
+            return DAL_Information.Instance.DAL_Check_TVDVUH(tvdvuh);
         }
     }
 }

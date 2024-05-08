@@ -20,17 +20,6 @@ namespace QuanLyThienNguyen.GUI
         {
             InitializeComponent();
         }
-        private DonViUngHo TransferDataGridViewRowToObject(DataGridViewRow row)
-        {
-            DonViUngHo dvuh = new DonViUngHo();
-            dvuh.MaDVUH = Int32.Parse(row.Cells["Mã Đơn Vị Ủng Hộ"].Value.ToString());
-            dvuh.HoTen = row.Cells["Họ Tên"].Value.ToString();
-            dvuh.GioiTinh = row.Cells["Giới Tính"].Value.ToString() == "Nam" ? 0 : 1;
-            dvuh.CCCD = row.Cells["CCCD"].Value.ToString();
-            dvuh.DiaChi = row.Cells["Địa Chỉ"].Value.ToString();
-            dvuh.SDT = row.Cells["Số Điện Thoại"].Value.ToString();
-            return dvuh;
-        }
 
         private void combobox_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -105,6 +94,7 @@ namespace QuanLyThienNguyen.GUI
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Thành viên đơn vị ủng hộ")
                 {
                     TV_DVUH_Form form = new TV_DVUH_Form();
+                    form.SetData(button_Them.Text, new ThanhVienDonViUngHo());
                     form.ShowDialog();
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
@@ -136,13 +126,15 @@ namespace QuanLyThienNguyen.GUI
                 if (combobox_TimKiem.SelectedItem.ToString() == "Đơn vị ủng hộ")
                 {
                     DVUH_Form form = new DVUH_Form();
-                    DonViUngHo dvuh = TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    DonViUngHo dvuh = DonViUngHo.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
                     form.SetData(button_CapNhat.Text , dvuh);
                     form.ShowDialog();
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Thành viên đơn vị ủng hộ")
                 {
                     TV_DVUH_Form form = new TV_DVUH_Form();
+                    ThanhVienDonViUngHo tvdvuh = ThanhVienDonViUngHo.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    form.SetData(button_CapNhat.Text, tvdvuh);
                     form.ShowDialog();
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
@@ -170,11 +162,40 @@ namespace QuanLyThienNguyen.GUI
 
         private void button_Xoa_Click(object sender, EventArgs e)
         {
-            DVUH_Form form = new DVUH_Form();
-            DonViUngHo dvuh = TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
-            if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n "+ dvuh.MaDVUH +" | "+ dvuh.HoTen +" | "+ dvuh.GioiTinh +" | "+ dvuh.CCCD +" | "+ dvuh.DiaChi +" | "+ dvuh.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+            if (combobox_TimKiem.SelectedItem != null && datagridview.SelectedRows != null)
             {
-                BBL_DVUH.Instance.BBL_Delete_DVUH(dvuh.MaDVUH);
+                if (combobox_TimKiem.SelectedItem.ToString() == "Đơn vị ủng hộ")
+                {
+                    DonViUngHo dvuh = DonViUngHo.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + dvuh.MaDVUH + " | " + dvuh.HoTen + " | " + dvuh.GioiTinh + " | " + dvuh.CCCD + " | " + dvuh.DiaChi + " | " + dvuh.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+                    {
+                        BBL_Information.Instance.BBL_Delete_DVUH(dvuh);
+                    }
+                }
+                else if (combobox_TimKiem.SelectedItem.ToString() == "Thành viên đơn vị ủng hộ")
+                {
+                    ThanhVienDonViUngHo tvdvuh = ThanhVienDonViUngHo.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + tvdvuh.MaDVUH + " | " + tvdvuh.HoTen + " | " + tvdvuh.GioiTinh + " | " + tvdvuh.CCCD + " | " + tvdvuh.DiaChi + " | " + tvdvuh.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+                    {
+                        BBL_Information.Instance.BBL_Delete_TVDVUH(tvdvuh);
+                    }
+                }
+                else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
+                {
+                    
+                }
+                else if (combobox_TimKiem.SelectedItem.ToString() == "Đợt ủng hộ")
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn loại thông tin cần cập nhật vào");
             }
             button_SapXep_Click(sender, e);
         }

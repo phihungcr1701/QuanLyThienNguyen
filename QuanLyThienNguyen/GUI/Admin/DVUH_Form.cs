@@ -28,6 +28,13 @@ namespace QuanLyThienNguyen.GUI
         }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
+            DonViUngHo dvuh = new DonViUngHo();
+            dvuh.MaDVUH = DataFromParent_DataSelect.MaDVUH;
+            dvuh.HoTen = textbox_HoTen.Text;
+            dvuh.GioiTinh = radiobutton_Nam.Checked ? 0 : 1;
+            dvuh.CCCD = textbox_CCCD.Text;
+            dvuh.DiaChi = textbox_DiaChi.Text;
+            dvuh.SDT = textbox_SDT.Text;
             if (DataFromParent_button == "Thêm")
             {
                 if (textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
@@ -36,24 +43,13 @@ namespace QuanLyThienNguyen.GUI
                 }
                 else
                 {
-                    int gioitinh;
-                    if (radiobutton_Nam.Checked) { gioitinh = 0; } else { gioitinh = 1; }
-                    BBL_DVUH.Instance.BBL_Add_DVUH(textbox_HoTen.Text, gioitinh, textbox_CCCD.Text, textbox_DiaChi.Text, textbox_SDT.Text);
+                    BBL_Information.Instance.BBL_Add_DVUH(dvuh);
                     this.Close();
                 }
             }
             else
             {  
-                if (textbox_HoTen.Text == "")
-                    textbox_HoTen.Text = DataFromParent_DataSelect.HoTen;
-                if (textbox_CCCD.Text == "")
-                    textbox_CCCD.Text = DataFromParent_DataSelect.CCCD;
-                if (textbox_DiaChi.Text =="")
-                    textbox_DiaChi.Text = DataFromParent_DataSelect.DiaChi;
-                if (textbox_SDT.Text == "")
-                    textbox_SDT.Text = DataFromParent_DataSelect.SDT;  
-                int gioitinh = radiobutton_Nam.Checked ? 0 : 1;
-                BBL_DVUH.Instance.BBL_Update_DVUH(DataFromParent_DataSelect.MaDVUH ,textbox_HoTen.Text, gioitinh, textbox_CCCD.Text, textbox_DiaChi.Text, textbox_SDT.Text);
+                BBL_Information.Instance.BBL_Update_DVUH(dvuh);
                 this.Close();
             }
         }
@@ -69,6 +65,10 @@ namespace QuanLyThienNguyen.GUI
                 if (DataFromParent_DataSelect.GioiTinh == 1)
                     radiobutton_Nu.Checked = true;
                 textbox_MaDVUH.Text = DataFromParent_DataSelect.MaDVUH.ToString();
+                textbox_HoTen.Text = DataFromParent_DataSelect.HoTen;
+                textbox_CCCD.Text = DataFromParent_DataSelect.CCCD;
+                textbox_DiaChi.Text = DataFromParent_DataSelect.DiaChi;
+                textbox_SDT.Text = DataFromParent_DataSelect.SDT;
             }
                 
         }  

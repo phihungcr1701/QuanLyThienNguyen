@@ -30,6 +30,7 @@
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.textbox_MaDVUH = new Guna.UI2.WinForms.Guna2TextBox();
             this.button_Huy = new Guna.UI2.WinForms.Guna2Button();
             this.button_ThucHien = new Guna.UI2.WinForms.Guna2Button();
             this.textbox_SDT = new Guna.UI2.WinForms.Guna2TextBox();
@@ -37,7 +38,6 @@
             this.groupbox_GioiTinh = new System.Windows.Forms.GroupBox();
             this.radiobutton_Nu = new Guna.UI2.WinForms.Guna2RadioButton();
             this.radiobutton_Nam = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.textbox_MaDVUH = new Guna.UI2.WinForms.Guna2TextBox();
             this.textbox_CCCD = new Guna.UI2.WinForms.Guna2TextBox();
             this.label_MaDVUH = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.textbox_HoTen = new Guna.UI2.WinForms.Guna2TextBox();
@@ -66,12 +66,12 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
+            this.guna2Panel3.Controls.Add(this.textbox_MaDVUH);
             this.guna2Panel3.Controls.Add(this.button_Huy);
             this.guna2Panel3.Controls.Add(this.button_ThucHien);
             this.guna2Panel3.Controls.Add(this.textbox_SDT);
             this.guna2Panel3.Controls.Add(this.textbox_DiaChi);
             this.guna2Panel3.Controls.Add(this.groupbox_GioiTinh);
-            this.guna2Panel3.Controls.Add(this.textbox_MaDVUH);
             this.guna2Panel3.Controls.Add(this.textbox_CCCD);
             this.guna2Panel3.Controls.Add(this.label_MaDVUH);
             this.guna2Panel3.Controls.Add(this.textbox_HoTen);
@@ -84,6 +84,26 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(784, 364);
             this.guna2Panel3.TabIndex = 7;
+            // 
+            // textbox_MaDVUH
+            // 
+            this.textbox_MaDVUH.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textbox_MaDVUH.DefaultText = "Tự thiết lập ...";
+            this.textbox_MaDVUH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textbox_MaDVUH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textbox_MaDVUH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textbox_MaDVUH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textbox_MaDVUH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textbox_MaDVUH.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textbox_MaDVUH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textbox_MaDVUH.Location = new System.Drawing.Point(160, 35);
+            this.textbox_MaDVUH.Name = "textbox_MaDVUH";
+            this.textbox_MaDVUH.PasswordChar = '\0';
+            this.textbox_MaDVUH.PlaceholderText = "";
+            this.textbox_MaDVUH.ReadOnly = true;
+            this.textbox_MaDVUH.SelectedText = "";
+            this.textbox_MaDVUH.Size = new System.Drawing.Size(200, 36);
+            this.textbox_MaDVUH.TabIndex = 16;
             // 
             // button_Huy
             // 
@@ -208,26 +228,6 @@
             this.radiobutton_Nam.UncheckedState.BorderThickness = 2;
             this.radiobutton_Nam.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.radiobutton_Nam.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // textbox_MaDVUH
-            // 
-            this.textbox_MaDVUH.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textbox_MaDVUH.DefaultText = "Tự thiết lập";
-            this.textbox_MaDVUH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.textbox_MaDVUH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.textbox_MaDVUH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textbox_MaDVUH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textbox_MaDVUH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textbox_MaDVUH.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textbox_MaDVUH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textbox_MaDVUH.Location = new System.Drawing.Point(160, 35);
-            this.textbox_MaDVUH.Name = "textbox_MaDVUH";
-            this.textbox_MaDVUH.PasswordChar = '\0';
-            this.textbox_MaDVUH.PlaceholderText = "";
-            this.textbox_MaDVUH.ReadOnly = true;
-            this.textbox_MaDVUH.SelectedText = "";
-            this.textbox_MaDVUH.Size = new System.Drawing.Size(200, 36);
-            this.textbox_MaDVUH.TabIndex = 7;
             // 
             // textbox_CCCD
             // 
@@ -371,7 +371,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2TextBox textbox_CCCD;
         private Guna.UI2.WinForms.Guna2TextBox textbox_HoTen;
-        private Guna.UI2.WinForms.Guna2TextBox textbox_MaDVUH;
         private System.Windows.Forms.GroupBox groupbox_GioiTinh;
         private Guna.UI2.WinForms.Guna2TextBox textbox_SDT;
         private Guna.UI2.WinForms.Guna2TextBox textbox_DiaChi;
@@ -379,5 +378,6 @@
         private Guna.UI2.WinForms.Guna2Button button_Huy;
         private Guna.UI2.WinForms.Guna2RadioButton radiobutton_Nu;
         private Guna.UI2.WinForms.Guna2RadioButton radiobutton_Nam;
+        private Guna.UI2.WinForms.Guna2TextBox textbox_MaDVUH;
     }
 }
