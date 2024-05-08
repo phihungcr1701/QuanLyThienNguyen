@@ -143,7 +143,7 @@
             this.button_SapXep.Size = new System.Drawing.Size(103, 36);
             this.button_SapXep.TabIndex = 14;
             this.button_SapXep.Text = "Sắp xếp";
-            this.button_SapXep.Click += new System.EventHandler(this.button_TimKiem_Click);
+            this.button_SapXep.Click += new System.EventHandler(this.button_SapXep_Click);
             // 
             // button_TimKiem
             // 

@@ -61,6 +61,19 @@ namespace QuanLyThienNguyen.GUI
         {
             if (combobox_TimKiem.SelectedItem != null)
             {
+                combobox_SapXep.SelectedIndex = 0;
+                datagridview.DataSource = BBL_Information.Instance.BBL_InformationView(combobox_TimKiem.SelectedItem.ToString(), textbox_TimKiem.Text, combobox_SapXep.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Bạn cần chọn thông tin bảng cần xem !!!");
+            }
+        }
+
+        private void button_SapXep_Click(object sender, EventArgs e)
+        {
+            if (combobox_TimKiem.SelectedItem != null)
+            {
                 datagridview.DataSource = BBL_Information.Instance.BBL_InformationView(combobox_TimKiem.SelectedItem.ToString(), textbox_TimKiem.Text, combobox_SapXep.SelectedItem.ToString());
             }
             else

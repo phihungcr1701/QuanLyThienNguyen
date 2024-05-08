@@ -26,7 +26,7 @@ namespace QuanLyThienNguyen.DAL
         public DAL_Information() { }
         public DataTable DAL_InformationView(string nametable, string text, string namerow)
         {
-            string query = "exec InformationTable '" + nametable + "', '" + text + "', '" + namerow + "'";
+            string query = "exec InformationTable" + nametable + " '" + text + "', '" + namerow + "'";
             return DataProvider.Instance.ExcuteQuery(query);
         }
     }

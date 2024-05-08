@@ -36,19 +36,19 @@
             this.button_CapNhat = new Guna.UI2.WinForms.Guna2Button();
             this.button_Them = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.datagridview = new System.Windows.Forms.DataGridView();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.combobox_SapXep = new Guna.UI2.WinForms.Guna2ComboBox();
             this.button_SapXep = new Guna.UI2.WinForms.Guna2Button();
             this.button_TimKiem = new Guna.UI2.WinForms.Guna2Button();
             this.textbox_TimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.combobox_TimKiem = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.datagridview = new System.Windows.Forms.DataGridView();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridview)).BeginInit();
+            this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -107,6 +107,7 @@
             this.button_Xoa.Size = new System.Drawing.Size(103, 45);
             this.button_Xoa.TabIndex = 11;
             this.button_Xoa.Text = "Xóa";
+            this.button_Xoa.Click += new System.EventHandler(this.button_Xoa_Click);
             // 
             // button_CapNhat
             // 
@@ -148,6 +149,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(993, 442);
             this.panel1.TabIndex = 1;
+            // 
+            // datagridview
+            // 
+            this.datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagridview.Location = new System.Drawing.Point(0, 0);
+            this.datagridview.MultiSelect = false;
+            this.datagridview.Name = "datagridview";
+            this.datagridview.ReadOnly = true;
+            this.datagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datagridview.Size = new System.Drawing.Size(993, 442);
+            this.datagridview.TabIndex = 0;
             // 
             // guna2Panel3
             // 
@@ -194,7 +208,7 @@
             this.button_SapXep.Size = new System.Drawing.Size(103, 36);
             this.button_SapXep.TabIndex = 9;
             this.button_SapXep.Text = "Sắp xếp";
-            this.button_SapXep.Click += new System.EventHandler(this.button_TimKiem_Click);
+            this.button_SapXep.Click += new System.EventHandler(this.button_SapXep_Click);
             // 
             // button_TimKiem
             // 
@@ -254,19 +268,6 @@
             this.combobox_TimKiem.TabIndex = 5;
             this.combobox_TimKiem.SelectedIndexChanged += new System.EventHandler(this.combobox_TimKiem_SelectedIndexChanged);
             // 
-            // datagridview
-            // 
-            this.datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datagridview.Location = new System.Drawing.Point(0, 0);
-            this.datagridview.MultiSelect = false;
-            this.datagridview.Name = "datagridview";
-            this.datagridview.ReadOnly = true;
-            this.datagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridview.Size = new System.Drawing.Size(993, 442);
-            this.datagridview.TabIndex = 0;
-            // 
             // Information_Form_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,8 +284,8 @@
             this.guna2Panel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.guna2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridview)).EndInit();
+            this.guna2Panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

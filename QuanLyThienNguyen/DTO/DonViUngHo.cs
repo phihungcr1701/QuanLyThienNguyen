@@ -7,17 +7,17 @@ using System.Windows.Controls.Primitives;
 
 namespace QuanLyThienNguyen.DTO
 {
-    internal class DonViUngHo
+    public class DonViUngHo
     {
         private int _MaDVUH;
         private string _HoTen;
-        private int _GioiTinh;
-        private int _CCCD;
+        int _GioiTinh;
+        private string _CCCD;
         private string _DiaChi;
-        private int _SDT;
+        private string _SDT;
 
         public DonViUngHo() { }
-        public DonViUngHo(int ma, string ten, int gt, int cccd, string dc, int sdt)
+        public DonViUngHo(int ma, string ten, int gt, string cccd, string dc, string sdt)
         {
             this.MaDVUH = ma;
             this.HoTen = ten;
@@ -29,9 +29,9 @@ namespace QuanLyThienNguyen.DTO
         public int MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
         public string HoTen { get => _HoTen; set => _HoTen = value; }
         public int GioiTinh { get => _GioiTinh; set => _GioiTinh = value; }
-        public int CCCD { get => _CCCD; set => _CCCD = value; }
+        public string CCCD { get => _CCCD; set => _CCCD = value; }
         public string DiaChi { get => _DiaChi; set => _DiaChi = value; }
-        public int SDT { get => _SDT; set => _SDT = value; }
+        public string SDT { get => _SDT; set => _SDT = value; }
 
         public List<string> items = new List<string>(new string[]
         {
