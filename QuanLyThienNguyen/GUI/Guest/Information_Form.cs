@@ -54,7 +54,7 @@ namespace QuanLyThienNguyen.GUI
                 combobox_SapXep.Items.AddRange(table.items.ToArray());
                 combobox_SapXep.SelectedIndex = 0;
             }
-
+            button_TimKiem_Click(sender, e);
         }
 
         private void button_TimKiem_Click(object sender, EventArgs e)

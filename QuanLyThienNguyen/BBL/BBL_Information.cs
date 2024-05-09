@@ -79,5 +79,47 @@ namespace QuanLyThienNguyen.BBL
         {
             return DAL_Information.Instance.DAL_Check_TVDVUH(tvdvuh);
         }
+
+        /// Hộ dân
+        public void BBL_Add_HD(HoDan hd)
+        {
+            DAL_Information.Instance.DAL_Add_HD(hd);
+        }
+        public void BBL_Update_HD(HoDan hd)
+        {
+            DAL_Information.Instance.DAL_Update_HD(hd);
+        }
+        public void BBL_Delete_HD(HoDan hd)
+        {
+            DAL_Information.Instance.DAL_Delete_HD(hd);
+        }
+
+        /// Đợt ủng hộ
+        public void BBL_Add_DUH(DotUngHo duh)
+        {
+            DAL_Information.Instance.DAL_Add_DUH(duh);
+        }
+        public void BBL_Update_DUH(DotUngHo duh)
+        {
+            DAL_Information.Instance.DAL_Update_DUH(duh);
+        }
+        public void BBL_Delete_DUH(DotUngHo duh)
+        {
+            DAL_Information.Instance.DAL_Delete_DUH(duh);
+        }
+
+        /// Hình thức ủng hộ
+        public void BBL_Add_HTUH(HinhThucUngHo htuh)
+        {
+            DAL_Information.Instance.DAL_Add_HTUH(htuh);
+        }
+        public void BBL_Update_HTUH(HinhThucUngHo htuh)
+        {
+            DAL_Information.Instance.DAL_Update_HTUH(htuh);
+        }
+        public void BBL_Delete_HTUH(HinhThucUngHo htuh)
+        {
+            DAL_Information.Instance.DAL_Delete_HTUH(htuh);
+        }
     }
 }

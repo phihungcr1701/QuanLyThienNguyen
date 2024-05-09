@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.DTO
 {
-    internal class DotUngHo
+    public class DotUngHo
     {
         private int _MaDUH;
         private DateTime _NgayBatDau;
@@ -27,5 +28,13 @@ namespace QuanLyThienNguyen.DTO
         {
             "MaDUH", "NgayBatDau", "NgayKetThuc"
         });
+        public static DotUngHo TransferDataGridViewRowToObject(DataGridViewRow row)
+        {
+            DotUngHo duh = new DotUngHo();
+            duh.MaDUH = Int32.Parse(row.Cells["Mã Đợt Ủng Hộ"].Value.ToString());
+            duh.NgayBatDau = DateTime.Parse(row.Cells["Ngày Bắt Đầu"].Value.ToString());
+            duh.NgayKetThuc = DateTime.Parse(row.Cells["Ngày Kết Thúc"].Value.ToString());
+            return duh;
+        }
     }
 }

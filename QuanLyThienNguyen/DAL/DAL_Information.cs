@@ -70,5 +70,56 @@ namespace QuanLyThienNguyen.DAL
             string query = "exec CheckTVDVUH '" + tvdvuh.MaDVUH + "', '" + tvdvuh.HoTen + "'," + tvdvuh.GioiTinh + ", '" + tvdvuh.CCCD + "', '" + tvdvuh.DiaChi + "', '" + tvdvuh.SDT + "'";
             return (int)DataProvider.Instance.ExcuteScalar(query);
         }
+        
+        /// Hộ dân
+        public void DAL_Add_HD(HoDan hd)
+        {
+            string query = "exec ThemHoDan '" + hd.HoTenChuHo + "'," + hd.GioiTinh + ", '" + hd.CCCD + "', '" + hd.DiaChi + "', '" + hd.SDT + "', '" + hd.DienGiaDinh + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+        public void DAL_Update_HD(HoDan hd)
+        {
+            string query = "exec CapNhatHoDan '" + hd.MaHD + "','" + hd.HoTenChuHo + "'," + hd.GioiTinh + ", '" + hd.CCCD + "', '" + hd.DiaChi + "', '" + hd.SDT + "', '" + hd.DienGiaDinh + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+        public void DAL_Delete_HD(HoDan hd)
+        {
+            string query = "exec XoaHoDan '" + hd.MaHD + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+
+        /// Đợt ủng hộ
+        public void DAL_Add_DUH(DotUngHo duh)
+        {
+            string query = "exec ThemDotUngHo '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+        public void DAL_Update_DUH(DotUngHo duh)
+        {
+            string query = "exec CapNhatDotUngHo '" + duh.MaDUH + "', '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+        public void DAL_Delete_DUH(DotUngHo duh)
+        {
+            string query = "exec XoaDotUngHo '" + duh.MaDUH + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+
+        /// Hình thức ủng hộ
+        public void DAL_Add_HTUH(HinhThucUngHo htuh)
+        {
+            string query = "exec ThemHinhThucUngHo '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+        public void DAL_Update_HTUH(HinhThucUngHo htuh)
+        {
+            string query = "exec CapNhatHinhThucUngHo '" + htuh.MaHTUH + "', '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+        public void DAL_Delete_HTUH(HinhThucUngHo htuh)
+        {
+            string query = "exec XoaHinhThucUngHo '" + htuh.MaHTUH + "'";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
     }
 }

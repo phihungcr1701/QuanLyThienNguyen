@@ -54,7 +54,7 @@ namespace QuanLyThienNguyen.GUI
                 combobox_SapXep.Items.AddRange(table.items.ToArray());
                 combobox_SapXep.SelectedIndex = 0;
             }
-
+            button_TimKiem_Click(sender, e);
         }
 
         private void button_TimKiem_Click(object sender, EventArgs e)
@@ -100,16 +100,19 @@ namespace QuanLyThienNguyen.GUI
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
                 {
                     HD_Form form = new HD_Form();
+                    form.SetData(button_Them.Text, new HoDan());
                     form.ShowDialog();
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Đợt ủng hộ")
                 {
                     DUH_Form form = new DUH_Form();
+                    form.SetData(button_Them.Text, new DotUngHo());
                     form.ShowDialog();
                 }
                 else
                 {
                     HTUH_Form form = new HTUH_Form();
+                    form.SetData(button_Them.Text, new HinhThucUngHo());
                     form.ShowDialog();
                 }
             else
@@ -140,16 +143,22 @@ namespace QuanLyThienNguyen.GUI
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
                 {
                     HD_Form form = new HD_Form();
+                    HoDan hd = HoDan.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    form.SetData(button_CapNhat.Text, hd);
                     form.ShowDialog();
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Đợt ủng hộ")
                 {
                     DUH_Form form = new DUH_Form();
+                    DotUngHo duh = DotUngHo.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    form.SetData(button_CapNhat.Text, duh);
                     form.ShowDialog();
                 }
                 else
                 {
                     HTUH_Form form = new HTUH_Form();
+                    HinhThucUngHo htuh = HinhThucUngHo.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    form.SetData(button_CapNhat.Text, htuh);
                     form.ShowDialog();
                 }
             }
@@ -182,20 +191,32 @@ namespace QuanLyThienNguyen.GUI
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
                 {
-                    
+                    HoDan hd = HoDan.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT + " | " + hd.DienGiaDinh, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+                    {
+                        BBL_Information.Instance.BBL_Delete_HD(hd);
+                    }
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Đợt ủng hộ")
                 {
-                    
+                    DotUngHo duh = DotUngHo.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + duh.MaDUH + " | " + duh.NgayBatDau + " | " + duh.NgayKetThuc, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+                    {
+                        BBL_Information.Instance.BBL_Delete_DUH(duh);
+                    }
                 }
                 else
                 {
-                    
+                    HinhThucUngHo htuh = HinhThucUngHo.TransferDataGridViewRowToObject(datagridview.SelectedRows[0]);
+                    if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + htuh.MaHTUH + " | " + htuh.TenHTUH + " | " + htuh.DonViTinh, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+                    {
+                        BBL_Information.Instance.BBL_Delete_HTUH(htuh);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Hãy chọn loại thông tin cần cập nhật vào");
+                MessageBox.Show("Hãy chọn loại thông tin cần xóa");
             }
             button_SapXep_Click(sender, e);
         }

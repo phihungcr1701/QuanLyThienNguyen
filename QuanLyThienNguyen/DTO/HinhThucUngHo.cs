@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.DTO
 {
-    internal class HinhThucUngHo
+    public class HinhThucUngHo
     {
         private int _MaHTUH;
         private string _TenHTUH;
@@ -27,5 +28,13 @@ namespace QuanLyThienNguyen.DTO
         {
             "MaHTUH", "TenHTUH", "DonViTinh"
         });
+        public static HinhThucUngHo TransferDataGridViewRowToObject(DataGridViewRow row)
+        {
+            HinhThucUngHo htuh = new HinhThucUngHo();
+            htuh.MaHTUH = Int32.Parse(row.Cells["Mã Hình Thức Ủng Hộ"].Value.ToString());
+            htuh.TenHTUH = row.Cells["Tên Hình Thức Ủng Hộ"].Value.ToString();
+            htuh.DonViTinh = row.Cells["Đơn Vị Tính"].Value.ToString();
+            return htuh;
+        }
     }
 }
