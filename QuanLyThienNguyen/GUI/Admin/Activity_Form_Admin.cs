@@ -1,4 +1,5 @@
-﻿using QuanLyThienNguyen.GUI.Admin;
+﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.GUI.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +34,27 @@ namespace QuanLyThienNguyen.GUI
         {
             CTUH_Form form = new CTUH_Form();
             form.ShowDialog();
+        }
+
+        private void combobox_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string item = combobox_TimKiem.SelectedItem.ToString();
+            if (item == "All")
+            {
+                //List<string> list = new List<string>();
+                //list.Add("hung");
+                //list.Add("huy");
+                //dataGridView1.DataSource = list;
+                dataGridView1.DataSource = BBL_Activity.Instance.Show();
+            }
+            if (item == "Đang diễn ra")
+            {
+
+            }
+            if (item == "Đã diễn ra")
+            {
+
+            }
         }
     }
 }
