@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,10 +25,30 @@ namespace QuanLyThienNguyen.DTO
         public string TenHTUH { get => _TenHTUH; set => _TenHTUH = value; }
         public string DonViTinh { get => _DonViTinh; set => _DonViTinh = value;}
 
-        public List<string> items = new List<string>(new string[]
+        public static List<string> items = new List<string>(new string[]
         {
-            "MaHTUH", "TenHTUH", "DonViTinh"
+            "Mã hình thức ủng hộ", "Tên hình thức ủng hộ", "Đơn vị tính"
         });
+
+        public static DataTable RenameNameTable_FromSqlToDataGridView(DataTable datatable)
+        {
+            datatable.Columns["MaHTUH"].ColumnName = "Mã hình thức ủng hộ";
+            datatable.Columns["TenHTUH"].ColumnName = "Tên hình thức ủng hộ";
+            datatable.Columns["DonViTinh"].ColumnName = "Đơn vị tính";
+            return datatable;
+        }
+
+        public static string RenameNameTable_FromDataGridViewToSql(string namecolumn)
+        {
+            if (namecolumn == "Mã hình thức ủng hộ")
+                return "MaHTUH";
+            if (namecolumn == "Tên hình thức ủng hộ")
+                return "TenHTUH";
+            if (namecolumn == "Đơn vị tính")
+                return "DonViTinh";
+            return namecolumn;
+        }
+
         public static HinhThucUngHo TransferDataGridViewRowToObject(DataGridViewRow row)
         {
             HinhThucUngHo htuh = new HinhThucUngHo();

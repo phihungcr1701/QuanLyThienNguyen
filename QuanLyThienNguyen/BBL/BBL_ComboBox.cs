@@ -27,9 +27,9 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         private BBL_ComboBox() { }
-        public List<string> BBL_ComboboxList(string nametable, string namecolumn)
+        public List<string> BBL_ComboboxList(string nametable)
         {
-            DataTable data = DAL_Information.Instance.DAL_InformationView(nametable, "", namecolumn);
+            DataTable data = DAL_Information.Instance.View(nametable);
             List<string> list = new List<string>();
             foreach (DataRow row in data.Rows) 
             {

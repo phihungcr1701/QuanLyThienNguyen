@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Collections.Generic;
@@ -14,51 +15,45 @@ namespace QuanLyThienNguyen.GUI.Admin
 {
     public partial class TV_DVUH_Form : Form
     {
-        public TV_DVUH_Form()
+        public TV_DVUH_Form(ThanhVienDonViUngHo tvdvuh = null)
         {
             InitializeComponent();
+            this.tvdvuh = tvdvuh;
         }
-        private string DataFromParent_button { get; set; }
-        private ThanhVienDonViUngHo DataFromParent_DataSelect { get; set; }
-        public void SetData(string button, ThanhVienDonViUngHo dataselect)
-        {
-            this.DataFromParent_button = button;
-            this.DataFromParent_DataSelect = dataselect;
-        }
+        private ThanhVienDonViUngHo tvdvuh { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            ThanhVienDonViUngHo tvdvuh = new ThanhVienDonViUngHo();
-            tvdvuh.MaDVUH = Int32.Parse(combobox_MaDVUH.SelectedItem.ToString());
-            tvdvuh.HoTen = textbox_HoTen.Text;
-            tvdvuh.GioiTinh = radiobutton_Nam.Checked ? 0 : 1;
-            tvdvuh.CCCD = textbox_CCCD.Text;
-            tvdvuh.DiaChi = textbox_DiaChi.Text;
-            tvdvuh.SDT = textbox_SDT.Text;
-            if (DataFromParent_button == "Thêm")
+            ThanhVienDonViUngHo tvdvuhchange = new ThanhVienDonViUngHo();
+            tvdvuhchange.MaDVUH = Int32.Parse(combobox_MaDVUH.SelectedItem.ToString());
+            tvdvuhchange.HoTen = textbox_HoTen.Text;
+            tvdvuhchange.GioiTinh = radiobutton_Nam.Checked ? 0 : 1;
+            tvdvuhchange.CCCD = textbox_CCCD.Text;
+            tvdvuhchange.DiaChi = textbox_DiaChi.Text;
+            tvdvuhchange.SDT = textbox_SDT.Text;
+            if (tvdvuh == null)
             {
                 if (combobox_MaDVUH.SelectedItem == null || textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
                 {
                     MessageBox.Show("Điền đầy đủ thông tin !!!");
                 }
                 else
-                {
-                    if (BBL_Information.Instance.BBL_Check_TVDVUH(tvdvuh) == 0)
+                {       
+                    if (BBL_Information.Instance.Check_TVDVUH(tvdvuhchange))
                     {
-                        BBL_Information.Instance.BBL_Add_TVDVUH(tvdvuh);
+                        BBL_Information.Instance.Add_TVDVUH(tvdvuhchange);
                         this.Close();
                     }
                     else
                     {
                         MessageBox.Show("Đã tồn tại !!!");
                     }
-                    
                 }
             }
             else
             {
-                if (BBL_Information.Instance.BBL_Check_TVDVUH(tvdvuh) == 0 && tvdvuh != DataFromParent_DataSelect)
+                if (BBL_Information.Instance.Check_TVDVUH(tvdvuhchange) && tvdvuh != tvdvuhchange)
                 {
-                    BBL_Information.Instance.BBL_Update_TVDVUH(DataFromParent_DataSelect, tvdvuh);
+                    BBL_Information.Instance.Update_TVDVUH(tvdvuh, tvdvuhchange);
                     this.Close();
                 }
                 else
@@ -75,16 +70,16 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void TV_DVUH_Form_Load(object sender, EventArgs e)
         {
-            combobox_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.BBL_ComboboxList("DonViUngHo", "MaDVUH").ToArray());
-            if (DataFromParent_button == "Cập nhật")
+            combobox_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.BBL_ComboboxList("DonViUngHo").ToArray());
+            if (tvdvuh != null)
             {
-                combobox_MaDVUH.SelectedIndex = combobox_MaDVUH.FindString(DataFromParent_DataSelect.MaDVUH.ToString());
-                if (DataFromParent_DataSelect.GioiTinh == 1)
+                combobox_MaDVUH.SelectedIndex = combobox_MaDVUH.FindString(tvdvuh.MaDVUH.ToString());
+                if (tvdvuh.GioiTinh == 1)
                     radiobutton_Nu.Checked = true;    
-                textbox_HoTen.Text = DataFromParent_DataSelect.HoTen;
-                textbox_CCCD.Text = DataFromParent_DataSelect.CCCD;
-                textbox_DiaChi.Text = DataFromParent_DataSelect.DiaChi;
-                textbox_SDT.Text = DataFromParent_DataSelect.SDT;
+                textbox_HoTen.Text = tvdvuh.HoTen;
+                textbox_CCCD.Text = tvdvuh.CCCD;
+                textbox_DiaChi.Text = tvdvuh.DiaChi;
+                textbox_SDT.Text = tvdvuh.SDT;
             }
         }
     }

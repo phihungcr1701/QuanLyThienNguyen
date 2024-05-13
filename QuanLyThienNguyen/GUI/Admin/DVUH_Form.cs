@@ -15,41 +15,34 @@ namespace QuanLyThienNguyen.GUI
 {
     public partial class DVUH_Form : Form
     {
-        public DVUH_Form()
+        public DVUH_Form(string ma = null)
         {
             InitializeComponent();
+            this.ma = ma;
         }
-        private string DataFromParent_button { get; set; }
-        private DonViUngHo DataFromParent_DataSelect { get; set; }
-        public void SetData(string button, DonViUngHo dataselect)
-        {
-            this.DataFromParent_button = button;
-            this.DataFromParent_DataSelect = dataselect;
-        }
+        private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             DonViUngHo dvuh = new DonViUngHo();
-            dvuh.MaDVUH = DataFromParent_DataSelect.MaDVUH;
-            dvuh.HoTen = textbox_HoTen.Text;
-            dvuh.GioiTinh = radiobutton_Nam.Checked ? 0 : 1;
-            dvuh.CCCD = textbox_CCCD.Text;
-            dvuh.DiaChi = textbox_DiaChi.Text;
-            dvuh.SDT = textbox_SDT.Text;
-            if (DataFromParent_button == "Thêm")
+            dvuh.TenDonVi = textbox_TenDonVi.Text;
+            dvuh.DiaChiDonVi = textbox_DiaChiDonVi.Text;
+            dvuh.SDTDonVi = textbox_SDTDonVi.Text;
+            if (ma == null)
             {
-                if (textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
+                if (textbox_TenDonVi.Text == "" || textbox_DiaChiDonVi.Text == "" || textbox_SDTDonVi.Text == "")
                 {
                     MessageBox.Show("Điền đầy đủ thông tin !!!");
                 }
                 else
                 {
-                    BBL_Information.Instance.BBL_Add_DVUH(dvuh);
+                    BBL_Information.Instance.Add_DVUH(dvuh);
                     this.Close();
                 }
             }
             else
-            {  
-                BBL_Information.Instance.BBL_Update_DVUH(dvuh);
+            {
+                dvuh.MaDVUH = Convert.ToInt32(ma);
+                BBL_Information.Instance.Update_DVUH(dvuh);
                 this.Close();
             }
         }
@@ -60,15 +53,13 @@ namespace QuanLyThienNguyen.GUI
 
         private void DVUH_Form_Load(object sender, EventArgs e)
         {
-            if (DataFromParent_button == "Cập nhật")
+            if (ma != null)
             {
-                if (DataFromParent_DataSelect.GioiTinh == 1)
-                    radiobutton_Nu.Checked = true;
-                textbox_MaDVUH.Text = DataFromParent_DataSelect.MaDVUH.ToString();
-                textbox_HoTen.Text = DataFromParent_DataSelect.HoTen;
-                textbox_CCCD.Text = DataFromParent_DataSelect.CCCD;
-                textbox_DiaChi.Text = DataFromParent_DataSelect.DiaChi;
-                textbox_SDT.Text = DataFromParent_DataSelect.SDT;
+                DonViUngHo obj = BBL_Information.Instance.TruyVan_DVUH(ma);
+                textbox_MaDVUH.Text = obj.MaDVUH.ToString();
+                textbox_TenDonVi.Text = obj.TenDonVi;
+                textbox_DiaChiDonVi.Text = obj.DiaChiDonVi;
+                textbox_SDTDonVi.Text = obj.SDTDonVi;
             }
                 
         }  

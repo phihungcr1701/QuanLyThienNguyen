@@ -14,28 +14,22 @@ namespace QuanLyThienNguyen.GUI.Admin
 {
     public partial class HD_Form : Form
     {
-        public HD_Form()
+        public HD_Form(string ma = null)
         {
             InitializeComponent();
+            this.ma = ma;
         }
-        private string DataFromParent_button { get; set; }
-        private HoDan DataFromParent_DataSelect { get; set; }
-        public void SetData(string button, HoDan dataselect)
-        {
-            this.DataFromParent_button = button;
-            this.DataFromParent_DataSelect = dataselect;
-        }
+        private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             HoDan hd = new HoDan();
-            hd.MaHD = DataFromParent_DataSelect.MaHD;
             hd.HoTenChuHo = textbox_HoTen.Text;
             hd.GioiTinh = radiobutton_Nam.Checked ? 0 : 1;
             hd.CCCD = textbox_CCCD.Text;
             hd.DiaChi = textbox_DiaChi.Text;
             hd.SDT = textbox_SDT.Text;
             hd.DienGiaDinh = ratiobutton_Ngheo.Checked ? "Ngheo" : "Can Ngheo";
-            if (DataFromParent_button == "Thêm")
+            if (ma == null)
             {
                 if (textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
                 {
@@ -43,13 +37,14 @@ namespace QuanLyThienNguyen.GUI.Admin
                 }
                 else
                 {
-                    BBL_Information.Instance.BBL_Add_HD(hd);
+                    BBL_Information.Instance.Add_HD(hd);
                     this.Close();
                 }
             }
             else
             {
-                BBL_Information.Instance.BBL_Update_HD(hd);
+                hd.MaHD = Convert.ToInt32(ma);
+                BBL_Information.Instance.Update_HD(hd);
                 this.Close();
             }
         }
@@ -60,19 +55,19 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void HD_Form_Load(object sender, EventArgs e)
         {
-            if (DataFromParent_button == "Cập nhật")
+            if (ma != null)
             {
-                if (DataFromParent_DataSelect.GioiTinh == 1)
+                HoDan hd = BBL_Information.Instance.TruyVan_HD(ma);
+                if (hd.GioiTinh == 1)
                     radiobutton_Nu.Checked = true;
-                textbox_MaHD.Text = DataFromParent_DataSelect.MaHD.ToString();
-                textbox_HoTen.Text = DataFromParent_DataSelect.HoTenChuHo;
-                textbox_CCCD.Text = DataFromParent_DataSelect.CCCD;
-                textbox_DiaChi.Text = DataFromParent_DataSelect.DiaChi;
-                textbox_SDT.Text = DataFromParent_DataSelect.SDT;
-                if (DataFromParent_DataSelect.DienGiaDinh == "Can Ngheo")
+                textbox_MaHD.Text = hd.MaHD.ToString();
+                textbox_HoTen.Text = hd.HoTenChuHo;
+                textbox_CCCD.Text = hd.CCCD;
+                textbox_DiaChi.Text = hd.DiaChi;
+                textbox_SDT.Text = hd.SDT;
+                if (hd.DienGiaDinh == "Can Ngheo")
                     radiobutton_CanNgheo.Checked = true;
             }
-
         }
     }
 }

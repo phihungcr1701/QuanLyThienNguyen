@@ -14,21 +14,15 @@ namespace QuanLyThienNguyen.GUI.Admin
 {
     public partial class DUH_Form : Form
     {
-        public DUH_Form()
+        public DUH_Form(string ma = null)
         {
             InitializeComponent();
+            this.ma = ma;
         }
-        private string DataFromParent_button { get; set; }
-        private DotUngHo DataFromParent_DataSelect { get; set; }
-        public void SetData(string button, DotUngHo dataselect)
-        {
-            this.DataFromParent_button = button;
-            this.DataFromParent_DataSelect = dataselect;
-        }
+        private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             DotUngHo duh = new DotUngHo();
-            duh.MaDUH = DataFromParent_DataSelect.MaDUH;
             duh.NgayBatDau = datatimepicker_NgayBatDau.Value;
             duh.NgayKetThuc = datatimepicker_NgayKetThuc.Value;
             if (duh.NgayBatDau > duh.NgayKetThuc)
@@ -37,10 +31,13 @@ namespace QuanLyThienNguyen.GUI.Admin
             }
             else
             {
-                if (DataFromParent_button == "Thêm")
-                    BBL_Information.Instance.BBL_Add_DUH(duh);
+                if (ma == null)
+                    BBL_Information.Instance.Add_DUH(duh);
                 else
-                    BBL_Information.Instance.BBL_Update_DUH(duh);
+                {
+                    duh.MaDUH = Convert.ToInt32(ma);
+                    BBL_Information.Instance.Update_DUH(duh);
+                }
                 this.Close();
             }
         }
@@ -51,11 +48,12 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void DUH_Form_Load(object sender, EventArgs e)
         {
-            if (DataFromParent_button == "Cập nhật")
+            if (ma != null)
             {
-                textbox_MaDUH.Text = DataFromParent_DataSelect.MaDUH.ToString();
-                datatimepicker_NgayBatDau.Value = DataFromParent_DataSelect.NgayBatDau;
-                datatimepicker_NgayKetThuc.Value = DataFromParent_DataSelect.NgayKetThuc;
+                DotUngHo duh = BBL_Information.Instance.TruyVan_DUH(ma);
+                textbox_MaDUH.Text = duh.MaDUH.ToString();
+                datatimepicker_NgayBatDau.Value = duh.NgayBatDau;
+                datatimepicker_NgayKetThuc.Value = duh.NgayKetThuc;
             }
         }
     }

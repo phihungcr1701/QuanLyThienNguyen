@@ -24,37 +24,33 @@ namespace QuanLyThienNguyen.GUI
         private void combobox_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
         {
             combobox_SapXep.Items.Clear();
+            textbox_TimKiem.Text = string.Empty;
             if (combobox_TimKiem.SelectedItem.ToString() == "Đơn vị ủng hộ") 
             {
-                DonViUngHo table = new DonViUngHo();
-                combobox_SapXep.Items.AddRange(table.items.ToArray());
+                combobox_SapXep.Items.AddRange(DonViUngHo.items.ToArray());
                 combobox_SapXep.SelectedIndex = 0;
             }
             else if (combobox_TimKiem.SelectedItem.ToString() == "Thành viên đơn vị ủng hộ")
             {
-                ThanhVienDonViUngHo table = new ThanhVienDonViUngHo();
-                combobox_SapXep.Items.AddRange(table.items.ToArray());
+                combobox_SapXep.Items.AddRange(ThanhVienDonViUngHo.items.ToArray());
                 combobox_SapXep.SelectedIndex = 0;
             }
             else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
             {
-                HoDan table = new HoDan();
-                combobox_SapXep.Items.AddRange(table.items.ToArray());
+                combobox_SapXep.Items.AddRange(HoDan.items.ToArray());
                 combobox_SapXep.SelectedIndex = 0;
             }
             else if (combobox_TimKiem.SelectedItem.ToString() == "Đợt ủng hộ")
             {
-                DotUngHo table = new DotUngHo();
-                combobox_SapXep.Items.AddRange(table.items.ToArray());
+                combobox_SapXep.Items.AddRange(DotUngHo.items.ToArray());
                 combobox_SapXep.SelectedIndex = 0;
             }
             else if (combobox_TimKiem.SelectedItem.ToString() == "Hình thức ủng hộ")
             {
-                HinhThucUngHo table = new HinhThucUngHo();
-                combobox_SapXep.Items.AddRange(table.items.ToArray());
+                combobox_SapXep.Items.AddRange(HinhThucUngHo.items.ToArray());
                 combobox_SapXep.SelectedIndex = 0;
             }
-            button_TimKiem_Click(sender, e);
+            datagridview.DataSource = BBL_Information.Instance.View(combobox_TimKiem.SelectedItem.ToString());
         }
 
         private void button_TimKiem_Click(object sender, EventArgs e)
@@ -62,7 +58,7 @@ namespace QuanLyThienNguyen.GUI
             if (combobox_TimKiem.SelectedItem != null)
             {
                 combobox_SapXep.SelectedIndex = 0;
-                datagridview.DataSource = BBL_Information.Instance.BBL_InformationView(combobox_TimKiem.SelectedItem.ToString(), textbox_TimKiem.Text, combobox_SapXep.SelectedItem.ToString());
+                datagridview.DataSource = BBL_Information.Instance.TimKiem_SapXep(combobox_TimKiem.SelectedItem.ToString(), textbox_TimKiem.Text, combobox_SapXep.SelectedItem.ToString());
             }
             else
             {
@@ -74,11 +70,27 @@ namespace QuanLyThienNguyen.GUI
         {
             if (combobox_TimKiem.SelectedItem != null)
             {
-                datagridview.DataSource = BBL_Information.Instance.BBL_InformationView(combobox_TimKiem.SelectedItem.ToString(), textbox_TimKiem.Text, combobox_SapXep.SelectedItem.ToString());
+                datagridview.DataSource = BBL_Information.Instance.TimKiem_SapXep(combobox_TimKiem.SelectedItem.ToString(), textbox_TimKiem.Text, combobox_SapXep.SelectedItem.ToString());
             }
             else
             {
                 MessageBox.Show("Bạn cần chọn thông tin bảng cần xem !!!");
+            }
+        }
+
+        private void datagridview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                if (e.Value != null)
+                {
+                    int genderValue;
+                    if (int.TryParse(e.Value.ToString(), out genderValue))
+                    {
+                        e.Value = (genderValue == 0) ? "Nam" : "Nu";
+                        e.FormattingApplied = true;
+                    }
+                }
             }
         }
     }
