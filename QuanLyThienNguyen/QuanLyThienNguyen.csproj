@@ -64,6 +64,7 @@
     <Compile Include="DAL\DAL_Activity.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\Activity.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>

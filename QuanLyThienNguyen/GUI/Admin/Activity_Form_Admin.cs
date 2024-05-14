@@ -38,23 +38,7 @@ namespace QuanLyThienNguyen.GUI
 
         private void combobox_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string item = combobox_TimKiem.SelectedItem.ToString();
-            if (item == "All")
-            {
-                //List<string> list = new List<string>();
-                //list.Add("hung");
-                //list.Add("huy");
-                //dataGridView1.DataSource = list;
-                dataGridView1.DataSource = BBL_Activity.Instance.Show();
-            }
-            if (item == "Đang diễn ra")
-            {
-
-            }
-            if (item == "Đã diễn ra")
-            {
-
-            }
+            
         }
     }
 }

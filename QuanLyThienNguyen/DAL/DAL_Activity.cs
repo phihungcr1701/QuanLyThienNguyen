@@ -6,6 +6,7 @@ using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen.DAL
 {
@@ -26,11 +27,29 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public DataTable show()
+        public List<Activity> GetAllActivity()
         {
-            string query = "EXEC InformationTableDonViUngHo";
-            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
-            return dt;
+            List<Activity> list = new List<Activity>();
+            string query = "EXEC GetAllActivity";
+            foreach (DataRow row in DataProvider.Instance.ExcuteQuery(query).Rows)
+            {
+                list.Add(GetActivity(row));
+            }
+            return list;
+        }
+        public Activity GetActivity(DataRow row)
+        {
+            return new Activity
+            {
+                TenDonVi = row["TenDonVi"].ToString(),
+                HoTenChuHo = row["HoTenChuHo"].ToString(),
+                TenHTUH = row["TenHTUH"].ToString(),
+                SoLuongUH = Convert.ToDouble(row["SoLuongUH"].ToString()),
+                SoLuongNUH = Convert.ToDouble(row["SoLuongNUH"].ToString()),
+                DonViTinh = row["DonViTinh"].ToString(),
+                NgayBatDau = Convert.ToDateTime(row["NgayBatDau"].ToString()),
+                NgayKetThuc = Convert.ToDateTime(row["NgayKetThuc"].ToString())
+            };
         }
     }
 }

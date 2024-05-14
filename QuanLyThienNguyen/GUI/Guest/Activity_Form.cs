@@ -18,32 +18,41 @@ namespace QuanLyThienNguyen.GUI
         public Activity_Form()
         {
             InitializeComponent();
+            showDGV();
         }
 
-        public void GetLabel_GioiThieu(string st)
+        private void showDGV()
         {
-            label_GioiThieu.Text = st;
+            int index = combobox_TimKiem.SelectedIndex;
+            string timkiem = textbox_TimKiem.Text;
+            int indexSort = combobox_SapXep.SelectedIndex;
+            dataGridView.DataSource = BBL_Activity.Instance.View(index, timkiem, indexSort);
         }
 
         private void combobox_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string item = combobox_TimKiem.SelectedItem.ToString();
-            if (item == "All")
+            if (combobox_TimKiem.SelectedIndex == 0)
             {
-                //List<string> list = new List<string>();
-                //list.Add("hung");
-                //list.Add("huy");
-                //dataGridView.DataSource = list;
-                dataGridView.DataSource = BBL_Activity.Instance.Show();
+                showDGV();
             }
-            if (item == "Đang diễn ra")
+            else if (combobox_TimKiem.SelectedIndex == 1)
             {
-
+                showDGV();
             }
-            if (item == "Đã diễn ra")
+            else
             {
+                showDGV();
+            }
+        }
 
-            }    
+        private void btn_TimKiem_Click(object sender, EventArgs e)
+        {
+            showDGV();
+        }
+
+        private void button_SapXep_Click(object sender, EventArgs e)
+        {
+            showDGV();
         }
     }
 }
