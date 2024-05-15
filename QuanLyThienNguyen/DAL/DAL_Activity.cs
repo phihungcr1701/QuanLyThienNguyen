@@ -51,5 +51,19 @@ namespace QuanLyThienNguyen.DAL
                 NgayKetThuc = Convert.ToDateTime(row["NgayKetThuc"].ToString())
             };
         }
+        public List<string> GetCBB(string FieldName, string TableName)
+        {
+            List<string> list = new List<string>();
+            string query = "SELECT * FROM " + TableName;
+            foreach(DataRow row in DataProvider.Instance.ExcuteQuery(query).Rows)
+            {
+                list.Add(row[FieldName].ToString());
+            }
+            return list;
+        }
+        public void AddActivity(Activity activity)
+        {
+            string query = "INSERT";
+        }
     }
 }

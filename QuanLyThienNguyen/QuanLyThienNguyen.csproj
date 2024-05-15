@@ -60,11 +60,23 @@
   <ItemGroup>
     <Compile Include="BBL\BBL_Account.cs" />
     <Compile Include="BBL\BBL_Activity.cs" />
+    <Compile Include="BBL\BBL_DonViUngHo.cs" />
+    <Compile Include="BBL\BBL_DotUngHo.cs" />
+    <Compile Include="BBL\BBL_HinhThucUngHo.cs" />
+    <Compile Include="BBL\BBL_HoDan.cs" />
     <Compile Include="DAL\DAL_Account.cs" />
     <Compile Include="DAL\DAL_Activity.cs" />
+    <Compile Include="DAL\DAL_DonViUngHo.cs" />
+    <Compile Include="DAL\DAL_DotUngHo.cs" />
+    <Compile Include="DAL\DAL_HinhThucUngHo.cs" />
+    <Compile Include="DAL\DAL_HoDan.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Activity.cs" />
+    <Compile Include="DTO\DonViUngHo.cs" />
+    <Compile Include="DTO\DotUngHo.cs" />
+    <Compile Include="DTO\HinhThucUngHo.cs" />
+    <Compile Include="DTO\HoDan.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>

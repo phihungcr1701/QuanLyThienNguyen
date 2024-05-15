@@ -140,5 +140,32 @@ namespace QuanLyThienNguyen.BBL
             list.Sort(comparison); 
             return list;
         }
+        public List<string> GetCBB(string FieldName, string TableName)
+        {
+            return DAL_Activity.Instance.GetCBB(FieldName, TableName);
+        }
+        public List<Activity> AddActivity(Activity activity)
+        {
+            List<Activity> list = GetAllActivity();
+            
+            list.Add(activity);
+            return list;
+        }
+        public bool CheckMaDUH(int ma)
+        {
+            return true;
+        }
+        public bool CheckMaDVUH(int ma)
+        {
+            return true;
+        }
+        public bool CheckMaHD(int ma)
+        {
+            return true;
+        }
+        public bool CheckMaHTUH(int ma)
+        {
+            return true;
+        }
     }
 }
