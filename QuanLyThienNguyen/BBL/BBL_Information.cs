@@ -65,7 +65,7 @@ namespace QuanLyThienNguyen.BBL
 
         public DataTable TimKiem_SapXep(string nametable, string text, string namecolumn)
         {
-            DataTable table = View(nametable);
+            DataTable table = Sort(View(nametable), namecolumn);
             List<DataRow> rows = new List<DataRow>();
 
             foreach (DataRow row in table.Rows)
@@ -73,7 +73,7 @@ namespace QuanLyThienNguyen.BBL
                 bool kt = false;
                 foreach (DataColumn column in table.Columns)
                 {
-                    if (row[column].ToString().Contains(text))
+                    if (row[column].ToString().ToLower().Contains(text.ToLower()))
                     {
                         kt = true;
                         break;
@@ -86,12 +86,12 @@ namespace QuanLyThienNguyen.BBL
             foreach (DataRow row in rows)
                 table.Rows.Remove(row);
 
-            return Sort(table, nametable, namecolumn);
+            return table;
         }
 
-        public DataTable Sort(DataTable datarow, string nametable, string namecolumn)
+        public DataTable Sort(DataTable datatable, string namecolumn)
         {
-            return datarow.AsEnumerable().OrderBy(row => row.Field<object>(namecolumn)).CopyToDataTable();
+            return datatable.AsEnumerable().OrderBy(row => row.Field<object>(namecolumn)).CopyToDataTable();
         }
 
         /// Đơn vị ủng hộ
@@ -144,6 +144,17 @@ namespace QuanLyThienNguyen.BBL
             {
                 DAL_Information.Instance.Delete_TVDVUH(tvdvuh);
             }
+        }
+        public ThanhVienDonViUngHo ConvertFromDataGridViewToObj(DataGridViewRow row)
+        {
+            ThanhVienDonViUngHo tvdvuh = new ThanhVienDonViUngHo();
+            tvdvuh.MaDVUH = Convert.ToInt32(row.Cells["Mã đơn vị ủng hộ"].Value.ToString());
+            tvdvuh.HoTen = row.Cells["Họ tên"].Value.ToString();
+            tvdvuh.GioiTinh = Convert.ToInt32(row.Cells["Giới tính"].Value.ToString());
+            tvdvuh.CCCD = row.Cells["Căn cước công dân"].Value.ToString();
+            tvdvuh.DiaChi = row.Cells["Địa chỉ"].Value.ToString();
+            tvdvuh.SDT = row.Cells["Số điện thoại"].Value.ToString();
+            return tvdvuh;
         }
         public bool Check_TVDVUH(ThanhVienDonViUngHo tvdvuh)
         {

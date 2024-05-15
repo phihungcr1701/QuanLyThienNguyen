@@ -387,6 +387,7 @@
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "HD_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HD_Form";
             this.Load += new System.EventHandler(this.HD_Form_Load);
             this.guna2Panel1.ResumeLayout(false);

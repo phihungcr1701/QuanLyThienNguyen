@@ -70,7 +70,7 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void TV_DVUH_Form_Load(object sender, EventArgs e)
         {
-            combobox_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.BBL_ComboboxList("DonViUngHo").ToArray());
+            combobox_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_Information("DonViUngHo").ToArray());
             if (tvdvuh != null)
             {
                 combobox_MaDVUH.SelectedIndex = combobox_MaDVUH.FindString(tvdvuh.MaDVUH.ToString());

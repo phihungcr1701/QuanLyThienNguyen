@@ -66,17 +66,5 @@ namespace QuanLyThienNguyen.DTO
                 return "SDT";
             return namecolumn;
         }
-
-        public static ThanhVienDonViUngHo ConvertFromDataGridViewToObj(DataGridViewRow row)
-        {
-            ThanhVienDonViUngHo tvdvuh = new ThanhVienDonViUngHo();
-            tvdvuh.MaDVUH = Convert.ToInt32(row.Cells["Mã đơn vị ủng hộ"].Value.ToString());
-            tvdvuh.HoTen = row.Cells["Họ tên"].Value.ToString();
-            tvdvuh.GioiTinh = Convert.ToInt32(row.Cells["Giới tính"].Value.ToString());
-            tvdvuh.CCCD = row.Cells["Căn cước công dân"].Value.ToString();
-            tvdvuh.DiaChi = row.Cells["Địa chỉ"].Value.ToString();
-            tvdvuh.SDT = row.Cells["Số điện thoại"].Value.ToString();
-            return tvdvuh;
-        }
     }
 }

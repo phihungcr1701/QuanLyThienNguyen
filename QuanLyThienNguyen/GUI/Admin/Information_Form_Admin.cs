@@ -25,6 +25,7 @@ namespace QuanLyThienNguyen.GUI
         private void combobox_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
         {
             combobox_SapXep.Items.Clear();
+            textbox_TimKiem.Text = string.Empty;
             if (combobox_TimKiem.SelectedItem.ToString() == "Đơn vị ủng hộ")
             {
                 combobox_SapXep.Items.AddRange(DonViUngHo.items.ToArray());
@@ -50,7 +51,7 @@ namespace QuanLyThienNguyen.GUI
                 combobox_SapXep.Items.AddRange(HinhThucUngHo.items.ToArray());
                 combobox_SapXep.SelectedIndex = 0;
             }
-            button_TimKiem_Click(sender, e);
+            datagridview.DataSource = BBL_Information.Instance.View(combobox_TimKiem.SelectedItem.ToString());
         }
 
         private void button_TimKiem_Click(object sender, EventArgs e)
@@ -126,7 +127,7 @@ namespace QuanLyThienNguyen.GUI
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Thành viên đơn vị ủng hộ")
                 {
-                    TV_DVUH_Form form = new TV_DVUH_Form(ThanhVienDonViUngHo.ConvertFromDataGridViewToObj(datagridview.SelectedRows[0]));
+                    TV_DVUH_Form form = new TV_DVUH_Form(BBL_Information.Instance.ConvertFromDataGridViewToObj(datagridview.SelectedRows[0]));
                     form.ShowDialog();
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
@@ -163,7 +164,7 @@ namespace QuanLyThienNguyen.GUI
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Thành viên đơn vị ủng hộ")
                 {
 
-                    BBL_Information.Instance.Delete_TVDVUH(ThanhVienDonViUngHo.ConvertFromDataGridViewToObj(datagridview.SelectedRows[0]));
+                    BBL_Information.Instance.Delete_TVDVUH(BBL_Information.Instance.ConvertFromDataGridViewToObj(datagridview.SelectedRows[0]));
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
                 {

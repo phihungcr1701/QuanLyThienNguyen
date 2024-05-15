@@ -31,14 +31,14 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_GioiThieu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.datatimepicker_NgayKetThuc = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.datatimepicker_NgayBatDau = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.button_Huy = new Guna.UI2.WinForms.Guna2Button();
             this.button_ThucHien = new Guna.UI2.WinForms.Guna2Button();
             this.textbox_MaDUH = new Guna.UI2.WinForms.Guna2TextBox();
             this.label_MaDUH = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_NgayBatDau = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_NgayKetThuc = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.datatimepicker_NgayBatDau = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.datatimepicker_NgayKetThuc = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +79,34 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(784, 264);
             this.guna2Panel3.TabIndex = 8;
+            // 
+            // datatimepicker_NgayKetThuc
+            // 
+            this.datatimepicker_NgayKetThuc.Checked = true;
+            this.datatimepicker_NgayKetThuc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.datatimepicker_NgayKetThuc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.datatimepicker_NgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datatimepicker_NgayKetThuc.Location = new System.Drawing.Point(510, 113);
+            this.datatimepicker_NgayKetThuc.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datatimepicker_NgayKetThuc.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datatimepicker_NgayKetThuc.Name = "datatimepicker_NgayKetThuc";
+            this.datatimepicker_NgayKetThuc.Size = new System.Drawing.Size(200, 36);
+            this.datatimepicker_NgayKetThuc.TabIndex = 17;
+            this.datatimepicker_NgayKetThuc.Value = new System.DateTime(2024, 5, 9, 9, 36, 38, 99);
+            // 
+            // datatimepicker_NgayBatDau
+            // 
+            this.datatimepicker_NgayBatDau.Checked = true;
+            this.datatimepicker_NgayBatDau.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.datatimepicker_NgayBatDau.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.datatimepicker_NgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datatimepicker_NgayBatDau.Location = new System.Drawing.Point(510, 35);
+            this.datatimepicker_NgayBatDau.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datatimepicker_NgayBatDau.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datatimepicker_NgayBatDau.Name = "datatimepicker_NgayBatDau";
+            this.datatimepicker_NgayBatDau.Size = new System.Drawing.Size(200, 36);
+            this.datatimepicker_NgayBatDau.TabIndex = 16;
+            this.datatimepicker_NgayBatDau.Value = new System.DateTime(2024, 5, 9, 9, 36, 38, 99);
             // 
             // button_Huy
             // 
@@ -166,34 +194,6 @@
             this.label_NgayKetThuc.TabIndex = 6;
             this.label_NgayKetThuc.Text = "Ngày kết thúc:";
             // 
-            // datatimepicker_NgayBatDau
-            // 
-            this.datatimepicker_NgayBatDau.Checked = true;
-            this.datatimepicker_NgayBatDau.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.datatimepicker_NgayBatDau.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.datatimepicker_NgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datatimepicker_NgayBatDau.Location = new System.Drawing.Point(510, 35);
-            this.datatimepicker_NgayBatDau.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datatimepicker_NgayBatDau.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datatimepicker_NgayBatDau.Name = "datatimepicker_NgayBatDau";
-            this.datatimepicker_NgayBatDau.Size = new System.Drawing.Size(200, 36);
-            this.datatimepicker_NgayBatDau.TabIndex = 16;
-            this.datatimepicker_NgayBatDau.Value = new System.DateTime(2024, 5, 9, 9, 36, 38, 99);
-            // 
-            // datatimepicker_NgayKetThuc
-            // 
-            this.datatimepicker_NgayKetThuc.Checked = true;
-            this.datatimepicker_NgayKetThuc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.datatimepicker_NgayKetThuc.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.datatimepicker_NgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datatimepicker_NgayKetThuc.Location = new System.Drawing.Point(510, 113);
-            this.datatimepicker_NgayKetThuc.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datatimepicker_NgayKetThuc.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datatimepicker_NgayKetThuc.Name = "datatimepicker_NgayKetThuc";
-            this.datatimepicker_NgayKetThuc.Size = new System.Drawing.Size(200, 36);
-            this.datatimepicker_NgayKetThuc.TabIndex = 17;
-            this.datatimepicker_NgayKetThuc.Value = new System.DateTime(2024, 5, 9, 9, 36, 38, 99);
-            // 
             // DUH_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +202,7 @@
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Name = "DUH_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DUH_Form";
             this.Load += new System.EventHandler(this.DUH_Form_Load);
             this.guna2Panel2.ResumeLayout(false);

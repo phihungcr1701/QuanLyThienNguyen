@@ -68,7 +68,7 @@ namespace QuanLyThienNguyen.GUI
 
         private void button_ThongKe_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new TK_Form());
         }
 
         private void button_Login_Click(object sender, EventArgs e)

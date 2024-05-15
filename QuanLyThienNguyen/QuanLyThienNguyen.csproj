@@ -43,6 +43,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,8 +62,10 @@
     <Compile Include="BBL\BBL_Account.cs" />
     <Compile Include="BBL\BBL_Information.cs" />
     <Compile Include="BBL\BBL_ComboBox.cs" />
+    <Compile Include="BBL\BBL_Statistical.cs" />
     <Compile Include="DAL\DAL_Account.cs" />
     <Compile Include="DAL\DAL_Information.cs" />
+    <Compile Include="DAL\DAL_Statistical.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\ChiTietUngHo.cs" />
@@ -150,6 +153,12 @@
     <Compile Include="GUI\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TK_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TK_Form.Designer.cs">
+      <DependentUpon>TK_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Admin\Information_Form_Admin.resx">
@@ -190,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TK_Form.resx">
+      <DependentUpon>TK_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

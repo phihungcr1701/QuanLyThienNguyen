@@ -212,6 +212,7 @@
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Name = "HTUH_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HTUH_Form";
             this.Load += new System.EventHandler(this.HTUH_Form_Load);
             this.guna2Panel2.ResumeLayout(false);

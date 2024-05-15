@@ -74,7 +74,7 @@ namespace QuanLyThienNguyen.GUI
             }
             else
             {
-                MessageBox.Show("Bạn cần chọn thông tin bảng cần xem !!!");
+                MessageBox.Show("Bạn cần chọn thông tin bảng cần sắp xếp !!!");
             }
         }
 

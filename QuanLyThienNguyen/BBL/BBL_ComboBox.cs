@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace QuanLyThienNguyen.BBL
 {
@@ -27,13 +28,40 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         private BBL_ComboBox() { }
-        public List<string> BBL_ComboboxList(string nametable)
+        public List<string> Combobox_Information(string nametable)
         {
             DataTable data = DAL_Information.Instance.View(nametable);
             List<string> list = new List<string>();
             foreach (DataRow row in data.Rows) 
             {
                 list.Add(row[0].ToString());
+            }
+            return list;
+        }
+        public List<string> Combobox_Statistical_TenHTUH()
+        {
+            List<string> list = new List<string>();
+            foreach (DataRow row in DAL_Statistical.Instance.TruyVan_TenHTUH().Rows)
+            {
+                list.Add(row["TenHTUH"].ToString());
+            }
+            return list;
+        }
+        public List<string> Combobox_Statistical_MaDVUH()
+        {
+            List<string> list = new List<string>();
+            foreach (DataRow row in DAL_Statistical.Instance.TruyVan_Ma("MaDVUH").Rows)
+            {
+                list.Add(row["MaDVUH"].ToString());
+            }
+            return list;
+        }
+        public List<string> Combobox_Statistical_MaHTUH()
+        {
+            List<string> list = new List<string>();
+            foreach (DataRow row in DAL_Statistical.Instance.TruyVan_Ma("MaHTUH").Rows)
+            {
+                list.Add(row["MaHTUH"].ToString());
             }
             return list;
         }
