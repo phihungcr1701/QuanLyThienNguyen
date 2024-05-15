@@ -26,6 +26,7 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         private BBL_HoDan() { }
+        
         public HoDan GetHoDan(int ma)
         {
             HoDan hodan = new HoDan();
@@ -38,6 +39,10 @@ namespace QuanLyThienNguyen.BBL
                 }
             }
             return hodan;
+        }
+        public List<HoDan> getallHD()
+        {
+            return DAL_HoDan.Instance.GetAllHoDan();
         }
     }
 }

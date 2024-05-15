@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,15 +15,15 @@ namespace QuanLyThienNguyen.DTO
         private DateTime _NgayKetThuc;
 
         public DotUngHo() { }
-        public DotUngHo(int ma, DateTime ngaybatdau, DateTime ngayketthuc) 
+        public DotUngHo(int ma, DateTime ngaybatdau, DateTime ngayketthuc)
         {
             this.MaDUH = ma;
             this.NgayBatDau = ngaybatdau;
             this.NgayKetThuc = ngayketthuc;
         }
         public int MaDUH { get => _MaDUH; set => _MaDUH = value; }
-        public DateTime NgayBatDau { get => _NgayBatDau; set => _NgayBatDau = value;}
-        public DateTime NgayKetThuc { get => _NgayKetThuc; set => _NgayKetThuc = value;}
+        public DateTime NgayBatDau { get => _NgayBatDau; set => _NgayBatDau = value; }
+        public DateTime NgayKetThuc { get => _NgayKetThuc; set => _NgayKetThuc = value; }
 
         public static List<string> items = new List<string>(new string[]
         {
@@ -58,6 +57,5 @@ namespace QuanLyThienNguyen.DTO
             duh.NgayKetThuc = DateTime.Parse(row.Cells["Ngày Kết Thúc"].Value.ToString());
             return duh;
         }
-        
     }
 }

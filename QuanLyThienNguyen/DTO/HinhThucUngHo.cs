@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,7 +15,7 @@ namespace QuanLyThienNguyen.DTO
         private string _DonViTinh;
 
         public HinhThucUngHo() { }
-        public HinhThucUngHo(int ma, string ten, string donvitinh) 
+        public HinhThucUngHo(int ma, string ten, string donvitinh)
         {
             this.MaHTUH = ma;
             this.TenHTUH = ten;
@@ -24,7 +23,7 @@ namespace QuanLyThienNguyen.DTO
         }
         public int MaHTUH { get => _MaHTUH; set => _MaHTUH = value; }
         public string TenHTUH { get => _TenHTUH; set => _TenHTUH = value; }
-        public string DonViTinh { get => _DonViTinh; set => _DonViTinh = value;}
+        public string DonViTinh { get => _DonViTinh; set => _DonViTinh = value; }
 
         public static List<string> items = new List<string>(new string[]
         {
