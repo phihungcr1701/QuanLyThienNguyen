@@ -1,4 +1,9 @@
-﻿using QuanLyThienNguyen.DAL;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Collections.Generic;
@@ -10,6 +15,7 @@ namespace QuanLyThienNguyen.BBL
     internal class BBL_HoDan
     {
         private static BBL_HoDan instance;
+
         public static BBL_HoDan Instance
         {
             get
@@ -28,7 +34,7 @@ namespace QuanLyThienNguyen.BBL
         {
             List<HoDan> list = Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn);
             List<HoDan> view = new List<HoDan>();
-
+        
             foreach (HoDan item in list)
             {
                 Type type = item.GetType();
@@ -90,7 +96,7 @@ namespace QuanLyThienNguyen.BBL
         public void Add(HoDan hd)
         {
             DAL_HoDan.Instance.Add(hd);
-        }
+            }
         public void Update(HoDan hd)
         {
             DAL_HoDan.Instance.Update(hd);
@@ -99,7 +105,7 @@ namespace QuanLyThienNguyen.BBL
         {
             HoDan hd = GetHoDan(ma);
             if (System.Windows.Forms.MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
-            {
+        {
                 DAL_HoDan.Instance.Delete(ma);
             }
         }

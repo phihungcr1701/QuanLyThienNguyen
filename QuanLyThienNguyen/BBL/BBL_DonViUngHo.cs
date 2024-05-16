@@ -1,4 +1,9 @@
-﻿using QuanLyThienNguyen.DAL;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Reflection;
@@ -9,6 +14,7 @@ namespace QuanLyThienNguyen.BBL
     internal class BBL_DonViUngHo
     {
         private static BBL_DonViUngHo instance;
+
         public static BBL_DonViUngHo Instance
         {
             get
@@ -35,10 +41,11 @@ namespace QuanLyThienNguyen.BBL
                     if (property.GetValue(item).ToString().ToLower().Contains(text.ToLower()))
                     {
                         view.Add(item);
-                        break;
-                    }
-                } 
+                    break;
+                }
             }
+            return donviungho;
+        }
 
             return view;
         }
@@ -66,7 +73,7 @@ namespace QuanLyThienNguyen.BBL
         {
             List<DonViUngHo> list = DAL_DonViUngHo.Instance.GetAllDonViUngHo();
             DonViUngHo dvuh = new DonViUngHo();
-
+    
             foreach (DonViUngHo item in list)
             {
                 if (item.MaDVUH.ToString().Equals(ma))

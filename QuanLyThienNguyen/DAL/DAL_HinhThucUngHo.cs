@@ -1,6 +1,10 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen.DAL
 {
@@ -33,15 +37,15 @@ namespace QuanLyThienNguyen.DAL
         }
 
         public void Add(HinhThucUngHo htuh)
-        {
+            {
             string query = "exec ThemHinhThucUngHo '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
         }
         public void Update(HinhThucUngHo htuh)
-        {
+                {
             string query = "exec CapNhatHinhThucUngHo '" + htuh.MaHTUH + "', '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
-        }
+            }
         public void Delete(string ma)
         {
             string query = "exec XoaHinhThucUngHo '" + ma + "'";

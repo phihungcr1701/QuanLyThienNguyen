@@ -14,7 +14,7 @@ namespace QuanLyThienNguyen.DTO
         public DateTime NgayKetThuc { get => _NgayKetThuc; set => _NgayKetThuc = value; }
 
         public DotUngHo() { }
-        public DotUngHo(int ma, DateTime ngaybatdau, DateTime ngayketthuc) 
+        public DotUngHo(int ma, DateTime ngaybatdau, DateTime ngayketthuc)
         {
             this.MaDUH = ma;
             this.NgayBatDau = ngaybatdau;
@@ -40,6 +40,15 @@ namespace QuanLyThienNguyen.DTO
             if (namecolumn == "Ngày kết thúc")
                 return "NgayKetThuc";
             return namecolumn;
+        }
+
+        public static DotUngHo TransferDataGridViewRowToObject(DataGridViewRow row)
+        {
+            DotUngHo duh = new DotUngHo();
+            duh.MaDUH = Int32.Parse(row.Cells["Mã Đợt Ủng Hộ"].Value.ToString());
+            duh.NgayBatDau = DateTime.Parse(row.Cells["Ngày Bắt Đầu"].Value.ToString());
+            duh.NgayKetThuc = DateTime.Parse(row.Cells["Ngày Kết Thúc"].Value.ToString());
+            return duh;
         }
     }
 }

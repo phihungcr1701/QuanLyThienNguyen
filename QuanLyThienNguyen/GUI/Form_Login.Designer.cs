@@ -153,7 +153,7 @@
             this.txtPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPass.BorderColor = System.Drawing.Color.Black;
             this.txtPass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPass.DefaultText = "";
+            this.txtPass.DefaultText = "1234";
             this.txtPass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -174,7 +174,7 @@
             this.txtUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUser.BorderColor = System.Drawing.Color.Black;
             this.txtUser.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUser.DefaultText = "";
+            this.txtUser.DefaultText = "hung";
             this.txtUser.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));

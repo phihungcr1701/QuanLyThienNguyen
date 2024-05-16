@@ -1,4 +1,9 @@
-﻿using QuanLyThienNguyen.DAL;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Collections.Generic;
@@ -35,7 +40,7 @@ namespace QuanLyThienNguyen.BBL
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
                     if (property.GetValue(item).ToString().ToLower().Contains(text.ToLower()))
-                    {
+                {
                         view.Add(item);
                         break;
                     }      
@@ -58,7 +63,7 @@ namespace QuanLyThienNguyen.BBL
                 case "DonViTinh":
                     sort.Sort((x, y) => x.DonViTinh.CompareTo(y.DonViTinh));
                     break;
-            }
+                }
             return sort;
         }
         public HinhThucUngHo GetHinhThucUngHo(string ma)
@@ -90,6 +95,7 @@ namespace QuanLyThienNguyen.BBL
             {
                 DAL_HinhThucUngHo.Instance.Delete(ma);
             }
+            return hinhthucungho;
         }
     }
 }

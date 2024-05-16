@@ -1,4 +1,9 @@
-﻿using QuanLyThienNguyen.DAL;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Collections.Generic;
@@ -91,6 +96,7 @@ namespace QuanLyThienNguyen.BBL
             {
                 DAL_DotUngHo.Instance.Delete(ma);
             }
+            return dotUngHo;
         }
     }
 }

@@ -84,6 +84,7 @@
     <Compile Include="DTO\ThongKeShow.cs" />
     <Compile Include="DTO\ThanhVienDVUH.cs" />
     <Compile Include="DTO\ThongKe.cs" />
+    <Compile Include="DTO\Activity.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
