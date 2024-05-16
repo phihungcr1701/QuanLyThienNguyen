@@ -1,15 +1,7 @@
 ﻿using QuanLyThienNguyen.BBL;
-using QuanLyThienNguyen.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace QuanLyThienNguyen.GUI
 {
@@ -21,9 +13,9 @@ namespace QuanLyThienNguyen.GUI
         }
         private void button_TimKiem_Click(object sender, EventArgs e)
         {
-            if (combobox_MaHTUH.SelectedItem != null) 
+            if (combobox_TenHTUH.SelectedItem != null)
             {
-                datagridview.DataSource = BBL_Statistical.Instance.View(combobox_MaHTUH.SelectedItem.ToString());
+                datagridview.DataSource = BBL_ThongKe.Instance.GetAllThongKe(combobox_TenHTUH.SelectedItem.ToString());
                 if (combobox_LoaiThongKe.SelectedItem == null)
                 {
 
@@ -35,10 +27,10 @@ namespace QuanLyThienNguyen.GUI
                     combobox_Chart.SelectedIndex = 0;
                 }
                 chart.Series.Clear();
-                chart.Series.Add(BBL_Statistical.Instance.Series(combobox_Chart.SelectedItem.ToString(), combobox_MaHTUH.SelectedItem.ToString(), combobox_LoaiThongKe.SelectedItem.ToString()));
-                chart.ChartAreas[0].AxisY.Title = combobox_MaHTUH.SelectedItem.ToString();
-                chart.ChartAreas[0].AxisY.Maximum = BBL_Statistical.Instance.data.Max()*1.1;
-                chart.Update();     
+                chart.Series.Add(BBL_ThongKe.Instance.Series(combobox_Chart.SelectedItem.ToString(), combobox_TenHTUH.SelectedItem.ToString(), combobox_LoaiThongKe.SelectedItem.ToString()));
+                chart.ChartAreas[0].AxisY.Title = combobox_TenHTUH.SelectedItem.ToString();
+                chart.ChartAreas[0].AxisY.Maximum = BBL_ThongKe.Instance.data.Max() * 1.1;
+                chart.Update();
             }
             else
             {
@@ -48,8 +40,22 @@ namespace QuanLyThienNguyen.GUI
 
         private void TK_Form_Load(object sender, EventArgs e)
         {
-            combobox_MaHTUH.Items.Clear();
-            combobox_MaHTUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_Statistical_TenHTUH().ToArray());
+            combobox_TenHTUH.Items.Clear();
+            combobox_TenHTUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_TK().ToArray());
+            BBL_ThongKe.Instance.Delete();
+            BBL_ThongKe.Instance.Add();
+        }
+
+        private void combobox_Chart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (combobox_TenHTUH.SelectedItem != null)
+                button_TimKiem_Click(sender, e);
+        }
+
+        private void combobox_LoaiThongKe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (combobox_TenHTUH.SelectedItem != null)
+                button_TimKiem_Click(sender, e);
         }
     }
 }

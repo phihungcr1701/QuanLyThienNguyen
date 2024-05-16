@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_GioiThieu = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.combobox_LoaiThongKe = new Guna.UI2.WinForms.Guna2ComboBox();
             this.combobox_Chart = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.combobox_MaHTUH = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.combobox_TenHTUH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.button_TimKiem = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.datagridview = new System.Windows.Forms.DataGridView();
-            this.combobox_LoaiThongKe = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -76,13 +76,32 @@
             // 
             this.guna2Panel3.Controls.Add(this.combobox_LoaiThongKe);
             this.guna2Panel3.Controls.Add(this.combobox_Chart);
-            this.guna2Panel3.Controls.Add(this.combobox_MaHTUH);
+            this.guna2Panel3.Controls.Add(this.combobox_TenHTUH);
             this.guna2Panel3.Controls.Add(this.button_TimKiem);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 100);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(993, 100);
             this.guna2Panel3.TabIndex = 2;
+            // 
+            // combobox_LoaiThongKe
+            // 
+            this.combobox_LoaiThongKe.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_LoaiThongKe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combobox_LoaiThongKe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combobox_LoaiThongKe.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox_LoaiThongKe.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox_LoaiThongKe.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.combobox_LoaiThongKe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.combobox_LoaiThongKe.ItemHeight = 30;
+            this.combobox_LoaiThongKe.Items.AddRange(new object[] {
+            "Tổng số lượng ủng hộ",
+            "Số dư ủng hộ"});
+            this.combobox_LoaiThongKe.Location = new System.Drawing.Point(197, 32);
+            this.combobox_LoaiThongKe.Name = "combobox_LoaiThongKe";
+            this.combobox_LoaiThongKe.Size = new System.Drawing.Size(171, 36);
+            this.combobox_LoaiThongKe.TabIndex = 19;
+            this.combobox_LoaiThongKe.SelectedIndexChanged += new System.EventHandler(this.combobox_LoaiThongKe_SelectedIndexChanged);
             // 
             // combobox_Chart
             // 
@@ -103,22 +122,23 @@
             this.combobox_Chart.Name = "combobox_Chart";
             this.combobox_Chart.Size = new System.Drawing.Size(171, 36);
             this.combobox_Chart.TabIndex = 18;
+            this.combobox_Chart.SelectedIndexChanged += new System.EventHandler(this.combobox_Chart_SelectedIndexChanged);
             // 
-            // combobox_MaHTUH
+            // combobox_TenHTUH
             // 
-            this.combobox_MaHTUH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.combobox_MaHTUH.BackColor = System.Drawing.Color.Transparent;
-            this.combobox_MaHTUH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combobox_MaHTUH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combobox_MaHTUH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox_MaHTUH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox_MaHTUH.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.combobox_MaHTUH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.combobox_MaHTUH.ItemHeight = 30;
-            this.combobox_MaHTUH.Location = new System.Drawing.Point(563, 32);
-            this.combobox_MaHTUH.Name = "combobox_MaHTUH";
-            this.combobox_MaHTUH.Size = new System.Drawing.Size(240, 36);
-            this.combobox_MaHTUH.TabIndex = 16;
+            this.combobox_TenHTUH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.combobox_TenHTUH.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_TenHTUH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combobox_TenHTUH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combobox_TenHTUH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox_TenHTUH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox_TenHTUH.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.combobox_TenHTUH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.combobox_TenHTUH.ItemHeight = 30;
+            this.combobox_TenHTUH.Location = new System.Drawing.Point(603, 32);
+            this.combobox_TenHTUH.Name = "combobox_TenHTUH";
+            this.combobox_TenHTUH.Size = new System.Drawing.Size(240, 36);
+            this.combobox_TenHTUH.TabIndex = 16;
             // 
             // button_TimKiem
             // 
@@ -168,15 +188,15 @@
             // 
             // chart
             // 
-            chartArea1.AxisX.Title = "Đơn vị ủng hộ";
-            chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
+            chartArea2.AxisX.Title = "Đơn vị ủng hộ";
+            chartArea2.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea2);
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart.Location = new System.Drawing.Point(20, 20);
             this.chart.Name = "chart";
-            series1.ChartArea = "ChartArea1";
-            series1.Name = "Series1";
-            this.chart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.chart.Series.Add(series2);
             this.chart.Size = new System.Drawing.Size(466, 402);
             this.chart.TabIndex = 0;
             this.chart.Text = "chart1";
@@ -192,24 +212,6 @@
             this.datagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridview.Size = new System.Drawing.Size(443, 402);
             this.datagridview.TabIndex = 0;
-            // 
-            // combobox_LoaiThongKe
-            // 
-            this.combobox_LoaiThongKe.BackColor = System.Drawing.Color.Transparent;
-            this.combobox_LoaiThongKe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combobox_LoaiThongKe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combobox_LoaiThongKe.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox_LoaiThongKe.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox_LoaiThongKe.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.combobox_LoaiThongKe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.combobox_LoaiThongKe.ItemHeight = 30;
-            this.combobox_LoaiThongKe.Items.AddRange(new object[] {
-            "Tổng số lượng ủng hộ",
-            "Số dư ủng hộ"});
-            this.combobox_LoaiThongKe.Location = new System.Drawing.Point(197, 32);
-            this.combobox_LoaiThongKe.Name = "combobox_LoaiThongKe";
-            this.combobox_LoaiThongKe.Size = new System.Drawing.Size(171, 36);
-            this.combobox_LoaiThongKe.TabIndex = 19;
             // 
             // TK_Form
             // 
@@ -243,7 +245,7 @@
         private System.Windows.Forms.Label label_GioiThieu;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Button button_TimKiem;
-        private Guna.UI2.WinForms.Guna2ComboBox combobox_MaHTUH;
+        private Guna.UI2.WinForms.Guna2ComboBox combobox_TenHTUH;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;

@@ -1,13 +1,6 @@
 ﻿using QuanLyThienNguyen.BBL;
 using QuanLyThienNguyen.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.GUI.Admin
@@ -24,7 +17,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             HoDan hd = new HoDan();
             hd.HoTenChuHo = textbox_HoTen.Text;
-            hd.GioiTinh = radiobutton_Nam.Checked ? 0 : 1;
+            hd.GioiTinh = radiobutton_Nam.Checked;
             hd.CCCD = textbox_CCCD.Text;
             hd.DiaChi = textbox_DiaChi.Text;
             hd.SDT = textbox_SDT.Text;
@@ -37,14 +30,14 @@ namespace QuanLyThienNguyen.GUI.Admin
                 }
                 else
                 {
-                    BBL_Information.Instance.Add_HD(hd);
+                    BBL_HoDan.Instance.Add(hd);
                     this.Close();
                 }
             }
             else
             {
                 hd.MaHD = Convert.ToInt32(ma);
-                BBL_Information.Instance.Update_HD(hd);
+                BBL_HoDan.Instance.Update(hd);
                 this.Close();
             }
         }
@@ -57,9 +50,8 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                HoDan hd = BBL_Information.Instance.TruyVan_HD(ma);
-                if (hd.GioiTinh == 1)
-                    radiobutton_Nu.Checked = true;
+                HoDan hd = BBL_HoDan.Instance.GetHoDan(ma);
+                radiobutton_Nam.Checked = hd.GioiTinh;
                 textbox_MaHD.Text = hd.MaHD.ToString();
                 textbox_HoTen.Text = hd.HoTenChuHo;
                 textbox_CCCD.Text = hd.CCCD;

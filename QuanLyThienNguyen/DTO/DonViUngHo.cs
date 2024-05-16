@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Primitives;
-using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 
 namespace QuanLyThienNguyen.DTO
 {
@@ -16,7 +10,10 @@ namespace QuanLyThienNguyen.DTO
         private string _TenDonVi;
         private string _DiaChiDonVi;
         private string _SDTDonVi;
-
+        public int MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
+        public string TenDonVi { get => _TenDonVi; set => _TenDonVi = value; }
+        public string DiaChiDonVi { get => _DiaChiDonVi; set => _DiaChiDonVi = value; }
+        public string SDTDonVi { get => _SDTDonVi; set => _SDTDonVi = value; }
         public DonViUngHo() { }
         public DonViUngHo(int ma, string ten, string dc, string sdt)
         {
@@ -25,25 +22,18 @@ namespace QuanLyThienNguyen.DTO
             this.DiaChiDonVi = dc;
             this.SDTDonVi = sdt;
         }
-        public int MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
-        public string TenDonVi { get => _TenDonVi; set => _TenDonVi = value; }
-        public string DiaChiDonVi { get => _DiaChiDonVi; set => _DiaChiDonVi = value; }
-        public string SDTDonVi { get => _SDTDonVi; set => _SDTDonVi = value; }
+        public DonViUngHo(DataRow row)
+        {
+            this.MaDVUH = Convert.ToInt32(row["MaDVUH"].ToString());
+            this.TenDonVi = row["TenDonVi"].ToString();
+            this.DiaChiDonVi = row["DiaChiDonVi"].ToString();
+            this.SDTDonVi = row["SDTDonVi"].ToString();
+        }
 
         public static List<string> items = new List<string>(new string[]
         {
             "Mã đơn vị ủng hộ", "Tên đơn vị", "Địa chỉ đơn vị", "Số điện thoại đơn vị"
         });
-
-        public static DataTable RenameNameTable_FromSqlToDataGridView(DataTable datatable)
-        {
-            datatable.Columns["MaDVUH"].ColumnName = "Mã đơn vị ủng hộ";
-            datatable.Columns["TenDonVi"].ColumnName = "Tên đơn vị";
-            datatable.Columns["DiaChiDonVi"].ColumnName = "Địa chỉ đơn vị";
-            datatable.Columns["SDTDonVi"].ColumnName = "Số điện thoại đơn vị";
-            return datatable;
-        }
-
         public static string RenameNameTable_FromDataGridViewToSql(string namecolumn)
         {
             if (namecolumn == "Mã đơn vị ủng hộ")

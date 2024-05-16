@@ -1,13 +1,6 @@
 ﻿using QuanLyThienNguyen.BBL;
 using QuanLyThienNguyen.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.GUI.Admin
@@ -26,11 +19,11 @@ namespace QuanLyThienNguyen.GUI.Admin
             htuh.TenHTUH = textbox_TenHTUH.Text;
             htuh.DonViTinh = textbox_DonViTinh.Text;
             if (ma == null)
-                BBL_Information.Instance.Add_HTUH(htuh);
+                BBL_HinhThucUngHo.Instance.Add(htuh);
             else
             {
                 htuh.MaHTUH = Convert.ToInt32(ma);
-                BBL_Information.Instance.Update_HTUH(htuh);
+                BBL_HinhThucUngHo.Instance.Update(htuh);
             }
                 
             this.Close();
@@ -44,7 +37,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                HinhThucUngHo htuh = BBL_Information.Instance.TruyVan_HTUH(ma);
+                HinhThucUngHo htuh = BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(ma);
                 textbox_MaHTUH.Text = htuh.MaHTUH.ToString();
                 textbox_TenHTUH.Text = htuh.TenHTUH;
                 textbox_DonViTinh.Text = htuh.DonViTinh;

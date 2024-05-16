@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.DTO
 {
@@ -13,6 +9,9 @@ namespace QuanLyThienNguyen.DTO
         private int _MaDUH;
         private DateTime _NgayBatDau;
         private DateTime _NgayKetThuc;
+        public int MaDUH { get => _MaDUH; set => _MaDUH = value; }
+        public DateTime NgayBatDau { get => _NgayBatDau; set => _NgayBatDau = value; }
+        public DateTime NgayKetThuc { get => _NgayKetThuc; set => _NgayKetThuc = value; }
 
         public DotUngHo() { }
         public DotUngHo(int ma, DateTime ngaybatdau, DateTime ngayketthuc) 
@@ -21,23 +20,17 @@ namespace QuanLyThienNguyen.DTO
             this.NgayBatDau = ngaybatdau;
             this.NgayKetThuc = ngayketthuc;
         }
-        public int MaDUH { get => _MaDUH; set => _MaDUH = value; }
-        public DateTime NgayBatDau { get => _NgayBatDau; set => _NgayBatDau = value;}
-        public DateTime NgayKetThuc { get => _NgayKetThuc; set => _NgayKetThuc = value;}
+        public DotUngHo(DataRow row)
+        {
+            this.MaDUH = Convert.ToInt32(row["MaDUH"].ToString());
+            this.NgayBatDau = Convert.ToDateTime(row["NgayBatDau"].ToString());
+            this.NgayKetThuc = Convert.ToDateTime(row["NgayKetThuc"].ToString());
+        }
 
         public static List<string> items = new List<string>(new string[]
         {
             "Mã đợt ủng hộ", "Ngày bắt đầu", "Ngày kết thúc"
         });
-
-        public static DataTable RenameNameTable_FromSqlToDataGridView(DataTable datatable)
-        {
-            datatable.Columns["MaDUH"].ColumnName = "Mã đợt ủng hộ";
-            datatable.Columns["NgayBatDau"].ColumnName = "Ngày bắt đầu";
-            datatable.Columns["NgayKetThuc"].ColumnName = "Ngày kết thúc";
-            return datatable;
-        }
-
         public static string RenameNameTable_FromDataGridViewToSql(string namecolumn)
         {
             if (namecolumn == "Mã đợt ủng hộ")

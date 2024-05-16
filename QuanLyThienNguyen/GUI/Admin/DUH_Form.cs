@@ -1,13 +1,6 @@
 ﻿using QuanLyThienNguyen.BBL;
 using QuanLyThienNguyen.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.GUI.Admin
@@ -32,11 +25,11 @@ namespace QuanLyThienNguyen.GUI.Admin
             else
             {
                 if (ma == null)
-                    BBL_Information.Instance.Add_DUH(duh);
+                    BBL_DotUngHo.Instance.Add(duh);
                 else
                 {
                     duh.MaDUH = Convert.ToInt32(ma);
-                    BBL_Information.Instance.Update_DUH(duh);
+                    BBL_DotUngHo.Instance.Update(duh);
                 }
                 this.Close();
             }
@@ -50,7 +43,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                DotUngHo duh = BBL_Information.Instance.TruyVan_DUH(ma);
+                DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(ma);
                 textbox_MaDUH.Text = duh.MaDUH.ToString();
                 datatimepicker_NgayBatDau.Value = duh.NgayBatDau;
                 datatimepicker_NgayKetThuc.Value = duh.NgayKetThuc;

@@ -162,7 +162,6 @@
             this.datagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridview.Size = new System.Drawing.Size(993, 442);
             this.datagridview.TabIndex = 0;
-            this.datagridview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridview_CellFormatting);
             // 
             // guna2Panel3
             // 
@@ -280,6 +279,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Information_Form_Admin";
             this.Text = "Information_Form_Admin";
+            this.Load += new System.EventHandler(this.Information_Form_Admin_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);

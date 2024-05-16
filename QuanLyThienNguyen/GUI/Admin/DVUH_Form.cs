@@ -1,15 +1,7 @@
 ﻿using QuanLyThienNguyen.BBL;
 using QuanLyThienNguyen.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace QuanLyThienNguyen.GUI
 {
@@ -35,14 +27,14 @@ namespace QuanLyThienNguyen.GUI
                 }
                 else
                 {
-                    BBL_Information.Instance.Add_DVUH(dvuh);
+                    BBL_DonViUngHo.Instance.Add(dvuh);
                     this.Close();
                 }
             }
             else
             {
                 dvuh.MaDVUH = Convert.ToInt32(ma);
-                BBL_Information.Instance.Update_DVUH(dvuh);
+                BBL_DonViUngHo.Instance.Update(dvuh);
                 this.Close();
             }
         }
@@ -55,7 +47,7 @@ namespace QuanLyThienNguyen.GUI
         {
             if (ma != null)
             {
-                DonViUngHo obj = BBL_Information.Instance.TruyVan_DVUH(ma);
+                DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(ma);
                 textbox_MaDVUH.Text = obj.MaDVUH.ToString();
                 textbox_TenDonVi.Text = obj.TenDonVi;
                 textbox_DiaChiDonVi.Text = obj.DiaChiDonVi;

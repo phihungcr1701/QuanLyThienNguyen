@@ -60,12 +60,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BBL\BBL_Account.cs" />
-    <Compile Include="BBL\BBL_Information.cs" />
+    <Compile Include="BBL\BBL_DonViUngHo.cs" />
+    <Compile Include="BBL\BBL_DotUngHo.cs" />
+    <Compile Include="BBL\BBL_HinhThucUngHo.cs" />
+    <Compile Include="BBL\BBL_HoDan.cs" />
     <Compile Include="BBL\BBL_ComboBox.cs" />
-    <Compile Include="BBL\BBL_Statistical.cs" />
+    <Compile Include="BBL\BBL_ThongKe.cs" />
+    <Compile Include="BBL\BBL_ThanhVienDVUH.cs" />
     <Compile Include="DAL\DAL_Account.cs" />
-    <Compile Include="DAL\DAL_Information.cs" />
-    <Compile Include="DAL\DAL_Statistical.cs" />
+    <Compile Include="DAL\DAL_DonViUngHo.cs" />
+    <Compile Include="DAL\DAL_DotUngHo.cs" />
+    <Compile Include="DAL\DAL_HinhThucUngHo.cs" />
+    <Compile Include="DAL\DAL_HoDan.cs" />
+    <Compile Include="DAL\DAL_ThongKe.cs" />
+    <Compile Include="DAL\DAL_ThanhVienDVUH.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\ChiTietUngHo.cs" />
@@ -73,7 +81,8 @@
     <Compile Include="DTO\DotUngHo.cs" />
     <Compile Include="DTO\HinhThucUngHo.cs" />
     <Compile Include="DTO\HoDan.cs" />
-    <Compile Include="DTO\ThanhVienDonViUngHo.cs" />
+    <Compile Include="DTO\ThongKeShow.cs" />
+    <Compile Include="DTO\ThanhVienDVUH.cs" />
     <Compile Include="DTO\ThongKe.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
