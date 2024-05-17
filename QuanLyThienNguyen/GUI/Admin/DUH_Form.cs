@@ -43,7 +43,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(ma);
+                DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(Convert.ToInt32(ma));
                 textbox_MaDUH.Text = duh.MaDUH.ToString();
                 datatimepicker_NgayBatDau.Value = duh.NgayBatDau;
                 datatimepicker_NgayKetThuc.Value = duh.NgayKetThuc;

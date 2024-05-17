@@ -41,9 +41,9 @@ namespace QuanLyThienNguyen.DAL
             string query = "exec CapNhatDotUngHo '" + duh.MaDUH + "', '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
             }
-        public void Delete(string ma)
+        public void Delete(int ma)
         {
-            string query = "exec XoaDotUngHo '" + ma + "'";
+            string query = "exec XoaDotUngHo " + ma;
             DataProvider.Instance.ExcuteNonQuery(query);
         }
     }

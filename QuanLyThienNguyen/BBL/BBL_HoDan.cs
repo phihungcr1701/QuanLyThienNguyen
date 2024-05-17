@@ -72,13 +72,13 @@ namespace QuanLyThienNguyen.BBL
             }
             return sort;
         }
-        public HoDan GetHoDan(string ma)
+        public HoDan GetHoDan(int ma)
         {
             HoDan hd = new HoDan();
 
             foreach (HoDan item in DAL_HoDan.Instance.GetAllHoDan())
             {
-                if (item.MaHD.ToString().Equals(ma))
+                if (item.MaHD.ToString().Equals(ma.ToString()))
                 {
                     hd = item; 
                     break;
@@ -94,7 +94,7 @@ namespace QuanLyThienNguyen.BBL
         {
             DAL_HoDan.Instance.Update(hd);
         }
-        public void Delete(string ma)
+        public void Delete(int ma)
         {
             HoDan hd = GetHoDan(ma);
             if (System.Windows.Forms.MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)

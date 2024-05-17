@@ -52,7 +52,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                HoDan hd = BBL_HoDan.Instance.GetHoDan(ma);
+                HoDan hd = BBL_HoDan.Instance.GetHoDan(Convert.ToInt32(ma));
                 radiobutton_Nam.Checked = hd.GioiTinh;
                 textbox_MaHD.Text = hd.MaHD.ToString();
                 textbox_HoTen.Text = hd.HoTenChuHo;

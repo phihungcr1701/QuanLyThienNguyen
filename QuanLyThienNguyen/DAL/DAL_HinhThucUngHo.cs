@@ -42,9 +42,9 @@ namespace QuanLyThienNguyen.DAL
             string query = "exec CapNhatHinhThucUngHo '" + htuh.MaHTUH + "', '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
             }
-        public void Delete(string ma)
+        public void Delete(int ma)
         {
-            string query = "exec XoaHinhThucUngHo '" + ma + "'";
+            string query = "exec XoaHinhThucUngHo " + ma;
             DataProvider.Instance.ExcuteNonQuery(query);
         }
     }

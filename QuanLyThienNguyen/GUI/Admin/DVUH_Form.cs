@@ -49,7 +49,7 @@ namespace QuanLyThienNguyen.GUI
         {
             if (ma != null)
             {
-                DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(ma);
+                DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(Convert.ToInt32(ma));
                 textbox_MaDVUH.Text = obj.MaDVUH.ToString();
                 textbox_TenDonVi.Text = obj.TenDonVi;
                 textbox_DiaChiDonVi.Text = obj.DiaChiDonVi;

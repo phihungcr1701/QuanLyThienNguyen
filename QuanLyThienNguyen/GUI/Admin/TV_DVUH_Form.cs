@@ -79,7 +79,7 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void combobox_MaDVUH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DonViUngHo dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(combobox_MaDVUH.SelectedItem.ToString());
+            DonViUngHo dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(Convert.ToInt32(combobox_MaDVUH.SelectedItem.ToString()));
             dataGridView1.Rows.Clear();
             dataGridView1.Rows.Add("Mã đơn vị ủng hộ", dvuh.MaDVUH);
             dataGridView1.Rows.Add("Tên đơn vị", dvuh.TenDonVi);

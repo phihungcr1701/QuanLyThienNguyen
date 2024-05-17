@@ -47,7 +47,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                HinhThucUngHo htuh = BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(ma);
+                HinhThucUngHo htuh = BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(Convert.ToInt32(ma));
                 textbox_MaHTUH.Text = htuh.MaHTUH.ToString();
                 textbox_TenHTUH.Text = htuh.TenHTUH;
                 textbox_DonViTinh.Text = htuh.DonViTinh;
