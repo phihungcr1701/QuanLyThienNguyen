@@ -1,15 +1,7 @@
 ﻿using QuanLyThienNguyen.BBL;
 using QuanLyThienNguyen.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace QuanLyThienNguyen.GUI
 {
@@ -23,10 +15,13 @@ namespace QuanLyThienNguyen.GUI
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            DonViUngHo dvuh = new DonViUngHo();
-            dvuh.TenDonVi = textbox_TenDonVi.Text;
-            dvuh.DiaChiDonVi = textbox_DiaChiDonVi.Text;
-            dvuh.SDTDonVi = textbox_SDTDonVi.Text;
+            DonViUngHo dvuh = new DonViUngHo(
+                Convert.ToInt32(ma),
+                textbox_TenDonVi.Text,
+                textbox_DiaChiDonVi.Text,
+                textbox_SDTDonVi.Text
+            );
+            
             if (ma == null)
             {
                 if (textbox_TenDonVi.Text == "" || textbox_DiaChiDonVi.Text == "" || textbox_SDTDonVi.Text == "")
@@ -35,14 +30,13 @@ namespace QuanLyThienNguyen.GUI
                 }
                 else
                 {
-                    BBL_Information.Instance.Add_DVUH(dvuh);
+                    BBL_DonViUngHo.Instance.Add(dvuh);
                     this.Close();
                 }
             }
             else
             {
-                dvuh.MaDVUH = Convert.ToInt32(ma);
-                BBL_Information.Instance.Update_DVUH(dvuh);
+                BBL_DonViUngHo.Instance.Update(dvuh);
                 this.Close();
             }
         }
@@ -55,7 +49,7 @@ namespace QuanLyThienNguyen.GUI
         {
             if (ma != null)
             {
-                DonViUngHo obj = BBL_Information.Instance.TruyVan_DVUH(ma);
+                DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(Convert.ToInt32(ma));
                 textbox_MaDVUH.Text = obj.MaDVUH.ToString();
                 textbox_TenDonVi.Text = obj.TenDonVi;
                 textbox_DiaChiDonVi.Text = obj.DiaChiDonVi;

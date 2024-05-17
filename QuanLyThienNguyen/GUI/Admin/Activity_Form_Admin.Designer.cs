@@ -123,7 +123,6 @@
             this.button_CapNhat.Size = new System.Drawing.Size(103, 45);
             this.button_CapNhat.TabIndex = 10;
             this.button_CapNhat.Text = "Cập nhật";
-            this.button_CapNhat.Click += new System.EventHandler(this.button_CapNhat_Click);
             // 
             // button_Them
             // 
@@ -139,7 +138,6 @@
             this.button_Them.Size = new System.Drawing.Size(103, 45);
             this.button_Them.TabIndex = 9;
             this.button_Them.Text = "Thêm";
-            this.button_Them.Click += new System.EventHandler(this.button_Them_Click);
             // 
             // panel1
             // 
@@ -263,7 +261,6 @@
             this.combobox_TimKiem.Size = new System.Drawing.Size(140, 36);
             this.combobox_TimKiem.StartIndex = 0;
             this.combobox_TimKiem.TabIndex = 5;
-            this.combobox_TimKiem.SelectedIndexChanged += new System.EventHandler(this.combobox_TimKiem_SelectedIndexChanged);
             // 
             // Activity_Form_Admin
             // 

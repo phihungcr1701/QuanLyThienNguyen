@@ -303,6 +303,7 @@
             this.textbox_CCCD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_CCCD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_CCCD.Location = new System.Drawing.Point(161, 190);
+            this.textbox_CCCD.MaxLength = 12;
             this.textbox_CCCD.Name = "textbox_CCCD";
             this.textbox_CCCD.PasswordChar = '\0';
             this.textbox_CCCD.PlaceholderText = "";

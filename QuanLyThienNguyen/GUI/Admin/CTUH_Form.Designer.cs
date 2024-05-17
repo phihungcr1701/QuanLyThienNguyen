@@ -188,7 +188,6 @@
             this.btn_Huy.Size = new System.Drawing.Size(121, 45);
             this.btn_Huy.TabIndex = 15;
             this.btn_Huy.Text = "Hủy";
-            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // btn_ThucHien
             // 
@@ -206,7 +205,6 @@
             this.btn_ThucHien.Size = new System.Drawing.Size(121, 45);
             this.btn_ThucHien.TabIndex = 14;
             this.btn_ThucHien.Text = "Thực hiện";
-            this.btn_ThucHien.Click += new System.EventHandler(this.btn_ThucHien_Click);
             // 
             // txt_SoLuongUH
             // 

@@ -1,13 +1,6 @@
 ﻿using QuanLyThienNguyen.BBL;
 using QuanLyThienNguyen.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.GUI.Admin
@@ -22,9 +15,12 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            DotUngHo duh = new DotUngHo();
-            duh.NgayBatDau = datatimepicker_NgayBatDau.Value;
-            duh.NgayKetThuc = datatimepicker_NgayKetThuc.Value;
+            DotUngHo duh = new DotUngHo(
+                Convert.ToInt32(ma),
+                datatimepicker_NgayBatDau.Value,
+                datatimepicker_NgayKetThuc.Value
+            );
+            
             if (duh.NgayBatDau > duh.NgayKetThuc)
             {
                 MessageBox.Show("Không hợp lệ !!!");
@@ -32,12 +28,9 @@ namespace QuanLyThienNguyen.GUI.Admin
             else
             {
                 if (ma == null)
-                    BBL_Information.Instance.Add_DUH(duh);
+                    BBL_DotUngHo.Instance.Add(duh);
                 else
-                {
-                    duh.MaDUH = Convert.ToInt32(ma);
-                    BBL_Information.Instance.Update_DUH(duh);
-                }
+                    BBL_DotUngHo.Instance.Update(duh);
                 this.Close();
             }
         }
@@ -50,7 +43,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                DotUngHo duh = BBL_Information.Instance.TruyVan_DUH(ma);
+                DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(Convert.ToInt32(ma));
                 textbox_MaDUH.Text = duh.MaDUH.ToString();
                 datatimepicker_NgayBatDau.Value = duh.NgayBatDau;
                 datatimepicker_NgayKetThuc.Value = duh.NgayKetThuc;

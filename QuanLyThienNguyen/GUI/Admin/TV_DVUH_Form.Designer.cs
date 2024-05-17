@@ -46,9 +46,13 @@
             this.label_SDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_CCCD = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_HoTen = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.groupbox_GioiTinh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel2
@@ -58,14 +62,14 @@
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(784, 100);
+            this.guna2Panel2.Size = new System.Drawing.Size(993, 100);
             this.guna2Panel2.TabIndex = 1;
             // 
             // label_GioiThieu
             // 
             this.label_GioiThieu.BackColor = System.Drawing.Color.Transparent;
             this.label_GioiThieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_GioiThieu.Location = new System.Drawing.Point(293, 28);
+            this.label_GioiThieu.Location = new System.Drawing.Point(397, 28);
             this.label_GioiThieu.Name = "label_GioiThieu";
             this.label_GioiThieu.Size = new System.Drawing.Size(199, 44);
             this.label_GioiThieu.TabIndex = 0;
@@ -74,6 +78,7 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
+            this.guna2Panel3.Controls.Add(this.dataGridView1);
             this.guna2Panel3.Controls.Add(this.combobox_MaDVUH);
             this.guna2Panel3.Controls.Add(this.button_Huy);
             this.guna2Panel3.Controls.Add(this.button_ThucHien);
@@ -90,7 +95,7 @@
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 100);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(784, 364);
+            this.guna2Panel3.Size = new System.Drawing.Size(993, 364);
             this.guna2Panel3.TabIndex = 8;
             // 
             // combobox_MaDVUH
@@ -107,6 +112,7 @@
             this.combobox_MaDVUH.Name = "combobox_MaDVUH";
             this.combobox_MaDVUH.Size = new System.Drawing.Size(200, 36);
             this.combobox_MaDVUH.TabIndex = 16;
+            this.combobox_MaDVUH.SelectedIndexChanged += new System.EventHandler(this.combobox_MaDVUH_SelectedIndexChanged);
             // 
             // button_Huy
             // 
@@ -119,7 +125,7 @@
             this.button_Huy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.button_Huy.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button_Huy.ForeColor = System.Drawing.Color.White;
-            this.button_Huy.Location = new System.Drawing.Point(434, 287);
+            this.button_Huy.Location = new System.Drawing.Point(542, 262);
             this.button_Huy.Name = "button_Huy";
             this.button_Huy.Size = new System.Drawing.Size(121, 45);
             this.button_Huy.TabIndex = 15;
@@ -137,7 +143,7 @@
             this.button_ThucHien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.button_ThucHien.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button_ThucHien.ForeColor = System.Drawing.Color.White;
-            this.button_ThucHien.Location = new System.Drawing.Point(222, 287);
+            this.button_ThucHien.Location = new System.Drawing.Point(330, 262);
             this.button_ThucHien.Name = "button_ThucHien";
             this.button_ThucHien.Size = new System.Drawing.Size(121, 45);
             this.button_ThucHien.TabIndex = 14;
@@ -244,6 +250,7 @@
             this.textbox_CCCD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_CCCD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_CCCD.Location = new System.Drawing.Point(160, 191);
+            this.textbox_CCCD.MaxLength = 12;
             this.textbox_CCCD.Name = "textbox_CCCD";
             this.textbox_CCCD.PasswordChar = '\0';
             this.textbox_CCCD.PlaceholderText = "";
@@ -320,11 +327,33 @@
             this.label_HoTen.TabIndex = 2;
             this.label_HoTen.Text = "Họ tên thành viên:";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(727, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 211);
+            this.dataGridView1.TabIndex = 17;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Thuộc tính";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Giá trị";
+            this.Column2.Name = "Column2";
+            // 
             // TV_DVUH_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 464);
+            this.ClientSize = new System.Drawing.Size(993, 464);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -338,6 +367,7 @@
             this.guna2Panel3.PerformLayout();
             this.groupbox_GioiTinh.ResumeLayout(false);
             this.groupbox_GioiTinh.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,5 +392,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel label_CCCD;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_HoTen;
         private Guna.UI2.WinForms.Guna2ComboBox combobox_MaDVUH;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

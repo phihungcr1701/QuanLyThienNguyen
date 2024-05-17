@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThienNguyen.DAL
 {
@@ -12,7 +7,7 @@ namespace QuanLyThienNguyen.DAL
     {
         private static DataProvider instance;
 
-        private string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=PBL3;Integrated Security=True;";
+        private string connectionString = "Data Source=HAOVIPPRO\\HAO;Initial Catalog=PBL3;Integrated Security=True;";
 
         public static DataProvider Instance 
         { 

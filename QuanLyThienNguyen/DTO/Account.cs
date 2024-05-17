@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuanLyThienNguyen.DTO
+﻿namespace QuanLyThienNguyen.DTO
 {
     internal class Account
     {
@@ -12,7 +6,7 @@ namespace QuanLyThienNguyen.DTO
         private string _username;
         private string _password;
 
-        public Account(string user, string pass) 
+        public Account(string user = null, string pass = null) 
         {
             this.Username = user;
             this.Password = pass;
