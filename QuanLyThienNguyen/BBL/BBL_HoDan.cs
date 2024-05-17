@@ -29,16 +29,14 @@ namespace QuanLyThienNguyen.BBL
         
         public HoDan GetHoDan(int ma)
         {
-            HoDan hodan = new HoDan();
             foreach (HoDan item in DAL_HoDan.Instance.GetAllHoDan())
             {
                 if (item.MaHD == ma)
                 {
-                    return hodan;
-                    break;
+                    return item;
                 }
             }
-            return hodan;
+            return null;
         }
         public List<HoDan> getallHD()
         {

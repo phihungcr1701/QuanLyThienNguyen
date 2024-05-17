@@ -200,7 +200,8 @@
             this.combobox_TimKiem.Items.AddRange(new object[] {
             "All",
             "Đang diễn ra",
-            "Đã diễn ra"});
+            "Đã diễn ra",
+            "Sắp diễn ra"});
             this.combobox_TimKiem.Location = new System.Drawing.Point(12, 32);
             this.combobox_TimKiem.Name = "combobox_TimKiem";
             this.combobox_TimKiem.Size = new System.Drawing.Size(140, 36);

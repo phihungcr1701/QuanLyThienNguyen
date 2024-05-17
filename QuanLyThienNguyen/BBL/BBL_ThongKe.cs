@@ -4,24 +4,20 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace QuanLyThienNguyen.BBL
 {
-    internal class BBL_Statistical
+    internal class BBL_ThongKe
     {
-        private static BBL_Statistical instance;
+        private static BBL_ThongKe instance;
 
-        public static BBL_Statistical Instance
+        public static BBL_ThongKe Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new BBL_Statistical();
+                    instance = new BBL_ThongKe();
                 return instance;
             }
             private set
@@ -29,25 +25,25 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        public BBL_Statistical() { }
-        
+        public BBL_ThongKe() { }
+
         public List<int> data = new List<int>();
         public Series Series(string chart, string ten, string loai)
         {
-            List<ThongKe> list = View(ten);
+            List<ThongKeShow> list = GetAllThongKe(ten);
             data.Clear();
             Series series = new Series();
             string chartTypeString = chart;
             series.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), chartTypeString);
 
-            foreach (ThongKe i in list)
+            foreach (ThongKeShow i in list)
             {
-                if (loai == "Tổng số lượng ủng hộ")
+                if (loai == "Tổng số lượng ủng hộ" && i.TongSoLuongUH != 0)
                 {
                     series.Points.AddXY(i.TenDVUH.ToString(), i.TongSoLuongUH);
                     data.Add(Convert.ToInt32(i.TongSoLuongUH.ToString()));
                 }
-                else
+                else if (i.SoDuUH != 0)
                 {
                     series.Points.AddXY(i.TenDVUH.ToString(), i.SoDuUH);
                     data.Add(Convert.ToInt32(i.SoDuUH.ToString()));
@@ -63,48 +59,37 @@ namespace QuanLyThienNguyen.BBL
 
             return series;
         }
-        public List<ThongKe> View(string ten)
+        public List<ThongKeShow> GetAllThongKe(string ten)
         {
-            List<ThongKe> list = new List<ThongKe>();
-            foreach (DataRow row in DAL_Statistical.Instance.View(ten).Rows)
-            {
-                list.Add(new ThongKe
-                {
-                    TenDVUH = row["TenDVUH"].ToString(),
-                    TenHTUH = row["TenHTUH"].ToString(),
-                    TongSoLuongUH = Convert.ToDouble(row["TongSoLuongUH"].ToString()),
-                    SoDuUH = Convert.ToDouble(row["SoDuUH"].ToString()),
-                    DonViTinh = row["DonViTinh"].ToString()
-                });
-            }
-            return list;
+            return DAL_ThongKe.Instance.GetAllThongKe(ten);
         }
-        public void Add_TK(ThongKe tk)
+        public void Add()
         {
-            DataTable datatable = new DataTable();
-            ThongKe thongke = new ThongKe();
+            DataTable datatable = DataProvider.Instance.ExcuteQuery("SELECT * FROM ChiTietUngHo;"); // GetAll Table Chi Tiet Ung Ho
 
-            foreach (string i in BBL_ComboBox.Instance.Combobox_Statistical_MaDVUH())
-                foreach (string j in BBL_ComboBox.Instance.Combobox_Statistical_MaHTUH())
+            foreach (int i in DAL_ThongKe.Instance.GetAllMa("MaDVUH"))
+                foreach (int j in DAL_ThongKe.Instance.GetAllMa("MaHTUH"))
                 {
                     double TongSoluong = 0;
                     double SoDu = 0;
                     foreach (DataRow row in datatable.Rows)
-                        if (row["MaDVUH"].ToString() == i && row["MaHTUH"].ToString() == j)
+                        if (row["MaDVUH"].ToString() == i.ToString() && row["MaHTUH"].ToString() == j.ToString())
                         {
                             TongSoluong += Convert.ToDouble(row["SoLuongUH"].ToString());
                             SoDu += Convert.ToDouble(row["SoLuongUH"].ToString()) - Convert.ToDouble(row["SoLuongNUH"].ToString());
                         }
-                    thongke.MaDVUH = Convert.ToInt32(i);
-                    thongke.MaHTUH = Convert.ToInt32(j);
-                    thongke.TongSoLuongUH = TongSoluong;
-                    thongke.SoDuUH = SoDu;
-                    DAL_Statistical.Instance.Add_TK(tk);
+                    DAL_ThongKe.Instance.Add(new ThongKe
+                    {
+                        MaDVUH = Convert.ToInt32(i),
+                        MaHTUH = Convert.ToInt32(j),
+                        TongSoLuongUH = TongSoluong,
+                        SoDuUH = SoDu
+                    });
                 }
         }
-        public void Delete_DVUH()
+        public void Delete()
         {
-            DAL_Statistical.Instance.Delete_TK();
+            DAL_ThongKe.Instance.Delete();
         }
     }
 }

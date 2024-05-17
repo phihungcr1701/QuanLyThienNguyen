@@ -28,16 +28,14 @@ namespace QuanLyThienNguyen.BBL
         private BBL_DotUngHo() { }
         public DotUngHo GetDotUngHo(int ma)
         {
-            DotUngHo dotUngHo = new DotUngHo();
             foreach (DotUngHo item in DAL_DotUngHo.Instance.GetAllDotUngHo())
             {
                 if (item.MaDUH == ma)
                 {
-                    return dotUngHo;
-                    break;
+                    return item;
                 }
             }
-            return dotUngHo;
+            return null;
         }
     }
 }

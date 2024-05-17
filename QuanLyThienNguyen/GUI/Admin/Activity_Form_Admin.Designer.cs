@@ -107,6 +107,7 @@
             this.button_Xoa.Size = new System.Drawing.Size(103, 45);
             this.button_Xoa.TabIndex = 11;
             this.button_Xoa.Text = "Xóa";
+            this.button_Xoa.Click += new System.EventHandler(this.button_Xoa_Click);
             // 
             // button_CapNhat
             // 
@@ -204,6 +205,7 @@
             this.button_SapXep.Size = new System.Drawing.Size(103, 36);
             this.button_SapXep.TabIndex = 9;
             this.button_SapXep.Text = "Sắp xếp";
+            this.button_SapXep.Click += new System.EventHandler(this.button_SapXep_Click);
             // 
             // button_TimKiem
             // 
@@ -220,6 +222,7 @@
             this.button_TimKiem.Size = new System.Drawing.Size(103, 36);
             this.button_TimKiem.TabIndex = 8;
             this.button_TimKiem.Text = "Tìm kiếm";
+            this.button_TimKiem.Click += new System.EventHandler(this.button_TimKiem_Click);
             // 
             // textbox_TimKiem
             // 
@@ -253,7 +256,8 @@
             this.combobox_TimKiem.Items.AddRange(new object[] {
             "All",
             "Đang diễn ra",
-            "Đã diễn ra"});
+            "Đã diễn ra",
+            "Sắp diễn ra"});
             this.combobox_TimKiem.Location = new System.Drawing.Point(12, 31);
             this.combobox_TimKiem.Name = "combobox_TimKiem";
             this.combobox_TimKiem.Size = new System.Drawing.Size(140, 36);

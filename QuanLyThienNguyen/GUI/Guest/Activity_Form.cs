@@ -26,7 +26,7 @@ namespace QuanLyThienNguyen.GUI
             int index = combobox_TimKiem.SelectedIndex;
             string timkiem = textbox_TimKiem.Text;
             int indexSort = combobox_SapXep.SelectedIndex;
-            dataGridView.DataSource = BBL_Activity.Instance.View(index, timkiem, indexSort);
+            dataGridView.DataSource = BBL_ChiTietUngHo.Instance.Display(index, timkiem, indexSort);
         }
 
         private void combobox_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,6 +36,10 @@ namespace QuanLyThienNguyen.GUI
                 showDGV();
             }
             else if (combobox_TimKiem.SelectedIndex == 1)
+            {
+                showDGV();
+            }
+            else if (combobox_TimKiem.SelectedIndex == 2)
             {
                 showDGV();
             }

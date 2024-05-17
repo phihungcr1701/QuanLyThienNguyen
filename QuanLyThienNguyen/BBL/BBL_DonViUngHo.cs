@@ -28,16 +28,14 @@ namespace QuanLyThienNguyen.BBL
         private BBL_DonViUngHo() { }
         public DonViUngHo GetDonViUngHo(int ma)
         {
-            DonViUngHo donviungho = new DonViUngHo();
             foreach (DonViUngHo item in DAL_DonViUngHo.Instance.GetAllDonViUngHo())
             {
                 if (item.MaDVUH == ma)
                 {
-                    return donviungho;
-                    break;
+                    return item;
                 }
             }
-            return donviungho;
+            return null;
         }
 
     

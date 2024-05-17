@@ -28,16 +28,14 @@ namespace QuanLyThienNguyen.BBL
         private BBL_HinhThucUngHo() { }
         public HinhThucUngHo GetHinhThucUngHo(int ma)
         {
-            HinhThucUngHo hinhthucungho = new HinhThucUngHo();
             foreach (HinhThucUngHo item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
             {
                 if (item.MaHTUH == ma)
                 {
-                    return hinhthucungho;
-                    break;
+                    return item;
                 }
             }
-            return hinhthucungho;
+            return null;
         }
     }
 }

@@ -28,42 +28,42 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         private BBL_ComboBox() { }
-        public List<string> Combobox_Information(string nametable)
+        public List<string> Combobox_DVUH()
         {
-            DataTable data = DAL_Information.Instance.View(nametable);
             List<string> list = new List<string>();
-            foreach (DataRow row in data.Rows) 
+            foreach (DonViUngHo item in DAL_DonViUngHo.Instance.GetAllDonViUngHo()) 
             {
-                list.Add(row[0].ToString());
+                list.Add(item.MaDVUH.ToString());
             }
             return list;
         }
-        public List<string> Combobox_Statistical_TenHTUH()
+        public List<string> Combobox_DUH()
         {
             List<string> list = new List<string>();
-            foreach (DataRow row in DAL_Statistical.Instance.TruyVan_TenHTUH().Rows)
+            foreach (DotUngHo item in DAL_DotUngHo.Instance.GetAllDotUngHo())
             {
-                list.Add(row["TenHTUH"].ToString());
+                list.Add(item.MaDUH.ToString());
             }
             return list;
         }
-        public List<string> Combobox_Statistical_MaDVUH()
+        public List<string> Combobox_HoDan()
         {
             List<string> list = new List<string>();
-            foreach (DataRow row in DAL_Statistical.Instance.TruyVan_Ma("MaDVUH").Rows)
+            foreach (HoDan item in DAL_HoDan.Instance.GetAllHoDan())
             {
-                list.Add(row["MaDVUH"].ToString());
+                list.Add(item.MaHD.ToString());
             }
             return list;
         }
-        public List<string> Combobox_Statistical_MaHTUH()
+        public List<string> Combobox_HTUH()
         {
             List<string> list = new List<string>();
-            foreach (DataRow row in DAL_Statistical.Instance.TruyVan_Ma("MaHTUH").Rows)
+            foreach (HinhThucUngHo item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
             {
-                list.Add(row["MaHTUH"].ToString());
+                list.Add(item.MaHTUH.ToString());
             }
             return list;
         }
+
     }
 }

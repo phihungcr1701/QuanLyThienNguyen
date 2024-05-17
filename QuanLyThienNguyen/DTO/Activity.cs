@@ -10,7 +10,7 @@ namespace QuanLyThienNguyen.DTO
 {
     internal class Activity
     {
-        //public int Id { get; set; }
+        public int MaCTUH {  get; set; }
         public string TenDonVi { get; set; }
         public string HoTenChuHo { get; set; }
         public string TenHTUH { get; set; }
@@ -32,9 +32,10 @@ namespace QuanLyThienNguyen.DTO
             NgayBatDau = ngayBatDau;
             NgayKetThuc = ngayKetThuc;
         }
-        public Activity(int MaDUH, int MaDVUH, int MaHoDan, int MaHTUH, double SLUH, double SLNUH)
+        public Activity(int maCTUH, int MaDUH, int MaDVUH, int MaHoDan, int MaHTUH, double SLUH, double SLNUH)
         {
-            TenDonVi = BBL_DonViUngHo.Instance.GetDonViUngHo(MaDUH).TenDonVi;
+            MaCTUH = maCTUH;
+            TenDonVi = BBL_DonViUngHo.Instance.GetDonViUngHo(MaDVUH).TenDonVi;
             HoTenChuHo = BBL_HoDan.Instance.GetHoDan(MaHoDan).HoTenChuHo;
             TenHTUH = BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(MaHTUH).TenHTUH;
             SoLuongUH = SLUH;
