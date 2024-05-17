@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen
 {

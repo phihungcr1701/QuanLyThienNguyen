@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.DTO;
+using System.Data;
 
 namespace QuanLyThienNguyen.DAL
 {

@@ -76,7 +76,6 @@
     <Compile Include="DAL\DAL_ThanhVienDVUH.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\Account.cs" />
-    <Compile Include="DTO\ChiTietUngHo.cs" />
     <Compile Include="DTO\DonViUngHo.cs" />
     <Compile Include="DTO\DotUngHo.cs" />
     <Compile Include="DTO\HinhThucUngHo.cs" />
@@ -84,7 +83,6 @@
     <Compile Include="DTO\ThongKeShow.cs" />
     <Compile Include="DTO\ThanhVienDVUH.cs" />
     <Compile Include="DTO\ThongKe.cs" />
-    <Compile Include="DTO\Activity.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
