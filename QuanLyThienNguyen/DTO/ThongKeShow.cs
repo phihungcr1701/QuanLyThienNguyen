@@ -32,7 +32,5 @@ namespace QuanLyThienNguyen.DTO
             this.SoDuUH = Convert.ToDouble(row["SoDuUH"].ToString());
             this.DonViTinh = row["DonViTinh"].ToString();
         }
-        
     }
-
 }

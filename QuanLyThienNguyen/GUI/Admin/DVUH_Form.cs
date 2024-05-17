@@ -15,10 +15,13 @@ namespace QuanLyThienNguyen.GUI
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            DonViUngHo dvuh = new DonViUngHo();
-            dvuh.TenDonVi = textbox_TenDonVi.Text;
-            dvuh.DiaChiDonVi = textbox_DiaChiDonVi.Text;
-            dvuh.SDTDonVi = textbox_SDTDonVi.Text;
+            DonViUngHo dvuh = new DonViUngHo(
+                Convert.ToInt32(ma),
+                textbox_TenDonVi.Text,
+                textbox_DiaChiDonVi.Text,
+                textbox_SDTDonVi.Text
+            );
+            
             if (ma == null)
             {
                 if (textbox_TenDonVi.Text == "" || textbox_DiaChiDonVi.Text == "" || textbox_SDTDonVi.Text == "")
@@ -33,7 +36,6 @@ namespace QuanLyThienNguyen.GUI
             }
             else
             {
-                dvuh.MaDVUH = Convert.ToInt32(ma);
                 BBL_DonViUngHo.Instance.Update(dvuh);
                 this.Close();
             }

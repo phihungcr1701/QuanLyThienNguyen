@@ -15,14 +15,24 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            HinhThucUngHo htuh = new HinhThucUngHo();
-            htuh.TenHTUH = textbox_TenHTUH.Text;
-            htuh.DonViTinh = textbox_DonViTinh.Text;
+            HinhThucUngHo htuh = new HinhThucUngHo(
+                Convert.ToInt32(ma),
+                textbox_TenHTUH.Text,
+                textbox_DonViTinh.Text
+            );
+            
             if (ma == null)
-                BBL_HinhThucUngHo.Instance.Add(htuh);
+                if (textbox_TenHTUH.Text == "" || textbox_DonViTinh.Text == "")
+                {
+                    MessageBox.Show("Điền đầy đủ thông tin !!!");
+                }
+                else
+                {
+                    BBL_HinhThucUngHo.Instance.Add(htuh);
+                    this.Close();
+                }
             else
             {
-                htuh.MaHTUH = Convert.ToInt32(ma);
                 BBL_HinhThucUngHo.Instance.Update(htuh);
             }
                 

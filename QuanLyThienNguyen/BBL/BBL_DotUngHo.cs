@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -32,10 +27,9 @@ namespace QuanLyThienNguyen.BBL
         public BBL_DotUngHo() { }
         public List<DotUngHo> GetAllDotUngHo(string text, string namecolumn)
         {
-            List<DotUngHo> list = Sort(DAL_DotUngHo.Instance.GetAllDotUngHo(), namecolumn);
             List<DotUngHo> view = new List<DotUngHo>();
 
-            foreach (DotUngHo item in list)
+            foreach (DotUngHo item in Sort(DAL_DotUngHo.Instance.GetAllDotUngHo(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -68,10 +62,9 @@ namespace QuanLyThienNguyen.BBL
         }
         public DotUngHo GetDotUngHo(string ma)
         {
-            List<DotUngHo> list = DAL_DotUngHo.Instance.GetAllDotUngHo();
             DotUngHo duh = new DotUngHo();
 
-            foreach (DotUngHo item in list)
+            foreach (DotUngHo item in DAL_DotUngHo.Instance.GetAllDotUngHo())
             {
                 if (item.MaDUH.ToString().Equals(ma))
                 {
@@ -96,7 +89,6 @@ namespace QuanLyThienNguyen.BBL
             {
                 DAL_DotUngHo.Instance.Delete(ma);
             }
-            return dotUngHo;
         }
     }
 }

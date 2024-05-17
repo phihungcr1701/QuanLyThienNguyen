@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -32,10 +27,9 @@ namespace QuanLyThienNguyen.BBL
         public BBL_HoDan() { }
         public List<HoDan> GetAllHoDan(string text, string namecolumn)
         {
-            List<HoDan> list = Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn);
             List<HoDan> view = new List<HoDan>();
         
-            foreach (HoDan item in list)
+            foreach (HoDan item in Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -80,10 +74,9 @@ namespace QuanLyThienNguyen.BBL
         }
         public HoDan GetHoDan(string ma)
         {
-            List<HoDan> list = DAL_HoDan.Instance.GetAllHoDan();
             HoDan hd = new HoDan();
 
-            foreach (HoDan item in list)
+            foreach (HoDan item in DAL_HoDan.Instance.GetAllHoDan())
             {
                 if (item.MaHD.ToString().Equals(ma))
                 {

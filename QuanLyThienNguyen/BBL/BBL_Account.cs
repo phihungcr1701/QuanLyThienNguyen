@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using QuanLyThienNguyen.DAL;
+﻿using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen.BBL
@@ -28,14 +23,7 @@ namespace QuanLyThienNguyen.BBL
         private BBL_Account() { }
         public bool PhanQuyen(string user, string pass)
         {
-            Account account = new Account(user, pass);
-            string query = "Select count(*) from Account where Username = '" + account.Username + "' and Password = '" + account.Password + "'";
-            int count = (int)DataProvider.Instance.ExcuteScalar(query);
-            if (count > 0)
-            {
-                return true;
-            }
-            return false;
+            return DAL_Account.Instance.PhanQuyen(user, pass);
         }
     }
 }

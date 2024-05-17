@@ -15,9 +15,12 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            DotUngHo duh = new DotUngHo();
-            duh.NgayBatDau = datatimepicker_NgayBatDau.Value;
-            duh.NgayKetThuc = datatimepicker_NgayKetThuc.Value;
+            DotUngHo duh = new DotUngHo(
+                Convert.ToInt32(ma),
+                datatimepicker_NgayBatDau.Value,
+                datatimepicker_NgayKetThuc.Value
+            );
+            
             if (duh.NgayBatDau > duh.NgayKetThuc)
             {
                 MessageBox.Show("Không hợp lệ !!!");
@@ -27,10 +30,7 @@ namespace QuanLyThienNguyen.GUI.Admin
                 if (ma == null)
                     BBL_DotUngHo.Instance.Add(duh);
                 else
-                {
-                    duh.MaDUH = Convert.ToInt32(ma);
                     BBL_DotUngHo.Instance.Update(duh);
-                }
                 this.Close();
             }
         }

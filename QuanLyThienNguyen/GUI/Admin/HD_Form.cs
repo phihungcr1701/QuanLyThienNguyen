@@ -15,13 +15,16 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            HoDan hd = new HoDan();
-            hd.HoTenChuHo = textbox_HoTen.Text;
-            hd.GioiTinh = radiobutton_Nam.Checked;
-            hd.CCCD = textbox_CCCD.Text;
-            hd.DiaChi = textbox_DiaChi.Text;
-            hd.SDT = textbox_SDT.Text;
-            hd.DienGiaDinh = ratiobutton_Ngheo.Checked ? "Ngheo" : "Can Ngheo";
+            HoDan hd = new HoDan(
+                Convert.ToInt32(ma),
+                textbox_HoTen.Text,
+                radiobutton_Nam.Checked,
+                textbox_CCCD.Text,
+                textbox_DiaChi.Text,
+                textbox_SDT.Text,
+                ratiobutton_Ngheo.Checked ? "Ngheo" : "Can Ngheo"
+            );
+            
             if (ma == null)
             {
                 if (textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
@@ -36,7 +39,6 @@ namespace QuanLyThienNguyen.GUI.Admin
             }
             else
             {
-                hd.MaHD = Convert.ToInt32(ma);
                 BBL_HoDan.Instance.Update(hd);
                 this.Close();
             }

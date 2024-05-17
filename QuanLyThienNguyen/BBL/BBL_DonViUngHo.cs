@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -31,10 +26,9 @@ namespace QuanLyThienNguyen.BBL
         public BBL_DonViUngHo() { }
         public List<DonViUngHo> GetAllDonViUngHo(string text, string namecolumn)
         {
-            List<DonViUngHo> list = Sort(DAL_DonViUngHo.Instance.GetAllDonViUngHo(), namecolumn);
             List<DonViUngHo> view = new List<DonViUngHo>();
 
-            foreach (DonViUngHo item in list)
+            foreach (DonViUngHo item in Sort(DAL_DonViUngHo.Instance.GetAllDonViUngHo(), namecolumn))
             {
                 foreach (PropertyInfo property in item.GetType().GetProperties())
                 {
@@ -42,10 +36,9 @@ namespace QuanLyThienNguyen.BBL
                     {
                         view.Add(item);
                     break;
+                    }
                 }
             }
-            return donviungho;
-        }
 
             return view;
         }
@@ -71,10 +64,9 @@ namespace QuanLyThienNguyen.BBL
         }
         public DonViUngHo GetDonViUngHo(string ma)
         {
-            List<DonViUngHo> list = DAL_DonViUngHo.Instance.GetAllDonViUngHo();
             DonViUngHo dvuh = new DonViUngHo();
     
-            foreach (DonViUngHo item in list)
+            foreach (DonViUngHo item in DAL_DonViUngHo.Instance.GetAllDonViUngHo())
             {
                 if (item.MaDVUH.ToString().Equals(ma))
                 {

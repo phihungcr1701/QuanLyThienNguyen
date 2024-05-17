@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -32,10 +27,9 @@ namespace QuanLyThienNguyen.BBL
         public BBL_HinhThucUngHo() { }
         public List<HinhThucUngHo> GetAllHinhThucUngHo(string text, string namecolumn)
         {
-            List<HinhThucUngHo> list = Sort(DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo(), namecolumn);
             List<HinhThucUngHo> view = new List<HinhThucUngHo>();
 
-            foreach (HinhThucUngHo item in list)
+            foreach (HinhThucUngHo item in Sort(DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -68,10 +62,9 @@ namespace QuanLyThienNguyen.BBL
         }
         public HinhThucUngHo GetHinhThucUngHo(string ma)
         {
-            List<HinhThucUngHo> list = DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo();
             HinhThucUngHo htuh = new HinhThucUngHo();
 
-            foreach (HinhThucUngHo item in list)
+            foreach (HinhThucUngHo item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
             {
                 if (item.MaHTUH.ToString().Equals(ma))
                 {
@@ -95,7 +88,6 @@ namespace QuanLyThienNguyen.BBL
             {
                 DAL_HinhThucUngHo.Instance.Delete(ma);
             }
-            return hinhthucungho;
         }
     }
 }

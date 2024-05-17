@@ -1,10 +1,6 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen.DAL
 {

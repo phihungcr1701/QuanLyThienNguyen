@@ -19,6 +19,5 @@
             this.TongSoLuongUH = tongsoluong;
             this.SoDuUH = sodu;
         }
-        
     }
 }

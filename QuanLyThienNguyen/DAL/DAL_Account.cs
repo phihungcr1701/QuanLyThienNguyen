@@ -1,4 +1,6 @@
-﻿namespace QuanLyThienNguyen.DAL
+﻿using QuanLyThienNguyen.DTO;
+
+namespace QuanLyThienNguyen.DAL
 {
     internal class DAL_Account
     {
@@ -18,6 +20,16 @@
             }
         }
         private DAL_Account() { }
-        //public int PhanQuyen()
+        public bool PhanQuyen(string user, string pass)
+        {
+            Account account = new Account(user, pass);
+            string query = "Select count(*) from Account where Username = '" + account.Username + "' and Password = '" + account.Password + "'";
+            int count = (int)DataProvider.Instance.ExcuteScalar(query);
+            if (count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

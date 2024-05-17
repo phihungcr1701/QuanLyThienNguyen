@@ -40,14 +40,5 @@ namespace QuanLyThienNguyen.DTO
                 return "DonViTinh";
             return namecolumn;
         }
-
-        public static HinhThucUngHo TransferDataGridViewRowToObject(DataGridViewRow row)
-        {
-            HinhThucUngHo htuh = new HinhThucUngHo();
-            htuh.MaHTUH = Int32.Parse(row.Cells["Mã Hình Thức Ủng Hộ"].Value.ToString());
-            htuh.TenHTUH = row.Cells["Tên Hình Thức Ủng Hộ"].Value.ToString();
-            htuh.DonViTinh = row.Cells["Đơn Vị Tính"].Value.ToString();
-            return htuh;
-        }
     }
 }

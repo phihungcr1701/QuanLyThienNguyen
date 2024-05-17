@@ -2,10 +2,7 @@
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThienNguyen.BBL
@@ -29,10 +26,9 @@ namespace QuanLyThienNguyen.BBL
         public BBL_ThanhVienDVUH() { }
         public List<ThanhVienDVUH> GetAllThanhVienDVUH(string text, string namecolumn)
         {
-            List<ThanhVienDVUH> list = Sort(DAL_ThanhVienDVUH.Instance.GetAllThanhVienDVUH(), namecolumn);
             List<ThanhVienDVUH> view = new List<ThanhVienDVUH>();
 
-            foreach (ThanhVienDVUH item in list)
+            foreach (ThanhVienDVUH item in Sort(DAL_ThanhVienDVUH.Instance.GetAllThanhVienDVUH(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())

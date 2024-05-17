@@ -149,7 +149,6 @@
             this.button_SapXep.Size = new System.Drawing.Size(103, 36);
             this.button_SapXep.TabIndex = 14;
             this.button_SapXep.Text = "Sắp xếp";
-            this.button_SapXep.Click += new System.EventHandler(this.button_SapXep_Click);
             // 
             // btn_TimKiem
             // 
@@ -166,7 +165,6 @@
             this.btn_TimKiem.Size = new System.Drawing.Size(103, 36);
             this.btn_TimKiem.TabIndex = 13;
             this.btn_TimKiem.Text = "Tìm kiếm";
-            this.btn_TimKiem.Click += new System.EventHandler(this.btn_TimKiem_Click);
             // 
             // textbox_TimKiem
             // 
@@ -206,7 +204,6 @@
             this.combobox_TimKiem.Size = new System.Drawing.Size(140, 36);
             this.combobox_TimKiem.StartIndex = 0;
             this.combobox_TimKiem.TabIndex = 11;
-            this.combobox_TimKiem.SelectedIndexChanged += new System.EventHandler(this.combobox_TimKiem_SelectedIndexChanged);
             // 
             // Activity_Form
             // 

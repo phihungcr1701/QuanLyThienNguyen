@@ -30,13 +30,12 @@ namespace QuanLyThienNguyen.BBL
         public List<int> data = new List<int>();
         public Series Series(string chart, string ten, string loai)
         {
-            List<ThongKeShow> list = GetAllThongKe(ten);
             data.Clear();
             Series series = new Series();
             string chartTypeString = chart;
             series.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), chartTypeString);
 
-            foreach (ThongKeShow i in list)
+            foreach (ThongKeShow i in GetAllThongKe(ten))
             {
                 if (loai == "Tổng số lượng ủng hộ" && i.TongSoLuongUH != 0)
                 {

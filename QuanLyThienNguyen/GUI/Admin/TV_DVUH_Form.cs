@@ -16,13 +16,15 @@ namespace QuanLyThienNguyen.GUI.Admin
         private ThanhVienDVUH tvdvuh { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            ThanhVienDVUH tvdvuhchange = new ThanhVienDVUH();
-            tvdvuhchange.MaDVUH = Int32.Parse(combobox_MaDVUH.SelectedItem.ToString());
-            tvdvuhchange.HoTen = textbox_HoTen.Text;
-            tvdvuhchange.GioiTinh = radiobutton_Nam.Checked;
-            tvdvuhchange.CCCD = textbox_CCCD.Text;
-            tvdvuhchange.DiaChi = textbox_DiaChi.Text;
-            tvdvuhchange.SDT = textbox_SDT.Text;
+            ThanhVienDVUH tvdvuhchange = new ThanhVienDVUH(
+                Int32.Parse(combobox_MaDVUH.SelectedItem.ToString()),
+                textbox_HoTen.Text,
+                radiobutton_Nam.Checked,
+                textbox_CCCD.Text,
+                textbox_DiaChi.Text,
+                textbox_SDT.Text
+            );
+            
             if (tvdvuh == null)
             {
                 if (combobox_MaDVUH.SelectedItem == null || textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
