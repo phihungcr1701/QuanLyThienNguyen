@@ -57,7 +57,10 @@ namespace QuanLyThienNguyen.GUI
             }
         }
 
-        
+        private void button_ThongKe_Click(object sender, EventArgs e)
+        {
+            openChildForm(new TK_Form());
+        }
 
         private void button_Login_Click(object sender, EventArgs e)
         {
@@ -85,6 +88,6 @@ namespace QuanLyThienNguyen.GUI
         private void Main_Form_Load(object sender, EventArgs e)
         {
             labelNgayThang.Text = "Đà Nẵng, Ngày " + DateTime.Now.ToString("dd, MM/yyyy");
-        }   
+        }
     }
 }

@@ -49,12 +49,12 @@ namespace QuanLyThienNguyen.GUI
             }
         }
 
-        private void btn_TimKiem_Click(object sender, EventArgs e)
+        private void combobox_SapXep_SelectedIndexChanged(object sender, EventArgs e)
         {
             showDGV();
         }
 
-        private void button_SapXep_Click(object sender, EventArgs e)
+        private void textbox_TimKiem_TextChanged(object sender, EventArgs e)
         {
             showDGV();
         }

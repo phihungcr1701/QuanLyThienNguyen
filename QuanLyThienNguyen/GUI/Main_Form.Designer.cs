@@ -106,6 +106,7 @@
             this.button_ThongKe.Size = new System.Drawing.Size(170, 42);
             this.button_ThongKe.TabIndex = 4;
             this.button_ThongKe.Text = "Thống kê";
+            this.button_ThongKe.Click += new System.EventHandler(this.button_ThongKe_Click);
             // 
             // button_ThongTin
             // 

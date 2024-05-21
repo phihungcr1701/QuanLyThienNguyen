@@ -165,6 +165,12 @@
     <Compile Include="GUI\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TK_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TK_Form.Designer.cs">
+      <DependentUpon>TK_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Admin\Information_Form_Admin.resx">

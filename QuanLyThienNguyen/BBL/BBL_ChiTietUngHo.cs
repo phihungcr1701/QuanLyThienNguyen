@@ -28,7 +28,7 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         private BBL_ChiTietUngHo() { }
-        
+
         public List<Activity> GetAllActivity()
         {
             List<Activity> result = new List<Activity>();
@@ -46,7 +46,7 @@ namespace QuanLyThienNguyen.BBL
 
             foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
             {
-                Activity activity =  new Activity(item.MaCTUH, item.MaDUH, 
+                Activity activity = new Activity(item.MaCTUH, item.MaDUH,
                     item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH, item.SoLuongNUH);
                 if (activity.NgayKetThuc >= DateTime.Now && activity.NgayBatDau < DateTime.Now)
                 {
@@ -132,7 +132,7 @@ namespace QuanLyThienNguyen.BBL
                     || activity.NgayBatDau.ToString().Contains(timkiem))
                 {
                     result.Add(activity);
-                    
+
                 }
             }
             return result;
@@ -201,15 +201,15 @@ namespace QuanLyThienNguyen.BBL
                     else
                         MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
                 }
-            } 
-             
+            }
+
         }
         public bool CheckChiTietUngHo(ChiTietUngHo item)
         {
             bool check = false;
             foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
             {
-                if (item.MaDVUH == i.MaDVUH && item.MaDUH == i.MaDUH && item.MaHD == i.MaHD 
+                if (item.MaDVUH == i.MaDVUH && item.MaDUH == i.MaDUH && item.MaHD == i.MaHD
                     && item.MaHTUH == i.MaHTUH)
                 {
                     check = true;

@@ -39,14 +39,14 @@ namespace QuanLyThienNguyen.DAL
         }
         public void UpdateActivity(ChiTietUngHo item)
         {
-            string query = "EXEC CapNhatActivity " + item.MaCTUH + ", " + item.MaDVUH + ", " + item.MaDUH 
+            string query = "EXEC CapNhatActivity " + item.MaCTUH + ", " + item.MaDVUH + ", " + item.MaDUH
                 + ", " + item.MaHD
                 + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
             DataProvider.Instance.ExcuteNonQuery(query);
         }
         public void AddActivity(ChiTietUngHo item)
         {
-            
+
             string query = "EXEC ThemChiTietUngHo " + item.MaDVUH + ", " + item.MaDUH + ", " + item.MaHD
                 + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
             DataProvider.Instance.ExcuteNonQuery(query);

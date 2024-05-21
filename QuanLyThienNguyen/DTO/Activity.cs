@@ -10,7 +10,7 @@ namespace QuanLyThienNguyen.DTO
 {
     internal class Activity
     {
-        public int MaCTUH {  get; set; }
+        public int MaCTUH { get; set; }
         public string TenDonVi { get; set; }
         public string HoTenChuHo { get; set; }
         public string TenHTUH { get; set; }
@@ -20,7 +20,7 @@ namespace QuanLyThienNguyen.DTO
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
         public Activity() { }
-        public Activity(string tenDonVi, string hoTenChuHo, string tenHTUH, double soLuongUH, 
+        public Activity(string tenDonVi, string hoTenChuHo, string tenHTUH, double soLuongUH,
             double soLuongNUH, string donViTinh, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
             TenDonVi = tenDonVi;

@@ -28,42 +28,26 @@ namespace QuanLyThienNguyen.GUI
         private void combobox_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
         {
             combobox_SapXep.Items.Clear();
-            textbox_TimKiem.Text = string.Empty;
             if (combobox_TimKiem.SelectedItem.ToString() == "Đơn vị ủng hộ")
-            {
                 combobox_SapXep.Items.AddRange(DonViUngHo.items.ToArray());
-                combobox_SapXep.SelectedIndex = 0;
-            }
             else if (combobox_TimKiem.SelectedItem.ToString() == "Thành viên đơn vị ủng hộ")
-            {
                 combobox_SapXep.Items.AddRange(ThanhVienDVUH.items.ToArray());
-                combobox_SapXep.SelectedIndex = 0;
-            }
             else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
-            {
                 combobox_SapXep.Items.AddRange(HoDan.items.ToArray());
-                combobox_SapXep.SelectedIndex = 0;
-            }
             else if (combobox_TimKiem.SelectedItem.ToString() == "Đợt ủng hộ")
-            {
                 combobox_SapXep.Items.AddRange(DotUngHo.items.ToArray());
-                combobox_SapXep.SelectedIndex = 0;
-            }
             else
-            {
                 combobox_SapXep.Items.AddRange(HinhThucUngHo.items.ToArray());
-                combobox_SapXep.SelectedIndex = 0;
-            }
-            GetAll();
-        }
-
-        private void button_TimKiem_Click(object sender, EventArgs e)
-        {
             combobox_SapXep.SelectedIndex = 0;
+            textbox_TimKiem.Text = string.Empty;
+        }
+
+        private void combobox_SapXep_SelectedIndexChanged(object sender, EventArgs e)
+        {
             GetAll();
         }
 
-        private void button_SapXep_Click(object sender, EventArgs e)
+        private void textbox_TimKiem_TextChanged(object sender, EventArgs e)
         {
             GetAll();
         }
