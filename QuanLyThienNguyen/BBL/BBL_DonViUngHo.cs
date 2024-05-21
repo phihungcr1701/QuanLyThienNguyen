@@ -32,7 +32,7 @@ namespace QuanLyThienNguyen.BBL
             {
                 foreach (PropertyInfo property in item.GetType().GetProperties())
                 {
-                    if (property.GetValue(item).ToString().ToLower().Contains(text.ToLower()))
+                    if (property.GetValue(item).ToString().ToLower().Contains(text.ToLower()) )
                     {
                         view.Add(item);
                     break;

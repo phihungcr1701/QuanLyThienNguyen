@@ -31,7 +31,6 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_GioiThieu = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.button_Xoa = new Guna.UI2.WinForms.Guna2Button();
             this.button_CapNhat = new Guna.UI2.WinForms.Guna2Button();
             this.button_Them = new Guna.UI2.WinForms.Guna2Button();
@@ -39,13 +38,10 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.combobox_SapXep = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.button_SapXep = new Guna.UI2.WinForms.Guna2Button();
-            this.button_TimKiem = new Guna.UI2.WinForms.Guna2Button();
             this.textbox_TimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.combobox_TimKiem = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.guna2Panel3.SuspendLayout();
@@ -73,7 +69,6 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Controls.Add(this.panel2);
             this.guna2Panel2.Controls.Add(this.panel1);
             this.guna2Panel2.Controls.Add(this.guna2Panel3);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -82,27 +77,17 @@
             this.guna2Panel2.Size = new System.Drawing.Size(993, 542);
             this.guna2Panel2.TabIndex = 1;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button_Xoa);
-            this.panel2.Controls.Add(this.button_CapNhat);
-            this.panel2.Controls.Add(this.button_Them);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 442);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(993, 100);
-            this.panel2.TabIndex = 2;
-            // 
             // button_Xoa
             // 
-            this.button_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Xoa.AutoRoundedCorners = true;
+            this.button_Xoa.BorderRadius = 21;
             this.button_Xoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.button_Xoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.button_Xoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.button_Xoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.button_Xoa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button_Xoa.ForeColor = System.Drawing.Color.White;
-            this.button_Xoa.Location = new System.Drawing.Point(878, 28);
+            this.button_Xoa.Location = new System.Drawing.Point(256, 28);
             this.button_Xoa.Name = "button_Xoa";
             this.button_Xoa.Size = new System.Drawing.Size(103, 45);
             this.button_Xoa.TabIndex = 11;
@@ -110,14 +95,15 @@
             // 
             // button_CapNhat
             // 
-            this.button_CapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_CapNhat.AutoRoundedCorners = true;
+            this.button_CapNhat.BorderRadius = 21;
             this.button_CapNhat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.button_CapNhat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.button_CapNhat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.button_CapNhat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.button_CapNhat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button_CapNhat.ForeColor = System.Drawing.Color.White;
-            this.button_CapNhat.Location = new System.Drawing.Point(742, 28);
+            this.button_CapNhat.Location = new System.Drawing.Point(135, 28);
             this.button_CapNhat.Name = "button_CapNhat";
             this.button_CapNhat.Size = new System.Drawing.Size(103, 45);
             this.button_CapNhat.TabIndex = 10;
@@ -125,14 +111,15 @@
             // 
             // button_Them
             // 
-            this.button_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Them.AutoRoundedCorners = true;
+            this.button_Them.BorderRadius = 21;
             this.button_Them.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.button_Them.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.button_Them.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.button_Them.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.button_Them.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button_Them.ForeColor = System.Drawing.Color.White;
-            this.button_Them.Location = new System.Drawing.Point(603, 28);
+            this.button_Them.Location = new System.Drawing.Point(12, 28);
             this.button_Them.Name = "button_Them";
             this.button_Them.Size = new System.Drawing.Size(103, 45);
             this.button_Them.TabIndex = 9;
@@ -159,10 +146,11 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.button_Xoa);
             this.guna2Panel3.Controls.Add(this.combobox_SapXep);
-            this.guna2Panel3.Controls.Add(this.button_SapXep);
-            this.guna2Panel3.Controls.Add(this.button_TimKiem);
+            this.guna2Panel3.Controls.Add(this.button_CapNhat);
             this.guna2Panel3.Controls.Add(this.textbox_TimKiem);
+            this.guna2Panel3.Controls.Add(this.button_Them);
             this.guna2Panel3.Controls.Add(this.combobox_TimKiem);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 0);
@@ -181,46 +169,14 @@
             this.combobox_SapXep.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.combobox_SapXep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.combobox_SapXep.ItemHeight = 30;
-            this.combobox_SapXep.Location = new System.Drawing.Point(732, 31);
+            this.combobox_SapXep.Location = new System.Drawing.Point(841, 31);
             this.combobox_SapXep.Name = "combobox_SapXep";
             this.combobox_SapXep.Size = new System.Drawing.Size(140, 36);
             this.combobox_SapXep.TabIndex = 10;
             // 
-            // button_SapXep
-            // 
-            this.button_SapXep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_SapXep.AutoRoundedCorners = true;
-            this.button_SapXep.BorderRadius = 17;
-            this.button_SapXep.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_SapXep.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button_SapXep.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button_SapXep.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button_SapXep.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button_SapXep.ForeColor = System.Drawing.Color.White;
-            this.button_SapXep.Location = new System.Drawing.Point(878, 31);
-            this.button_SapXep.Name = "button_SapXep";
-            this.button_SapXep.Size = new System.Drawing.Size(103, 36);
-            this.button_SapXep.TabIndex = 9;
-            this.button_SapXep.Text = "Sắp xếp";
-            // 
-            // button_TimKiem
-            // 
-            this.button_TimKiem.AutoRoundedCorners = true;
-            this.button_TimKiem.BorderRadius = 17;
-            this.button_TimKiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_TimKiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button_TimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button_TimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button_TimKiem.ForeColor = System.Drawing.Color.White;
-            this.button_TimKiem.Location = new System.Drawing.Point(364, 31);
-            this.button_TimKiem.Name = "button_TimKiem";
-            this.button_TimKiem.Size = new System.Drawing.Size(103, 36);
-            this.button_TimKiem.TabIndex = 8;
-            this.button_TimKiem.Text = "Tìm kiếm";
-            // 
             // textbox_TimKiem
             // 
+            this.textbox_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textbox_TimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_TimKiem.DefaultText = "";
             this.textbox_TimKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -230,7 +186,7 @@
             this.textbox_TimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_TimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textbox_TimKiem.Location = new System.Drawing.Point(158, 31);
+            this.textbox_TimKiem.Location = new System.Drawing.Point(489, 31);
             this.textbox_TimKiem.Name = "textbox_TimKiem";
             this.textbox_TimKiem.PasswordChar = '\0';
             this.textbox_TimKiem.PlaceholderText = "";
@@ -240,6 +196,7 @@
             // 
             // combobox_TimKiem
             // 
+            this.combobox_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.combobox_TimKiem.BackColor = System.Drawing.Color.Transparent;
             this.combobox_TimKiem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combobox_TimKiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -252,7 +209,7 @@
             "All",
             "Đang diễn ra",
             "Đã diễn ra"});
-            this.combobox_TimKiem.Location = new System.Drawing.Point(12, 31);
+            this.combobox_TimKiem.Location = new System.Drawing.Point(695, 31);
             this.combobox_TimKiem.Name = "combobox_TimKiem";
             this.combobox_TimKiem.Size = new System.Drawing.Size(140, 36);
             this.combobox_TimKiem.StartIndex = 0;
@@ -272,7 +229,6 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
@@ -286,11 +242,8 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label_GioiThieu;
         private Guna.UI2.WinForms.Guna2ComboBox combobox_SapXep;
-        private Guna.UI2.WinForms.Guna2Button button_SapXep;
-        private Guna.UI2.WinForms.Guna2Button button_TimKiem;
         private Guna.UI2.WinForms.Guna2TextBox textbox_TimKiem;
         private Guna.UI2.WinForms.Guna2ComboBox combobox_TimKiem;
         private Guna.UI2.WinForms.Guna2Button button_Xoa;

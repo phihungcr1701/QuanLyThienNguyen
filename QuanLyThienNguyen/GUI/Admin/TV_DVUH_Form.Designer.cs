@@ -31,7 +31,6 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_GioiThieu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.combobox_MaDVUH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.button_Huy = new Guna.UI2.WinForms.Guna2Button();
             this.button_ThucHien = new Guna.UI2.WinForms.Guna2Button();
             this.textbox_SDT = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,9 +45,10 @@
             this.label_SDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_CCCD = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_HoTen = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.combobox_MaDVUH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.groupbox_GioiTinh.SuspendLayout();
@@ -97,22 +97,6 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(993, 364);
             this.guna2Panel3.TabIndex = 8;
-            // 
-            // combobox_MaDVUH
-            // 
-            this.combobox_MaDVUH.BackColor = System.Drawing.Color.Transparent;
-            this.combobox_MaDVUH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combobox_MaDVUH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combobox_MaDVUH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox_MaDVUH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox_MaDVUH.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.combobox_MaDVUH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.combobox_MaDVUH.ItemHeight = 30;
-            this.combobox_MaDVUH.Location = new System.Drawing.Point(160, 35);
-            this.combobox_MaDVUH.Name = "combobox_MaDVUH";
-            this.combobox_MaDVUH.Size = new System.Drawing.Size(200, 36);
-            this.combobox_MaDVUH.TabIndex = 16;
-            this.combobox_MaDVUH.SelectedIndexChanged += new System.EventHandler(this.combobox_MaDVUH_SelectedIndexChanged);
             // 
             // button_Huy
             // 
@@ -327,6 +311,16 @@
             this.label_HoTen.TabIndex = 2;
             this.label_HoTen.Text = "Họ tên thành viên:";
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Giá trị";
+            this.Column2.Name = "Column2";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Thuộc tính";
+            this.Column1.Name = "Column1";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -339,15 +333,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(240, 211);
             this.dataGridView1.TabIndex = 17;
             // 
-            // Column1
+            // combobox_MaDVUH
             // 
-            this.Column1.HeaderText = "Thuộc tính";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Giá trị";
-            this.Column2.Name = "Column2";
+            this.combobox_MaDVUH.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_MaDVUH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combobox_MaDVUH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combobox_MaDVUH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox_MaDVUH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox_MaDVUH.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.combobox_MaDVUH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.combobox_MaDVUH.ItemHeight = 30;
+            this.combobox_MaDVUH.Location = new System.Drawing.Point(160, 35);
+            this.combobox_MaDVUH.Name = "combobox_MaDVUH";
+            this.combobox_MaDVUH.Size = new System.Drawing.Size(200, 36);
+            this.combobox_MaDVUH.TabIndex = 16;
+            this.combobox_MaDVUH.SelectedIndexChanged += new System.EventHandler(this.combobox_MaDVUH_SelectedIndexChanged);
             // 
             // TV_DVUH_Form
             // 
@@ -391,9 +391,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel label_SDT;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_CCCD;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_HoTen;
-        private Guna.UI2.WinForms.Guna2ComboBox combobox_MaDVUH;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private Guna.UI2.WinForms.Guna2ComboBox combobox_MaDVUH;
     }
 }

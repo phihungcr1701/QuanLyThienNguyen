@@ -35,8 +35,6 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.combobox_SapXep = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.button_SapXep = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_TimKiem = new Guna.UI2.WinForms.Guna2Button();
             this.textbox_TimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.combobox_TimKiem = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
@@ -98,8 +96,6 @@
             // guna2Panel3
             // 
             this.guna2Panel3.Controls.Add(this.combobox_SapXep);
-            this.guna2Panel3.Controls.Add(this.button_SapXep);
-            this.guna2Panel3.Controls.Add(this.btn_TimKiem);
             this.guna2Panel3.Controls.Add(this.textbox_TimKiem);
             this.guna2Panel3.Controls.Add(this.combobox_TimKiem);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -128,43 +124,10 @@
             "Đơn vị tính",
             "Ngày bắt đầu",
             "Ngày kết thúc"});
-            this.combobox_SapXep.Location = new System.Drawing.Point(732, 32);
+            this.combobox_SapXep.Location = new System.Drawing.Point(841, 32);
             this.combobox_SapXep.Name = "combobox_SapXep";
             this.combobox_SapXep.Size = new System.Drawing.Size(140, 36);
             this.combobox_SapXep.TabIndex = 15;
-            // 
-            // button_SapXep
-            // 
-            this.button_SapXep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_SapXep.AutoRoundedCorners = true;
-            this.button_SapXep.BorderRadius = 17;
-            this.button_SapXep.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_SapXep.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button_SapXep.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button_SapXep.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button_SapXep.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button_SapXep.ForeColor = System.Drawing.Color.White;
-            this.button_SapXep.Location = new System.Drawing.Point(878, 32);
-            this.button_SapXep.Name = "button_SapXep";
-            this.button_SapXep.Size = new System.Drawing.Size(103, 36);
-            this.button_SapXep.TabIndex = 14;
-            this.button_SapXep.Text = "Sắp xếp";
-            // 
-            // btn_TimKiem
-            // 
-            this.btn_TimKiem.AutoRoundedCorners = true;
-            this.btn_TimKiem.BorderRadius = 17;
-            this.btn_TimKiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_TimKiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_TimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_TimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_TimKiem.ForeColor = System.Drawing.Color.White;
-            this.btn_TimKiem.Location = new System.Drawing.Point(364, 32);
-            this.btn_TimKiem.Name = "btn_TimKiem";
-            this.btn_TimKiem.Size = new System.Drawing.Size(103, 36);
-            this.btn_TimKiem.TabIndex = 13;
-            this.btn_TimKiem.Text = "Tìm kiếm";
             // 
             // textbox_TimKiem
             // 
@@ -177,7 +140,7 @@
             this.textbox_TimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_TimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textbox_TimKiem.Location = new System.Drawing.Point(158, 32);
+            this.textbox_TimKiem.Location = new System.Drawing.Point(489, 32);
             this.textbox_TimKiem.Name = "textbox_TimKiem";
             this.textbox_TimKiem.PasswordChar = '\0';
             this.textbox_TimKiem.PlaceholderText = "";
@@ -199,7 +162,7 @@
             "All",
             "Đang diễn ra",
             "Đã diễn ra"});
-            this.combobox_TimKiem.Location = new System.Drawing.Point(12, 32);
+            this.combobox_TimKiem.Location = new System.Drawing.Point(695, 32);
             this.combobox_TimKiem.Name = "combobox_TimKiem";
             this.combobox_TimKiem.Size = new System.Drawing.Size(140, 36);
             this.combobox_TimKiem.StartIndex = 0;
@@ -235,8 +198,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.Label label_GioiThieu; 
         private Guna.UI2.WinForms.Guna2ComboBox combobox_SapXep;
-        private Guna.UI2.WinForms.Guna2Button button_SapXep;
-        private Guna.UI2.WinForms.Guna2Button btn_TimKiem;
         private Guna.UI2.WinForms.Guna2TextBox textbox_TimKiem;
         private Guna.UI2.WinForms.Guna2ComboBox combobox_TimKiem;
         private System.Windows.Forms.DataGridView dataGridView;
