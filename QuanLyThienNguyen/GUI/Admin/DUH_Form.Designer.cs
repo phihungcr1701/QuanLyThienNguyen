@@ -82,8 +82,10 @@
             // 
             // datatimepicker_NgayKetThuc
             // 
+            this.datatimepicker_NgayKetThuc.AutoRoundedCorners = true;
+            this.datatimepicker_NgayKetThuc.BorderRadius = 17;
             this.datatimepicker_NgayKetThuc.Checked = true;
-            this.datatimepicker_NgayKetThuc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.datatimepicker_NgayKetThuc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.datatimepicker_NgayKetThuc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.datatimepicker_NgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datatimepicker_NgayKetThuc.Location = new System.Drawing.Point(510, 113);
@@ -96,8 +98,10 @@
             // 
             // datatimepicker_NgayBatDau
             // 
+            this.datatimepicker_NgayBatDau.AutoRoundedCorners = true;
+            this.datatimepicker_NgayBatDau.BorderRadius = 17;
             this.datatimepicker_NgayBatDau.Checked = true;
-            this.datatimepicker_NgayBatDau.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.datatimepicker_NgayBatDau.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.datatimepicker_NgayBatDau.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.datatimepicker_NgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datatimepicker_NgayBatDau.Location = new System.Drawing.Point(510, 35);
@@ -146,6 +150,8 @@
             // 
             // textbox_MaDUH
             // 
+            this.textbox_MaDUH.AutoRoundedCorners = true;
+            this.textbox_MaDUH.BorderRadius = 17;
             this.textbox_MaDUH.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_MaDUH.DefaultText = "";
             this.textbox_MaDUH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

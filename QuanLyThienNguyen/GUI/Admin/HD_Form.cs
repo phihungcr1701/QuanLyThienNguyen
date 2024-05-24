@@ -16,7 +16,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             HoDan hd = new HoDan(
-                ma,
+                textbox_MaHD.Text,
                 textbox_HoTen.Text,
                 radiobutton_Nam.Checked,
                 textbox_CCCD.Text,
@@ -33,8 +33,13 @@ namespace QuanLyThienNguyen.GUI.Admin
                 }
                 else
                 {
-                    BBL_HoDan.Instance.Add(hd);
-                    this.Close();
+                    if (BBL_HoDan.Instance.GetHoDan(textbox_MaHD.Text) != null)
+                        MessageBox.Show("Đã tồn tại !!!");
+                    else
+                    {
+                        BBL_HoDan.Instance.Add(hd);
+                        this.Close();
+                    }
                 }
             }
             else
@@ -52,15 +57,21 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
+                textbox_MaHD.ReadOnly = true;
                 HoDan hd = BBL_HoDan.Instance.GetHoDan(ma);
-                radiobutton_Nam.Checked = hd.GioiTinh;
-                textbox_MaHD.Text = hd.MaHD.ToString();
+                if (hd.GioiTinh == true)
+                    radiobutton_Nam.Checked = true;
+                else
+                    radiobutton_Nu.Checked = true;
+                textbox_MaHD.Text = hd.MaHD;
                 textbox_HoTen.Text = hd.HoTenChuHo;
                 textbox_CCCD.Text = hd.CCCD;
                 textbox_DiaChi.Text = hd.DiaChi;
                 textbox_SDT.Text = hd.SDT;
                 if (hd.DienGiaDinh == "Can Ngheo")
                     radiobutton_CanNgheo.Checked = true;
+                else
+                    ratiobutton_Ngheo.Checked = true;
             }
         }
     }

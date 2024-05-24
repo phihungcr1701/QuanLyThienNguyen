@@ -33,7 +33,7 @@ namespace QuanLyThienNguyen.DAL
         }
         public void Add(DonViUngHo dvuh)
             {
-            string query = "exec ThemDonViUngHo '" + dvuh.TenDonVi + "', '" + dvuh.DiaChiDonVi + "', '" + dvuh.SDTDonVi + "'";
+            string query = "exec ThemDonViUngHo '" + dvuh.MaDVUH + "', '" + dvuh.TenDonVi + "', '" + dvuh.DiaChiDonVi + "', '" + dvuh.SDTDonVi + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
         }
         public void Update(DonViUngHo dvuh)

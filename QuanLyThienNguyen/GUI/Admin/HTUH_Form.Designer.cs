@@ -118,6 +118,8 @@
             // 
             // textbox_TenHTUH
             // 
+            this.textbox_TenHTUH.AutoRoundedCorners = true;
+            this.textbox_TenHTUH.BorderRadius = 17;
             this.textbox_TenHTUH.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_TenHTUH.DefaultText = "";
             this.textbox_TenHTUH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -137,6 +139,8 @@
             // 
             // textbox_MaHTUH
             // 
+            this.textbox_MaHTUH.AutoRoundedCorners = true;
+            this.textbox_MaHTUH.BorderRadius = 17;
             this.textbox_MaHTUH.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_MaHTUH.DefaultText = "";
             this.textbox_MaHTUH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -166,6 +170,8 @@
             // 
             // textbox_DonViTinh
             // 
+            this.textbox_DonViTinh.AutoRoundedCorners = true;
+            this.textbox_DonViTinh.BorderRadius = 17;
             this.textbox_DonViTinh.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_DonViTinh.DefaultText = "";
             this.textbox_DonViTinh.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

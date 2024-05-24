@@ -16,7 +16,7 @@ namespace QuanLyThienNguyen.GUI
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             DonViUngHo dvuh = new DonViUngHo(
-                ma,
+                textbox_MaDVUH.Text,
                 textbox_TenDonVi.Text,
                 textbox_DiaChiDonVi.Text,
                 textbox_SDTDonVi.Text
@@ -24,14 +24,19 @@ namespace QuanLyThienNguyen.GUI
             
             if (ma == null)
             {
-                if (textbox_TenDonVi.Text == "" || textbox_DiaChiDonVi.Text == "" || textbox_SDTDonVi.Text == "")
+                if (textbox_MaDVUH.Text == "" || textbox_TenDonVi.Text == "" || textbox_DiaChiDonVi.Text == "" || textbox_SDTDonVi.Text == "")
                 {
                     MessageBox.Show("Điền đầy đủ thông tin !!!");
                 }
                 else
                 {
-                    BBL_DonViUngHo.Instance.Add(dvuh);
-                    this.Close();
+                    if (BBL_DonViUngHo.Instance.GetDonViUngHo(textbox_MaDVUH.Text) != null)
+                        MessageBox.Show("Đã tồn tại !!!");
+                    else
+                    {
+                        BBL_DonViUngHo.Instance.Add(dvuh);
+                        this.Close();
+                    } 
                 }
             }
             else
@@ -49,8 +54,9 @@ namespace QuanLyThienNguyen.GUI
         {
             if (ma != null)
             {
+                textbox_MaDVUH.ReadOnly = true;
                 DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(ma);
-                textbox_MaDVUH.Text = obj.MaDVUH.ToString();
+                textbox_MaDVUH.Text = obj.MaDVUH;
                 textbox_TenDonVi.Text = obj.TenDonVi;
                 textbox_DiaChiDonVi.Text = obj.DiaChiDonVi;
                 textbox_SDTDonVi.Text = obj.SDTDonVi;

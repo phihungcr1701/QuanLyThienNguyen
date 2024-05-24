@@ -16,7 +16,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             DotUngHo duh = new DotUngHo(
-                ma,
+                textbox_MaDUH.Text,
                 datatimepicker_NgayBatDau.Value,
                 datatimepicker_NgayKetThuc.Value
             );
@@ -28,10 +28,23 @@ namespace QuanLyThienNguyen.GUI.Admin
             else
             {
                 if (ma == null)
-                    BBL_DotUngHo.Instance.Add(duh);
+                {
+                    if (textbox_MaDUH == null) 
+                        MessageBox.Show("Điền đầy đủ thông tin !!!");
+                    else
+                        if (BBL_DotUngHo.Instance.GetDotUngHo(textbox_MaDUH.Text) != null)
+                            MessageBox.Show("Đã tồn tại !!!");
+                        else
+                        {
+                        BBL_DotUngHo.Instance.Add(duh);
+                            this.Close();
+                        }
+                }
                 else
+                {
                     BBL_DotUngHo.Instance.Update(duh);
-                this.Close();
+                    this.Close();
+                }
             }
         }
         private void button_Huy_Click(object sender, EventArgs e)
@@ -43,6 +56,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
+                textbox_MaDUH.ReadOnly = true;
                 DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(ma);
                 textbox_MaDUH.Text = duh.MaDUH.ToString();
                 datatimepicker_NgayBatDau.Value = duh.NgayBatDau;

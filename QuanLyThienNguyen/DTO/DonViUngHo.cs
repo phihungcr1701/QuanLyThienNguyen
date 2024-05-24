@@ -10,12 +10,12 @@ namespace QuanLyThienNguyen.DTO
         private string _TenDonVi;
         private string _DiaChiDonVi;
         private string _SDTDonVi;
-        
+
+        public string MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
         public string TenDonVi { get => _TenDonVi; set => _TenDonVi = value; }
         public string DiaChiDonVi { get => _DiaChiDonVi; set => _DiaChiDonVi = value; }
         public string SDTDonVi { get => _SDTDonVi; set => _SDTDonVi = value; }
-        public string MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
-
+        
         public DonViUngHo() { }
         public DonViUngHo(string ma, string ten, string dc, string sdt)
         {

@@ -35,14 +35,14 @@ namespace QuanLyThienNguyen.DAL
 
             return list;
         }
-        public List<int> GetAllMa(string ma)
+        public List<string> GetAllMa(string ma)
         {
-            List<int> list = new List<int>();
+            List<string> list = new List<string>();
             string sql = "SELECT DISTINCT "+ ma +" FROM ChiTietUngHo;";
 
             foreach (DataRow row in DataProvider.Instance.ExcuteQuery(sql).Rows)
             {
-                list.Add(Convert.ToInt32(row[ma].ToString()));
+                list.Add(row[ma].ToString());
             }
 
             return list;

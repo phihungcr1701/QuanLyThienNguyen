@@ -74,17 +74,10 @@ namespace QuanLyThienNguyen.BBL
         }
         public HoDan GetHoDan(string ma)
         {
-            HoDan hd = new HoDan();
-
             foreach (HoDan item in DAL_HoDan.Instance.GetAllHoDan())
-            {
                 if (item.MaHD.Equals(ma))
-                {
-                    hd = item; 
-                    break;
-                }
-            }
-            return hd;
+                    return item;
+            return null;
         }
         public void Add(HoDan hd)
         {
@@ -97,7 +90,7 @@ namespace QuanLyThienNguyen.BBL
         public void Delete(string ma)
         {
             HoDan hd = GetHoDan(ma);
-            if (System.Windows.Forms.MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
         {
                 DAL_HoDan.Instance.Delete(ma);
             }

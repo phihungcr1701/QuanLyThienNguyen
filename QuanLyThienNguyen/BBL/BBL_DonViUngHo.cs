@@ -64,17 +64,10 @@ namespace QuanLyThienNguyen.BBL
         }
         public DonViUngHo GetDonViUngHo(string ma)
         {
-            DonViUngHo dvuh = new DonViUngHo();
-    
             foreach (DonViUngHo item in DAL_DonViUngHo.Instance.GetAllDonViUngHo())
-            {
                 if (item.MaDVUH.Equals(ma))
-                {
-                    dvuh = item; 
-                    break;
-                }
-            }
-            return dvuh;
+                    return item;
+            return null;
         }
         public void Add(DonViUngHo dvuh)
         {
@@ -87,7 +80,7 @@ namespace QuanLyThienNguyen.BBL
         public void Delete(string ma)
         {
             DonViUngHo dvuh = GetDonViUngHo(ma);
-            if (System.Windows.Forms.MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + dvuh.MaDVUH + " | " + dvuh.TenDonVi + " | " + dvuh.DiaChiDonVi + " | " + dvuh.SDTDonVi, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + dvuh.MaDVUH + " | " + dvuh.TenDonVi + " | " + dvuh.DiaChiDonVi + " | " + dvuh.SDTDonVi, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
                 DAL_DonViUngHo.Instance.Delete(ma);
             }

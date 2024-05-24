@@ -12,7 +12,6 @@ namespace QuanLyThienNguyen.DTO
         public string MaHTUH { get => _MaHTUH; set => _MaHTUH = value; }
         public string TenHTUH { get => _TenHTUH; set => _TenHTUH = value; }
         public string DonViTinh { get => _DonViTinh; set => _DonViTinh = value; }
-        public string MaHTUH1 { get => _MaHTUH; set => _MaHTUH = value; }
 
         public HinhThucUngHo() { }
         public HinhThucUngHo(string ma = null, string ten = null, string donvitinh = null) 

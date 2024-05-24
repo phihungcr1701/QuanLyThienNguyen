@@ -68,8 +68,11 @@ namespace QuanLyThienNguyen.GUI.Admin
             combobox_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_DVUH().ToArray());
             if (tvdvuh != null)
             {
-                combobox_MaDVUH.SelectedIndex = combobox_MaDVUH.FindString(tvdvuh.MaDVUH.ToString());
-                radiobutton_Nam.Checked = tvdvuh.GioiTinh;    
+                combobox_MaDVUH.SelectedIndex = combobox_MaDVUH.FindString(tvdvuh.MaDVUH);
+                if (tvdvuh.GioiTinh == true)
+                    radiobutton_Nam.Checked = true;
+                else 
+                    radiobutton_Nu.Checked = true;
                 textbox_HoTen.Text = tvdvuh.HoTen;
                 textbox_CCCD.Text = tvdvuh.CCCD;
                 textbox_DiaChi.Text = tvdvuh.DiaChi;

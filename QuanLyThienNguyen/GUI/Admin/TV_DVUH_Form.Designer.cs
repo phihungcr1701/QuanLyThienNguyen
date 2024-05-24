@@ -31,6 +31,9 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_GioiThieu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.combobox_MaDVUH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.button_Huy = new Guna.UI2.WinForms.Guna2Button();
             this.button_ThucHien = new Guna.UI2.WinForms.Guna2Button();
@@ -46,13 +49,10 @@
             this.label_SDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_CCCD = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_HoTen = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
-            this.groupbox_GioiTinh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupbox_GioiTinh.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel2
@@ -98,9 +98,33 @@
             this.guna2Panel3.Size = new System.Drawing.Size(993, 364);
             this.guna2Panel3.TabIndex = 8;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(727, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 211);
+            this.dataGridView1.TabIndex = 17;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Thuộc tính";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Giá trị";
+            this.Column2.Name = "Column2";
+            // 
             // combobox_MaDVUH
             // 
+            this.combobox_MaDVUH.AutoRoundedCorners = true;
             this.combobox_MaDVUH.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_MaDVUH.BorderRadius = 17;
             this.combobox_MaDVUH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combobox_MaDVUH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobox_MaDVUH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -152,6 +176,8 @@
             // 
             // textbox_SDT
             // 
+            this.textbox_SDT.AutoRoundedCorners = true;
+            this.textbox_SDT.BorderRadius = 17;
             this.textbox_SDT.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_SDT.DefaultText = "";
             this.textbox_SDT.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -172,6 +198,8 @@
             // 
             // textbox_DiaChi
             // 
+            this.textbox_DiaChi.AutoRoundedCorners = true;
+            this.textbox_DiaChi.BorderRadius = 17;
             this.textbox_DiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_DiaChi.DefaultText = "";
             this.textbox_DiaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -240,6 +268,8 @@
             // 
             // textbox_CCCD
             // 
+            this.textbox_CCCD.AutoRoundedCorners = true;
+            this.textbox_CCCD.BorderRadius = 17;
             this.textbox_CCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_CCCD.DefaultText = "";
             this.textbox_CCCD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -270,6 +300,8 @@
             // 
             // textbox_HoTen
             // 
+            this.textbox_HoTen.AutoRoundedCorners = true;
+            this.textbox_HoTen.BorderRadius = 17;
             this.textbox_HoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_HoTen.DefaultText = "";
             this.textbox_HoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -327,28 +359,6 @@
             this.label_HoTen.TabIndex = 2;
             this.label_HoTen.Text = "Họ tên thành viên:";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(727, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 211);
-            this.dataGridView1.TabIndex = 17;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Thuộc tính";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Giá trị";
-            this.Column2.Name = "Column2";
-            // 
             // TV_DVUH_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,9 +375,9 @@
             this.guna2Panel2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupbox_GioiTinh.ResumeLayout(false);
             this.groupbox_GioiTinh.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

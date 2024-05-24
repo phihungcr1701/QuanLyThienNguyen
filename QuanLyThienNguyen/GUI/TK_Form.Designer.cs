@@ -36,7 +36,6 @@
             this.combobox_LoaiThongKe = new Guna.UI2.WinForms.Guna2ComboBox();
             this.combobox_Chart = new Guna.UI2.WinForms.Guna2ComboBox();
             this.combobox_TenHTUH = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.button_TimKiem = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -77,7 +76,6 @@
             this.guna2Panel3.Controls.Add(this.combobox_LoaiThongKe);
             this.guna2Panel3.Controls.Add(this.combobox_Chart);
             this.guna2Panel3.Controls.Add(this.combobox_TenHTUH);
-            this.guna2Panel3.Controls.Add(this.button_TimKiem);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 100);
             this.guna2Panel3.Name = "guna2Panel3";
@@ -135,28 +133,11 @@
             this.combobox_TenHTUH.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.combobox_TenHTUH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.combobox_TenHTUH.ItemHeight = 30;
-            this.combobox_TenHTUH.Location = new System.Drawing.Point(603, 32);
+            this.combobox_TenHTUH.Location = new System.Drawing.Point(733, 32);
             this.combobox_TenHTUH.Name = "combobox_TenHTUH";
             this.combobox_TenHTUH.Size = new System.Drawing.Size(240, 36);
             this.combobox_TenHTUH.TabIndex = 16;
-            // 
-            // button_TimKiem
-            // 
-            this.button_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_TimKiem.AutoRoundedCorners = true;
-            this.button_TimKiem.BorderRadius = 17;
-            this.button_TimKiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_TimKiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button_TimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button_TimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button_TimKiem.ForeColor = System.Drawing.Color.White;
-            this.button_TimKiem.Location = new System.Drawing.Point(849, 32);
-            this.button_TimKiem.Name = "button_TimKiem";
-            this.button_TimKiem.Size = new System.Drawing.Size(103, 36);
-            this.button_TimKiem.TabIndex = 13;
-            this.button_TimKiem.Text = "Tìm kiếm";
-            this.button_TimKiem.Click += new System.EventHandler(this.button_TimKiem_Click);
+            this.combobox_TenHTUH.SelectedIndexChanged += new System.EventHandler(this.combobox_TenHTUH_SelectedIndexChanged);
             // 
             // guna2Panel2
             // 
@@ -244,7 +225,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label_GioiThieu;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Button button_TimKiem;
         private Guna.UI2.WinForms.Guna2ComboBox combobox_TenHTUH;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.SplitContainer splitContainer1;

@@ -33,7 +33,7 @@ namespace QuanLyThienNguyen.DAL
         }
         public void Add(DotUngHo duh)
             {
-            string query = "exec ThemDotUngHo '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
+            string query = "exec ThemDotUngHo '" + duh.MaDUH + "', '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
         }
         public void Update(DotUngHo duh)

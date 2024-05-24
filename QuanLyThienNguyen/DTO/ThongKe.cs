@@ -2,17 +2,17 @@
 {
     public class ThongKe
     {
-        private int _MaDVUH;
-        private int _MaHTUH;
+        private string _MaDVUH;
+        private string _MaHTUH;
         private double _TongSoLuongUH;
         private double _SoDuUH;
-        public int MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
-        public int MaHTUH { get => _MaHTUH; set => _MaHTUH = value; }
+        public string MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
+        public string MaHTUH { get => _MaHTUH; set => _MaHTUH = value; }
         public double TongSoLuongUH { get => _TongSoLuongUH; set => _TongSoLuongUH = value; }
         public double SoDuUH { get => _SoDuUH; set => _SoDuUH = value; }
 
         public ThongKe() { }
-        public ThongKe(int madvuh, int mahtuh, string tendvuh, string tenhtuh, double tongsoluong, double sodu, string donvitinh)
+        public ThongKe(string madvuh, string mahtuh, double tongsoluong, double sodu)
         {
             this.MaDVUH = madvuh;
             this.MaHTUH = mahtuh;

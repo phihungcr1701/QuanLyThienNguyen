@@ -62,16 +62,10 @@ namespace QuanLyThienNguyen.BBL
         }
         public HinhThucUngHo GetHinhThucUngHo(string ma)
         {
-            HinhThucUngHo htuh = new HinhThucUngHo();
-
             foreach (HinhThucUngHo item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
-            {
                 if (item.MaHTUH.Equals(ma))
-                {
-                    htuh = item;
-                }
-            }
-            return htuh;
+                    return item;
+            return null;
         }
         public void Add(HinhThucUngHo htuh)
         {
@@ -84,7 +78,7 @@ namespace QuanLyThienNguyen.BBL
         public void Delete(string ma)
         {
             HinhThucUngHo htuh = GetHinhThucUngHo(ma);
-            if (System.Windows.Forms.MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + htuh.MaHTUH + " | " + htuh.TenHTUH + " | " + htuh.DonViTinh, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + htuh.MaHTUH + " | " + htuh.TenHTUH + " | " + htuh.DonViTinh, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
                 DAL_HinhThucUngHo.Instance.Delete(ma);
             }

@@ -50,7 +50,7 @@ namespace QuanLyThienNguyen.DAL
         }
         public int Check(ThanhVienDVUH tvdvuh)
         {
-            string query = "SELECT COUNT(*) FROM ThanhVienDVUH WHERE MaDVUH = "+ tvdvuh.MaDVUH +" AND HoTen = '"+ tvdvuh.HoTen +"' AND GioiTinh = "+ Convert.ToByte(tvdvuh.GioiTinh) +" AND CCCD = '"+ tvdvuh.CCCD +"' AND DiaChi = '"+ tvdvuh.DiaChi +"' AND SDT = '"+ tvdvuh.SDT +"'";
+            string query = "SELECT COUNT(*) FROM ThanhVienDVUH WHERE MaDVUH = '"+ tvdvuh.MaDVUH +"' AND HoTen = '"+ tvdvuh.HoTen +"' AND GioiTinh = "+ Convert.ToByte(tvdvuh.GioiTinh) +" AND CCCD = '"+ tvdvuh.CCCD +"' AND DiaChi = '"+ tvdvuh.DiaChi +"' AND SDT = '"+ tvdvuh.SDT +"'";
             return (int)DataProvider.Instance.ExcuteScalar(query);
         }
     }

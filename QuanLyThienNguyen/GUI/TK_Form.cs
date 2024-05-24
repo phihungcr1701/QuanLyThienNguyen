@@ -11,7 +11,7 @@ namespace QuanLyThienNguyen.GUI
         {
             InitializeComponent();
         }
-        private void button_TimKiem_Click(object sender, EventArgs e)
+        private void combobox_TenHTUH_SelectedIndexChanged(object sender, EventArgs e)
         {
             datagridview.DataSource = BBL_ThongKe.Instance.GetAllThongKe(combobox_TenHTUH.SelectedItem.ToString());
             if (combobox_LoaiThongKe.SelectedItem == null)
@@ -35,22 +35,27 @@ namespace QuanLyThienNguyen.GUI
         {
             combobox_TenHTUH.Items.Clear();
             combobox_TenHTUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_TK().ToArray());
-            combobox_TenHTUH.SelectedIndex = 0;
-            button_TimKiem_Click(sender, e);
-            BBL_ThongKe.Instance.Delete();
-            BBL_ThongKe.Instance.Add();
+            if  (combobox_TenHTUH.Items.Count != 0)
+            {
+                combobox_TenHTUH.SelectedIndex = 0;
+                combobox_TenHTUH_SelectedIndexChanged(sender, e);
+                BBL_ThongKe.Instance.Delete();
+                BBL_ThongKe.Instance.Add();
+            }    
         }
 
         private void combobox_Chart_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (combobox_TenHTUH.SelectedItem != null)
-                button_TimKiem_Click(sender, e);
+                combobox_TenHTUH_SelectedIndexChanged(sender, e);
         }
 
         private void combobox_LoaiThongKe_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (combobox_TenHTUH.SelectedItem != null)
-                button_TimKiem_Click(sender, e);
+                combobox_TenHTUH_SelectedIndexChanged(sender, e);
         }
+
+        
     }
 }

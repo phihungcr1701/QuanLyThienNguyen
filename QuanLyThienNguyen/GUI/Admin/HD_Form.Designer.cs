@@ -185,6 +185,8 @@
             // 
             // textbox_SDT
             // 
+            this.textbox_SDT.AutoRoundedCorners = true;
+            this.textbox_SDT.BorderRadius = 17;
             this.textbox_SDT.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_SDT.DefaultText = "";
             this.textbox_SDT.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -205,6 +207,8 @@
             // 
             // textbox_DiaChi
             // 
+            this.textbox_DiaChi.AutoRoundedCorners = true;
+            this.textbox_DiaChi.BorderRadius = 17;
             this.textbox_DiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_DiaChi.DefaultText = "";
             this.textbox_DiaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -273,6 +277,8 @@
             // 
             // textbox_MaHD
             // 
+            this.textbox_MaHD.AutoRoundedCorners = true;
+            this.textbox_MaHD.BorderRadius = 17;
             this.textbox_MaHD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_MaHD.DefaultText = "";
             this.textbox_MaHD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -292,6 +298,8 @@
             // 
             // textbox_CCCD
             // 
+            this.textbox_CCCD.AutoRoundedCorners = true;
+            this.textbox_CCCD.BorderRadius = 17;
             this.textbox_CCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_CCCD.DefaultText = "";
             this.textbox_CCCD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -322,6 +330,8 @@
             // 
             // textbox_HoTen
             // 
+            this.textbox_HoTen.AutoRoundedCorners = true;
+            this.textbox_HoTen.BorderRadius = 17;
             this.textbox_HoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_HoTen.DefaultText = "";
             this.textbox_HoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

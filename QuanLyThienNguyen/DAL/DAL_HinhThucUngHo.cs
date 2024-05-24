@@ -34,7 +34,7 @@ namespace QuanLyThienNguyen.DAL
 
         public void Add(HinhThucUngHo htuh)
             {
-            string query = "exec ThemHinhThucUngHo '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
+            string query = "exec ThemHinhThucUngHo '" + htuh.MaHTUH + "', '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
         }
         public void Update(HinhThucUngHo htuh)

@@ -27,7 +27,7 @@ namespace QuanLyThienNguyen.BBL
         }
         public BBL_ThongKe() { }
 
-        public List<int> data = new List<int>();
+        public List<double> data = new List<double>();
         public Series Series(string chart, string ten, string loai)
         {
             data.Clear();
@@ -66,21 +66,21 @@ namespace QuanLyThienNguyen.BBL
         {
             DataTable datatable = DataProvider.Instance.ExcuteQuery("SELECT * FROM ChiTietUngHo;"); // GetAll Table Chi Tiet Ung Ho
 
-            foreach (int i in DAL_ThongKe.Instance.GetAllMa("MaDVUH"))
-                foreach (int j in DAL_ThongKe.Instance.GetAllMa("MaHTUH"))
+            foreach (string i in DAL_ThongKe.Instance.GetAllMa("MaDVUH"))
+                foreach (string j in DAL_ThongKe.Instance.GetAllMa("MaHTUH"))
                 {
                     double TongSoluong = 0;
                     double SoDu = 0;
                     foreach (DataRow row in datatable.Rows)
-                        if (row["MaDVUH"].ToString() == i.ToString() && row["MaHTUH"].ToString() == j.ToString())
+                        if (row["MaDVUH"].ToString() == i && row["MaHTUH"].ToString() == j)
                         {
                             TongSoluong += Convert.ToDouble(row["SoLuongUH"].ToString());
                             SoDu += Convert.ToDouble(row["SoLuongUH"].ToString()) - Convert.ToDouble(row["SoLuongNUH"].ToString());
                         }
                     DAL_ThongKe.Instance.Add(new ThongKe
                     {
-                        MaDVUH = Convert.ToInt32(i),
-                        MaHTUH = Convert.ToInt32(j),
+                        MaDVUH = i,
+                        MaHTUH = j,
                         TongSoLuongUH = TongSoluong,
                         SoDuUH = SoDu
                 });

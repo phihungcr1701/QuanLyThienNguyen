@@ -16,20 +16,25 @@ namespace QuanLyThienNguyen.GUI.Admin
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             HinhThucUngHo htuh = new HinhThucUngHo(
-                ma,
+                textbox_MaHTUH.Text,
                 textbox_TenHTUH.Text,
                 textbox_DonViTinh.Text
             );
             
             if (ma == null)
-                if (textbox_TenHTUH.Text == "" || textbox_DonViTinh.Text == "")
+                if (textbox_MaHTUH.Text == "" || textbox_TenHTUH.Text == "" || textbox_DonViTinh.Text == "")
                 {
                     MessageBox.Show("Điền đầy đủ thông tin !!!");
                 }
                 else
                 {
-                    BBL_HinhThucUngHo.Instance.Add(htuh);
-                    this.Close();
+                    if (BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(textbox_MaHTUH.Text) != null)
+                        MessageBox.Show("Đã tồn tại !!!");
+                    else
+                    {
+                        BBL_HinhThucUngHo.Instance.Add(htuh);
+                        this.Close();
+                    }
                 }
             else
             {
@@ -47,8 +52,9 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
+                textbox_MaHTUH.ReadOnly = true;
                 HinhThucUngHo htuh = BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(ma);
-                textbox_MaHTUH.Text = htuh.MaHTUH.ToString();
+                textbox_MaHTUH.Text = htuh.MaHTUH;
                 textbox_TenHTUH.Text = htuh.TenHTUH;
                 textbox_DonViTinh.Text = htuh.DonViTinh;
             }

@@ -34,7 +34,7 @@ namespace QuanLyThienNguyen.DAL
 
         public void Add(HoDan hd)
             {
-            string query = "exec ThemHoDan '" + hd.HoTenChuHo + "'," + hd.GioiTinh + ", '" + hd.CCCD + "', '" + hd.DiaChi + "', '" + hd.SDT + "', '" + hd.DienGiaDinh + "'";
+            string query = "exec ThemHoDan '" + hd.MaHD + "','" + hd.HoTenChuHo + "'," + hd.GioiTinh + ", '" + hd.CCCD + "', '" + hd.DiaChi + "', '" + hd.SDT + "', '" + hd.DienGiaDinh + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
         }
         public void Update(HoDan hd)
