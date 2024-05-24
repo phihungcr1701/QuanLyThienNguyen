@@ -17,7 +17,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             ThanhVienDVUH tvdvuhchange = new ThanhVienDVUH(
-                Int32.Parse(combobox_MaDVUH.SelectedItem.ToString()),
+                combobox_MaDVUH.SelectedItem.ToString(),
                 textbox_HoTen.Text,
                 radiobutton_Nam.Checked,
                 textbox_CCCD.Text,
@@ -79,7 +79,7 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void combobox_MaDVUH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DonViUngHo dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(Convert.ToInt32(combobox_MaDVUH.SelectedItem.ToString()));
+            DonViUngHo dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(combobox_MaDVUH.SelectedItem.ToString());
             dataGridView1.Rows.Clear();
             dataGridView1.Rows.Add("Mã đơn vị ủng hộ", dvuh.MaDVUH);
             dataGridView1.Rows.Add("Tên đơn vị", dvuh.TenDonVi);

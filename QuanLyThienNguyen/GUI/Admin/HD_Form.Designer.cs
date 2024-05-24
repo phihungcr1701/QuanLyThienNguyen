@@ -274,7 +274,7 @@
             // textbox_MaHD
             // 
             this.textbox_MaHD.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textbox_MaHD.DefaultText = "Tự thiết lập ....";
+            this.textbox_MaHD.DefaultText = "";
             this.textbox_MaHD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.textbox_MaHD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.textbox_MaHD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -286,7 +286,6 @@
             this.textbox_MaHD.Name = "textbox_MaHD";
             this.textbox_MaHD.PasswordChar = '\0';
             this.textbox_MaHD.PlaceholderText = "";
-            this.textbox_MaHD.ReadOnly = true;
             this.textbox_MaHD.SelectedText = "";
             this.textbox_MaHD.Size = new System.Drawing.Size(200, 36);
             this.textbox_MaHD.TabIndex = 7;

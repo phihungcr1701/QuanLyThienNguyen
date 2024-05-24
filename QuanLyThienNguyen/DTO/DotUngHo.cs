@@ -6,15 +6,15 @@ namespace QuanLyThienNguyen.DTO
 {
     public class DotUngHo
     {
-        private int _MaDUH;
+        private string _MaDUH;
         private DateTime _NgayBatDau;
         private DateTime _NgayKetThuc;
-        public int MaDUH { get => _MaDUH; set => _MaDUH = value; }
+        public string MaDUH { get => _MaDUH; set => _MaDUH = value; }
         public DateTime NgayBatDau { get => _NgayBatDau; set => _NgayBatDau = value; }
         public DateTime NgayKetThuc { get => _NgayKetThuc; set => _NgayKetThuc = value; }
 
         public DotUngHo() { }
-        public DotUngHo(int ma, DateTime ngaybatdau, DateTime ngayketthuc)
+        public DotUngHo(string ma, DateTime ngaybatdau, DateTime ngayketthuc)
         {
             this.MaDUH = ma;
             this.NgayBatDau = ngaybatdau;
@@ -22,7 +22,7 @@ namespace QuanLyThienNguyen.DTO
         }
         public DotUngHo(DataRow row)
         {
-            this.MaDUH = Convert.ToInt32(row["MaDUH"].ToString());
+            this.MaDUH = row["MaDUH"].ToString();
             this.NgayBatDau = Convert.ToDateTime(row["NgayBatDau"].ToString());
             this.NgayKetThuc = Convert.ToDateTime(row["NgayKetThuc"].ToString());
         }

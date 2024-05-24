@@ -14,8 +14,8 @@ namespace QuanLyThienNguyen.GUI.Admin
 {
     public partial class CTUH_Form : Form
     {
-        private int MaCTUH;
-        public CTUH_Form(int maCTUH = 0)
+        private string MaCTUH;
+        public CTUH_Form(string maCTUH = null)
         {
             MaCTUH = maCTUH;
             InitializeComponent();
@@ -30,6 +30,8 @@ namespace QuanLyThienNguyen.GUI.Admin
             ChiTietUngHo item = BBL_ChiTietUngHo.Instance.GetChiTietUngHoByMaCTUH(MaCTUH);
             if (item != null)
             {
+                txt_MaCTUH.ReadOnly = true;
+                txt_MaCTUH.Text = item.MaCTUH;
                 cbb_MaDUH.SelectedItem = item.MaDUH.ToString();
                 cbb_MaDVUH.SelectedItem = item.MaDVUH.ToString();
                 cbb_MaHD.SelectedItem = item.MaHD.ToString();
@@ -41,14 +43,31 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void btn_ThucHien_Click(object sender, EventArgs e)
         {
-            int MaDUH = Convert.ToInt32(cbb_MaDUH.SelectedItem.ToString());
-            int MaDVUH = Convert.ToInt32(cbb_MaDVUH.SelectedItem.ToString());
-            int MaHD = Convert.ToInt32(cbb_MaHD.SelectedItem.ToString());
-            int MaHTUH = Convert.ToInt32(cbb_MaHTUH.SelectedItem.ToString());
+            string maCTUH = txt_MaCTUH.Text;
+            string MaDUH = cbb_MaDUH.SelectedItem.ToString();
+            string MaDVUH = cbb_MaDVUH.SelectedItem.ToString();
+            string MaHD = cbb_MaHD.SelectedItem.ToString();
+            string MaHTUH = cbb_MaHTUH.SelectedItem.ToString();
             double SoLuongUH = Convert.ToDouble(txt_SoLuongUH.Text);
             double SoLuongNUH = Convert.ToDouble(txt_SoLuongNUH.Text);
-            ChiTietUngHo chitietungho = new ChiTietUngHo(MaCTUH, MaDVUH, MaDUH, MaHD, MaHTUH, SoLuongUH, SoLuongNUH);    
-            BBL_ChiTietUngHo.Instance.AddOrEditActivity(chitietungho);
+            ChiTietUngHo chitietungho = new ChiTietUngHo(maCTUH, MaDVUH, MaDUH, MaHD, MaHTUH, SoLuongUH, SoLuongNUH); 
+            if(MaCTUH == null)
+            {
+                if (txt_MaCTUH.Text.Equals("") || cbb_MaDUH == null || cbb_MaHD == null || cbb_MaDVUH == null
+                    || cbb_MaHD == null || cbb_MaHTUH == null || txt_SoLuongUH.Text.Equals("")
+                    || txt_SoLuongNUH.Text.Equals(""))
+                {
+                    MessageBox.Show("Hãy điền đầy đủ thông tin");
+                }
+                else
+                {
+                    BBL_ChiTietUngHo.Instance.AddActivity(chitietungho);
+                }
+            }
+            else
+            {
+                BBL_ChiTietUngHo.Instance.EditActivity(chitietungho);
+            }
             this.Dispose();
             
         }

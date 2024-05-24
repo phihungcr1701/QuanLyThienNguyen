@@ -9,24 +9,17 @@ namespace QuanLyThienNguyen.DTO
 {
     internal class ChiTietUngHo
     {
-        private int _MaCTUH;
-        private int _MaDVUH;
-        private int _MaDUH;
-        private int _MaHD;
-        private int _MaHTUH;
+        private string _MaCTUH;
+        private string _MaDVUH;
+        private string _MaDUH;
+        private string _MaHD;
+        private string _MaHTUH;
         private double _SoLuongUH;
         private double _SoLuongNUH;
-        public int MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
-        public int MaDUH { get => _MaDUH; set => _MaDUH = value; }
-        public int MaHD { get => _MaHD; set => _MaHD = value; }
-        public int MaHTUH { get => _MaHTUH; set => _MaHTUH = value; }
-        public double SoLuongUH { get => _SoLuongUH; set => _SoLuongUH = value; }
-        public double SoLuongNUH { get => _SoLuongNUH; set => _SoLuongNUH = value; }
-        public int MaCTUH { get => _MaCTUH; set => _MaCTUH = value; }
 
-        public ChiTietUngHo(int maCTUH, int maDVUH, int maDUH, int maHD, int maHTUH, double soLuongUH, double soLuongNUH)
+        public ChiTietUngHo(string maDVUH, string maDUH, string maHD, string maHTUH,
+            double soLuongUH, double soLuongNUH)
         {
-            MaCTUH = maCTUH;
             MaDVUH = maDVUH;
             MaDUH = maDUH;
             MaHD = maHD;
@@ -34,15 +27,36 @@ namespace QuanLyThienNguyen.DTO
             SoLuongUH = soLuongUH;
             SoLuongNUH = soLuongNUH;
         }
+
+        public ChiTietUngHo(string maCTUH, string maDVUH, string maDUH, string maHD, string maHTUH, 
+            double soLuongUH, double soLuongNUH)
+        {
+            this.MaCTUH = maCTUH;
+            MaDVUH = maDVUH;
+            MaDUH = maDUH;
+            MaHD = maHD;
+            MaHTUH = maHTUH;
+            SoLuongUH = soLuongUH;
+            SoLuongNUH = soLuongNUH;
+        }
+
         public ChiTietUngHo(DataRow row)
         {
-            MaCTUH = Convert.ToInt32(row["MaCTUH"].ToString());
-            MaDVUH = Convert.ToInt32(row["MaDVUH"].ToString());
-            MaDUH = Convert.ToInt32(row["MaDUH"].ToString());
-            MaHD = Convert.ToInt32(row["MaHD"].ToString());
-            MaHTUH = Convert.ToInt32(row["MaHTUH"].ToString());
+            MaCTUH = row["STT"].ToString();
+            MaDVUH = row["MaDVUH"].ToString();
+            MaDUH = row["MaDUH"].ToString();
+            MaHD = row["MaHD"].ToString();
+            MaHTUH = row["MaHTUH"].ToString();
             SoLuongUH = Convert.ToDouble(row["SoLuongUH"].ToString());
             SoLuongNUH = Convert.ToDouble(row["SoLuongNUH"].ToString());
         }
+
+        public string MaCTUH { get => _MaCTUH; set => _MaCTUH = value; }
+        public string MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
+        public string MaDUH { get => _MaDUH; set => _MaDUH = value; }
+        public string MaHD { get => _MaHD; set => _MaHD = value; }
+        public string MaHTUH { get => _MaHTUH; set => _MaHTUH = value; }
+        public double SoLuongUH { get => _SoLuongUH; set => _SoLuongUH = value; }
+        public double SoLuongNUH { get => _SoLuongNUH; set => _SoLuongNUH = value; }
     }
 }

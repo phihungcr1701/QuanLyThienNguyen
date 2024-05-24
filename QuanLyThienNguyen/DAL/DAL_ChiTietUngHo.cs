@@ -47,13 +47,13 @@ namespace QuanLyThienNguyen.DAL
         public void AddActivity(ChiTietUngHo item)
         {
 
-            string query = "EXEC ThemChiTietUngHo " + item.MaDVUH + ", " + item.MaDUH + ", " + item.MaHD
+            string query = "EXEC ThemChiTietUngHo " + item.MaCTUH + ", " + item.MaDVUH + ", " + item.MaDUH + ", " + item.MaHD
                 + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
             DataProvider.Instance.ExcuteNonQuery(query);
         }
-        public void DeleteActivity(int maCTUH)
+        public void DeleteActivity(string maCTUH)
         {
-            string query = "DELETE FROM ChiTietUngHo WHERE MaCTUH = " + maCTUH;
+            string query = "DELETE FROM ChiTietUngHo WHERE STT = '" + maCTUH + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
         }
         public void Combine(ChiTietUngHo item)

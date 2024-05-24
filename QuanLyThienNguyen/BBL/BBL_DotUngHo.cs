@@ -60,13 +60,13 @@ namespace QuanLyThienNguyen.BBL
             }
             return sort;
         }
-        public DotUngHo GetDotUngHo(int ma)
+        public DotUngHo GetDotUngHo(string ma)
         {
             DotUngHo duh = new DotUngHo();
 
             foreach (DotUngHo item in DAL_DotUngHo.Instance.GetAllDotUngHo())
             {
-                if (item.MaDUH.ToString().Equals(ma.ToString()))
+                if (item.MaDUH.Equals(ma))
                 {
                     duh = item; 
                     break;
@@ -82,7 +82,7 @@ namespace QuanLyThienNguyen.BBL
         {
             DAL_DotUngHo.Instance.Update(duh);
         }
-        public void Delete(int ma)
+        public void Delete(string ma)
         {
             DotUngHo duh = GetDotUngHo(ma);
             if (System.Windows.Forms.MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + duh.MaDUH + " | " + duh.NgayBatDau + " | " + duh.NgayKetThuc, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)

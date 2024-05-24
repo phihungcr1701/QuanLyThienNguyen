@@ -138,7 +138,7 @@
             // textbox_MaHTUH
             // 
             this.textbox_MaHTUH.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textbox_MaHTUH.DefaultText = "Tự thiết lập ....";
+            this.textbox_MaHTUH.DefaultText = "";
             this.textbox_MaHTUH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.textbox_MaHTUH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.textbox_MaHTUH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -150,7 +150,6 @@
             this.textbox_MaHTUH.Name = "textbox_MaHTUH";
             this.textbox_MaHTUH.PasswordChar = '\0';
             this.textbox_MaHTUH.PlaceholderText = "";
-            this.textbox_MaHTUH.ReadOnly = true;
             this.textbox_MaHTUH.SelectedText = "";
             this.textbox_MaHTUH.Size = new System.Drawing.Size(200, 36);
             this.textbox_MaHTUH.TabIndex = 7;

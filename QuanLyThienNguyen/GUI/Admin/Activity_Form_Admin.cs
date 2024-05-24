@@ -38,7 +38,7 @@ namespace QuanLyThienNguyen.GUI
         {
             if (dataGridView.SelectedRows.Count == 1)
             {
-                int mactuh = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["MaCTUH"].Value.ToString());
+                string mactuh = dataGridView.SelectedRows[0].Cells["MaCTUH"].Value.ToString();
                 CTUH_Form form = new CTUH_Form(mactuh);
                 form.ShowDialog();
                 showDGV();
@@ -69,7 +69,7 @@ namespace QuanLyThienNguyen.GUI
         {
             if (dataGridView.SelectedRows.Count == 1)
             {
-                int mactuh = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["MaCTUH"].Value.ToString());
+                string mactuh = dataGridView.SelectedRows[0].Cells["MaCTUH"].Value.ToString();
                 BBL_ChiTietUngHo.Instance.DeleteActivity(mactuh);
                 showDGV();
             }

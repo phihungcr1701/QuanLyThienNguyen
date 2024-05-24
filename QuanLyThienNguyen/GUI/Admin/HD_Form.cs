@@ -16,7 +16,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             HoDan hd = new HoDan(
-                Convert.ToInt32(ma),
+                ma,
                 textbox_HoTen.Text,
                 radiobutton_Nam.Checked,
                 textbox_CCCD.Text,
@@ -52,7 +52,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                HoDan hd = BBL_HoDan.Instance.GetHoDan(Convert.ToInt32(ma));
+                HoDan hd = BBL_HoDan.Instance.GetHoDan(ma);
                 radiobutton_Nam.Checked = hd.GioiTinh;
                 textbox_MaHD.Text = hd.MaHD.ToString();
                 textbox_HoTen.Text = hd.HoTenChuHo;

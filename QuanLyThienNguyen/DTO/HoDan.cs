@@ -6,23 +6,24 @@ namespace QuanLyThienNguyen.DTO
 {
     public class HoDan
     {
-        private int _MaHD;
+        private string _MaHD;
         private string _HoTenChuHo;
         private bool _GioiTinh;
         private string _CCCD;
         private string _DiaChi;
         private string _SDT;
         private string _DienGiaDinh;
-        public int MaHD { get => _MaHD; set => _MaHD = value; }
+        
         public string HoTenChuHo { get => _HoTenChuHo; set => _HoTenChuHo = value; }
         public bool GioiTinh { get => _GioiTinh; set => _GioiTinh = value; }
         public string CCCD { get => _CCCD; set => _CCCD = value; }
         public string DiaChi { get => _DiaChi; set => _DiaChi = value; }
         public string SDT { get => _SDT; set => _SDT = value; }
         public string DienGiaDinh { get => _DienGiaDinh; set => _DienGiaDinh = value; }
+        public string MaHD { get => _MaHD; set => _MaHD = value; }
 
         public HoDan() { }
-        public HoDan(int ma, string ten, bool gt, string cccd, string dc, string sdt, string diengiadinh)
+        public HoDan(string ma, string ten, bool gt, string cccd, string dc, string sdt, string diengiadinh)
         {
             this.MaHD = ma;
             this.HoTenChuHo = ten;
@@ -34,7 +35,7 @@ namespace QuanLyThienNguyen.DTO
         }
         public HoDan(DataRow row)
         {
-            this.MaHD = Convert.ToInt32(row["MaHD"].ToString());
+            this.MaHD = row["MaHD"].ToString();
             this.HoTenChuHo = row["HoTenChuHo"].ToString();
             this.GioiTinh = Convert.ToBoolean(row["GioiTinh"].ToString());
             this.CCCD = row["CCCD"].ToString();

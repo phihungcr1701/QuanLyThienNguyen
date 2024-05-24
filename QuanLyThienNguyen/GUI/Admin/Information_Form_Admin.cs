@@ -137,24 +137,24 @@ namespace QuanLyThienNguyen.GUI
             {
                 if (combobox_TimKiem.SelectedItem.ToString() == "Đơn vị ủng hộ")
                 {
-                    BBL_DonViUngHo.Instance.Delete(Convert.ToInt32(datagridview.SelectedRows[0].Cells[0].Value.ToString()));
+                    Convert.ToInt32(datagridview.SelectedRows[0].Cells[0].Value.ToString());
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Thành viên đơn vị ủng hộ")
                 {
 
-                    BBL_ThanhVienDVUH.Instance.Delete(BBL_ThanhVienDVUH.Instance.ConvertFromDataGridViewToObj(datagridview.SelectedRows[0]));
+                    BBL_ThanhVienDVUH.Instance.ConvertFromDataGridViewToObj(datagridview.SelectedRows[0]);
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Hộ dân")
                 {
-                    BBL_HoDan.Instance.Delete(Convert.ToInt32(datagridview.SelectedRows[0].Cells[0].Value.ToString()));
+                    Convert.ToInt32(datagridview.SelectedRows[0].Cells[0].Value.ToString());
                 }
                 else if (combobox_TimKiem.SelectedItem.ToString() == "Đợt ủng hộ")
                 {
-                    BBL_DotUngHo.Instance.Delete(Convert.ToInt32(datagridview.SelectedRows[0].Cells[0].Value.ToString()));
+                    Convert.ToInt32(datagridview.SelectedRows[0].Cells[0].Value.ToString());
                 }
                 else
                 {
-                    BBL_HinhThucUngHo.Instance.Delete(Convert.ToInt32(datagridview.SelectedRows[0].Cells[0].Value.ToString()));
+                    BBL_HinhThucUngHo.Instance.Delete(datagridview.SelectedRows[0].Cells[0].Value.ToString());
                 }
                 GetAll();
             }

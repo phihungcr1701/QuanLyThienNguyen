@@ -16,7 +16,7 @@ namespace QuanLyThienNguyen.GUI
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             DonViUngHo dvuh = new DonViUngHo(
-                Convert.ToInt32(ma),
+                ma,
                 textbox_TenDonVi.Text,
                 textbox_DiaChiDonVi.Text,
                 textbox_SDTDonVi.Text
@@ -49,7 +49,7 @@ namespace QuanLyThienNguyen.GUI
         {
             if (ma != null)
             {
-                DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(Convert.ToInt32(ma));
+                DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(ma);
                 textbox_MaDVUH.Text = obj.MaDVUH.ToString();
                 textbox_TenDonVi.Text = obj.TenDonVi;
                 textbox_DiaChiDonVi.Text = obj.DiaChiDonVi;

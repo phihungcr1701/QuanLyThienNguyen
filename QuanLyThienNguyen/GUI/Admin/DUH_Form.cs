@@ -16,7 +16,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             DotUngHo duh = new DotUngHo(
-                Convert.ToInt32(ma),
+                ma,
                 datatimepicker_NgayBatDau.Value,
                 datatimepicker_NgayKetThuc.Value
             );
@@ -43,7 +43,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (ma != null)
             {
-                DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(Convert.ToInt32(ma));
+                DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(ma);
                 textbox_MaDUH.Text = duh.MaDUH.ToString();
                 datatimepicker_NgayBatDau.Value = duh.NgayBatDau;
                 datatimepicker_NgayKetThuc.Value = duh.NgayKetThuc;

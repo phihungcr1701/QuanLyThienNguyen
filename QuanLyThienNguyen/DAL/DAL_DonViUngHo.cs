@@ -41,7 +41,7 @@ namespace QuanLyThienNguyen.DAL
             string query = "exec CapNhatDonViUngHo '" + dvuh.MaDVUH + "','" + dvuh.TenDonVi + "', '" + dvuh.DiaChiDonVi + "', '" + dvuh.SDTDonVi + "'";
             DataProvider.Instance.ExcuteNonQuery(query);
             }
-        public void Delete(int ma)
+        public void Delete(string ma)
         {
             string query = "exec XoaDonViUngHo " + ma;
             DataProvider.Instance.ExcuteNonQuery(query);

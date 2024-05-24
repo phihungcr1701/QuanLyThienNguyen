@@ -6,13 +6,13 @@ namespace QuanLyThienNguyen.DTO
 {
     public class ThanhVienDVUH
     {
-        private int _MaDVUH;
+        private string _MaDVUH;
         private string _HoTen;
         private bool _GioiTinh;
         private string _CCCD;
         private string _DiaChi;
         private string _SDT;
-        public int MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
+        public string MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
         public string HoTen { get => _HoTen; set => _HoTen = value; }
         public bool GioiTinh { get => _GioiTinh; set => _GioiTinh = value; }
         public string CCCD { get => _CCCD; set => _CCCD = value; }
@@ -20,7 +20,7 @@ namespace QuanLyThienNguyen.DTO
         public string SDT { get => _SDT; set => _SDT = value; }
 
         public ThanhVienDVUH() { }
-        public ThanhVienDVUH(int ma, string ten, bool gt, string cccd, string dc, string sdt)
+        public ThanhVienDVUH(string ma, string ten, bool gt, string cccd, string dc, string sdt)
         {
             this.MaDVUH = ma;
             this.HoTen = ten;
@@ -31,7 +31,7 @@ namespace QuanLyThienNguyen.DTO
         }
         public ThanhVienDVUH(DataRow row)
         {
-            this.MaDVUH = Convert.ToInt32(row["MaDVUH"].ToString());
+            this.MaDVUH = row["MaDVUH"].ToString();
             this.HoTen = row["HoTen"].ToString();
             this.GioiTinh = Convert.ToBoolean(row["GioiTinh"].ToString());
             this.CCCD = row["CCCD"].ToString();

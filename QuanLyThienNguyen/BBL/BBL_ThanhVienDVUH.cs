@@ -91,7 +91,7 @@ namespace QuanLyThienNguyen.BBL
         public ThanhVienDVUH ConvertFromDataGridViewToObj(DataGridViewRow row)
         {
             ThanhVienDVUH tvdvuh = new ThanhVienDVUH();
-            tvdvuh.MaDVUH = Convert.ToInt32(row.Cells["MaDVUH"].Value.ToString());
+            tvdvuh.MaDVUH = row.Cells["MaDVUH"].Value.ToString();
             tvdvuh.HoTen = row.Cells["HoTen"].Value.ToString();
             tvdvuh.GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value.ToString());
             tvdvuh.CCCD = row.Cells["CCCD"].Value.ToString();
