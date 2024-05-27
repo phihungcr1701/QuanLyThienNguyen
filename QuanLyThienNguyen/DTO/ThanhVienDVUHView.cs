@@ -1,10 +1,11 @@
-﻿using System;
+﻿using QuanLyThienNguyen.DAL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class ThanhVienDVUH
+    public class ThanhVienDVUHView
     {
         private string _MaDVUH;
         private string _HoTen;
@@ -19,8 +20,8 @@ namespace QuanLyThienNguyen.DTO
         public string DiaChi { get => _DiaChi; set => _DiaChi = value; }
         public string SDT { get => _SDT; set => _SDT = value; }
 
-        public ThanhVienDVUH() { }
-        public ThanhVienDVUH(string ma, string ten, bool gt, string cccd, string dc, string sdt)
+        public ThanhVienDVUHView() { }
+        public ThanhVienDVUHView(string ma, string ten, bool gt, string cccd, string dc, string sdt)
         {
             this.MaDVUH = ma;
             this.HoTen = ten;
@@ -28,15 +29,6 @@ namespace QuanLyThienNguyen.DTO
             this.CCCD = cccd;
             this.DiaChi = dc;
             this.SDT = sdt;
-        }
-        public ThanhVienDVUH(DataRow row)
-        {
-            this.MaDVUH = row["MaDVUH"].ToString();
-            this.HoTen = row["HoTen"].ToString();
-            this.GioiTinh = Convert.ToBoolean(row["GioiTinh"].ToString());
-            this.CCCD = row["CCCD"].ToString();
-            this.DiaChi = row["DiaChi"].ToString();
-            this.SDT = row["SDT"].ToString();
         }
 
         public static List<string> items = new List<string>(new string[]
@@ -58,6 +50,18 @@ namespace QuanLyThienNguyen.DTO
             if (namecolumn == "Số điện thoại")
                 return "SDT";
             return namecolumn;
+        }
+        public static ThanhVienDVUH ToChange(ThanhVienDVUHView item)
+        {
+            return new ThanhVienDVUH
+            {
+                MaDVUH = item.MaDVUH,
+                HoTen = item.HoTen,
+                GioiTinh = item.GioiTinh,
+                CCCD = item.CCCD,
+                DiaChi = item.DiaChi,
+                SDT = item.SDT
+            };
         }
     }
 }

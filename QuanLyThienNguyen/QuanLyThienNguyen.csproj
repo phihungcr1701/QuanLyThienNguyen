@@ -33,15 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
@@ -68,6 +77,12 @@
     <Compile Include="BBL\BBL_ThongKe.cs" />
     <Compile Include="BBL\BBL_ThanhVienDVUH.cs" />
     <Compile Include="BBL\BBL_ChiTietUngHo.cs" />
+    <Compile Include="DAL\Account.cs">
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ChiTietUngHo.cs">
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DAL_Account.cs" />
     <Compile Include="DAL\DAL_DonViUngHo.cs" />
     <Compile Include="DAL\DAL_DotUngHo.cs" />
@@ -76,17 +91,47 @@
     <Compile Include="DAL\DAL_ThongKe.cs" />
     <Compile Include="DAL\DAL_ThanhVienDVUH.cs" />
     <Compile Include="DAL\DAL_ChiTietUngHo.cs" />
-    <Compile Include="DAL\DataProvider.cs" />
-    <Compile Include="DTO\Account.cs" />
-    <Compile Include="DTO\DonViUngHo.cs" />
-    <Compile Include="DTO\DotUngHo.cs" />
-    <Compile Include="DTO\HinhThucUngHo.cs" />
-    <Compile Include="DTO\HoDan.cs" />
-    <Compile Include="DTO\ThongKeShow.cs" />
-    <Compile Include="DTO\ThanhVienDVUH.cs" />
-    <Compile Include="DTO\ThongKe.cs" />
-    <Compile Include="DTO\ChiTietUngHo.cs" />
-    <Compile Include="DTO\Activity.cs" />
+    <Compile Include="DAL\DonViUngHo.cs">
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DotUngHo.cs">
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\HinhThucUngHo.cs">
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\HoDan.cs">
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PBL3Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PBL3Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PBL3Database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3Database.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ThanhVienDVUH.cs">
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ThongKe.cs">
+      <DependentUpon>PBL3Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ChiTietUngHoView.cs" />
+    <Compile Include="DTO\DonViUngHoView.cs" />
+    <Compile Include="DTO\DotUngHoView.cs" />
+    <Compile Include="DTO\HinhThucUngHoView.cs" />
+    <Compile Include="DTO\HoDanView.cs" />
+    <Compile Include="DTO\ThongKeView.cs" />
+    <Compile Include="DTO\ThanhVienDVUHView.cs" />
+    <Compile Include="DTO\ActivityView.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +270,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="DAL\PBL3Database.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PBL3Database.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\PBL3Database.edmx.diagram">
+      <DependentUpon>PBL3Database.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -254,9 +306,23 @@
   <ItemGroup>
     <None Include="Resources\logo_pass.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DAL\PBL3Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PBL3Database.Context.cs</LastGenOutput>
+      <DependentUpon>PBL3Database.edmx</DependentUpon>
+    </Content>
+    <Content Include="DAL\PBL3Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PBL3Database.edmx</DependentUpon>
+      <LastGenOutput>PBL3Database.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

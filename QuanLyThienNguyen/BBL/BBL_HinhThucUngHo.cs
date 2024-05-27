@@ -24,12 +24,11 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        public BBL_HinhThucUngHo() { }
-        public List<HinhThucUngHo> GetAllHinhThucUngHo(string text, string namecolumn)
+        public List<HinhThucUngHoView> GetAllHinhThucUngHo(string text, string namecolumn)
         {
-            List<HinhThucUngHo> view = new List<HinhThucUngHo>();
+            List<HinhThucUngHoView> view = new List<HinhThucUngHoView>();
 
-            foreach (HinhThucUngHo item in Sort(DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo(), namecolumn))
+            foreach (HinhThucUngHoView item in Sort(DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -43,9 +42,9 @@ namespace QuanLyThienNguyen.BBL
             return view;
         }
 
-        public List<HinhThucUngHo> Sort(List<HinhThucUngHo> list, string namecolumn)
+        public List<HinhThucUngHoView> Sort(List<HinhThucUngHoView> list, string namecolumn)
         {
-            List<HinhThucUngHo> sort = list;
+            List<HinhThucUngHoView> sort = list;
             switch (namecolumn)
             {
                 case "MaHTUH":
@@ -60,24 +59,24 @@ namespace QuanLyThienNguyen.BBL
                 }
             return sort;
         }
-        public HinhThucUngHo GetHinhThucUngHo(string ma)
+        public HinhThucUngHoView GetHinhThucUngHo(string ma)
         {
-            foreach (HinhThucUngHo item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
+            foreach (HinhThucUngHoView item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
                 if (item.MaHTUH.Equals(ma))
                     return item;
             return null;
         }
-        public void Add(HinhThucUngHo htuh)
+        public void Add(HinhThucUngHoView htuh)
         {
-            DAL_HinhThucUngHo.Instance.Add(htuh);
+            DAL_HinhThucUngHo.Instance.Add(HinhThucUngHoView.ToChange(htuh));
         }
-        public void Update(HinhThucUngHo htuh)
+        public void Update(HinhThucUngHoView htuh)
         {
-            DAL_HinhThucUngHo.Instance.Update(htuh);
+            DAL_HinhThucUngHo.Instance.Update(HinhThucUngHoView.ToChange(htuh));
         }
         public void Delete(string ma)
         {
-            HinhThucUngHo htuh = GetHinhThucUngHo(ma);
+            HinhThucUngHoView htuh = GetHinhThucUngHo(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + htuh.MaHTUH + " | " + htuh.TenHTUH + " | " + htuh.DonViTinh, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
                 DAL_HinhThucUngHo.Instance.Delete(ma);

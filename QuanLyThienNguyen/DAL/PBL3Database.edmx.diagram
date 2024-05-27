@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c979bcf01729489499af35aa705df718" Name="Diagram1">
+        <EntityTypeShape EntityType="PBL3Model.Account" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.ChiTietUngHo" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.DonViUngHo" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.DotUngHo" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.HinhThucUngHo" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.HoDan" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.ThanhVienDVUH" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.ThongKe" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaDUH__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaDVU__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaHTU__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ChiTietUng__MaHD__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ThanhVien__MaDVU__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ThongKe__MaDVUH__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ThongKe__MaHTUH__09A971A2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

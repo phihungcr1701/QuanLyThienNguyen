@@ -20,31 +20,36 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public DAL_DonViUngHo() { }
-        public List<DonViUngHo> GetAllDonViUngHo()
+        public List<DonViUngHoView> GetAllDonViUngHo()
         {
-            string query = "exec GetAllDonViUngHo";
-            List<DonViUngHo> list = new List<DonViUngHo>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
+            DataContext context = new DataContext();
+            List<DonViUngHoView> list = new List<DonViUngHoView>();
+            foreach (var item in context.DonViUngHoes)
             {
-                list.Add(new DonViUngHo(item));
+                list.Add(new DonViUngHoView(item.MaDVUH, item.TenDonVi, item.DiaChiDonVi, item.SDTDonVi));
             }
             return list;
         }
         public void Add(DonViUngHo dvuh)
-            {
-            string query = "exec ThemDonViUngHo '" + dvuh.MaDVUH + "', '" + dvuh.TenDonVi + "', '" + dvuh.DiaChiDonVi + "', '" + dvuh.SDTDonVi + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+        {
+            DataContext context = new DataContext();
+            context.DonViUngHoes.Add(dvuh);
+            context.SaveChanges();
         }
         public void Update(DonViUngHo dvuh)
-                {
-            string query = "exec CapNhatDonViUngHo '" + dvuh.MaDVUH + "','" + dvuh.TenDonVi + "', '" + dvuh.DiaChiDonVi + "', '" + dvuh.SDTDonVi + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-            }
+        {
+            DataContext context = new DataContext();
+            var obj = context.DonViUngHoes.Find(dvuh.MaDVUH);
+            obj.TenDonVi = dvuh.TenDonVi;
+            obj.DiaChiDonVi = dvuh.DiaChiDonVi;
+            obj.SDTDonVi = dvuh.SDTDonVi;
+            context.SaveChanges();
+        }
         public void Delete(string ma)
         {
-            string query = "exec XoaDonViUngHo " + ma;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.DonViUngHoes.Remove(context.DonViUngHoes.Find(ma));
+            context.SaveChanges();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace QuanLyThienNguyen.BBL
             string chartTypeString = chart;
             series.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), chartTypeString);
 
-            foreach (ThongKeShow i in GetAllThongKe(ten))
+            foreach (ThongKeView i in GetAllThongKe(ten))
             {
                 if (loai == "Tổng số lượng ủng hộ" && i.TongSoLuongUH != 0)
                 {
@@ -58,24 +58,23 @@ namespace QuanLyThienNguyen.BBL
 
             return series;
         }
-        public List<ThongKeShow> GetAllThongKe(string ten)
+        public List<ThongKeView> GetAllThongKe(string ten)
         {
             return DAL_ThongKe.Instance.GetAllThongKe(ten);
         }
         public void Add()
         {
-            DataTable datatable = DataProvider.Instance.ExcuteQuery("SELECT * FROM ChiTietUngHo;"); // GetAll Table Chi Tiet Ung Ho
-
-            foreach (string i in DAL_ThongKe.Instance.GetAllMa("MaDVUH"))
-                foreach (string j in DAL_ThongKe.Instance.GetAllMa("MaHTUH"))
+            DataContext context = new DataContext();
+            foreach (string i in DAL_ThongKe.Instance.GetAllMaDVUH())
+                foreach (string j in DAL_ThongKe.Instance.GetAllMaHTUH())
                 {
                     double TongSoluong = 0;
                     double SoDu = 0;
-                    foreach (DataRow row in datatable.Rows)
-                        if (row["MaDVUH"].ToString() == i && row["MaHTUH"].ToString() == j)
+                    foreach (var item in context.ChiTietUngHoes)
+                        if (item.MaDVUH == i && item.MaHTUH == j)
                         {
-                            TongSoluong += Convert.ToDouble(row["SoLuongUH"].ToString());
-                            SoDu += Convert.ToDouble(row["SoLuongUH"].ToString()) - Convert.ToDouble(row["SoLuongNUH"].ToString());
+                            TongSoluong += Convert.ToDouble(item.SoLuongUH);
+                            SoDu += Convert.ToDouble(item.SoLuongUH) - Convert.ToDouble(item.SoLuongNUH);
                         }
                     DAL_ThongKe.Instance.Add(new ThongKe
                     {

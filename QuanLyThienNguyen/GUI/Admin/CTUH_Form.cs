@@ -27,7 +27,7 @@ namespace QuanLyThienNguyen.GUI.Admin
             cbb_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_DVUH().ToArray());
             cbb_MaHD.Items.AddRange(BBL_ComboBox.Instance.Combobox_HoDan().ToArray());
             cbb_MaHTUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_HTUH().ToArray());
-            ChiTietUngHo item = BBL_ChiTietUngHo.Instance.GetChiTietUngHoByMaCTUH(MaCTUH);
+            ChiTietUngHoView item = BBL_ChiTietUngHo.Instance.GetChiTietUngHoByMaCTUH(MaCTUH);
             if (item != null)
             {
                 txt_MaCTUH.ReadOnly = true;
@@ -50,7 +50,7 @@ namespace QuanLyThienNguyen.GUI.Admin
             string MaHTUH = cbb_MaHTUH.SelectedItem.ToString();
             double SoLuongUH = Convert.ToDouble(txt_SoLuongUH.Text);
             double SoLuongNUH = Convert.ToDouble(txt_SoLuongNUH.Text);
-            ChiTietUngHo chitietungho = new ChiTietUngHo(maCTUH, MaDVUH, MaDUH, MaHD, MaHTUH, SoLuongUH, SoLuongNUH); 
+            ChiTietUngHoView chitietungho = new ChiTietUngHoView(maCTUH, MaDVUH, MaDUH, MaHD, MaHTUH, SoLuongUH, SoLuongNUH); 
             if(MaCTUH == null)
             {
                 if (txt_MaCTUH.Text.Equals("") || cbb_MaDUH == null || cbb_MaHD == null || cbb_MaDVUH == null

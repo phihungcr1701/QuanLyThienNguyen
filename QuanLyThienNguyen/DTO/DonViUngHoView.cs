@@ -1,10 +1,11 @@
-﻿using System;
+﻿using QuanLyThienNguyen.DAL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class DonViUngHo
+    public class DonViUngHoView
     {
         private string _MaDVUH;
         private string _TenDonVi;
@@ -16,20 +17,13 @@ namespace QuanLyThienNguyen.DTO
         public string DiaChiDonVi { get => _DiaChiDonVi; set => _DiaChiDonVi = value; }
         public string SDTDonVi { get => _SDTDonVi; set => _SDTDonVi = value; }
         
-        public DonViUngHo() { }
-        public DonViUngHo(string ma, string ten, string dc, string sdt)
+        public DonViUngHoView() { }
+        public DonViUngHoView(string ma, string ten, string dc, string sdt)
         {
             this.MaDVUH = ma;
             this.TenDonVi = ten;
             this.DiaChiDonVi = dc;
             this.SDTDonVi = sdt;
-        }
-        public DonViUngHo(DataRow row)
-        {
-            this.MaDVUH = row["MaDVUH"].ToString();
-            this.TenDonVi = row["TenDonVi"].ToString();
-            this.DiaChiDonVi = row["DiaChiDonVi"].ToString();
-            this.SDTDonVi = row["SDTDonVi"].ToString();
         }
 
         public static List<string> items = new List<string>(new string[]
@@ -47,6 +41,16 @@ namespace QuanLyThienNguyen.DTO
             if (namecolumn == "Số điện thoại đơn vị")
                 return "SDTDonVi";
             return namecolumn;
+        }
+        public static DonViUngHo ToChange(DonViUngHoView item)
+        {
+            return new DonViUngHo
+            {
+                MaDVUH = item.MaDVUH,
+                TenDonVi = item.TenDonVi,
+                DiaChiDonVi = item.DiaChiDonVi,
+                SDTDonVi = item.SDTDonVi
+            };
         }
     }
 }

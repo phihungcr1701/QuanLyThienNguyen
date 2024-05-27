@@ -1,10 +1,11 @@
-﻿using System;
+﻿using QuanLyThienNguyen.DAL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class HoDan
+    public class HoDanView
     {
         private string _MaHD;
         private string _HoTenChuHo;
@@ -20,10 +21,9 @@ namespace QuanLyThienNguyen.DTO
         public string DiaChi { get => _DiaChi; set => _DiaChi = value; }
         public string SDT { get => _SDT; set => _SDT = value; }
         public string DienGiaDinh { get => _DienGiaDinh; set => _DienGiaDinh = value; }
-        
 
-        public HoDan() { }
-        public HoDan(string ma, string ten, bool gt, string cccd, string dc, string sdt, string diengiadinh)
+        public HoDanView() { }
+        public HoDanView(string ma, string ten, bool gt, string cccd, string dc, string sdt, string diengiadinh)
         {
             this.MaHD = ma;
             this.HoTenChuHo = ten;
@@ -32,16 +32,6 @@ namespace QuanLyThienNguyen.DTO
             this.DiaChi = dc;
             this.SDT = sdt;
             this.DienGiaDinh = diengiadinh;
-        }
-        public HoDan(DataRow row)
-        {
-            this.MaHD = row["MaHD"].ToString();
-            this.HoTenChuHo = row["HoTenChuHo"].ToString();
-            this.GioiTinh = Convert.ToBoolean(row["GioiTinh"].ToString());
-            this.CCCD = row["CCCD"].ToString();
-            this.DiaChi = row["DiaChi"].ToString();
-            this.SDT = row["SDT"].ToString();
-            this.DienGiaDinh = row["DienGiaDinh"].ToString();
         }
 
         public static List<string> items = new List<string>(new string[]
@@ -52,19 +42,32 @@ namespace QuanLyThienNguyen.DTO
         {
             if (namecolumn == "Mã hộ dân")
                 return "MaHD";
-            if (namecolumn == "Tên hình thức ủng hộ")
+            if (namecolumn == "Họ tên chủ hộ")
                 return "HoTenChuHo";
-            if (namecolumn == "Đơn vị tính")
+            if (namecolumn == "Giới tính")
                 return "GioiTinh";
             if (namecolumn == "Căn cước công dân")
                 return "CCCD";
             if (namecolumn == "Địa chỉ")
                 return "DiaChi";
             if (namecolumn == "Số điện thoại")
-                return "SoDienThoai";
+                return "SDT";
             if (namecolumn == "Diện gia đình")
                 return "DienGiaDinh";
             return namecolumn;
+        }
+        public static HoDan ToChange(HoDanView item)
+        {
+            return new HoDan
+            {
+                MaHD = item.MaHD,
+                HoTenChuHo = item.HoTenChuHo,
+                GioiTinh = item.GioiTinh,
+                CCCD = item.CCCD,
+                DiaChi = item.DiaChi,
+                SDT = item.SDT,
+                DienGiaDinh = item.DienGiaDinh
+            };
         }
     }
 }

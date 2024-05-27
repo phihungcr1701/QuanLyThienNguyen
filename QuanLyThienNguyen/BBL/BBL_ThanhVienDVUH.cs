@@ -23,12 +23,11 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        public BBL_ThanhVienDVUH() { }
-        public List<ThanhVienDVUH> GetAllThanhVienDVUH(string text, string namecolumn)
+        public List<ThanhVienDVUHView> GetAllThanhVienDVUH(string text, string namecolumn)
         {
-            List<ThanhVienDVUH> view = new List<ThanhVienDVUH>();
+            List<ThanhVienDVUHView> view = new List<ThanhVienDVUHView>();
 
-            foreach (ThanhVienDVUH item in Sort(DAL_ThanhVienDVUH.Instance.GetAllThanhVienDVUH(), namecolumn))
+            foreach (ThanhVienDVUHView item in Sort(DAL_ThanhVienDVUH.Instance.GetAllThanhVienDVUH(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -41,9 +40,9 @@ namespace QuanLyThienNguyen.BBL
 
             return view;
         }
-        public List<ThanhVienDVUH> Sort(List<ThanhVienDVUH> list, string namecolumn)
+        public List<ThanhVienDVUHView> Sort(List<ThanhVienDVUHView> list, string namecolumn)
         {
-            List<ThanhVienDVUH> sort = list;
+            List<ThanhVienDVUHView> sort = list;
             switch (namecolumn)
             {
                 case "MaDVUH":
@@ -67,37 +66,38 @@ namespace QuanLyThienNguyen.BBL
             }
             return sort;
         }
-        public bool Check(ThanhVienDVUH tvdvuh)
+        public bool Check(ThanhVienDVUHView tvdvuh)
         {
-            if (DAL_ThanhVienDVUH.Instance.Check(tvdvuh) != 0)
+            if (DAL_ThanhVienDVUH.Instance.Check(ThanhVienDVUHView.ToChange(tvdvuh)) != 0)
                 return false;
             return true;
         }
-        public void Add(ThanhVienDVUH tvdvuh)
+        public void Add(ThanhVienDVUHView tvdvuh)
         {
-            DAL_ThanhVienDVUH.Instance.Add(tvdvuh);
+            DAL_ThanhVienDVUH.Instance.Add(ThanhVienDVUHView.ToChange(tvdvuh));
         }
-        public void Update(ThanhVienDVUH tvdvuh, ThanhVienDVUH tvdvuhchange)
+        public void Update(ThanhVienDVUHView tvdvuh, ThanhVienDVUHView tvdvuhchange)
         {
-            DAL_ThanhVienDVUH.Instance.Update(tvdvuh, tvdvuhchange);
+            DAL_ThanhVienDVUH.Instance.Update(ThanhVienDVUHView.ToChange(tvdvuh), ThanhVienDVUHView.ToChange(tvdvuhchange));
         }
-        public void Delete(ThanhVienDVUH tvdvuh)
+        public void Delete(ThanhVienDVUHView tvdvuh)
         {
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + tvdvuh.MaDVUH + " | " + tvdvuh.HoTen + " | " + tvdvuh.GioiTinh + " | " + tvdvuh.CCCD + " | " + tvdvuh.DiaChi + " | " + tvdvuh.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_ThanhVienDVUH.Instance.Delete(tvdvuh);
+                DAL_ThanhVienDVUH.Instance.Delete(ThanhVienDVUHView.ToChange(tvdvuh));
             }
         }
-        public ThanhVienDVUH ConvertFromDataGridViewToObj(DataGridViewRow row)
+        public ThanhVienDVUHView ConvertFromDataGridViewToObj(DataGridViewRow row)
         {
-            ThanhVienDVUH tvdvuh = new ThanhVienDVUH();
-            tvdvuh.MaDVUH = row.Cells["MaDVUH"].Value.ToString();
-            tvdvuh.HoTen = row.Cells["HoTen"].Value.ToString();
-            tvdvuh.GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value.ToString());
-            tvdvuh.CCCD = row.Cells["CCCD"].Value.ToString();
-            tvdvuh.DiaChi = row.Cells["DiaChi"].Value.ToString();
-            tvdvuh.SDT = row.Cells["SDT"].Value.ToString();
-            return tvdvuh;
+            return new ThanhVienDVUHView
+            {
+                MaDVUH = row.Cells["MaDVUH"].Value.ToString(),
+                HoTen = row.Cells["HoTen"].Value.ToString(),
+                GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value.ToString()),
+                CCCD = row.Cells["CCCD"].Value.ToString(),
+                DiaChi = row.Cells["DiaChi"].Value.ToString(),
+                SDT = row.Cells["SDT"].Value.ToString()
+            };
         }
     }
 }

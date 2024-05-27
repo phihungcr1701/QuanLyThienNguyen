@@ -8,15 +8,15 @@ namespace QuanLyThienNguyen.GUI.Admin
 {
     public partial class TV_DVUH_Form : Form
     {
-        public TV_DVUH_Form(ThanhVienDVUH tvdvuh = null)
+        public TV_DVUH_Form(ThanhVienDVUHView tvdvuh = null)
         {
             InitializeComponent();
             this.tvdvuh = tvdvuh;
         }
-        private ThanhVienDVUH tvdvuh { get; set; }
+        private ThanhVienDVUHView tvdvuh { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            ThanhVienDVUH tvdvuhchange = new ThanhVienDVUH(
+            ThanhVienDVUHView tvdvuhchange = new ThanhVienDVUHView(
                 combobox_MaDVUH.SelectedItem.ToString(),
                 textbox_HoTen.Text,
                 radiobutton_Nam.Checked,
@@ -82,7 +82,7 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void combobox_MaDVUH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DonViUngHo dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(combobox_MaDVUH.SelectedItem.ToString());
+            DonViUngHoView dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(combobox_MaDVUH.SelectedItem.ToString());
             dataGridView1.Rows.Clear();
             dataGridView1.Rows.Add("Mã đơn vị ủng hộ", dvuh.MaDVUH);
             dataGridView1.Rows.Add("Tên đơn vị", dvuh.TenDonVi);

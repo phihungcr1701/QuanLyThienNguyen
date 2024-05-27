@@ -20,7 +20,6 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        private BBL_Account() { }
         public bool PhanQuyen(string user, string pass)
         {
             return DAL_Account.Instance.PhanQuyen(user, pass);

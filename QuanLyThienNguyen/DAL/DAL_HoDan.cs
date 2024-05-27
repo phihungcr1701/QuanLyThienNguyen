@@ -20,32 +20,40 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public DAL_HoDan() { }
-        public List<HoDan> GetAllHoDan()
+        public List<HoDanView> GetAllHoDan()
         {
-            string query = "exec GetAllHoDan";
-            List<HoDan> list = new List<HoDan>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
+            DataContext context = new DataContext();
+            List<HoDanView> list = new List<HoDanView>();
+            foreach (var item in context.HoDans)
             {
-                list.Add(new HoDan(item));
+                list.Add(new HoDanView(item.MaHD, item.HoTenChuHo, item.GioiTinh, item.CCCD, item.DiaChi, item.SDT, item.DienGiaDinh));
             }
             return list;
         }
 
         public void Add(HoDan hd)
-            {
-            string query = "exec ThemHoDan '" + hd.MaHD + "','" + hd.HoTenChuHo + "'," + hd.GioiTinh + ", '" + hd.CCCD + "', '" + hd.DiaChi + "', '" + hd.SDT + "', '" + hd.DienGiaDinh + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+        {
+            DataContext context = new DataContext();
+            context.HoDans.Add(hd);
+            context.SaveChanges();
         }
         public void Update(HoDan hd)
-                {
-            string query = "exec CapNhatHoDan '" + hd.MaHD + "','" + hd.HoTenChuHo + "'," + hd.GioiTinh + ", '" + hd.CCCD + "', '" + hd.DiaChi + "', '" + hd.SDT + "', '" + hd.DienGiaDinh + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-            }
+        {
+            DataContext context = new DataContext();
+            var obj = context.HoDans.Find(hd.MaHD);
+            obj.HoTenChuHo = hd.HoTenChuHo;
+            obj.GioiTinh = hd.GioiTinh;
+            obj.CCCD = hd.CCCD;
+            obj.DiaChi = hd.DiaChi;
+            obj.SDT = hd.SDT;
+            obj.DienGiaDinh = hd.DienGiaDinh;
+            context.SaveChanges();
+        }
         public void Delete(string ma)
         {
-            string query = "exec XoaHoDan " + ma;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.HoDans.Remove(context.HoDans.Find(ma));
+            context.SaveChanges();
         }
     }
 }

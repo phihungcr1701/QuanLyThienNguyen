@@ -1,5 +1,6 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
@@ -20,12 +21,10 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        private DAL_Account() { }
         public bool PhanQuyen(string user, string pass)
         {
-            Account account = new Account(user, pass);
-            string query = "Select count(*) from Account where Username = '" + account.Username + "' and Password = '" + account.Password + "'";
-            int count = (int)DataProvider.Instance.ExcuteScalar(query);
+            DataContext context = new DataContext();
+            int count = context.Accounts.Where(p => p.Username == user && p.Password == pass).Count();
             if (count > 0)
             {
                 return true;

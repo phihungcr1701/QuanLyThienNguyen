@@ -1,10 +1,11 @@
-﻿using System;
+﻿using QuanLyThienNguyen.DAL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class HinhThucUngHo
+    public class HinhThucUngHoView
     {
         private string _MaHTUH;
         private string _TenHTUH;
@@ -13,18 +14,12 @@ namespace QuanLyThienNguyen.DTO
         public string TenHTUH { get => _TenHTUH; set => _TenHTUH = value; }
         public string DonViTinh { get => _DonViTinh; set => _DonViTinh = value; }
 
-        public HinhThucUngHo() { }
-        public HinhThucUngHo(string ma = null, string ten = null, string donvitinh = null) 
+        public HinhThucUngHoView() { }
+        public HinhThucUngHoView(string ma = null, string ten = null, string donvitinh = null) 
         {
             this.MaHTUH = ma;
             this.TenHTUH = ten;
             this.DonViTinh = donvitinh;
-        }
-        public HinhThucUngHo(DataRow row)
-        {
-            this.MaHTUH = row["MaHTUH"].ToString();
-            this.TenHTUH = row["TenHTUH"].ToString();
-            this.DonViTinh = row["DonViTinh"].ToString();
         }
         
         public static List<string> items = new List<string>(new string[]
@@ -40,6 +35,15 @@ namespace QuanLyThienNguyen.DTO
             if (namecolumn == "Đơn vị tính")
                 return "DonViTinh";
             return namecolumn;
+        }
+        public static HinhThucUngHo ToChange(HinhThucUngHoView item)
+        {
+            return new HinhThucUngHo
+            {
+                MaHTUH = item.MaHTUH,
+                TenHTUH = item.TenHTUH,
+                DonViTinh = item.DonViTinh
+            };
         }
     }
 }

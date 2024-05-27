@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyThienNguyen.DTO
 {
-    internal class ChiTietUngHo
+    public class ChiTietUngHoView
     {
         private string _MaCTUH;
         private string _MaDVUH;
@@ -17,7 +17,7 @@ namespace QuanLyThienNguyen.DTO
         private double _SoLuongUH;
         private double _SoLuongNUH;
 
-        public ChiTietUngHo(string maDVUH, string maDUH, string maHD, string maHTUH,
+        public ChiTietUngHoView(string maDVUH, string maDUH, string maHD, string maHTUH,
             double soLuongUH, double soLuongNUH)
         {
             MaDVUH = maDVUH;
@@ -28,7 +28,7 @@ namespace QuanLyThienNguyen.DTO
             SoLuongNUH = soLuongNUH;
         }
 
-        public ChiTietUngHo(string maCTUH, string maDVUH, string maDUH, string maHD, string maHTUH, 
+        public ChiTietUngHoView(string maCTUH, string maDVUH, string maDUH, string maHD, string maHTUH,
             double soLuongUH, double soLuongNUH)
         {
             this.MaCTUH = maCTUH;
@@ -38,17 +38,6 @@ namespace QuanLyThienNguyen.DTO
             MaHTUH = maHTUH;
             SoLuongUH = soLuongUH;
             SoLuongNUH = soLuongNUH;
-        }
-
-        public ChiTietUngHo(DataRow row)
-        {
-            MaCTUH = row["STT"].ToString();
-            MaDVUH = row["MaDVUH"].ToString();
-            MaDUH = row["MaDUH"].ToString();
-            MaHD = row["MaHD"].ToString();
-            MaHTUH = row["MaHTUH"].ToString();
-            SoLuongUH = Convert.ToDouble(row["SoLuongUH"].ToString());
-            SoLuongNUH = Convert.ToDouble(row["SoLuongNUH"].ToString());
         }
 
         public string MaCTUH { get => _MaCTUH; set => _MaCTUH = value; }

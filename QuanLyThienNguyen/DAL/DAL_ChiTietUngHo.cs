@@ -27,40 +27,50 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public List<ChiTietUngHo> GetAllChiTietUngHo()
+        public List<ChiTietUngHoView> GetAllChiTietUngHo()
         {
-            List<ChiTietUngHo> list = new List<ChiTietUngHo>();
-            string query = "SELECT * FROM ChiTietUngHo";
-            foreach (DataRow row in DataProvider.Instance.ExcuteQuery(query).Rows)
+            List<ChiTietUngHoView> list = new List<ChiTietUngHoView>();
+            DataContext context = new DataContext();
+            foreach (var item in context.ChiTietUngHoes)
             {
-                list.Add(new ChiTietUngHo(row));
+                list.Add(new ChiTietUngHoView(item.STT, item.MaDVUH, item.MaDUH, item.MaHD, item.MaHTUH, Convert.ToDouble(item.SoLuongUH), Convert.ToDouble(item.SoLuongNUH)));
             }
             return list;
         }
         public void UpdateActivity(ChiTietUngHo item)
         {
-            string query = "EXEC CapNhatActivity " + item.MaCTUH + ", " + item.MaDVUH + ", " + item.MaDUH
-                + ", " + item.MaHD
-                + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            var obj = context.ChiTietUngHoes.Find(item.STT);
+            obj.MaDVUH = item.MaDVUH;
+            obj.MaDUH = item.MaDUH;
+            obj.MaHD = item.MaHD;
+            obj.MaHTUH = item.MaHTUH;
+            obj.SoLuongUH = item.SoLuongUH;
+            obj.SoLuongNUH = item.SoLuongNUH;
+            context.SaveChanges();
         }
         public void AddActivity(ChiTietUngHo item)
         {
 
-            string query = "EXEC ThemChiTietUngHo " + item.MaCTUH + ", " + item.MaDVUH + ", " + item.MaDUH + ", " + item.MaHD
-                + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.ChiTietUngHoes.Add(item);
+            context.SaveChanges();
         }
         public void DeleteActivity(string maCTUH)
         {
-            string query = "DELETE FROM ChiTietUngHo WHERE STT = '" + maCTUH + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.ChiTietUngHoes.Remove(context.ChiTietUngHoes.Find(maCTUH));
+            context.SaveChanges();
         }
         public void Combine(ChiTietUngHo item)
         {
-            string query = "EXEC Combine " + item.MaDVUH + ", " + item.MaDUH + ", " + item.MaHD
-                + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            foreach (var obj in context.ChiTietUngHoes.Where(p => p.MaDVUH == item.MaDVUH && p.MaDUH == item.MaDUH && p.MaHD == item.MaHD && p.MaHTUH == item.MaHTUH).Select(p => p))
+            {
+                obj.SoLuongUH += item.SoLuongUH;
+                obj.SoLuongNUH += item.SoLuongNUH;
+            }
+            context.SaveChanges();
         }
     }
 }

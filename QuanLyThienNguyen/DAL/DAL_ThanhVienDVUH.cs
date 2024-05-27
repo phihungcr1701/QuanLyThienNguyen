@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Windows.Documents;
 
 namespace QuanLyThienNguyen.DAL
 {
@@ -22,36 +24,55 @@ namespace QuanLyThienNguyen.DAL
             }
         }
         public DAL_ThanhVienDVUH() { }
-        public List<ThanhVienDVUH> GetAllThanhVienDVUH()
+        public List<ThanhVienDVUHView> GetAllThanhVienDVUH()
         {
-            string query = "exec GetAllThanhVienDVUH";
-            List<ThanhVienDVUH> list = new List<ThanhVienDVUH>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
+            DataContext context = new DataContext();
+            List<ThanhVienDVUHView> list = new List<ThanhVienDVUHView>();
+            foreach (var item in context.ThanhVienDVUHs)
             {
-                list.Add(new ThanhVienDVUH(item));
+                list.Add(new ThanhVienDVUHView(item.MaDVUH, item.HoTen, item.GioiTinh, item.CCCD, item.DiaChi, item.SDT));
             }
             return list;
         }
         public void Add(ThanhVienDVUH tvdvuh)
         {
-            string query = "exec ThemThanhVienDVUH '" + tvdvuh.MaDVUH + "', '" + tvdvuh.HoTen + "'," + tvdvuh.GioiTinh + ", '" + tvdvuh.CCCD + "', '" + tvdvuh.DiaChi + "', '" + tvdvuh.SDT + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.ThanhVienDVUHs.Add(tvdvuh); 
+            context.SaveChanges();
         }
         public void Update(ThanhVienDVUH tvdvuh, ThanhVienDVUH tvdvuhchange)
         {
-            string query = "exec CapNhatThanhVienDVUH '" + tvdvuh.MaDVUH + "', '" + tvdvuh.HoTen + "'," + tvdvuh.GioiTinh + ", '" + tvdvuh.CCCD + "', '" + tvdvuh.DiaChi + "', '" + tvdvuh.SDT +
-                                        "', '" + tvdvuhchange.MaDVUH + "', '" + tvdvuhchange.HoTen + "'," + tvdvuhchange.GioiTinh + ", '" + tvdvuhchange.CCCD + "', '" + tvdvuhchange.DiaChi + "', '" + tvdvuhchange.SDT + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            var obj = context.ThanhVienDVUHs.Find(tvdvuh);
+            obj.MaDVUH = tvdvuhchange.MaDVUH;
+            obj.HoTen = tvdvuhchange.HoTen;
+            obj.GioiTinh = tvdvuhchange.GioiTinh;
+            obj.CCCD = tvdvuhchange.CCCD;
+            obj.DiaChi = tvdvuhchange.DiaChi;
+            obj.SDT = tvdvuhchange.SDT;
         }
         public void Delete(ThanhVienDVUH tvdvuh)
         {
-            string query = "exec XoaThanhVienDVUH '" + tvdvuh.MaDVUH + "', '" + tvdvuh.HoTen + "'," + tvdvuh.GioiTinh + ", '" + tvdvuh.CCCD + "', '" + tvdvuh.DiaChi + "', '" + tvdvuh.SDT + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            var list = context.ThanhVienDVUHs
+                            .FirstOrDefault(p => p.MaDVUH == tvdvuh.MaDVUH &&
+                                                 p.HoTen == tvdvuh.HoTen &&
+                                                 p.GioiTinh == tvdvuh.GioiTinh &&
+                                                 p.CCCD == tvdvuh.CCCD &&
+                                                 p.DiaChi == tvdvuh.DiaChi &&
+                                                 p.SDT == tvdvuh.SDT);
+            context.ThanhVienDVUHs.Remove(list);
+            context.SaveChanges();
         }
         public int Check(ThanhVienDVUH tvdvuh)
         {
-            string query = "SELECT COUNT(*) FROM ThanhVienDVUH WHERE MaDVUH = '"+ tvdvuh.MaDVUH +"' AND HoTen = '"+ tvdvuh.HoTen +"' AND GioiTinh = "+ Convert.ToByte(tvdvuh.GioiTinh) +" AND CCCD = '"+ tvdvuh.CCCD +"' AND DiaChi = '"+ tvdvuh.DiaChi +"' AND SDT = '"+ tvdvuh.SDT +"'";
-            return (int)DataProvider.Instance.ExcuteScalar(query);
+            DataContext context = new DataContext();
+            return context.ThanhVienDVUHs.Where(p => p.MaDVUH == tvdvuh.MaDVUH &&
+                                                     p.HoTen == tvdvuh.HoTen &&
+                                                     p.GioiTinh == tvdvuh.GioiTinh &&
+                                                     p.CCCD == tvdvuh.CCCD &&
+                                                     p.DiaChi == tvdvuh.DiaChi &&
+                                                     p.SDT == tvdvuh.SDT).Count();
         }
     }
 }

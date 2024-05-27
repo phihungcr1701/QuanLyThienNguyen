@@ -1,10 +1,11 @@
-﻿using System;
+﻿using QuanLyThienNguyen.DAL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class DotUngHo
+    public class DotUngHoView
     {
         private string _MaDUH;
         private DateTime _NgayBatDau;
@@ -13,18 +14,12 @@ namespace QuanLyThienNguyen.DTO
         public DateTime NgayBatDau { get => _NgayBatDau; set => _NgayBatDau = value; }
         public DateTime NgayKetThuc { get => _NgayKetThuc; set => _NgayKetThuc = value; }
 
-        public DotUngHo() { }
-        public DotUngHo(string ma, DateTime ngaybatdau, DateTime ngayketthuc)
+        public DotUngHoView() { }
+        public DotUngHoView(string ma, DateTime ngaybatdau, DateTime ngayketthuc)
         {
             this.MaDUH = ma;
             this.NgayBatDau = ngaybatdau;
             this.NgayKetThuc = ngayketthuc;
-        }
-        public DotUngHo(DataRow row)
-        {
-            this.MaDUH = row["MaDUH"].ToString();
-            this.NgayBatDau = Convert.ToDateTime(row["NgayBatDau"].ToString());
-            this.NgayKetThuc = Convert.ToDateTime(row["NgayKetThuc"].ToString());
         }
 
         public static List<string> items = new List<string>(new string[]
@@ -40,6 +35,15 @@ namespace QuanLyThienNguyen.DTO
             if (namecolumn == "Ngày kết thúc")
                 return "NgayKetThuc";
             return namecolumn;
+        }
+        public static DotUngHo ToChange(DotUngHoView item)
+        {
+            return new DotUngHo
+            {
+                MaDUH = item.MaDUH,
+                NgayBatDau = item.NgayBatDau,
+                NgayKetThuc = item.NgayKetThuc
+            };
         }
     }
 }

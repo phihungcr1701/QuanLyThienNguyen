@@ -20,31 +20,35 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public DAL_DotUngHo() { }
-        public List<DotUngHo> GetAllDotUngHo()
+        public List<DotUngHoView> GetAllDotUngHo()
         {
-            string query = "exec GetAllDotUngHo";
-            List<DotUngHo> list = new List<DotUngHo>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
+            DataContext context = new DataContext();
+            List<DotUngHoView> list = new List<DotUngHoView>();
+            foreach (var item in context.DotUngHoes)
             {
-                list.Add(new DotUngHo(item));
+                list.Add(new DotUngHoView(item.MaDUH, item.NgayBatDau, item.NgayKetThuc));
             }
             return list;
         }
         public void Add(DotUngHo duh)
-            {
-            string query = "exec ThemDotUngHo '" + duh.MaDUH + "', '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+        {
+            DataContext context = new DataContext();
+            context.DotUngHoes.Add(duh);
+            context.SaveChanges();
         }
         public void Update(DotUngHo duh)
-                {
-            string query = "exec CapNhatDotUngHo '" + duh.MaDUH + "', '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-            }
+        {
+            DataContext context = new DataContext();
+            var obj = context.DotUngHoes.Find(duh.MaDUH);
+            obj.NgayBatDau = duh.NgayBatDau;
+            obj.NgayKetThuc = duh.NgayKetThuc;
+            context.SaveChanges();
+        }
         public void Delete(string ma)
         {
-            string query = "exec XoaDotUngHo " + ma;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.DotUngHoes.Remove(context.DotUngHoes.Find(ma));
+            context.SaveChanges();
         }
     }
 }

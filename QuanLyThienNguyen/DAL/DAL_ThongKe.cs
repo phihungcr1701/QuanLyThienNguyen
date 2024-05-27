@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
@@ -25,51 +26,55 @@ namespace QuanLyThienNguyen.DAL
         public DAL_ThongKe() { }
         public List<string> GetAllTenHTUH()
         {
+            DataContext context = new DataContext();
             List<string> list = new List<string>();
-            string sql = "SELECT DISTINCT HinhThucUngHo.TenHTUH FROM HinhThucUngHo INNER JOIN ChiTietUngHo ON HinhThucUngHo.MaHTUH = ChiTietUngHo.MaHTUH;";
-
-            foreach (DataRow row in DataProvider.Instance.ExcuteQuery(sql).Rows)
+            foreach (string item in context.ChiTietUngHoes.Select(p => p.HinhThucUngHo.TenHTUH).Distinct())
             {
-                list.Add(row["TenHTUH"].ToString());
+                list.Add(item);
             }
-
             return list;
         }
-        public List<string> GetAllMa(string ma)
+        public List<string> GetAllMaDVUH()
         {
+            DataContext context = new DataContext();
             List<string> list = new List<string>();
-            string sql = "SELECT DISTINCT "+ ma +" FROM ChiTietUngHo;";
-
-            foreach (DataRow row in DataProvider.Instance.ExcuteQuery(sql).Rows)
+            foreach (string item in context.ChiTietUngHoes.Select(p => p.MaDVUH).Distinct())
             {
-                list.Add(row[ma].ToString());
+                list.Add(item);
             }
-
             return list;
         }
-        public List<ThongKeShow> GetAllThongKe(string ten)
+        public List<string> GetAllMaHTUH()
         {
-            List<ThongKeShow> list = new List<ThongKeShow>();
-            string sql =
-                "SELECT DonViUngHo.TenDonVi, HinhThucUngHo.TenHTUH, ThongKe.TongSoLuongUH, ThongKe.SoDuUH, HinhThucUngHo.DonViTinh " +
-                "FROM (ThongKe INNER JOIN HinhThucUngHo ON ThongKe.MaHTUH = HinhThucUngHo.MaHTUH) INNER JOIN DonViUngHo ON ThongKe.MaDVUH = DonViUngHo.MaDVUH " +
-                "WHERE HinhThucUngHo.TenHTUH = '" + ten + "';";
-
-            foreach (DataRow row in DataProvider.Instance.ExcuteQuery(sql).Rows)
+            DataContext context = new DataContext();
+            List<string> list = new List<string>();
+            foreach (string item in context.ChiTietUngHoes.Select(p => p.MaHTUH).Distinct())
             {
-                list.Add(new ThongKeShow(row));
+                list.Add(item);
+            }
+            return list;
+        }
+        public List<ThongKeView> GetAllThongKe(string ten)
+        {
+            DataContext context = new DataContext();
+            List<ThongKeView> list = new List<ThongKeView>();
+            foreach (var item in context.ThongKes)
+            {
+                list.Add(new ThongKeView(item.DonViUngHo.TenDonVi, item.HinhThucUngHo.TenHTUH, (double)item.TongSoLuongUH, (double)item.SoDuUH, item.HinhThucUngHo.DonViTinh));
             }
             return list;
         }
         public void Add(ThongKe tk)
         {
-            string query = "exec ThemThongKe " + tk.MaDVUH + ", " + tk.MaHTUH + ", " + tk.TongSoLuongUH + ", " + tk.SoDuUH;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.ThongKes.Add(tk);
+            context.SaveChanges();
         }
         public void Delete()
         {
-            string query = "exec XoaThongKe";
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.ThongKes.RemoveRange(context.ThongKes);
+            context.SaveChanges();
         }
     }
 }

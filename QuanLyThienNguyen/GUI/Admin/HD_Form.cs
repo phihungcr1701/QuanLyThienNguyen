@@ -15,7 +15,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            HoDan hd = new HoDan(
+            HoDanView hd = new HoDanView(
                 textbox_MaHD.Text,
                 textbox_HoTen.Text,
                 radiobutton_Nam.Checked,
@@ -58,7 +58,7 @@ namespace QuanLyThienNguyen.GUI.Admin
             if (ma != null)
             {
                 textbox_MaHD.ReadOnly = true;
-                HoDan hd = BBL_HoDan.Instance.GetHoDan(ma);
+                HoDanView hd = BBL_HoDan.Instance.GetHoDan(ma);
                 if (hd.GioiTinh == true)
                     radiobutton_Nam.Checked = true;
                 else

@@ -15,7 +15,7 @@ namespace QuanLyThienNguyen.GUI
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            DonViUngHo dvuh = new DonViUngHo(
+            DonViUngHoView dvuh = new DonViUngHoView(
                 textbox_MaDVUH.Text,
                 textbox_TenDonVi.Text,
                 textbox_DiaChiDonVi.Text,
@@ -55,7 +55,7 @@ namespace QuanLyThienNguyen.GUI
             if (ma != null)
             {
                 textbox_MaDVUH.ReadOnly = true;
-                DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(ma);
+                DonViUngHoView obj = BBL_DonViUngHo.Instance.GetDonViUngHo(ma);
                 textbox_MaDVUH.Text = obj.MaDVUH;
                 textbox_TenDonVi.Text = obj.TenDonVi;
                 textbox_DiaChiDonVi.Text = obj.DiaChiDonVi;

@@ -24,12 +24,11 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        public BBL_HoDan() { }
-        public List<HoDan> GetAllHoDan(string text, string namecolumn)
+        public List<HoDanView> GetAllHoDan(string text, string namecolumn)
         {
-            List<HoDan> view = new List<HoDan>();
+            List<HoDanView> view = new List<HoDanView>();
         
-            foreach (HoDan item in Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn))
+            foreach (HoDanView item in Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -43,9 +42,9 @@ namespace QuanLyThienNguyen.BBL
             return view;
         }
 
-        public List<HoDan> Sort(List<HoDan> list, string namecolumn)
+        public List<HoDanView> Sort(List<HoDanView> list, string namecolumn)
         {
-            List<HoDan> sort = list;
+            List<HoDanView> sort = list;
             switch (namecolumn)
             {
                 case "MaHD":
@@ -72,24 +71,24 @@ namespace QuanLyThienNguyen.BBL
             }
             return sort;
         }
-        public HoDan GetHoDan(string ma)
+        public HoDanView GetHoDan(string ma)
         {
-            foreach (HoDan item in DAL_HoDan.Instance.GetAllHoDan())
+            foreach (HoDanView item in DAL_HoDan.Instance.GetAllHoDan())
                 if (item.MaHD.Equals(ma))
                     return item;
             return null;
         }
-        public void Add(HoDan hd)
+        public void Add(HoDanView hd)
         {
-            DAL_HoDan.Instance.Add(hd);
-            }
-        public void Update(HoDan hd)
+            DAL_HoDan.Instance.Add(HoDanView.ToChange(hd));
+        }
+        public void Update(HoDanView hd)
         {
-            DAL_HoDan.Instance.Update(hd);
+            DAL_HoDan.Instance.Update(HoDanView.ToChange(hd));
         }
         public void Delete(string ma)
         {
-            HoDan hd = GetHoDan(ma);
+            HoDanView hd = GetHoDan(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
         {
                 DAL_HoDan.Instance.Delete(ma);

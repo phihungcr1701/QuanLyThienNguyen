@@ -20,32 +20,36 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public DAL_HinhThucUngHo() { }
-        public List<HinhThucUngHo> GetAllHinhThucUngHo()
+        public List<HinhThucUngHoView> GetAllHinhThucUngHo()
         {
-            string query = "exec GetAllHinhThucUngHo";
-            List<HinhThucUngHo> list = new List<HinhThucUngHo>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
+            DataContext context = new DataContext();
+            List<HinhThucUngHoView> list = new List<HinhThucUngHoView>();
+            foreach (var item in context.HinhThucUngHoes)
             {
-                list.Add(new HinhThucUngHo(item));
+                list.Add(new HinhThucUngHoView(item.MaHTUH, item.TenHTUH, item.DonViTinh));
             }
             return list;
         }
 
         public void Add(HinhThucUngHo htuh)
-            {
-            string query = "exec ThemHinhThucUngHo '" + htuh.MaHTUH + "', '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+        {
+            DataContext context = new DataContext();
+            context.HinhThucUngHoes.Add(htuh);
+            context.SaveChanges();
         }
         public void Update(HinhThucUngHo htuh)
-                {
-            string query = "exec CapNhatHinhThucUngHo '" + htuh.MaHTUH + "', '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-            }
+        {
+            DataContext context = new DataContext();
+            var obj = context.HinhThucUngHoes.Find(htuh.MaHTUH);
+            obj.TenHTUH = htuh.TenHTUH;
+            obj.DonViTinh = htuh.DonViTinh;
+            context.SaveChanges();
+        }
         public void Delete(string ma)
         {
-            string query = "exec XoaHinhThucUngHo " + ma;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataContext context = new DataContext();
+            context.HinhThucUngHoes.Remove(context.HinhThucUngHoes.Find(ma));
+            context.SaveChanges();
         }
     }
 }

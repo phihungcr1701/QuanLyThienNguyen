@@ -21,11 +21,10 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        private BBL_ComboBox() { }
         public List<string> Combobox_DVUH()
         {
             List<string> list = new List<string>();
-            foreach (DonViUngHo item in DAL_DonViUngHo.Instance.GetAllDonViUngHo())
+            foreach (DonViUngHoView item in DAL_DonViUngHo.Instance.GetAllDonViUngHo())
             {
                 list.Add(item.MaDVUH.ToString());
             }
@@ -34,7 +33,7 @@ namespace QuanLyThienNguyen.BBL
         public List<string> Combobox_DUH()
         {
             List<string> list = new List<string>();
-            foreach (DotUngHo item in DAL_DotUngHo.Instance.GetAllDotUngHo())
+            foreach (DotUngHoView item in DAL_DotUngHo.Instance.GetAllDotUngHo())
             {
                 list.Add(item.MaDUH.ToString());
             }
@@ -43,7 +42,7 @@ namespace QuanLyThienNguyen.BBL
         public List<string> Combobox_HoDan()
         {
             List<string> list = new List<string>();
-            foreach (HoDan item in DAL_HoDan.Instance.GetAllHoDan())
+            foreach (HoDanView item in DAL_HoDan.Instance.GetAllHoDan())
             {
                 list.Add(item.MaHD.ToString());
             }
@@ -52,7 +51,7 @@ namespace QuanLyThienNguyen.BBL
         public List<string> Combobox_HTUH()
         {
             List<string> list = new List<string>();
-            foreach (HinhThucUngHo item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
+            foreach (HinhThucUngHoView item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
             {
                 list.Add(item.MaHTUH.ToString());
             }
