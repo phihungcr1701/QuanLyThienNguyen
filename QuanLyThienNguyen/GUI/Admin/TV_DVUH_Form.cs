@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Windows.Controls;
@@ -8,12 +9,12 @@ namespace QuanLyThienNguyen.GUI.Admin
 {
     public partial class TV_DVUH_Form : Form
     {
-        public TV_DVUH_Form(ThanhVienDVUH tvdvuh = null)
+        public TV_DVUH_Form(DTOThanhVienDVUH tvdvuh = null)
         {
             InitializeComponent();
             this.tvdvuh = tvdvuh;
         }
-        private ThanhVienDVUH tvdvuh { get; set; }
+        private DTOThanhVienDVUH tvdvuh { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
             ThanhVienDVUH tvdvuhchange = new ThanhVienDVUH(
@@ -33,28 +34,28 @@ namespace QuanLyThienNguyen.GUI.Admin
                 }
                 else
                 {       
-                    if (BBL_ThanhVienDVUH.Instance.Check(tvdvuhchange))
-                    {
-                        BBL_ThanhVienDVUH.Instance.Add(tvdvuhchange);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Đã tồn tại !!!");
-                    }
+                    //if (BBL_ThanhVienDVUH.Instance.Check(tvdvuhchange))
+                    //{
+                    //    BBL_ThanhVienDVUH.Instance.Add(tvdvuhchange);
+                    //    this.Close();
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Đã tồn tại !!!");
+                    //}
                 }
             }
             else
             {
-                if (BBL_ThanhVienDVUH.Instance.Check(tvdvuhchange) && tvdvuh != tvdvuhchange)
-                {
-                    BBL_ThanhVienDVUH.Instance.Update(tvdvuh, tvdvuhchange);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật trùng với cái đã tồn tại hoặc bạn chưa thay đổi gì !!!");
-                }
+                //if (BBL_ThanhVienDVUH.Instance.Check(tvdvuhchange) && tvdvuh != tvdvuhchange)
+                //{
+                //    BBL_ThanhVienDVUH.Instance.Update(tvdvuh, tvdvuhchange);
+                //    this.Close();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Cập nhật trùng với cái đã tồn tại hoặc bạn chưa thay đổi gì !!!");
+                //}
             }
         }
 

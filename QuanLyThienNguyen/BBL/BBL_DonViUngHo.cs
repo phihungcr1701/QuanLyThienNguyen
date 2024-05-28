@@ -24,27 +24,27 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         public BBL_DonViUngHo() { }
-        public List<DonViUngHo> GetAllDonViUngHo(string text, string namecolumn)
+        public List<DTODonViUngHo> GetAllDonViUngHo(string text, string namecolumn)
         {
-            List<DonViUngHo> view = new List<DonViUngHo>();
+            List<DTODonViUngHo> view = new List<DTODonViUngHo>();
 
-            foreach (DonViUngHo item in Sort(DAL_DonViUngHo.Instance.GetAllDonViUngHo(), namecolumn))
+            foreach (DTODonViUngHo item in Sort(DAL_DonViUngHo.Instance.GetAllDonViUngHo(), namecolumn))
             {
                 foreach (PropertyInfo property in item.GetType().GetProperties())
                 {
                     if (property.GetValue(item).ToString().ToLower().Contains(text.ToLower()))
                     {
                         view.Add(item);
-                    break;
+                        break;
                     }
                 }
             }
 
             return view;
         }
-        public List<DonViUngHo> Sort(List<DonViUngHo> list, string namecolumn)
+        public List<DTODonViUngHo> Sort(List<DTODonViUngHo> list, string namecolumn)
         {
-            List<DonViUngHo> sort = list;
+            List<DTODonViUngHo> sort = list;
             switch (namecolumn)
             {
                 case "MaDVUH":
@@ -64,7 +64,7 @@ namespace QuanLyThienNguyen.BBL
         }
         public DonViUngHo GetDonViUngHo(string ma)
         {
-            foreach (DonViUngHo item in DAL_DonViUngHo.Instance.GetAllDonViUngHo())
+            foreach (DonViUngHo item in DAL_DonViUngHo.Instance.GetAll())
                 if (item.MaDVUH.Equals(ma))
                     return item;
             return null;
@@ -82,7 +82,7 @@ namespace QuanLyThienNguyen.BBL
             DonViUngHo dvuh = GetDonViUngHo(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + dvuh.MaDVUH + " | " + dvuh.TenDonVi + " | " + dvuh.DiaChiDonVi + " | " + dvuh.SDTDonVi, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_DonViUngHo.Instance.Delete(ma);
+                DAL_DonViUngHo.Instance.Delete(dvuh);
             }
         }
     }

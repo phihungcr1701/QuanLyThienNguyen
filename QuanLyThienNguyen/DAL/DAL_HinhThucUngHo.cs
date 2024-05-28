@@ -1,10 +1,11 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_HinhThucUngHo
+    internal class DAL_HinhThucUngHo : DALBase<HinhThucUngHo>
     {
         private static DAL_HinhThucUngHo instance;
         public static DAL_HinhThucUngHo Instance
@@ -21,31 +22,22 @@ namespace QuanLyThienNguyen.DAL
             }
         }
         public DAL_HinhThucUngHo() { }
-        public List<HinhThucUngHo> GetAllHinhThucUngHo()
+        public List<DTOHinhThucUngHo> GetAllHinhThucUngHo()
         {
-            string query = "exec GetAllHinhThucUngHo";
-            List<HinhThucUngHo> list = new List<HinhThucUngHo>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
-            {
-                list.Add(new HinhThucUngHo(item));
-            }
-            return list;
+            var htuh = from p in GetAll()
+                       select new DTOHinhThucUngHo
+                       {
+                           MaHTUH = p.MaHTUH,
+                           TenHTUH = p.TenHTUH,
+                           DonViTinh = p.DonViTinh,
+                       };
+            return htuh.ToList();
         }
 
-        public void Add(HinhThucUngHo htuh)
-            {
-            string query = "exec ThemHinhThucUngHo '" + htuh.MaHTUH + "', '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-        }
-        public void Update(HinhThucUngHo htuh)
-                {
-            string query = "exec CapNhatHinhThucUngHo '" + htuh.MaHTUH + "', '" + htuh.TenHTUH + "', '" + htuh.DonViTinh + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-            }
-        public void Delete(string ma)
+
+        protected override object GetEntityKey(HinhThucUngHo entity)
         {
-            string query = "exec XoaHinhThucUngHo " + ma;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            return entity.MaHTUH;
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_Account
+    internal class DAL_Account : DALBase<Account>
     {
         private static DAL_Account instance;
 
@@ -23,14 +24,16 @@ namespace QuanLyThienNguyen.DAL
         private DAL_Account() { }
         public bool PhanQuyen(string user, string pass)
         {
-            Account account = new Account(user, pass);
-            string query = "Select count(*) from Account where Username = '" + account.Username + "' and Password = '" + account.Password + "'";
-            int count = (int)DataProvider.Instance.ExcuteScalar(query);
-            if (count > 0)
-            {
-                return true;
-            }
-            return false;
+
+            var acc = from p in GetAll()
+                      where user == p.Username && pass == p.Password
+                      select p;
+            return acc.Any();
+        }
+
+        protected override object GetEntityKey(Account entity)
+        {
+            return entity.Id;
         }
     }
 }

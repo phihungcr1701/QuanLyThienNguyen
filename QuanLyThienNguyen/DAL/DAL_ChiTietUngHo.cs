@@ -10,7 +10,7 @@ using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_ChiTietUngHo
+    internal class DAL_ChiTietUngHo : DALBase<ChiTietUngHo>
     {
         private static DAL_ChiTietUngHo instance;
 
@@ -27,40 +27,24 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public List<ChiTietUngHo> GetAllChiTietUngHo()
-        {
-            List<ChiTietUngHo> list = new List<ChiTietUngHo>();
-            string query = "SELECT * FROM ChiTietUngHo";
-            foreach (DataRow row in DataProvider.Instance.ExcuteQuery(query).Rows)
-            {
-                list.Add(new ChiTietUngHo(row));
-            }
-            return list;
-        }
-        public void UpdateActivity(ChiTietUngHo item)
-        {
-            string query = "EXEC CapNhatActivity " + item.MaCTUH + ", " + item.MaDVUH + ", " + item.MaDUH
-                + ", " + item.MaHD
-                + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
-            DataProvider.Instance.ExcuteNonQuery(query);
-        }
-        public void AddActivity(ChiTietUngHo item)
-        {
 
-            string query = "EXEC ThemChiTietUngHo " + item.MaCTUH + ", " + item.MaDVUH + ", " + item.MaDUH + ", " + item.MaHD
-                + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
-            DataProvider.Instance.ExcuteNonQuery(query);
-        }
-        public void DeleteActivity(string maCTUH)
+        public void AddCombine(ChiTietUngHo item)
         {
-            string query = "DELETE FROM ChiTietUngHo WHERE STT = '" + maCTUH + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
+            using (var context = new DataContext())
+            {
+                var chiTietUngHo = context.ChiTietUngHos.SingleOrDefault(ct => ct.MaCTUH == item.MaCTUH);
+                if (chiTietUngHo != null)
+                {
+                    chiTietUngHo.SoLuongUH += item.SoLuongUH.Value;
+                    chiTietUngHo.SoLuongNUH += item.SoLuongNUH.Value;
+                    context.SaveChanges();
+                }
+            }
         }
-        public void Combine(ChiTietUngHo item)
+        protected override object GetEntityKey(ChiTietUngHo entity)
         {
-            string query = "EXEC Combine " + item.MaDVUH + ", " + item.MaDUH + ", " + item.MaHD
-                + ", " + item.MaHTUH + ", " + item.SoLuongUH + ", " + item.SoLuongNUH;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            return entity.MaCTUH;
         }
+
     }
 }

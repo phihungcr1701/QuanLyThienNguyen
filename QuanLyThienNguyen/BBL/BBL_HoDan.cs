@@ -25,11 +25,11 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         public BBL_HoDan() { }
-        public List<HoDan> GetAllHoDan(string text, string namecolumn)
+        public List<DTOHoDan> GetAllHoDan(string text, string namecolumn)
         {
-            List<HoDan> view = new List<HoDan>();
-        
-            foreach (HoDan item in Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn))
+            List<DTOHoDan> view = new List<DTOHoDan>();
+
+            foreach (DTOHoDan item in Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -43,9 +43,9 @@ namespace QuanLyThienNguyen.BBL
             return view;
         }
 
-        public List<HoDan> Sort(List<HoDan> list, string namecolumn)
+        public List<DTOHoDan> Sort(List<DTOHoDan> list, string namecolumn)
         {
-            List<HoDan> sort = list;
+            List<DTOHoDan> sort = list;
             switch (namecolumn)
             {
                 case "MaHD":
@@ -74,7 +74,7 @@ namespace QuanLyThienNguyen.BBL
         }
         public HoDan GetHoDan(string ma)
         {
-            foreach (HoDan item in DAL_HoDan.Instance.GetAllHoDan())
+            foreach (HoDan item in DAL_HoDan.Instance.GetAll())
                 if (item.MaHD.Equals(ma))
                     return item;
             return null;
@@ -82,7 +82,7 @@ namespace QuanLyThienNguyen.BBL
         public void Add(HoDan hd)
         {
             DAL_HoDan.Instance.Add(hd);
-            }
+        }
         public void Update(HoDan hd)
         {
             DAL_HoDan.Instance.Update(hd);
@@ -91,8 +91,8 @@ namespace QuanLyThienNguyen.BBL
         {
             HoDan hd = GetHoDan(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
-        {
-                DAL_HoDan.Instance.Delete(ma);
+            {
+                DAL_HoDan.Instance.Delete(hd);
             }
         }
     }

@@ -29,41 +29,39 @@ namespace QuanLyThienNguyen.BBL
         }
         private BBL_ChiTietUngHo() { }
 
-        public List<Activity> GetAllActivity()
+        public List<DTOActivity> GetAllActivity()
         {
-            List<Activity> result = new List<Activity>();
-
-            foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
+            List<DTOActivity> result = new List<DTOActivity>();
+            foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAll())
             {
-                result.Add(new Activity(item.MaCTUH, item.MaDUH, item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH, item.SoLuongNUH));
+                DTOActivity activity = new DTOActivity(item.MaCTUH, item.MaDUH,
+                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value);
+                result.Add(activity);
             }
-
             return result;
         }
-        public List<Activity> GetActiviting()
+        public List<DTOActivity> GetActiviting()
         {
-            List<Activity> result = new List<Activity>();
-
-            foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
+            List<DTOActivity> result = new List<DTOActivity>();
+            foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAll())
             {
-                Activity activity = new Activity(item.MaCTUH, item.MaDUH,
-                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH, item.SoLuongNUH);
+                DTOActivity activity = new DTOActivity(item.MaCTUH, item.MaDUH,
+                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value);
                 if (activity.NgayKetThuc >= DateTime.Now && activity.NgayBatDau < DateTime.Now)
                 {
                     result.Add(activity);
                 }
             }
-
             return result;
         }
-        public List<Activity> GetActivited()
+        public List<DTOActivity> GetActivited()
         {
-            List<Activity> result = new List<Activity>();
+            List<DTOActivity> result = new List<DTOActivity>();
 
-            foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
+            foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAll())
             {
-                Activity activity = new Activity(item.MaCTUH, item.MaDUH,
-                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH, item.SoLuongNUH);
+                DTOActivity activity = new DTOActivity(item.MaCTUH, item.MaDUH,
+                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value);
                 if (activity.NgayKetThuc < DateTime.Now)
                 {
                     result.Add(activity);
@@ -72,14 +70,14 @@ namespace QuanLyThienNguyen.BBL
 
             return result;
         }
-        public List<Activity> GetWillActivity()
+        public List<DTOActivity> GetWillActivity()
         {
-            List<Activity> result = new List<Activity>();
+            List<DTOActivity> result = new List<DTOActivity>();
 
-            foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
+            foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAll())
             {
-                Activity activity = new Activity(item.MaCTUH, item.MaDUH,
-                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH, item.SoLuongNUH);
+                DTOActivity activity = new DTOActivity(item.MaCTUH, item.MaDUH,
+                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value);
                 if (activity.NgayBatDau > DateTime.Now)
                 {
                     result.Add(activity);
@@ -88,9 +86,9 @@ namespace QuanLyThienNguyen.BBL
 
             return result;
         }
-        public List<Activity> Display(int index, string timkiem, int indexSort)
+        public List<DTOActivity> Display(int index, string timkiem, int indexSort)
         {
-            List<Activity> result;
+            List<DTOActivity> result;
 
             if (index == 0)
             {
@@ -117,10 +115,10 @@ namespace QuanLyThienNguyen.BBL
             return result;
 
         }
-        public List<Activity> Search(string timkiem, List<Activity> list)
+        public List<DTOActivity> Search(string timkiem, List<DTOActivity> list)
         {
-            List<Activity> result = new List<Activity>();
-            foreach (Activity activity in list)
+            List<DTOActivity> result = new List<DTOActivity>();
+            foreach (DTOActivity activity in list)
             {
                 if (activity.TenDonVi.ToLower().Contains(timkiem)
                     || activity.HoTenChuHo.ToLower().Contains(timkiem)
@@ -137,9 +135,9 @@ namespace QuanLyThienNguyen.BBL
             }
             return result;
         }
-        public List<Activity> Sort(int IndexSort, List<Activity> list)
+        public List<DTOActivity> Sort(int IndexSort, List<DTOActivity> list)
         {
-            Comparison<Activity> comparison = null;
+            Comparison<DTOActivity> comparison = null;
             switch (IndexSort)
             {
                 case 0:
@@ -176,12 +174,12 @@ namespace QuanLyThienNguyen.BBL
         public void EditActivity(ChiTietUngHo item)
         {
             ChiTietUngHo itemOld = GetChiTietUngHoByMaCTUH(item.MaCTUH);
-            double sodu = SoDu(item.MaDVUH, item.MaHTUH) + item.SoLuongUH; // - SLUH cu + SLNUH cu + SLUH moi
+            double sodu = SoDu(item.MaCTUH, item.MaHTUH) + item.SoLuongUH.Value; // - SLUH cu + SLNUH cu + SLUH moi
             if (GetChiTietUngHoByMaCTUH(item.MaCTUH) != null)
             {
-                sodu = sodu - itemOld.SoLuongUH + itemOld.SoLuongNUH;
+                sodu = sodu - itemOld.SoLuongUH.Value + itemOld.SoLuongNUH.Value;
                 if (sodu >= item.SoLuongNUH)
-                    DAL_ChiTietUngHo.Instance.UpdateActivity(item);
+                    DAL_ChiTietUngHo.Instance.Update(item);
                 else
                     MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
             }
@@ -189,20 +187,20 @@ namespace QuanLyThienNguyen.BBL
         }
         public void AddActivity(ChiTietUngHo item)
         {
-            double sodu = SoDu(item.MaDVUH, item.MaHTUH) + item.SoLuongUH;
+            double sodu = SoDu(item.MaCTUH, item.MaHTUH) + item.SoLuongUH.Value;
             if (GetChiTietUngHoByMaCTUH(item.MaCTUH) == null)
             {
                 if (CheckChiTietUngHo(item))
                 {
                     if (sodu >= item.SoLuongNUH)
-                        DAL_ChiTietUngHo.Instance.Combine(item);
+                        DAL_ChiTietUngHo.Instance.AddCombine(item);
                     else
                         MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
                 }
                 else
                 {
                     if (sodu >= item.SoLuongNUH)
-                        DAL_ChiTietUngHo.Instance.AddActivity(item);
+                        DAL_ChiTietUngHo.Instance.Add(item);
                     else
                         MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
                 }
@@ -215,7 +213,7 @@ namespace QuanLyThienNguyen.BBL
         public bool CheckChiTietUngHo(ChiTietUngHo item)
         {
             bool check = false;
-            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
+            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAll())
             {
                 if (item.MaDVUH == i.MaDVUH && item.MaDUH == i.MaDUH && item.MaHD == i.MaHD
                     && item.MaHTUH == i.MaHTUH)
@@ -229,7 +227,7 @@ namespace QuanLyThienNguyen.BBL
         public ChiTietUngHo GetChiTietUngHoByMaCTUH(string maCTUH)
         {
             ChiTietUngHo item = null;
-            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
+            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAll())
             {
                 if (i.MaCTUH.Equals(maCTUH))
                 {
@@ -243,19 +241,19 @@ namespace QuanLyThienNguyen.BBL
         {
             double sumUH = 0;
             double sumNUH = 0;
-            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAllChiTietUngHo())
+            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAll())
             {
                 if (i.MaDVUH.Equals(madvuh) && i.MaHTUH.Equals(mahtuh))
                 {
-                    sumUH = sumUH + i.SoLuongUH;
-                    sumNUH = sumNUH + i.SoLuongNUH;
+                    sumUH = sumUH + i.SoLuongUH.Value;
+                    sumNUH = sumNUH + i.SoLuongNUH.Value;
                 }
             }
             return sumUH - sumNUH;
         }
         public void DeleteActivity(string maCTUH)
         {
-            DAL_ChiTietUngHo.Instance.DeleteActivity(maCTUH);
+            DAL_ChiTietUngHo.Instance.Delete(GetChiTietUngHoByMaCTUH(maCTUH));
         }
     }
 }

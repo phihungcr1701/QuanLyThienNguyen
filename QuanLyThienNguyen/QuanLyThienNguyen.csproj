@@ -33,15 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
@@ -68,6 +77,13 @@
     <Compile Include="BBL\BBL_ThongKe.cs" />
     <Compile Include="BBL\BBL_ThanhVienDVUH.cs" />
     <Compile Include="BBL\BBL_ChiTietUngHo.cs" />
+    <Compile Include="DAL\Account.cs">
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ChiTietUngHo.cs">
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DALBase.cs" />
     <Compile Include="DAL\DAL_Account.cs" />
     <Compile Include="DAL\DAL_DonViUngHo.cs" />
     <Compile Include="DAL\DAL_DotUngHo.cs" />
@@ -76,17 +92,47 @@
     <Compile Include="DAL\DAL_ThongKe.cs" />
     <Compile Include="DAL\DAL_ThanhVienDVUH.cs" />
     <Compile Include="DAL\DAL_ChiTietUngHo.cs" />
-    <Compile Include="DAL\DataProvider.cs" />
-    <Compile Include="DTO\Account.cs" />
-    <Compile Include="DTO\DonViUngHo.cs" />
-    <Compile Include="DTO\DotUngHo.cs" />
-    <Compile Include="DTO\HinhThucUngHo.cs" />
-    <Compile Include="DTO\HoDan.cs" />
+    <Compile Include="DAL\DonViUngHo.cs">
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DotUngHo.cs">
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\HinhThucUngHo.cs">
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\HoDan.cs">
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PBL3DataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3DataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PBL3DataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PBL3DataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3DataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ThanhVienDVUH.cs">
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ThongKe.cs">
+      <DependentUpon>PBL3DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DTODonViUngHo.cs" />
+    <Compile Include="DTO\DTODotUngHo.cs" />
+    <Compile Include="DTO\DTOHinhThucUngHo.cs" />
+    <Compile Include="DTO\DTOHoDan.cs" />
     <Compile Include="DTO\ThongKeShow.cs" />
-    <Compile Include="DTO\ThanhVienDVUH.cs" />
+    <Compile Include="DTO\DTOThanhVienDVUH.cs" />
     <Compile Include="DTO\ThongKe.cs" />
-    <Compile Include="DTO\ChiTietUngHo.cs" />
-    <Compile Include="DTO\Activity.cs" />
+    <Compile Include="DTO\DTOActivity.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,9 +211,7 @@
     <Compile Include="GUI\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\TK_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="GUI\TK_Form.cs" />
     <Compile Include="GUI\TK_Form.Designer.cs">
       <DependentUpon>TK_Form.cs</DependentUpon>
     </Compile>
@@ -225,6 +269,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="DAL\PBL3DataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PBL3DataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\PBL3DataBase.edmx.diagram">
+      <DependentUpon>PBL3DataBase.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -254,9 +305,23 @@
   <ItemGroup>
     <None Include="Resources\logo_pass.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DAL\PBL3DataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PBL3DataBase.Context.cs</LastGenOutput>
+      <DependentUpon>PBL3DataBase.edmx</DependentUpon>
+    </Content>
+    <Content Include="DAL\PBL3DataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PBL3DataBase.edmx</DependentUpon>
+      <LastGenOutput>PBL3DataBase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

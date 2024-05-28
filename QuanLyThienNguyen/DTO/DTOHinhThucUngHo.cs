@@ -4,7 +4,7 @@ using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class HinhThucUngHo
+    public class DTOHinhThucUngHo
     {
         private string _MaHTUH;
         private string _TenHTUH;
@@ -13,14 +13,14 @@ namespace QuanLyThienNguyen.DTO
         public string TenHTUH { get => _TenHTUH; set => _TenHTUH = value; }
         public string DonViTinh { get => _DonViTinh; set => _DonViTinh = value; }
 
-        public HinhThucUngHo() { }
-        public HinhThucUngHo(string ma = null, string ten = null, string donvitinh = null) 
+        public DTOHinhThucUngHo() { }
+        public DTOHinhThucUngHo(string ma = null, string ten = null, string donvitinh = null) 
         {
             this.MaHTUH = ma;
             this.TenHTUH = ten;
             this.DonViTinh = donvitinh;
         }
-        public HinhThucUngHo(DataRow row)
+        public DTOHinhThucUngHo(DataRow row)
         {
             this.MaHTUH = row["MaHTUH"].ToString();
             this.TenHTUH = row["TenHTUH"].ToString();

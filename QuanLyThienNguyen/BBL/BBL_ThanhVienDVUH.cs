@@ -24,11 +24,11 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         public BBL_ThanhVienDVUH() { }
-        public List<ThanhVienDVUH> GetAllThanhVienDVUH(string text, string namecolumn)
+        public List<DTOThanhVienDVUH> GetAllThanhVienDVUH(string text, string namecolumn)
         {
-            List<ThanhVienDVUH> view = new List<ThanhVienDVUH>();
+            List<DTOThanhVienDVUH> view = new List<DTOThanhVienDVUH>();
 
-            foreach (ThanhVienDVUH item in Sort(DAL_ThanhVienDVUH.Instance.GetAllThanhVienDVUH(), namecolumn))
+            foreach (DTOThanhVienDVUH item in Sort(DAL_ThanhVienDVUH.Instance.GetAllThanhVienDVUH(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -41,9 +41,9 @@ namespace QuanLyThienNguyen.BBL
 
             return view;
         }
-        public List<ThanhVienDVUH> Sort(List<ThanhVienDVUH> list, string namecolumn)
+        public List<DTOThanhVienDVUH> Sort(List<DTOThanhVienDVUH> list, string namecolumn)
         {
-            List<ThanhVienDVUH> sort = list;
+            List<DTOThanhVienDVUH> sort = list;
             switch (namecolumn)
             {
                 case "MaDVUH":
@@ -67,20 +67,20 @@ namespace QuanLyThienNguyen.BBL
             }
             return sort;
         }
-        public bool Check(ThanhVienDVUH tvdvuh)
-        {
-            if (DAL_ThanhVienDVUH.Instance.Check(tvdvuh) != 0)
-                return false;
-            return true;
-        }
+        //public bool Check(ThanhVienDVUH tvdvuh)
+        //{
+        //    if (DAL_ThanhVienDVUH.Instance.Check(tvdvuh) != 0)
+        //        return false;
+        //    return true;
+        //}
         public void Add(ThanhVienDVUH tvdvuh)
         {
             DAL_ThanhVienDVUH.Instance.Add(tvdvuh);
         }
-        public void Update(ThanhVienDVUH tvdvuh, ThanhVienDVUH tvdvuhchange)
-        {
-            DAL_ThanhVienDVUH.Instance.Update(tvdvuh, tvdvuhchange);
-        }
+        //public void Update(ThanhVienDVUH tvdvuh, ThanhVienDVUH tvdvuhchange)
+        //{
+        //    DAL_ThanhVienDVUH.Instance.Update(tvdvuh, tvdvuhchange);
+        //}
         public void Delete(ThanhVienDVUH tvdvuh)
         {
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + tvdvuh.MaDVUH + " | " + tvdvuh.HoTen + " | " + tvdvuh.GioiTinh + " | " + tvdvuh.CCCD + " | " + tvdvuh.DiaChi + " | " + tvdvuh.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
@@ -88,9 +88,9 @@ namespace QuanLyThienNguyen.BBL
                 DAL_ThanhVienDVUH.Instance.Delete(tvdvuh);
             }
         }
-        public ThanhVienDVUH ConvertFromDataGridViewToObj(DataGridViewRow row)
+        public DTOThanhVienDVUH ConvertFromDataGridViewToObj(DataGridViewRow row)
         {
-            ThanhVienDVUH tvdvuh = new ThanhVienDVUH();
+            DTOThanhVienDVUH tvdvuh = new DTOThanhVienDVUH();
             tvdvuh.MaDVUH = row.Cells["MaDVUH"].Value.ToString();
             tvdvuh.HoTen = row.Cells["HoTen"].Value.ToString();
             tvdvuh.GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value.ToString());

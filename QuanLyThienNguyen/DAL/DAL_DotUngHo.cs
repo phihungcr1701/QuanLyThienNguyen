@@ -1,10 +1,11 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_DotUngHo
+    internal class DAL_DotUngHo : DALBase<DotUngHo>
     {
         private static DAL_DotUngHo instance;
         public static DAL_DotUngHo Instance
@@ -21,30 +22,22 @@ namespace QuanLyThienNguyen.DAL
             }
         }
         public DAL_DotUngHo() { }
-        public List<DotUngHo> GetAllDotUngHo()
+        public List<DTODotUngHo> GetAllDotUngHo()
         {
-            string query = "exec GetAllDotUngHo";
-            List<DotUngHo> list = new List<DotUngHo>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
-            {
-                list.Add(new DotUngHo(item));
-            }
-            return list;
+            List<DTODotUngHo> list = new List<DTODotUngHo>();
+            var duh = from p in GetAll()
+                      select new DTODotUngHo
+                      {
+                          MaDUH = p.MaDUH,
+                          NgayBatDau = p.NgayBatDau,
+                          NgayKetThuc = p.NgayKetThuc,
+                      };
+            return duh.ToList();
         }
-        public void Add(DotUngHo duh)
-            {
-            string query = "exec ThemDotUngHo '" + duh.MaDUH + "', '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-        }
-        public void Update(DotUngHo duh)
-                {
-            string query = "exec CapNhatDotUngHo '" + duh.MaDUH + "', '" + duh.NgayBatDau.ToString("yyyy-MM-dd") + "', '" + duh.NgayKetThuc.ToString("yyyy-MM-dd") + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-            }
-        public void Delete(string ma)
+
+        protected override object GetEntityKey(DotUngHo entity)
         {
-            string query = "exec XoaDotUngHo " + ma;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            return entity.MaDUH;
         }
     }
 }

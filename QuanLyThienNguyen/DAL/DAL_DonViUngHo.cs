@@ -1,10 +1,11 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_DonViUngHo
+    internal class DAL_DonViUngHo : DALBase<DonViUngHo>
     {
         private static DAL_DonViUngHo instance;
         public static DAL_DonViUngHo Instance
@@ -21,30 +22,23 @@ namespace QuanLyThienNguyen.DAL
             }
         }
         public DAL_DonViUngHo() { }
-        public List<DonViUngHo> GetAllDonViUngHo()
+        public List<DTODonViUngHo> GetAllDonViUngHo()
         {
-            string query = "exec GetAllDonViUngHo";
-            List<DonViUngHo> list = new List<DonViUngHo>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
-            {
-                list.Add(new DonViUngHo(item));
-            }
-            return list;
+            var dvuh = from p in GetAll()
+                       select new DTODonViUngHo
+                       {
+                           MaDVUH = p.MaDVUH,
+                           TenDonVi = p.TenDonVi,
+                           DiaChiDonVi = p.DiaChiDonVi,
+                           SDTDonVi = p.SDTDonVi
+                       };
+            return dvuh.ToList();
         }
-        public void Add(DonViUngHo dvuh)
-            {
-            string query = "exec ThemDonViUngHo '" + dvuh.MaDVUH + "', '" + dvuh.TenDonVi + "', '" + dvuh.DiaChiDonVi + "', '" + dvuh.SDTDonVi + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-        }
-        public void Update(DonViUngHo dvuh)
-                {
-            string query = "exec CapNhatDonViUngHo '" + dvuh.MaDVUH + "','" + dvuh.TenDonVi + "', '" + dvuh.DiaChiDonVi + "', '" + dvuh.SDTDonVi + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-            }
-        public void Delete(string ma)
+
+        protected override object GetEntityKey(DonViUngHo entity)
         {
-            string query = "exec XoaDonViUngHo " + ma;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            return entity.MaDVUH;
         }
+
     }
 }

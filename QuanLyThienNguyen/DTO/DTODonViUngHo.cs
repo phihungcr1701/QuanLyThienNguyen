@@ -4,7 +4,7 @@ using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class DonViUngHo
+    public class DTODonViUngHo
     {
         private string _MaDVUH;
         private string _TenDonVi;
@@ -16,15 +16,15 @@ namespace QuanLyThienNguyen.DTO
         public string DiaChiDonVi { get => _DiaChiDonVi; set => _DiaChiDonVi = value; }
         public string SDTDonVi { get => _SDTDonVi; set => _SDTDonVi = value; }
         
-        public DonViUngHo() { }
-        public DonViUngHo(string ma, string ten, string dc, string sdt)
+        public DTODonViUngHo() { }
+        public DTODonViUngHo(string ma, string ten, string dc, string sdt)
         {
             this.MaDVUH = ma;
             this.TenDonVi = ten;
             this.DiaChiDonVi = dc;
             this.SDTDonVi = sdt;
         }
-        public DonViUngHo(DataRow row)
+        public DTODonViUngHo(DataRow row)
         {
             this.MaDVUH = row["MaDVUH"].ToString();
             this.TenDonVi = row["TenDonVi"].ToString();

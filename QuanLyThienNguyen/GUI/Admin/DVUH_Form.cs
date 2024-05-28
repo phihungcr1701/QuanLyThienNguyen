@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Windows.Forms;

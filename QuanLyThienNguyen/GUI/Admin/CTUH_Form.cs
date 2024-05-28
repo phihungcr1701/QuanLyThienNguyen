@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen.GUI.Admin

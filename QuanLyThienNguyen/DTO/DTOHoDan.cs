@@ -4,59 +4,66 @@ using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class ThanhVienDVUH
+    public class DTOHoDan
     {
-        private string _MaDVUH;
-        private string _HoTen;
+        private string _MaHD;
+        private string _HoTenChuHo;
         private bool _GioiTinh;
         private string _CCCD;
         private string _DiaChi;
         private string _SDT;
-        public string MaDVUH { get => _MaDVUH; set => _MaDVUH = value; }
-        public string HoTen { get => _HoTen; set => _HoTen = value; }
+        private string _DienGiaDinh;
+        public string MaHD { get => _MaHD; set => _MaHD = value; }
+        public string HoTenChuHo { get => _HoTenChuHo; set => _HoTenChuHo = value; }
         public bool GioiTinh { get => _GioiTinh; set => _GioiTinh = value; }
         public string CCCD { get => _CCCD; set => _CCCD = value; }
         public string DiaChi { get => _DiaChi; set => _DiaChi = value; }
         public string SDT { get => _SDT; set => _SDT = value; }
+        public string DienGiaDinh { get => _DienGiaDinh; set => _DienGiaDinh = value; }
+        
 
-        public ThanhVienDVUH() { }
-        public ThanhVienDVUH(string ma, string ten, bool gt, string cccd, string dc, string sdt)
+        public DTOHoDan() { }
+        public DTOHoDan(string ma, string ten, bool gt, string cccd, string dc, string sdt, string diengiadinh)
         {
-            this.MaDVUH = ma;
-            this.HoTen = ten;
+            this.MaHD = ma;
+            this.HoTenChuHo = ten;
             this.GioiTinh = gt;
             this.CCCD = cccd;
             this.DiaChi = dc;
             this.SDT = sdt;
+            this.DienGiaDinh = diengiadinh;
         }
-        public ThanhVienDVUH(DataRow row)
+        public DTOHoDan(DataRow row)
         {
-            this.MaDVUH = row["MaDVUH"].ToString();
-            this.HoTen = row["HoTen"].ToString();
+            this.MaHD = row["MaHD"].ToString();
+            this.HoTenChuHo = row["HoTenChuHo"].ToString();
             this.GioiTinh = Convert.ToBoolean(row["GioiTinh"].ToString());
             this.CCCD = row["CCCD"].ToString();
             this.DiaChi = row["DiaChi"].ToString();
             this.SDT = row["SDT"].ToString();
+            this.DienGiaDinh = row["DienGiaDinh"].ToString();
         }
 
         public static List<string> items = new List<string>(new string[]
         {
-            "Mã đơn vị ủng hộ", "Họ tên", "Giới tính", "Căn cước công dân", "Địa chỉ", "Số điện thoại"
+            "Mã hộ dân", "Họ tên chủ hộ", "Giới tính", "Căn cước công dân", "Địa chỉ", "Số điện thoại", "Diện gia đình"
         });
         public static string RenameNameTable_FromDataGridViewToSql(string namecolumn)
         {
-            if (namecolumn == "Mã đơn vị ủng hộ")
-                return "MaDVUH";
-            if (namecolumn == "Họ tên")
-                return "HoTen";
-            if (namecolumn == "Giới tính")
+            if (namecolumn == "Mã hộ dân")
+                return "MaHD";
+            if (namecolumn == "Tên hình thức ủng hộ")
+                return "HoTenChuHo";
+            if (namecolumn == "Đơn vị tính")
                 return "GioiTinh";
             if (namecolumn == "Căn cước công dân")
                 return "CCCD";
             if (namecolumn == "Địa chỉ")
                 return "DiaChi";
             if (namecolumn == "Số điện thoại")
-                return "SDT";
+                return "SoDienThoai";
+            if (namecolumn == "Diện gia đình")
+                return "DienGiaDinh";
             return namecolumn;
         }
     }

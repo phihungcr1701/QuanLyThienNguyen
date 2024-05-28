@@ -4,7 +4,7 @@ using System.Data;
 
 namespace QuanLyThienNguyen.DTO
 {
-    public class DotUngHo
+    public class DTODotUngHo
     {
         private string _MaDUH;
         private DateTime _NgayBatDau;
@@ -13,14 +13,14 @@ namespace QuanLyThienNguyen.DTO
         public DateTime NgayBatDau { get => _NgayBatDau; set => _NgayBatDau = value; }
         public DateTime NgayKetThuc { get => _NgayKetThuc; set => _NgayKetThuc = value; }
 
-        public DotUngHo() { }
-        public DotUngHo(string ma, DateTime ngaybatdau, DateTime ngayketthuc)
+        public DTODotUngHo() { }
+        public DTODotUngHo(string ma, DateTime ngaybatdau, DateTime ngayketthuc)
         {
             this.MaDUH = ma;
             this.NgayBatDau = ngaybatdau;
             this.NgayKetThuc = ngayketthuc;
         }
-        public DotUngHo(DataRow row)
+        public DTODotUngHo(DataRow row)
         {
             this.MaDUH = row["MaDUH"].ToString();
             this.NgayBatDau = Convert.ToDateTime(row["NgayBatDau"].ToString());

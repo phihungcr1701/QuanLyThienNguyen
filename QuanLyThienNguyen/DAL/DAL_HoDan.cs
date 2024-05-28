@@ -1,10 +1,11 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_HoDan
+    internal class DAL_HoDan : DALBase<HoDan>
     {
         private static DAL_HoDan instance;
         public static DAL_HoDan Instance
@@ -21,31 +22,27 @@ namespace QuanLyThienNguyen.DAL
             }
         }
         public DAL_HoDan() { }
-        public List<HoDan> GetAllHoDan()
+        public List<DTOHoDan> GetAllHoDan()
         {
-            string query = "exec GetAllHoDan";
-            List<HoDan> list = new List<HoDan>();
-            foreach (DataRow item in DataProvider.Instance.ExcuteQuery(query).Rows)
-            {
-                list.Add(new HoDan(item));
-            }
-            return list;
+            var hd = from p in GetAll()
+                     select new DTOHoDan
+                     {
+                         MaHD = p.MaHD,
+                         HoTenChuHo = p.HoTenChuHo,
+                         GioiTinh = p.GioiTinh,
+                         CCCD = p.CCCD,
+                         DiaChi = p.DiaChi,
+                         SDT = p.SDT,
+                         DienGiaDinh = p.DienGiaDinh
+                     };
+            return hd.ToList();
         }
 
-        public void Add(HoDan hd)
-            {
-            string query = "exec ThemHoDan '" + hd.MaHD + "','" + hd.HoTenChuHo + "'," + hd.GioiTinh + ", '" + hd.CCCD + "', '" + hd.DiaChi + "', '" + hd.SDT + "', '" + hd.DienGiaDinh + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-        }
-        public void Update(HoDan hd)
-                {
-            string query = "exec CapNhatHoDan '" + hd.MaHD + "','" + hd.HoTenChuHo + "'," + hd.GioiTinh + ", '" + hd.CCCD + "', '" + hd.DiaChi + "', '" + hd.SDT + "', '" + hd.DienGiaDinh + "'";
-            DataProvider.Instance.ExcuteNonQuery(query);
-            }
-        public void Delete(string ma)
+
+
+        protected override object GetEntityKey(HoDan entity)
         {
-            string query = "exec XoaHoDan " + ma;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            return entity.MaHD;
         }
     }
 }

@@ -25,11 +25,11 @@ namespace QuanLyThienNguyen.BBL
             }
         }
         public BBL_DotUngHo() { }
-        public List<DotUngHo> GetAllDotUngHo(string text, string namecolumn)
+        public List<DTODotUngHo> GetAllDotUngHo(string text, string namecolumn)
         {
-            List<DotUngHo> view = new List<DotUngHo>();
+            List<DTODotUngHo> view = new List<DTODotUngHo>();
 
-            foreach (DotUngHo item in Sort(DAL_DotUngHo.Instance.GetAllDotUngHo(), namecolumn))
+            foreach (DTODotUngHo item in Sort(DAL_DotUngHo.Instance.GetAllDotUngHo(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -43,9 +43,9 @@ namespace QuanLyThienNguyen.BBL
             return view;
         }
 
-        public List<DotUngHo> Sort(List<DotUngHo> list, string namecolumn)
+        public List<DTODotUngHo> Sort(List<DTODotUngHo> list, string namecolumn)
         {
-            List<DotUngHo> sort = list;
+            List<DTODotUngHo> sort = list;
             switch (namecolumn)
             {
                 case "MaDUH":
@@ -62,7 +62,7 @@ namespace QuanLyThienNguyen.BBL
         }
         public DotUngHo GetDotUngHo(string ma)
         {
-            foreach (DotUngHo item in DAL_DotUngHo.Instance.GetAllDotUngHo())
+            foreach (DotUngHo item in DAL_DotUngHo.Instance.GetAll())
                 if (item.MaDUH.Equals(ma))
                     return item;
             return null;
@@ -80,7 +80,7 @@ namespace QuanLyThienNguyen.BBL
             DotUngHo duh = GetDotUngHo(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + duh.MaDUH + " | " + duh.NgayBatDau + " | " + duh.NgayKetThuc, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_DotUngHo.Instance.Delete(ma);
+                DAL_DotUngHo.Instance.Delete(duh);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Windows.Forms;
@@ -63,11 +64,11 @@ namespace QuanLyThienNguyen.GUI.Admin
                     radiobutton_Nam.Checked = true;
                 else
                     radiobutton_Nu.Checked = true;
-                textbox_MaHD.Text = hd.MaHD;
-                textbox_HoTen.Text = hd.HoTenChuHo;
-                textbox_CCCD.Text = hd.CCCD;
-                textbox_DiaChi.Text = hd.DiaChi;
-                textbox_SDT.Text = hd.SDT;
+                    textbox_MaHD.Text = hd.MaHD;
+                    textbox_HoTen.Text = hd.HoTenChuHo;
+                    textbox_CCCD.Text = hd.CCCD;
+                    textbox_DiaChi.Text = hd.DiaChi;
+                    textbox_SDT.Text = hd.SDT;
                 if (hd.DienGiaDinh == "Can Ngheo")
                     radiobutton_CanNgheo.Checked = true;
                 else
