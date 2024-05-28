@@ -1,10 +1,11 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_HoDan
+    internal class DAL_HoDan : DALBase<HoDan>
     {
         private static DAL_HoDan instance;
         public static DAL_HoDan Instance
@@ -20,40 +21,22 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public List<HoDanView> GetAllHoDan()
+        public List<DTO_HoDan> GetAllHoDan()
         {
-            DataContext context = new DataContext();
-            List<HoDanView> list = new List<HoDanView>();
-            foreach (var item in context.HoDans)
+            return GetAll().Select(p => new DTO_HoDan
             {
-                list.Add(new HoDanView(item.MaHD, item.HoTenChuHo, item.GioiTinh, item.CCCD, item.DiaChi, item.SDT, item.DienGiaDinh));
-            }
-            return list;
+                MaHD = p.MaHD,
+                HoTenChuHo = p.HoTenChuHo,
+                GioiTinh = p.GioiTinh,
+                CCCD = p.CCCD,
+                DiaChi = p.DiaChi,
+                SDT = p.SDT,
+                DienGiaDinh = p.DienGiaDinh
+            }).ToList();
         }
-
-        public void Add(HoDan hd)
+        protected override object GetEntityKey(HoDan entity)
         {
-            DataContext context = new DataContext();
-            context.HoDans.Add(hd);
-            context.SaveChanges();
-        }
-        public void Update(HoDan hd)
-        {
-            DataContext context = new DataContext();
-            var obj = context.HoDans.Find(hd.MaHD);
-            obj.HoTenChuHo = hd.HoTenChuHo;
-            obj.GioiTinh = hd.GioiTinh;
-            obj.CCCD = hd.CCCD;
-            obj.DiaChi = hd.DiaChi;
-            obj.SDT = hd.SDT;
-            obj.DienGiaDinh = hd.DienGiaDinh;
-            context.SaveChanges();
-        }
-        public void Delete(string ma)
-        {
-            DataContext context = new DataContext();
-            context.HoDans.Remove(context.HoDans.Find(ma));
-            context.SaveChanges();
+            return entity.MaHD;
         }
     }
 }

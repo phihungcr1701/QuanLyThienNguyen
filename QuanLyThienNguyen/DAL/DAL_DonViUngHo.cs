@@ -1,10 +1,11 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_DonViUngHo
+    internal class DAL_DonViUngHo : DALBase<DonViUngHo>
     {
         private static DAL_DonViUngHo instance;
         public static DAL_DonViUngHo Instance
@@ -20,36 +21,20 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public List<DonViUngHoView> GetAllDonViUngHo()
+        public List<DTO_DonViUngHo> GetAllDonViUngHo()
         {
-            DataContext context = new DataContext();
-            List<DonViUngHoView> list = new List<DonViUngHoView>();
-            foreach (var item in context.DonViUngHoes)
+            return GetAll().Select(p => new DTO_DonViUngHo
             {
-                list.Add(new DonViUngHoView(item.MaDVUH, item.TenDonVi, item.DiaChiDonVi, item.SDTDonVi));
-            }
-            return list;
+                MaDVUH = p.MaDVUH,
+                TenDonVi = p.TenDonVi,
+                DiaChiDonVi = p.DiaChiDonVi,
+                SDTDonVi = p.SDTDonVi
+            }).ToList();
         }
-        public void Add(DonViUngHo dvuh)
+        protected override object GetEntityKey(DonViUngHo entity)
         {
-            DataContext context = new DataContext();
-            context.DonViUngHoes.Add(dvuh);
-            context.SaveChanges();
+            return entity.MaDVUH;
         }
-        public void Update(DonViUngHo dvuh)
-        {
-            DataContext context = new DataContext();
-            var obj = context.DonViUngHoes.Find(dvuh.MaDVUH);
-            obj.TenDonVi = dvuh.TenDonVi;
-            obj.DiaChiDonVi = dvuh.DiaChiDonVi;
-            obj.SDTDonVi = dvuh.SDTDonVi;
-            context.SaveChanges();
-        }
-        public void Delete(string ma)
-        {
-            DataContext context = new DataContext();
-            context.DonViUngHoes.Remove(context.DonViUngHoes.Find(ma));
-            context.SaveChanges();
-        }
+
     }
 }

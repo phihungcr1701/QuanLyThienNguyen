@@ -14,7 +14,7 @@ namespace QuanLyThienNguyen.DAL
     
     public partial class ChiTietUngHo
     {
-        public string STT { get; set; }
+        public string MaCTUH { get; set; }
         public string MaDVUH { get; set; }
         public string MaDUH { get; set; }
         public string MaHD { get; set; }

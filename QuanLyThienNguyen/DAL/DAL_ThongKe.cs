@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_ThongKe
+    internal class DAL_ThongKe : DALBase<ThongKe>
     {
         private static DAL_ThongKe instance;
 
@@ -23,58 +23,39 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public DAL_ThongKe() { }
         public List<string> GetAllTenHTUH()
         {
-            DataContext context = new DataContext();
-            List<string> list = new List<string>();
-            foreach (string item in context.ChiTietUngHoes.Select(p => p.HinhThucUngHo.TenHTUH).Distinct())
-            {
-                list.Add(item);
-            }
-            return list;
+            return DAL_ChiTietUngHo.Instance.GetAll().Select(p => p.HinhThucUngHo.TenHTUH.ToString()).Distinct().ToList();
         }
         public List<string> GetAllMaDVUH()
         {
-            DataContext context = new DataContext();
-            List<string> list = new List<string>();
-            foreach (string item in context.ChiTietUngHoes.Select(p => p.MaDVUH).Distinct())
-            {
-                list.Add(item);
-            }
-            return list;
+            return DAL_ChiTietUngHo.Instance.GetAll().Select(p => p.MaDVUH.ToString()).Distinct().ToList();
         }
         public List<string> GetAllMaHTUH()
         {
-            DataContext context = new DataContext();
-            List<string> list = new List<string>();
-            foreach (string item in context.ChiTietUngHoes.Select(p => p.MaHTUH).Distinct())
+            return DAL_ChiTietUngHo.Instance.GetAll().Select(p => p.MaHTUH.ToString()).Distinct().ToList();
+        }
+        public List<DTO_ThongKe> GetThongKeByTenHTUH(string ten)
+        {
+            return GetAll().Where(p => p.HinhThucUngHo.TenHTUH.ToString() == ten).Select(p => new DTO_ThongKe
             {
-                list.Add(item);
-            }
-            return list;
+                TenDVUH = p.DonViUngHo.TenDonVi,
+                TenHTUH = p.HinhThucUngHo.TenHTUH,
+                TongSoLuongUH = (double)p.TongSoLuongUH,
+                SoDuUH = (double)p.SoDuUH,
+                DonViTinh = p.HinhThucUngHo.DonViTinh
+            }).ToList();
         }
-        public List<ThongKeView> GetAllThongKe(string ten)
+        public void DeleteAll()
         {
-            DataContext context = new DataContext();
-            List<ThongKeView> list = new List<ThongKeView>();
-            foreach (var item in context.ThongKes)
+            foreach (var item in GetAll())
             {
-                list.Add(new ThongKeView(item.DonViUngHo.TenDonVi, item.HinhThucUngHo.TenHTUH, (double)item.TongSoLuongUH, (double)item.SoDuUH, item.HinhThucUngHo.DonViTinh));
+                Delete(item);
             }
-            return list;
         }
-        public void Add(ThongKe tk)
+        protected override object GetEntityKey(ThongKe entity)
         {
-            DataContext context = new DataContext();
-            context.ThongKes.Add(tk);
-            context.SaveChanges();
-        }
-        public void Delete()
-        {
-            DataContext context = new DataContext();
-            context.ThongKes.RemoveRange(context.ThongKes);
-            context.SaveChanges();
+            return entity.MaTK;
         }
     }
 }

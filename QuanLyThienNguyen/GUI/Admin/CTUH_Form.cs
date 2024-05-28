@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 
 namespace QuanLyThienNguyen.GUI.Admin
@@ -27,7 +28,7 @@ namespace QuanLyThienNguyen.GUI.Admin
             cbb_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_DVUH().ToArray());
             cbb_MaHD.Items.AddRange(BBL_ComboBox.Instance.Combobox_HoDan().ToArray());
             cbb_MaHTUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_HTUH().ToArray());
-            ChiTietUngHoView item = BBL_ChiTietUngHo.Instance.GetChiTietUngHoByMaCTUH(MaCTUH);
+            ChiTietUngHo item = BBL_ChiTietUngHo.Instance.GetChiTietUngHoByMaCTUH(MaCTUH);
             if (item != null)
             {
                 txt_MaCTUH.ReadOnly = true;
@@ -43,15 +44,16 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void btn_ThucHien_Click(object sender, EventArgs e)
         {
-            string maCTUH = txt_MaCTUH.Text;
-            string MaDUH = cbb_MaDUH.SelectedItem.ToString();
-            string MaDVUH = cbb_MaDVUH.SelectedItem.ToString();
-            string MaHD = cbb_MaHD.SelectedItem.ToString();
-            string MaHTUH = cbb_MaHTUH.SelectedItem.ToString();
-            double SoLuongUH = Convert.ToDouble(txt_SoLuongUH.Text);
-            double SoLuongNUH = Convert.ToDouble(txt_SoLuongNUH.Text);
-            ChiTietUngHoView chitietungho = new ChiTietUngHoView(maCTUH, MaDVUH, MaDUH, MaHD, MaHTUH, SoLuongUH, SoLuongNUH); 
-            if(MaCTUH == null)
+            ChiTietUngHo chitietungho = new ChiTietUngHo{
+                MaCTUH = txt_MaCTUH.Text,
+                MaDVUH = cbb_MaDVUH.SelectedItem.ToString(),
+                MaDUH = cbb_MaDUH.SelectedItem.ToString(),
+                MaHD = cbb_MaHD.SelectedItem.ToString(),
+                MaHTUH = cbb_MaHTUH.SelectedItem.ToString(),
+                SoLuongUH= Convert.ToDouble(txt_SoLuongUH.Text),
+                SoLuongNUH = Convert.ToDouble(txt_SoLuongNUH.Text)
+            };
+            if (MaCTUH == null)
             {
                 if (txt_MaCTUH.Text.Equals("") || cbb_MaDUH == null || cbb_MaHD == null || cbb_MaDVUH == null
                     || cbb_MaHD == null || cbb_MaHTUH == null || txt_SoLuongUH.Text.Equals("")
@@ -69,7 +71,7 @@ namespace QuanLyThienNguyen.GUI.Admin
                 BBL_ChiTietUngHo.Instance.EditActivity(chitietungho);
             }
             this.Dispose();
-            
+
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Windows.Forms;
@@ -15,13 +16,13 @@ namespace QuanLyThienNguyen.GUI
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            DonViUngHoView dvuh = new DonViUngHoView(
-                textbox_MaDVUH.Text,
-                textbox_TenDonVi.Text,
-                textbox_DiaChiDonVi.Text,
-                textbox_SDTDonVi.Text
-            );
-            
+            DonViUngHo dvuh = new DonViUngHo
+            {
+                MaDVUH = textbox_MaDVUH.Text,
+                TenDonVi = textbox_TenDonVi.Text,
+                DiaChiDonVi = textbox_DiaChiDonVi.Text,
+                SDTDonVi = textbox_SDTDonVi.Text
+            };
             if (ma == null)
             {
                 if (textbox_MaDVUH.Text == "" || textbox_TenDonVi.Text == "" || textbox_DiaChiDonVi.Text == "" || textbox_SDTDonVi.Text == "")
@@ -55,7 +56,7 @@ namespace QuanLyThienNguyen.GUI
             if (ma != null)
             {
                 textbox_MaDVUH.ReadOnly = true;
-                DonViUngHoView obj = BBL_DonViUngHo.Instance.GetDonViUngHo(ma);
+                DonViUngHo obj = BBL_DonViUngHo.Instance.GetDonViUngHo(ma);
                 textbox_MaDVUH.Text = obj.MaDVUH;
                 textbox_TenDonVi.Text = obj.TenDonVi;
                 textbox_DiaChiDonVi.Text = obj.DiaChiDonVi;

@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c979bcf01729489499af35aa705df718" Name="Diagram1">
+      <Diagram DiagramId="bb1b45d1e222482db60893c9959274fb" Name="Diagram1">
         <EntityTypeShape EntityType="PBL3Model.Account" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBL3Model.ChiTietUngHo" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBL3Model.DonViUngHo" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBL3Model.DotUngHo" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBL3Model.HinhThucUngHo" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBL3Model.HoDan" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBL3Model.ThanhVienDVUH" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBL3Model.ThongKe" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
-        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaDUH__0D7A0286" ManuallyRouted="false" />
-        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaDVU__0C85DE4D" ManuallyRouted="false" />
-        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaHTU__0F624AF8" ManuallyRouted="false" />
-        <AssociationConnector Association="PBL3Model.FK__ChiTietUng__MaHD__0E6E26BF" ManuallyRouted="false" />
-        <AssociationConnector Association="PBL3Model.FK__ThanhVien__MaDVU__06CD04F7" ManuallyRouted="false" />
-        <AssociationConnector Association="PBL3Model.FK__ThongKe__MaDVUH__08B54D69" ManuallyRouted="false" />
-        <AssociationConnector Association="PBL3Model.FK__ThongKe__MaHTUH__09A971A2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PBL3Model.ChiTietUngHo" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.DonViUngHo" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.DotUngHo" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.HinhThucUngHo" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.HoDan" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.ThanhVienDVUH" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBL3Model.ThongKe" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaDUH__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaDVU__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ChiTietUn__MaHTU__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ChiTietUng__MaHD__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ThanhVien__MaDVU__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ThongKe__MaDVUH__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3Model.FK__ThongKe__MaHTUH__4316F928" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

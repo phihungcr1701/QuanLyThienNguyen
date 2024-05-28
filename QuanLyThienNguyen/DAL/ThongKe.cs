@@ -14,6 +14,7 @@ namespace QuanLyThienNguyen.DAL
     
     public partial class ThongKe
     {
+        public int MaTK { get; set; }
         public string MaDVUH { get; set; }
         public string MaHTUH { get; set; }
         public Nullable<double> TongSoLuongUH { get; set; }

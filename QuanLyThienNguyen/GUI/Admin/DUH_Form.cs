@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Windows.Forms;
@@ -15,11 +16,12 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            DotUngHoView duh = new DotUngHoView(
-                textbox_MaDUH.Text,
-                datatimepicker_NgayBatDau.Value,
-                datatimepicker_NgayKetThuc.Value
-            );
+            DotUngHo duh = new DotUngHo
+            {
+                MaDUH = textbox_MaDUH.Text,
+                NgayBatDau = datatimepicker_NgayBatDau.Value,
+                NgayKetThuc = datatimepicker_NgayKetThuc.Value
+            };
             
             if (duh.NgayBatDau > duh.NgayKetThuc)
             {
@@ -57,7 +59,7 @@ namespace QuanLyThienNguyen.GUI.Admin
             if (ma != null)
             {
                 textbox_MaDUH.ReadOnly = true;
-                DotUngHoView duh = BBL_DotUngHo.Instance.GetDotUngHo(ma);
+                DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(ma);
                 textbox_MaDUH.Text = duh.MaDUH.ToString();
                 datatimepicker_NgayBatDau.Value = duh.NgayBatDau;
                 datatimepicker_NgayKetThuc.Value = duh.NgayKetThuc;

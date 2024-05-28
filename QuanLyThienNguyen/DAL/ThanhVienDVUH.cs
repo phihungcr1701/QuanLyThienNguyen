@@ -14,6 +14,7 @@ namespace QuanLyThienNguyen.DAL
     
     public partial class ThanhVienDVUH
     {
+        public string MaTVDVUH { get; set; }
         public string MaDVUH { get; set; }
         public string HoTen { get; set; }
         public bool GioiTinh { get; set; }

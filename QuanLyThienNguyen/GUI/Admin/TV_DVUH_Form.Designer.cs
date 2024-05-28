@@ -31,7 +31,9 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_GioiThieu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textbox_MaTVDVUH = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label_MaTVDVUH = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.datagridview_DVUH = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.combobox_MaDVUH = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -51,7 +53,7 @@
             this.label_HoTen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridview_DVUH)).BeginInit();
             this.groupbox_GioiTinh.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +80,9 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
-            this.guna2Panel3.Controls.Add(this.dataGridView1);
+            this.guna2Panel3.Controls.Add(this.textbox_MaTVDVUH);
+            this.guna2Panel3.Controls.Add(this.label_MaTVDVUH);
+            this.guna2Panel3.Controls.Add(this.datagridview_DVUH);
             this.guna2Panel3.Controls.Add(this.combobox_MaDVUH);
             this.guna2Panel3.Controls.Add(this.button_Huy);
             this.guna2Panel3.Controls.Add(this.button_ThucHien);
@@ -98,17 +102,48 @@
             this.guna2Panel3.Size = new System.Drawing.Size(993, 364);
             this.guna2Panel3.TabIndex = 8;
             // 
-            // dataGridView1
+            // textbox_MaTVDVUH
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.textbox_MaTVDVUH.AutoRoundedCorners = true;
+            this.textbox_MaTVDVUH.BorderRadius = 17;
+            this.textbox_MaTVDVUH.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textbox_MaTVDVUH.DefaultText = "";
+            this.textbox_MaTVDVUH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textbox_MaTVDVUH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textbox_MaTVDVUH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textbox_MaTVDVUH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textbox_MaTVDVUH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textbox_MaTVDVUH.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textbox_MaTVDVUH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textbox_MaTVDVUH.Location = new System.Drawing.Point(160, 33);
+            this.textbox_MaTVDVUH.Name = "textbox_MaTVDVUH";
+            this.textbox_MaTVDVUH.PasswordChar = '\0';
+            this.textbox_MaTVDVUH.PlaceholderText = "";
+            this.textbox_MaTVDVUH.SelectedText = "";
+            this.textbox_MaTVDVUH.Size = new System.Drawing.Size(200, 36);
+            this.textbox_MaTVDVUH.TabIndex = 19;
+            // 
+            // label_MaTVDVUH
+            // 
+            this.label_MaTVDVUH.BackColor = System.Drawing.Color.Transparent;
+            this.label_MaTVDVUH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_MaTVDVUH.Location = new System.Drawing.Point(69, 42);
+            this.label_MaTVDVUH.Name = "label_MaTVDVUH";
+            this.label_MaTVDVUH.Size = new System.Drawing.Size(85, 18);
+            this.label_MaTVDVUH.TabIndex = 18;
+            this.label_MaTVDVUH.Text = "Mã TVDVUH:";
+            // 
+            // datagridview_DVUH
+            // 
+            this.datagridview_DVUH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridview_DVUH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridview_DVUH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(727, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 211);
-            this.dataGridView1.TabIndex = 17;
+            this.datagridview_DVUH.Location = new System.Drawing.Point(727, 16);
+            this.datagridview_DVUH.Name = "datagridview_DVUH";
+            this.datagridview_DVUH.Size = new System.Drawing.Size(240, 133);
+            this.datagridview_DVUH.TabIndex = 17;
             // 
             // Column1
             // 
@@ -132,7 +167,7 @@
             this.combobox_MaDVUH.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.combobox_MaDVUH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.combobox_MaDVUH.ItemHeight = 30;
-            this.combobox_MaDVUH.Location = new System.Drawing.Point(160, 35);
+            this.combobox_MaDVUH.Location = new System.Drawing.Point(502, 33);
             this.combobox_MaDVUH.Name = "combobox_MaDVUH";
             this.combobox_MaDVUH.Size = new System.Drawing.Size(200, 36);
             this.combobox_MaDVUH.TabIndex = 16;
@@ -221,7 +256,7 @@
             // 
             this.groupbox_GioiTinh.Controls.Add(this.radiobutton_Nu);
             this.groupbox_GioiTinh.Controls.Add(this.radiobutton_Nam);
-            this.groupbox_GioiTinh.Location = new System.Drawing.Point(502, 16);
+            this.groupbox_GioiTinh.Location = new System.Drawing.Point(762, 157);
             this.groupbox_GioiTinh.Name = "groupbox_GioiTinh";
             this.groupbox_GioiTinh.Size = new System.Drawing.Size(163, 70);
             this.groupbox_GioiTinh.TabIndex = 11;
@@ -292,7 +327,7 @@
             // 
             this.label_MaDVUH.BackColor = System.Drawing.Color.Transparent;
             this.label_MaDVUH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_MaDVUH.Location = new System.Drawing.Point(47, 44);
+            this.label_MaDVUH.Location = new System.Drawing.Point(389, 42);
             this.label_MaDVUH.Name = "label_MaDVUH";
             this.label_MaDVUH.Size = new System.Drawing.Size(107, 18);
             this.label_MaDVUH.TabIndex = 1;
@@ -375,7 +410,7 @@
             this.guna2Panel2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridview_DVUH)).EndInit();
             this.groupbox_GioiTinh.ResumeLayout(false);
             this.groupbox_GioiTinh.PerformLayout();
             this.ResumeLayout(false);
@@ -402,8 +437,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel label_CCCD;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_HoTen;
         private Guna.UI2.WinForms.Guna2ComboBox combobox_MaDVUH;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datagridview_DVUH;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private Guna.UI2.WinForms.Guna2TextBox textbox_MaTVDVUH;
+        private Guna.UI2.WinForms.Guna2HtmlLabel label_MaTVDVUH;
     }
 }

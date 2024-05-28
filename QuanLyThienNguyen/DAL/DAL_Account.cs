@@ -4,10 +4,9 @@ using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_Account
+    internal class DAL_Account : DALBase<Account>
     {
         private static DAL_Account instance;
-
         public static DAL_Account Instance
         {
             get
@@ -23,13 +22,11 @@ namespace QuanLyThienNguyen.DAL
         }
         public bool PhanQuyen(string user, string pass)
         {
-            DataContext context = new DataContext();
-            int count = context.Accounts.Where(p => p.Username == user && p.Password == pass).Count();
-            if (count > 0)
-            {
-                return true;
-            }
-            return false;
+            return GetAll().Where(p => p.Username == user && p.Password == pass).Any();
+        }
+        protected override object GetEntityKey(Account entity)
+        {
+            return entity.Id;
         }
     }
 }

@@ -24,11 +24,12 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        public List<HoDanView> GetAllHoDan(string text, string namecolumn)
+        public BBL_HoDan() { }
+        public List<DTO_HoDan> GetAllHoDan(string text, string namecolumn)
         {
-            List<HoDanView> view = new List<HoDanView>();
-        
-            foreach (HoDanView item in Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn))
+            List<DTO_HoDan> view = new List<DTO_HoDan>();
+
+            foreach (DTO_HoDan item in Sort(DAL_HoDan.Instance.GetAllHoDan(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -42,9 +43,9 @@ namespace QuanLyThienNguyen.BBL
             return view;
         }
 
-        public List<HoDanView> Sort(List<HoDanView> list, string namecolumn)
+        public List<DTO_HoDan> Sort(List<DTO_HoDan> list, string namecolumn)
         {
-            List<HoDanView> sort = list;
+            List<DTO_HoDan> sort = list;
             switch (namecolumn)
             {
                 case "MaHD":
@@ -71,27 +72,27 @@ namespace QuanLyThienNguyen.BBL
             }
             return sort;
         }
-        public HoDanView GetHoDan(string ma)
+        public HoDan GetHoDan(string ma)
         {
-            foreach (HoDanView item in DAL_HoDan.Instance.GetAllHoDan())
+            foreach (HoDan item in DAL_HoDan.Instance.GetAll())
                 if (item.MaHD.Equals(ma))
                     return item;
             return null;
         }
-        public void Add(HoDanView hd)
+        public void Add(HoDan hd)
         {
-            DAL_HoDan.Instance.Add(HoDanView.ToChange(hd));
+            DAL_HoDan.Instance.Add(hd);
         }
-        public void Update(HoDanView hd)
+        public void Update(HoDan hd)
         {
-            DAL_HoDan.Instance.Update(HoDanView.ToChange(hd));
+            DAL_HoDan.Instance.Update(hd);
         }
         public void Delete(string ma)
         {
-            HoDanView hd = GetHoDan(ma);
+            HoDan hd = GetHoDan(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
-        {
-                DAL_HoDan.Instance.Delete(ma);
+            {
+                DAL_HoDan.Instance.Delete(hd);
             }
         }
     }

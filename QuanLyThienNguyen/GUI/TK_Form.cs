@@ -13,7 +13,7 @@ namespace QuanLyThienNguyen.GUI
         }
         private void combobox_TenHTUH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            datagridview.DataSource = BBL_ThongKe.Instance.GetAllThongKe(combobox_TenHTUH.SelectedItem.ToString());
+            datagridview.DataSource = BBL_ThongKe.Instance.GetThongKeByTenHTUH(combobox_TenHTUH.SelectedItem.ToString());
             if (combobox_LoaiThongKe.SelectedItem == null)
             {
 
@@ -39,7 +39,7 @@ namespace QuanLyThienNguyen.GUI
             {
                 combobox_TenHTUH.SelectedIndex = 0;
                 combobox_TenHTUH_SelectedIndexChanged(sender, e);
-                BBL_ThongKe.Instance.Delete();
+                BBL_ThongKe.Instance.DeleteAll();
                 BBL_ThongKe.Instance.Add();
             }    
         }

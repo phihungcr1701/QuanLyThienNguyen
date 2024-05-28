@@ -8,7 +8,7 @@ using QuanLyThienNguyen.BBL;
 
 namespace QuanLyThienNguyen.DTO
 {
-    internal class ActivityView
+    internal class DTO_Activity
     {
         public string MaCTUH { get; set; }
         public string TenDonVi { get; set; }
@@ -19,20 +19,7 @@ namespace QuanLyThienNguyen.DTO
         public string DonViTinh { get; set; }
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
-        public ActivityView() { }
-        public ActivityView(string tenDonVi, string hoTenChuHo, string tenHTUH, double soLuongUH,
-            double soLuongNUH, string donViTinh, DateTime ngayBatDau, DateTime ngayKetThuc)
-        {
-            TenDonVi = tenDonVi;
-            HoTenChuHo = hoTenChuHo;
-            TenHTUH = tenHTUH;
-            SoLuongUH = soLuongUH;
-            SoLuongNUH = soLuongNUH;
-            DonViTinh = donViTinh;
-            NgayBatDau = ngayBatDau;
-            NgayKetThuc = ngayKetThuc;
-        }
-        public ActivityView(string maCTUH, string MaDUH, string MaDVUH, string MaHoDan, string MaHTUH, double SLUH, double SLNUH)
+        public DTO_Activity(string maCTUH, string MaDUH, string MaDVUH, string MaHoDan, string MaHTUH, double SLUH, double SLNUH)
         {
             MaCTUH = maCTUH;
             TenDonVi = BBL_DonViUngHo.Instance.GetDonViUngHo(MaDVUH).TenDonVi;

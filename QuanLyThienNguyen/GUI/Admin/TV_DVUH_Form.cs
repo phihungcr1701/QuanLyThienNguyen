@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Windows.Controls;
@@ -8,34 +9,35 @@ namespace QuanLyThienNguyen.GUI.Admin
 {
     public partial class TV_DVUH_Form : Form
     {
-        public TV_DVUH_Form(ThanhVienDVUHView tvdvuh = null)
+        public TV_DVUH_Form(string ma = null)
         {
             InitializeComponent();
-            this.tvdvuh = tvdvuh;
+            this.ma = ma;
         }
-        private ThanhVienDVUHView tvdvuh { get; set; }
+        private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            ThanhVienDVUHView tvdvuhchange = new ThanhVienDVUHView(
-                combobox_MaDVUH.SelectedItem.ToString(),
-                textbox_HoTen.Text,
-                radiobutton_Nam.Checked,
-                textbox_CCCD.Text,
-                textbox_DiaChi.Text,
-                textbox_SDT.Text
-            );
-            
-            if (tvdvuh == null)
+            ThanhVienDVUH tvdvuh = new ThanhVienDVUH
             {
-                if (combobox_MaDVUH.SelectedItem == null || textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
+                MaTVDVUH = textbox_MaTVDVUH.Text,
+                MaDVUH = combobox_MaDVUH.SelectedItem.ToString(),
+                HoTen = textbox_HoTen.Text,
+                GioiTinh = radiobutton_Nam.Checked,
+                CCCD = textbox_CCCD.Text,
+                DiaChi = textbox_DiaChi.Text,
+                SDT = textbox_SDT.Text
+            };
+            if (ma == null)
+            {
+                if (combobox_MaDVUH.SelectedItem == null || textbox_MaTVDVUH.Text == "" || textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
                 {
                     MessageBox.Show("Điền đầy đủ thông tin !!!");
                 }
                 else
                 {       
-                    if (BBL_ThanhVienDVUH.Instance.Check(tvdvuhchange))
+                    if (BBL.BBL_ThanhVienDVUH.Instance.GetThanhVienDVUH(textbox_MaTVDVUH.Text) == null)
                     {
-                        BBL_ThanhVienDVUH.Instance.Add(tvdvuhchange);
+                        BBL_ThanhVienDVUH.Instance.Add(tvdvuh);
                         this.Close();
                     }
                     else
@@ -46,15 +48,8 @@ namespace QuanLyThienNguyen.GUI.Admin
             }
             else
             {
-                if (BBL_ThanhVienDVUH.Instance.Check(tvdvuhchange) && tvdvuh != tvdvuhchange)
-                {
-                    BBL_ThanhVienDVUH.Instance.Update(tvdvuh, tvdvuhchange);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật trùng với cái đã tồn tại hoặc bạn chưa thay đổi gì !!!");
-                }
+                BBL_ThanhVienDVUH.Instance.Update(tvdvuh);
+                this.Close();
             }
         }
 
@@ -66,8 +61,11 @@ namespace QuanLyThienNguyen.GUI.Admin
         private void TV_DVUH_Form_Load(object sender, EventArgs e)
         {
             combobox_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_DVUH().ToArray());
-            if (tvdvuh != null)
+            if (ma != null)
             {
+                ThanhVienDVUH tvdvuh = BBL_ThanhVienDVUH.Instance.GetThanhVienDVUH(ma);
+                textbox_MaTVDVUH.ReadOnly = true;
+                textbox_MaTVDVUH.Text = tvdvuh.MaTVDVUH;
                 combobox_MaDVUH.SelectedIndex = combobox_MaDVUH.FindString(tvdvuh.MaDVUH);
                 if (tvdvuh.GioiTinh == true)
                     radiobutton_Nam.Checked = true;
@@ -79,15 +77,14 @@ namespace QuanLyThienNguyen.GUI.Admin
                 textbox_SDT.Text = tvdvuh.SDT;
             }
         }
-
         private void combobox_MaDVUH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DonViUngHoView dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(combobox_MaDVUH.SelectedItem.ToString());
-            dataGridView1.Rows.Clear();
-            dataGridView1.Rows.Add("Mã đơn vị ủng hộ", dvuh.MaDVUH);
-            dataGridView1.Rows.Add("Tên đơn vị", dvuh.TenDonVi);
-            dataGridView1.Rows.Add("Địa chỉ", dvuh.DiaChiDonVi);
-            dataGridView1.Rows.Add("Số điện thoại", dvuh.SDTDonVi);
+            DonViUngHo dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(combobox_MaDVUH.SelectedItem.ToString());
+            datagridview_DVUH.Rows.Clear();
+            datagridview_DVUH.Rows.Add("Mã đơn vị ủng hộ", dvuh.MaDVUH);
+            datagridview_DVUH.Rows.Add("Tên đơn vị", dvuh.TenDonVi);
+            datagridview_DVUH.Rows.Add("Địa chỉ", dvuh.DiaChiDonVi);
+            datagridview_DVUH.Rows.Add("Số điện thoại", dvuh.SDTDonVi);
         }
     }
 }

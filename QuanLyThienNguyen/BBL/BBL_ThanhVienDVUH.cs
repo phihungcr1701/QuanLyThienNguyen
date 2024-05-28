@@ -23,11 +23,11 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        public List<ThanhVienDVUHView> GetAllThanhVienDVUH(string text, string namecolumn)
+        public List<DTO_ThanhVienDVUH> GetAllThanhVienDVUH(string text, string namecolumn)
         {
-            List<ThanhVienDVUHView> view = new List<ThanhVienDVUHView>();
+            List<DTO_ThanhVienDVUH> view = new List<DTO_ThanhVienDVUH>();
 
-            foreach (ThanhVienDVUHView item in Sort(DAL_ThanhVienDVUH.Instance.GetAllThanhVienDVUH(), namecolumn))
+            foreach (DTO_ThanhVienDVUH item in Sort(DAL_ThanhVienDVUH.Instance.GetAllThanhVienDVUH(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
@@ -40,9 +40,9 @@ namespace QuanLyThienNguyen.BBL
 
             return view;
         }
-        public List<ThanhVienDVUHView> Sort(List<ThanhVienDVUHView> list, string namecolumn)
+        public List<DTO_ThanhVienDVUH> Sort(List<DTO_ThanhVienDVUH> list, string namecolumn)
         {
-            List<ThanhVienDVUHView> sort = list;
+            List<DTO_ThanhVienDVUH> sort = list;
             switch (namecolumn)
             {
                 case "MaDVUH":
@@ -66,38 +66,28 @@ namespace QuanLyThienNguyen.BBL
             }
             return sort;
         }
-        public bool Check(ThanhVienDVUHView tvdvuh)
+        public ThanhVienDVUH GetThanhVienDVUH(string ma)
         {
-            if (DAL_ThanhVienDVUH.Instance.Check(ThanhVienDVUHView.ToChange(tvdvuh)) != 0)
-                return false;
-            return true;
+            foreach (ThanhVienDVUH item in DAL_ThanhVienDVUH.Instance.GetAll())
+                if (item.MaTVDVUH == ma)
+                    return item;
+            return null;
         }
-        public void Add(ThanhVienDVUHView tvdvuh)
+        public void Add(ThanhVienDVUH tvdvuh)
         {
-            DAL_ThanhVienDVUH.Instance.Add(ThanhVienDVUHView.ToChange(tvdvuh));
+            DAL_ThanhVienDVUH.Instance.Add(tvdvuh);
         }
-        public void Update(ThanhVienDVUHView tvdvuh, ThanhVienDVUHView tvdvuhchange)
+        public void Update(ThanhVienDVUH tvdvuh)
         {
-            DAL_ThanhVienDVUH.Instance.Update(ThanhVienDVUHView.ToChange(tvdvuh), ThanhVienDVUHView.ToChange(tvdvuhchange));
+            DAL_ThanhVienDVUH.Instance.Update(tvdvuh);
         }
-        public void Delete(ThanhVienDVUHView tvdvuh)
+        public void Delete(string ma)
         {
+            ThanhVienDVUH tvdvuh = GetThanhVienDVUH(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + tvdvuh.MaDVUH + " | " + tvdvuh.HoTen + " | " + tvdvuh.GioiTinh + " | " + tvdvuh.CCCD + " | " + tvdvuh.DiaChi + " | " + tvdvuh.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_ThanhVienDVUH.Instance.Delete(ThanhVienDVUHView.ToChange(tvdvuh));
+                DAL_ThanhVienDVUH.Instance.Delete(tvdvuh);
             }
-        }
-        public ThanhVienDVUHView ConvertFromDataGridViewToObj(DataGridViewRow row)
-        {
-            return new ThanhVienDVUHView
-            {
-                MaDVUH = row.Cells["MaDVUH"].Value.ToString(),
-                HoTen = row.Cells["HoTen"].Value.ToString(),
-                GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value.ToString()),
-                CCCD = row.Cells["CCCD"].Value.ToString(),
-                DiaChi = row.Cells["DiaChi"].Value.ToString(),
-                SDT = row.Cells["SDT"].Value.ToString()
-            };
         }
     }
 }

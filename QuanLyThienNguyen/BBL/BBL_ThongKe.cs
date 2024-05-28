@@ -35,7 +35,7 @@ namespace QuanLyThienNguyen.BBL
             string chartTypeString = chart;
             series.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), chartTypeString);
 
-            foreach (ThongKeView i in GetAllThongKe(ten))
+            foreach (DTO_ThongKe i in GetThongKeByTenHTUH(ten))
             {
                 if (loai == "Tổng số lượng ủng hộ" && i.TongSoLuongUH != 0)
                 {
@@ -58,19 +58,20 @@ namespace QuanLyThienNguyen.BBL
 
             return series;
         }
-        public List<ThongKeView> GetAllThongKe(string ten)
+        public List<DTO_ThongKe> GetThongKeByTenHTUH(string ten)
         {
-            return DAL_ThongKe.Instance.GetAllThongKe(ten);
+            return DAL_ThongKe.Instance.GetThongKeByTenHTUH(ten);
         }
         public void Add()
         {
-            DataContext context = new DataContext();
+            int count = 0;
+
             foreach (string i in DAL_ThongKe.Instance.GetAllMaDVUH())
                 foreach (string j in DAL_ThongKe.Instance.GetAllMaHTUH())
                 {
                     double TongSoluong = 0;
                     double SoDu = 0;
-                    foreach (var item in context.ChiTietUngHoes)
+                    foreach (var item in DAL_ChiTietUngHo.Instance.GetAll())
                         if (item.MaDVUH == i && item.MaHTUH == j)
                         {
                             TongSoluong += Convert.ToDouble(item.SoLuongUH);
@@ -78,16 +79,17 @@ namespace QuanLyThienNguyen.BBL
                         }
                     DAL_ThongKe.Instance.Add(new ThongKe
                     {
+                        MaTK = ++count,
                         MaDVUH = i,
                         MaHTUH = j,
                         TongSoLuongUH = TongSoluong,
                         SoDuUH = SoDu
-                });
+                    });
                 }
         }
-        public void Delete()
+        public void DeleteAll()
         {
-            DAL_ThongKe.Instance.Delete();
+            DAL_ThongKe.Instance.DeleteAll();
         }
     }
 }

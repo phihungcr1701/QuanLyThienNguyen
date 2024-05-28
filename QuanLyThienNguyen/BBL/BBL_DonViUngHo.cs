@@ -23,11 +23,11 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        public List<DonViUngHoView> GetAllDonViUngHo(string text, string namecolumn)
+        public List<DTO_DonViUngHo> GetAllDonViUngHo(string text, string namecolumn)
         {
-            List<DonViUngHoView> view = new List<DonViUngHoView>();
+            List<DTO_DonViUngHo> view = new List<DTO_DonViUngHo>();
 
-            foreach (DonViUngHoView item in Sort(DAL_DonViUngHo.Instance.GetAllDonViUngHo(), namecolumn))
+            foreach (DTO_DonViUngHo item in Sort(DAL_DonViUngHo.Instance.GetAllDonViUngHo(), namecolumn))
             {
                 foreach (PropertyInfo property in item.GetType().GetProperties())
                 {
@@ -41,9 +41,9 @@ namespace QuanLyThienNguyen.BBL
 
             return view;
         }
-        public List<DonViUngHoView> Sort(List<DonViUngHoView> list, string namecolumn)
+        public List<DTO_DonViUngHo> Sort(List<DTO_DonViUngHo> list, string namecolumn)
         {
-            List<DonViUngHoView> sort = list;
+            List<DTO_DonViUngHo> sort = list;
             switch (namecolumn)
             {
                 case "MaDVUH":
@@ -61,27 +61,27 @@ namespace QuanLyThienNguyen.BBL
             }
             return sort;
         }
-        public DonViUngHoView GetDonViUngHo(string ma)
+        public DonViUngHo GetDonViUngHo(string ma)
         {
-            foreach (DonViUngHoView item in DAL_DonViUngHo.Instance.GetAllDonViUngHo())
+            foreach (var item in DAL_DonViUngHo.Instance.GetAll())
                 if (item.MaDVUH.Equals(ma))
                     return item;
             return null;
         }
-        public void Add(DonViUngHoView dvuh)
+        public void Add(DonViUngHo dvuh)
         {
-            DAL_DonViUngHo.Instance.Add(DonViUngHoView.ToChange(dvuh));
+            DAL_DonViUngHo.Instance.Add(dvuh);
         }
-        public void Update(DonViUngHoView dvuh)
+        public void Update(DonViUngHo dvuh)
         {
-            DAL_DonViUngHo.Instance.Update(DonViUngHoView.ToChange(dvuh));
+            DAL_DonViUngHo.Instance.Update(dvuh);
         }
         public void Delete(string ma)
         {
-            DonViUngHoView dvuh = GetDonViUngHo(ma);
+            DonViUngHo dvuh = GetDonViUngHo(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + dvuh.MaDVUH + " | " + dvuh.TenDonVi + " | " + dvuh.DiaChiDonVi + " | " + dvuh.SDTDonVi, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_DonViUngHo.Instance.Delete(ma);
+                DAL_DonViUngHo.Instance.Delete(dvuh);
             }
         }
     }

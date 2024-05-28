@@ -15,9 +15,9 @@
         </EntityType>
         <EntityType Name="ChiTietUngHo">
           <Key>
-            <PropertyRef Name="STT" />
+            <PropertyRef Name="MaCTUH" />
           </Key>
-          <Property Name="STT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaCTUH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaDVUH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaDUH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaHD" Type="varchar" MaxLength="10" Nullable="false" />
@@ -64,17 +64,11 @@
           <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="DienGiaDinh" Type="nvarchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'PBL3.dbo.ThanhVienDVUH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ThanhVienDVUH">
           <Key>
-            <PropertyRef Name="MaDVUH" />
-            <PropertyRef Name="HoTen" />
-            <PropertyRef Name="GioiTinh" />
-            <PropertyRef Name="CCCD" />
-            <PropertyRef Name="DiaChi" />
-            <PropertyRef Name="SDT" />
+            <PropertyRef Name="MaTVDVUH" />
           </Key>
+          <Property Name="MaTVDVUH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaDVUH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="GioiTinh" Type="bit" Nullable="false" />
@@ -82,19 +76,17 @@ warning 6002: The table/view 'PBL3.dbo.ThanhVienDVUH' does not have a primary ke
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ThongKe">
           <Key>
-            <PropertyRef Name="MaDVUH" />
-            <PropertyRef Name="MaHTUH" />
+            <PropertyRef Name="MaTK" />
           </Key>
+          <Property Name="MaTK" Type="int" Nullable="false" />
           <Property Name="MaDVUH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaHTUH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TongSoLuongUH" Type="float" />
           <Property Name="SoDuUH" Type="float" />
         </EntityType>
-        <Association Name="FK__ChiTietUn__MaDUH__0D7A0286">
+        <Association Name="FK__ChiTietUn__MaDUH__48CFD27E">
           <End Role="DotUngHo" Type="Self.DotUngHo" Multiplicity="1" />
           <End Role="ChiTietUngHo" Type="Self.ChiTietUngHo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -106,7 +98,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietUn__MaDVU__0C85DE4D">
+        <Association Name="FK__ChiTietUn__MaDVU__47DBAE45">
           <End Role="DonViUngHo" Type="Self.DonViUngHo" Multiplicity="1" />
           <End Role="ChiTietUngHo" Type="Self.ChiTietUngHo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -118,7 +110,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietUn__MaHTU__0F624AF8">
+        <Association Name="FK__ChiTietUn__MaHTU__4AB81AF0">
           <End Role="HinhThucUngHo" Type="Self.HinhThucUngHo" Multiplicity="1" />
           <End Role="ChiTietUngHo" Type="Self.ChiTietUngHo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -130,7 +122,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietUng__MaHD__0E6E26BF">
+        <Association Name="FK__ChiTietUng__MaHD__49C3F6B7">
           <End Role="HoDan" Type="Self.HoDan" Multiplicity="1" />
           <End Role="ChiTietUngHo" Type="Self.ChiTietUngHo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +134,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThanhVien__MaDVU__06CD04F7">
+        <Association Name="FK__ThanhVien__MaDVU__3B75D760">
           <End Role="DonViUngHo" Type="Self.DonViUngHo" Multiplicity="1" />
           <End Role="ThanhVienDVUH" Type="Self.ThanhVienDVUH" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,7 +146,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThongKe__MaDVUH__08B54D69">
+        <Association Name="FK__ThongKe__MaDVUH__4222D4EF">
           <End Role="DonViUngHo" Type="Self.DonViUngHo" Multiplicity="1" />
           <End Role="ThongKe" Type="Self.ThongKe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,7 +158,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThongKe__MaHTUH__09A971A2">
+        <Association Name="FK__ThongKe__MaHTUH__4316F928">
           <End Role="HinhThucUngHo" Type="Self.HinhThucUngHo" Multiplicity="1" />
           <End Role="ThongKe" Type="Self.ThongKe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,49 +177,33 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <EntitySet Name="DotUngHo" EntityType="Self.DotUngHo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HinhThucUngHo" EntityType="Self.HinhThucUngHo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HoDan" EntityType="Self.HoDan" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ThanhVienDVUH" EntityType="Self.ThanhVienDVUH" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ThanhVienDVUH].[MaDVUH] AS [MaDVUH], 
-    [ThanhVienDVUH].[HoTen] AS [HoTen], 
-    [ThanhVienDVUH].[GioiTinh] AS [GioiTinh], 
-    [ThanhVienDVUH].[CCCD] AS [CCCD], 
-    [ThanhVienDVUH].[DiaChi] AS [DiaChi], 
-    [ThanhVienDVUH].[SDT] AS [SDT]
-    FROM [dbo].[ThanhVienDVUH] AS [ThanhVienDVUH]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ThongKe" EntityType="Self.ThongKe" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ThongKe].[MaDVUH] AS [MaDVUH], 
-    [ThongKe].[MaHTUH] AS [MaHTUH], 
-    [ThongKe].[TongSoLuongUH] AS [TongSoLuongUH], 
-    [ThongKe].[SoDuUH] AS [SoDuUH]
-    FROM [dbo].[ThongKe] AS [ThongKe]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__ChiTietUn__MaDUH__0D7A0286" Association="Self.FK__ChiTietUn__MaDUH__0D7A0286">
+          <EntitySet Name="ThanhVienDVUH" EntityType="Self.ThanhVienDVUH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThongKe" EntityType="Self.ThongKe" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ChiTietUn__MaDUH__48CFD27E" Association="Self.FK__ChiTietUn__MaDUH__48CFD27E">
             <End Role="DotUngHo" EntitySet="DotUngHo" />
             <End Role="ChiTietUngHo" EntitySet="ChiTietUngHo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietUn__MaDVU__0C85DE4D" Association="Self.FK__ChiTietUn__MaDVU__0C85DE4D">
+          <AssociationSet Name="FK__ChiTietUn__MaDVU__47DBAE45" Association="Self.FK__ChiTietUn__MaDVU__47DBAE45">
             <End Role="DonViUngHo" EntitySet="DonViUngHo" />
             <End Role="ChiTietUngHo" EntitySet="ChiTietUngHo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietUn__MaHTU__0F624AF8" Association="Self.FK__ChiTietUn__MaHTU__0F624AF8">
+          <AssociationSet Name="FK__ChiTietUn__MaHTU__4AB81AF0" Association="Self.FK__ChiTietUn__MaHTU__4AB81AF0">
             <End Role="HinhThucUngHo" EntitySet="HinhThucUngHo" />
             <End Role="ChiTietUngHo" EntitySet="ChiTietUngHo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietUng__MaHD__0E6E26BF" Association="Self.FK__ChiTietUng__MaHD__0E6E26BF">
+          <AssociationSet Name="FK__ChiTietUng__MaHD__49C3F6B7" Association="Self.FK__ChiTietUng__MaHD__49C3F6B7">
             <End Role="HoDan" EntitySet="HoDan" />
             <End Role="ChiTietUngHo" EntitySet="ChiTietUngHo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThanhVien__MaDVU__06CD04F7" Association="Self.FK__ThanhVien__MaDVU__06CD04F7">
+          <AssociationSet Name="FK__ThanhVien__MaDVU__3B75D760" Association="Self.FK__ThanhVien__MaDVU__3B75D760">
             <End Role="DonViUngHo" EntitySet="DonViUngHo" />
             <End Role="ThanhVienDVUH" EntitySet="ThanhVienDVUH" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThongKe__MaDVUH__08B54D69" Association="Self.FK__ThongKe__MaDVUH__08B54D69">
+          <AssociationSet Name="FK__ThongKe__MaDVUH__4222D4EF" Association="Self.FK__ThongKe__MaDVUH__4222D4EF">
             <End Role="DonViUngHo" EntitySet="DonViUngHo" />
             <End Role="ThongKe" EntitySet="ThongKe" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThongKe__MaHTUH__09A971A2" Association="Self.FK__ThongKe__MaHTUH__09A971A2">
+          <AssociationSet Name="FK__ThongKe__MaHTUH__4316F928" Association="Self.FK__ThongKe__MaHTUH__4316F928">
             <End Role="HinhThucUngHo" EntitySet="HinhThucUngHo" />
             <End Role="ThongKe" EntitySet="ThongKe" />
           </AssociationSet>
@@ -247,9 +223,9 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
         </EntityType>
         <EntityType Name="ChiTietUngHo">
           <Key>
-            <PropertyRef Name="STT" />
+            <PropertyRef Name="MaCTUH" />
           </Key>
-          <Property Name="STT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaCTUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaDVUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaDUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
@@ -257,10 +233,10 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <Property Name="SoLuongUH" Type="Double" />
           <Property Name="SoLuongNUH" Type="Double" />
           <Property Name="MoTa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DotUngHo" Relationship="Self.FK__ChiTietUn__MaDUH__0D7A0286" FromRole="ChiTietUngHo" ToRole="DotUngHo" />
-          <NavigationProperty Name="DonViUngHo" Relationship="Self.FK__ChiTietUn__MaDVU__0C85DE4D" FromRole="ChiTietUngHo" ToRole="DonViUngHo" />
-          <NavigationProperty Name="HinhThucUngHo" Relationship="Self.FK__ChiTietUn__MaHTU__0F624AF8" FromRole="ChiTietUngHo" ToRole="HinhThucUngHo" />
-          <NavigationProperty Name="HoDan" Relationship="Self.FK__ChiTietUng__MaHD__0E6E26BF" FromRole="ChiTietUngHo" ToRole="HoDan" />
+          <NavigationProperty Name="DotUngHo" Relationship="Self.FK__ChiTietUn__MaDUH__48CFD27E" FromRole="ChiTietUngHo" ToRole="DotUngHo" />
+          <NavigationProperty Name="DonViUngHo" Relationship="Self.FK__ChiTietUn__MaDVU__47DBAE45" FromRole="ChiTietUngHo" ToRole="DonViUngHo" />
+          <NavigationProperty Name="HinhThucUngHo" Relationship="Self.FK__ChiTietUn__MaHTU__4AB81AF0" FromRole="ChiTietUngHo" ToRole="HinhThucUngHo" />
+          <NavigationProperty Name="HoDan" Relationship="Self.FK__ChiTietUng__MaHD__49C3F6B7" FromRole="ChiTietUngHo" ToRole="HoDan" />
         </EntityType>
         <EntityType Name="DonViUngHo">
           <Key>
@@ -270,9 +246,9 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <Property Name="TenDonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiaChiDonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SDTDonVi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ChiTietUngHoes" Relationship="Self.FK__ChiTietUn__MaDVU__0C85DE4D" FromRole="DonViUngHo" ToRole="ChiTietUngHo" />
-          <NavigationProperty Name="ThanhVienDVUHs" Relationship="Self.FK__ThanhVien__MaDVU__06CD04F7" FromRole="DonViUngHo" ToRole="ThanhVienDVUH" />
-          <NavigationProperty Name="ThongKes" Relationship="Self.FK__ThongKe__MaDVUH__08B54D69" FromRole="DonViUngHo" ToRole="ThongKe" />
+          <NavigationProperty Name="ChiTietUngHoes" Relationship="Self.FK__ChiTietUn__MaDVU__47DBAE45" FromRole="DonViUngHo" ToRole="ChiTietUngHo" />
+          <NavigationProperty Name="ThanhVienDVUHs" Relationship="Self.FK__ThanhVien__MaDVU__3B75D760" FromRole="DonViUngHo" ToRole="ThanhVienDVUH" />
+          <NavigationProperty Name="ThongKes" Relationship="Self.FK__ThongKe__MaDVUH__4222D4EF" FromRole="DonViUngHo" ToRole="ThongKe" />
         </EntityType>
         <EntityType Name="DotUngHo">
           <Key>
@@ -282,7 +258,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <Property Name="NgayBatDau" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DaKetThuc" Type="Boolean" />
-          <NavigationProperty Name="ChiTietUngHoes" Relationship="Self.FK__ChiTietUn__MaDUH__0D7A0286" FromRole="DotUngHo" ToRole="ChiTietUngHo" />
+          <NavigationProperty Name="ChiTietUngHoes" Relationship="Self.FK__ChiTietUn__MaDUH__48CFD27E" FromRole="DotUngHo" ToRole="ChiTietUngHo" />
         </EntityType>
         <EntityType Name="HinhThucUngHo">
           <Key>
@@ -291,8 +267,8 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <Property Name="MaHTUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenHTUH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DonViTinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ChiTietUngHoes" Relationship="Self.FK__ChiTietUn__MaHTU__0F624AF8" FromRole="HinhThucUngHo" ToRole="ChiTietUngHo" />
-          <NavigationProperty Name="ThongKes" Relationship="Self.FK__ThongKe__MaHTUH__09A971A2" FromRole="HinhThucUngHo" ToRole="ThongKe" />
+          <NavigationProperty Name="ChiTietUngHoes" Relationship="Self.FK__ChiTietUn__MaHTU__4AB81AF0" FromRole="HinhThucUngHo" ToRole="ChiTietUngHo" />
+          <NavigationProperty Name="ThongKes" Relationship="Self.FK__ThongKe__MaHTUH__4316F928" FromRole="HinhThucUngHo" ToRole="ThongKe" />
         </EntityType>
         <EntityType Name="HoDan">
           <Key>
@@ -305,38 +281,34 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DienGiaDinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ChiTietUngHoes" Relationship="Self.FK__ChiTietUng__MaHD__0E6E26BF" FromRole="HoDan" ToRole="ChiTietUngHo" />
+          <NavigationProperty Name="ChiTietUngHoes" Relationship="Self.FK__ChiTietUng__MaHD__49C3F6B7" FromRole="HoDan" ToRole="ChiTietUngHo" />
         </EntityType>
         <EntityType Name="ThanhVienDVUH">
           <Key>
-            <PropertyRef Name="MaDVUH" />
-            <PropertyRef Name="HoTen" />
-            <PropertyRef Name="GioiTinh" />
-            <PropertyRef Name="CCCD" />
-            <PropertyRef Name="DiaChi" />
-            <PropertyRef Name="SDT" />
+            <PropertyRef Name="MaTVDVUH" />
           </Key>
+          <Property Name="MaTVDVUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaDVUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GioiTinh" Type="Boolean" Nullable="false" />
           <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="DonViUngHo" Relationship="Self.FK__ThanhVien__MaDVU__06CD04F7" FromRole="ThanhVienDVUH" ToRole="DonViUngHo" />
+          <NavigationProperty Name="DonViUngHo" Relationship="Self.FK__ThanhVien__MaDVU__3B75D760" FromRole="ThanhVienDVUH" ToRole="DonViUngHo" />
         </EntityType>
         <EntityType Name="ThongKe">
           <Key>
-            <PropertyRef Name="MaDVUH" />
-            <PropertyRef Name="MaHTUH" />
+            <PropertyRef Name="MaTK" />
           </Key>
+          <Property Name="MaTK" Type="Int32" Nullable="false" />
           <Property Name="MaDVUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaHTUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TongSoLuongUH" Type="Double" />
           <Property Name="SoDuUH" Type="Double" />
-          <NavigationProperty Name="DonViUngHo" Relationship="Self.FK__ThongKe__MaDVUH__08B54D69" FromRole="ThongKe" ToRole="DonViUngHo" />
-          <NavigationProperty Name="HinhThucUngHo" Relationship="Self.FK__ThongKe__MaHTUH__09A971A2" FromRole="ThongKe" ToRole="HinhThucUngHo" />
+          <NavigationProperty Name="DonViUngHo" Relationship="Self.FK__ThongKe__MaDVUH__4222D4EF" FromRole="ThongKe" ToRole="DonViUngHo" />
+          <NavigationProperty Name="HinhThucUngHo" Relationship="Self.FK__ThongKe__MaHTUH__4316F928" FromRole="ThongKe" ToRole="HinhThucUngHo" />
         </EntityType>
-        <Association Name="FK__ChiTietUn__MaDUH__0D7A0286">
+        <Association Name="FK__ChiTietUn__MaDUH__48CFD27E">
           <End Role="DotUngHo" Type="Self.DotUngHo" Multiplicity="1" />
           <End Role="ChiTietUngHo" Type="Self.ChiTietUngHo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -348,7 +320,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietUn__MaDVU__0C85DE4D">
+        <Association Name="FK__ChiTietUn__MaDVU__47DBAE45">
           <End Role="DonViUngHo" Type="Self.DonViUngHo" Multiplicity="1" />
           <End Role="ChiTietUngHo" Type="Self.ChiTietUngHo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -360,7 +332,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietUn__MaHTU__0F624AF8">
+        <Association Name="FK__ChiTietUn__MaHTU__4AB81AF0">
           <End Role="HinhThucUngHo" Type="Self.HinhThucUngHo" Multiplicity="1" />
           <End Role="ChiTietUngHo" Type="Self.ChiTietUngHo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -372,7 +344,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietUng__MaHD__0E6E26BF">
+        <Association Name="FK__ChiTietUng__MaHD__49C3F6B7">
           <End Role="HoDan" Type="Self.HoDan" Multiplicity="1" />
           <End Role="ChiTietUngHo" Type="Self.ChiTietUngHo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -384,7 +356,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThanhVien__MaDVU__06CD04F7">
+        <Association Name="FK__ThanhVien__MaDVU__3B75D760">
           <End Role="DonViUngHo" Type="Self.DonViUngHo" Multiplicity="1" />
           <End Role="ThanhVienDVUH" Type="Self.ThanhVienDVUH" Multiplicity="*" />
           <ReferentialConstraint>
@@ -396,7 +368,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThongKe__MaDVUH__08B54D69">
+        <Association Name="FK__ThongKe__MaDVUH__4222D4EF">
           <End Role="DonViUngHo" Type="Self.DonViUngHo" Multiplicity="1" />
           <End Role="ThongKe" Type="Self.ThongKe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -408,7 +380,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThongKe__MaHTUH__09A971A2">
+        <Association Name="FK__ThongKe__MaHTUH__4316F928">
           <End Role="HinhThucUngHo" Type="Self.HinhThucUngHo" Multiplicity="1" />
           <End Role="ThongKe" Type="Self.ThongKe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -429,31 +401,31 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <EntitySet Name="HoDans" EntityType="Self.HoDan" />
           <EntitySet Name="ThanhVienDVUHs" EntityType="Self.ThanhVienDVUH" />
           <EntitySet Name="ThongKes" EntityType="Self.ThongKe" />
-          <AssociationSet Name="FK__ChiTietUn__MaDUH__0D7A0286" Association="Self.FK__ChiTietUn__MaDUH__0D7A0286">
+          <AssociationSet Name="FK__ChiTietUn__MaDUH__48CFD27E" Association="Self.FK__ChiTietUn__MaDUH__48CFD27E">
             <End Role="DotUngHo" EntitySet="DotUngHoes" />
             <End Role="ChiTietUngHo" EntitySet="ChiTietUngHoes" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietUn__MaDVU__0C85DE4D" Association="Self.FK__ChiTietUn__MaDVU__0C85DE4D">
+          <AssociationSet Name="FK__ChiTietUn__MaDVU__47DBAE45" Association="Self.FK__ChiTietUn__MaDVU__47DBAE45">
             <End Role="DonViUngHo" EntitySet="DonViUngHoes" />
             <End Role="ChiTietUngHo" EntitySet="ChiTietUngHoes" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietUn__MaHTU__0F624AF8" Association="Self.FK__ChiTietUn__MaHTU__0F624AF8">
+          <AssociationSet Name="FK__ChiTietUn__MaHTU__4AB81AF0" Association="Self.FK__ChiTietUn__MaHTU__4AB81AF0">
             <End Role="HinhThucUngHo" EntitySet="HinhThucUngHoes" />
             <End Role="ChiTietUngHo" EntitySet="ChiTietUngHoes" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietUng__MaHD__0E6E26BF" Association="Self.FK__ChiTietUng__MaHD__0E6E26BF">
+          <AssociationSet Name="FK__ChiTietUng__MaHD__49C3F6B7" Association="Self.FK__ChiTietUng__MaHD__49C3F6B7">
             <End Role="HoDan" EntitySet="HoDans" />
             <End Role="ChiTietUngHo" EntitySet="ChiTietUngHoes" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThanhVien__MaDVU__06CD04F7" Association="Self.FK__ThanhVien__MaDVU__06CD04F7">
+          <AssociationSet Name="FK__ThanhVien__MaDVU__3B75D760" Association="Self.FK__ThanhVien__MaDVU__3B75D760">
             <End Role="DonViUngHo" EntitySet="DonViUngHoes" />
             <End Role="ThanhVienDVUH" EntitySet="ThanhVienDVUHs" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThongKe__MaDVUH__08B54D69" Association="Self.FK__ThongKe__MaDVUH__08B54D69">
+          <AssociationSet Name="FK__ThongKe__MaDVUH__4222D4EF" Association="Self.FK__ThongKe__MaDVUH__4222D4EF">
             <End Role="DonViUngHo" EntitySet="DonViUngHoes" />
             <End Role="ThongKe" EntitySet="ThongKes" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThongKe__MaHTUH__09A971A2" Association="Self.FK__ThongKe__MaHTUH__09A971A2">
+          <AssociationSet Name="FK__ThongKe__MaHTUH__4316F928" Association="Self.FK__ThongKe__MaHTUH__4316F928">
             <End Role="HinhThucUngHo" EntitySet="HinhThucUngHoes" />
             <End Role="ThongKe" EntitySet="ThongKes" />
           </AssociationSet>
@@ -476,7 +448,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <EntitySetMapping Name="ChiTietUngHoes">
             <EntityTypeMapping TypeName="PBL3Model.ChiTietUngHo">
               <MappingFragment StoreEntitySet="ChiTietUngHo">
-                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="MaCTUH" ColumnName="MaCTUH" />
                 <ScalarProperty Name="MaDVUH" ColumnName="MaDVUH" />
                 <ScalarProperty Name="MaDUH" ColumnName="MaDUH" />
                 <ScalarProperty Name="MaHD" ColumnName="MaHD" />
@@ -532,6 +504,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <EntitySetMapping Name="ThanhVienDVUHs">
             <EntityTypeMapping TypeName="PBL3Model.ThanhVienDVUH">
               <MappingFragment StoreEntitySet="ThanhVienDVUH">
+                <ScalarProperty Name="MaTVDVUH" ColumnName="MaTVDVUH" />
                 <ScalarProperty Name="MaDVUH" ColumnName="MaDVUH" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
@@ -544,6 +517,7 @@ warning 6002: The table/view 'PBL3.dbo.ThongKe' does not have a primary key defi
           <EntitySetMapping Name="ThongKes">
             <EntityTypeMapping TypeName="PBL3Model.ThongKe">
               <MappingFragment StoreEntitySet="ThongKe">
+                <ScalarProperty Name="MaTK" ColumnName="MaTK" />
                 <ScalarProperty Name="MaDVUH" ColumnName="MaDVUH" />
                 <ScalarProperty Name="MaHTUH" ColumnName="MaHTUH" />
                 <ScalarProperty Name="TongSoLuongUH" ColumnName="TongSoLuongUH" />

@@ -24,27 +24,28 @@ namespace QuanLyThienNguyen.BBL
                 instance = value;
             }
         }
-        public List<HinhThucUngHoView> GetAllHinhThucUngHo(string text, string namecolumn)
+        public BBL_HinhThucUngHo() { }
+        public List<DTO_HinhThucUngHo> GetAllHinhThucUngHo(string text, string namecolumn)
         {
-            List<HinhThucUngHoView> view = new List<HinhThucUngHoView>();
+            List<DTO_HinhThucUngHo> view = new List<DTO_HinhThucUngHo>();
 
-            foreach (HinhThucUngHoView item in Sort(DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo(), namecolumn))
+            foreach (DTO_HinhThucUngHo item in Sort(DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo(), namecolumn))
             {
                 Type type = item.GetType();
                 foreach (PropertyInfo property in type.GetProperties())
                     if (property.GetValue(item).ToString().ToLower().Contains(text.ToLower()))
-                {
+                    {
                         view.Add(item);
                         break;
-                    }      
+                    }
             }
 
             return view;
         }
 
-        public List<HinhThucUngHoView> Sort(List<HinhThucUngHoView> list, string namecolumn)
+        public List<DTO_HinhThucUngHo> Sort(List<DTO_HinhThucUngHo> list, string namecolumn)
         {
-            List<HinhThucUngHoView> sort = list;
+            List<DTO_HinhThucUngHo> sort = list;
             switch (namecolumn)
             {
                 case "MaHTUH":
@@ -56,30 +57,30 @@ namespace QuanLyThienNguyen.BBL
                 case "DonViTinh":
                     sort.Sort((x, y) => x.DonViTinh.CompareTo(y.DonViTinh));
                     break;
-                }
+            }
             return sort;
         }
-        public HinhThucUngHoView GetHinhThucUngHo(string ma)
+        public HinhThucUngHo GetHinhThucUngHo(string ma)
         {
-            foreach (HinhThucUngHoView item in DAL_HinhThucUngHo.Instance.GetAllHinhThucUngHo())
+            foreach (HinhThucUngHo item in DAL_HinhThucUngHo.Instance.GetAll())
                 if (item.MaHTUH.Equals(ma))
                     return item;
             return null;
         }
-        public void Add(HinhThucUngHoView htuh)
+        public void Add(HinhThucUngHo htuh)
         {
-            DAL_HinhThucUngHo.Instance.Add(HinhThucUngHoView.ToChange(htuh));
+            DAL_HinhThucUngHo.Instance.Add(htuh);
         }
-        public void Update(HinhThucUngHoView htuh)
+        public void Update(HinhThucUngHo htuh)
         {
-            DAL_HinhThucUngHo.Instance.Update(HinhThucUngHoView.ToChange(htuh));
+            DAL_HinhThucUngHo.Instance.Update(htuh);
         }
         public void Delete(string ma)
         {
-            HinhThucUngHoView htuh = GetHinhThucUngHo(ma);
+            HinhThucUngHo htuh = GetHinhThucUngHo(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + htuh.MaHTUH + " | " + htuh.TenHTUH + " | " + htuh.DonViTinh, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_HinhThucUngHo.Instance.Delete(ma);
+                DAL_HinhThucUngHo.Instance.Delete(htuh);
             }
         }
     }

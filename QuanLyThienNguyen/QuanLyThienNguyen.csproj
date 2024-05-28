@@ -84,6 +84,7 @@
       <DependentUpon>PBL3Database.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL_Account.cs" />
+    <Compile Include="DAL\DALBase.cs" />
     <Compile Include="DAL\DAL_DonViUngHo.cs" />
     <Compile Include="DAL\DAL_DotUngHo.cs" />
     <Compile Include="DAL\DAL_HinhThucUngHo.cs" />
@@ -124,14 +125,13 @@
     <Compile Include="DAL\ThongKe.cs">
       <DependentUpon>PBL3Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\ChiTietUngHoView.cs" />
-    <Compile Include="DTO\DonViUngHoView.cs" />
-    <Compile Include="DTO\DotUngHoView.cs" />
-    <Compile Include="DTO\HinhThucUngHoView.cs" />
-    <Compile Include="DTO\HoDanView.cs" />
-    <Compile Include="DTO\ThongKeView.cs" />
-    <Compile Include="DTO\ThanhVienDVUHView.cs" />
-    <Compile Include="DTO\ActivityView.cs" />
+    <Compile Include="DTO\DTO_DonViUngHo.cs" />
+    <Compile Include="DTO\DTO_DotUngHo.cs" />
+    <Compile Include="DTO\DTO_HinhThucUngHo.cs" />
+    <Compile Include="DTO\DTO_HoDan.cs" />
+    <Compile Include="DTO\DTO_ThongKe.cs" />
+    <Compile Include="DTO\DTO_ThanhVienDVUH.cs" />
+    <Compile Include="DTO\DTO_Activity.cs" />
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,22 +307,22 @@
     <None Include="Resources\logo_pass.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\logo_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DAL\PBL3Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PBL3Database.Context.cs</LastGenOutput>
       <DependentUpon>PBL3Database.edmx</DependentUpon>
+      <LastGenOutput>PBL3Database.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DAL\PBL3Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PBL3Database.edmx</DependentUpon>
       <LastGenOutput>PBL3Database.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logo_Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

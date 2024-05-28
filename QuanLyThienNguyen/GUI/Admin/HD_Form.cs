@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Windows.Forms;
@@ -15,16 +16,16 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            HoDanView hd = new HoDanView(
-                textbox_MaHD.Text,
-                textbox_HoTen.Text,
-                radiobutton_Nam.Checked,
-                textbox_CCCD.Text,
-                textbox_DiaChi.Text,
-                textbox_SDT.Text,
-                ratiobutton_Ngheo.Checked ? "Ngheo" : "Can Ngheo"
-            );
-            
+            HoDan hd = new HoDan
+            {
+                MaHD = textbox_MaHD.Text,
+                HoTenChuHo = textbox_HoTen.Text,
+                GioiTinh = radiobutton_Nam.Checked,
+                CCCD = textbox_CCCD.Text,
+                DiaChi = textbox_DiaChi.Text,
+                SDT = textbox_SDT.Text,
+                DienGiaDinh = ratiobutton_Ngheo.Checked ? "Ngheo" : "Can Ngheo"
+            };
             if (ma == null)
             {
                 if (textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
@@ -58,7 +59,7 @@ namespace QuanLyThienNguyen.GUI.Admin
             if (ma != null)
             {
                 textbox_MaHD.ReadOnly = true;
-                HoDanView hd = BBL_HoDan.Instance.GetHoDan(ma);
+                HoDan hd = BBL_HoDan.Instance.GetHoDan(ma);
                 if (hd.GioiTinh == true)
                     radiobutton_Nam.Checked = true;
                 else

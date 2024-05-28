@@ -1,4 +1,5 @@
 ﻿using QuanLyThienNguyen.BBL;
+using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 using System;
 using System.Windows.Forms;
@@ -15,12 +16,12 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
-            HinhThucUngHoView htuh = new HinhThucUngHoView(
-                textbox_MaHTUH.Text,
-                textbox_TenHTUH.Text,
-                textbox_DonViTinh.Text
-            );
-            
+            HinhThucUngHo htuh = new HinhThucUngHo
+            {
+                MaHTUH = textbox_MaHTUH.Text,
+                TenHTUH = textbox_TenHTUH.Text,
+                DonViTinh = textbox_DonViTinh.Text
+            };
             if (ma == null)
                 if (textbox_MaHTUH.Text == "" || textbox_TenHTUH.Text == "" || textbox_DonViTinh.Text == "")
                 {
@@ -53,7 +54,7 @@ namespace QuanLyThienNguyen.GUI.Admin
             if (ma != null)
             {
                 textbox_MaHTUH.ReadOnly = true;
-                HinhThucUngHoView htuh = BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(ma);
+                HinhThucUngHo htuh = BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(ma);
                 textbox_MaHTUH.Text = htuh.MaHTUH;
                 textbox_TenHTUH.Text = htuh.TenHTUH;
                 textbox_DonViTinh.Text = htuh.DonViTinh;

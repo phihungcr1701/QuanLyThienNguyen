@@ -1,10 +1,11 @@
 ﻿using QuanLyThienNguyen.DTO;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace QuanLyThienNguyen.DAL
 {
-    internal class DAL_DotUngHo
+    internal class DAL_DotUngHo : DALBase<DotUngHo>
     {
         private static DAL_DotUngHo instance;
         public static DAL_DotUngHo Instance
@@ -20,35 +21,18 @@ namespace QuanLyThienNguyen.DAL
                 instance = value;
             }
         }
-        public List<DotUngHoView> GetAllDotUngHo()
+        public List<DTO_DotUngHo> GetAllDotUngHo()
         {
-            DataContext context = new DataContext();
-            List<DotUngHoView> list = new List<DotUngHoView>();
-            foreach (var item in context.DotUngHoes)
+            return GetAll().Select(p => new DTO_DotUngHo
             {
-                list.Add(new DotUngHoView(item.MaDUH, item.NgayBatDau, item.NgayKetThuc));
-            }
-            return list;
+                MaDUH = p.MaDUH,
+                NgayBatDau = p.NgayBatDau,
+                NgayKetThuc = p.NgayKetThuc,
+            }).ToList();
         }
-        public void Add(DotUngHo duh)
+        protected override object GetEntityKey(DotUngHo entity)
         {
-            DataContext context = new DataContext();
-            context.DotUngHoes.Add(duh);
-            context.SaveChanges();
-        }
-        public void Update(DotUngHo duh)
-        {
-            DataContext context = new DataContext();
-            var obj = context.DotUngHoes.Find(duh.MaDUH);
-            obj.NgayBatDau = duh.NgayBatDau;
-            obj.NgayKetThuc = duh.NgayKetThuc;
-            context.SaveChanges();
-        }
-        public void Delete(string ma)
-        {
-            DataContext context = new DataContext();
-            context.DotUngHoes.Remove(context.DotUngHoes.Find(ma));
-            context.SaveChanges();
+            return entity.MaDUH;
         }
     }
 }
