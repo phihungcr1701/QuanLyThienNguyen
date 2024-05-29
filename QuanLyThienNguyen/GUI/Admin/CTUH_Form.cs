@@ -78,5 +78,35 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             this.Dispose();
         }
+
+        private void TextChanged(object sender, EventArgs e)
+        {
+            DataGridView1.Rows[0].Cells[0].Value = txt_MaCTUH.Text;
+            DonViUngHo dvuh = BBL_DonViUngHo.Instance.GetDonViUngHo(cbb_MaDVUH.Text.ToString());
+            HoDan hd = BBL_HoDan.Instance.GetHoDan(cbb_MaHD.Text.ToString());
+            DotUngHo duh = BBL_DotUngHo.Instance.GetDotUngHo(cbb_MaDUH.Text.ToString());
+            HinhThucUngHo htuh = BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(cbb_MaHTUH.Text.ToString());
+            if (dvuh != null)
+            {
+                DataGridView1.Rows[0].Cells[1].Value = dvuh.TenDonVi;
+            }
+            if (hd != null)
+            {
+                DataGridView1.Rows[0].Cells[2].Value = hd.HoTenChuHo;
+            }
+            if (htuh != null)
+            {
+                DataGridView1.Rows[0].Cells[3].Value = htuh.TenHTUH;
+                DataGridView1.Rows[0].Cells[6].Value = htuh.DonViTinh;
+
+            }
+            DataGridView1.Rows[0].Cells[4].Value = txt_SoLuongUH.Text.ToString();
+            DataGridView1.Rows[0].Cells[5].Value = txt_SoLuongNUH.Text.ToString();
+            if (duh != null)
+            {
+                DataGridView1.Rows[0].Cells[7].Value = duh.NgayBatDau.ToString();
+                DataGridView1.Rows[0].Cells[8].Value = duh.NgayKetThuc.ToString();
+            }
+        }
     }
 }
