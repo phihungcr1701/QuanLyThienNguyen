@@ -15,6 +15,7 @@ namespace QuanLyThienNguyen.DAL
     public partial class ChiTietUngHo
     {
         public string MaCTUH { get; set; }
+        public string TenHoatDong { get; set; }
         public string MaDVUH { get; set; }
         public string MaDUH { get; set; }
         public string MaHD { get; set; }
@@ -22,6 +23,7 @@ namespace QuanLyThienNguyen.DAL
         public Nullable<double> SoLuongUH { get; set; }
         public Nullable<double> SoLuongNUH { get; set; }
         public string MoTa { get; set; }
+        public byte[] AnhHoatDong { get; set; }
     
         public virtual DotUngHo DotUngHo { get; set; }
         public virtual DonViUngHo DonViUngHo { get; set; }

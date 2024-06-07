@@ -62,6 +62,7 @@
             this.label_GioiThieu.Size = new System.Drawing.Size(196, 44);
             this.label_GioiThieu.TabIndex = 0;
             this.label_GioiThieu.Text = "Đợt ủng hộ";
+            this.label_GioiThieu.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel3
             // 

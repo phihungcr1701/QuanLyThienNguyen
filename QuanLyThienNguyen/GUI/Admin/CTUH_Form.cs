@@ -44,14 +44,18 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void btn_ThucHien_Click(object sender, EventArgs e)
         {
-            ChiTietUngHo chitietungho = new ChiTietUngHo{
+            ChiTietUngHo chitietungho = new ChiTietUngHo
+            {
                 MaCTUH = txt_MaCTUH.Text,
+                TenHoatDong = txtNameActivity.Text,
                 MaDVUH = cbb_MaDVUH.SelectedItem.ToString(),
                 MaDUH = cbb_MaDUH.SelectedItem.ToString(),
                 MaHD = cbb_MaHD.SelectedItem.ToString(),
                 MaHTUH = cbb_MaHTUH.SelectedItem.ToString(),
-                SoLuongUH= Convert.ToDouble(txt_SoLuongUH.Text),
-                SoLuongNUH = Convert.ToDouble(txt_SoLuongNUH.Text)
+                SoLuongUH = Convert.ToDouble(txt_SoLuongUH.Text),
+                SoLuongNUH = Convert.ToDouble(txt_SoLuongNUH.Text),
+                MoTa = txtMoTa.Text,
+                AnhHoatDong = BBL_ChiTietUngHo.Instance.ImageToByteArray(PictureActivity.Image)
             };
             if (MaCTUH == null)
             {
@@ -106,6 +110,15 @@ namespace QuanLyThienNguyen.GUI.Admin
             {
                 DataGridView1.Rows[0].Cells[7].Value = duh.NgayBatDau.ToString();
                 DataGridView1.Rows[0].Cells[8].Value = duh.NgayKetThuc.ToString();
+            }
+        }
+
+        private void PictureActivity_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            if(open.ShowDialog() == DialogResult.OK)
+            {
+                PictureActivity.Image = Image.FromFile(open.FileName);
             }
         }
     }

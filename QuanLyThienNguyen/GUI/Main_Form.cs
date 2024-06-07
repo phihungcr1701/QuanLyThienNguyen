@@ -13,7 +13,7 @@ namespace QuanLyThienNguyen.GUI
             InitializeComponent();
             openChildForm(new Home_Form()); 
         }
-        private void openChildForm(Form childForm)
+        public void openChildForm(Form childForm)
         {
             if (currentChildForm != null)
             {
@@ -35,14 +35,16 @@ namespace QuanLyThienNguyen.GUI
 
         private void button_HoatDong_Click(object sender, EventArgs e)
         {
-            if (btnLogin.Text == "Đăng xuất")
-            {
-                openChildForm(new Activity_Form_Admin());
-            }
-            else
-            {
-                openChildForm(new Activity_Form());
-            }
+            //if (btnLogin.Text == "Đăng xuất")
+            //{
+            //    openChildForm(new Activity_Form_Admin());
+            //}
+            //else
+            //{
+            //    openChildForm(new Activity_Form());
+            //}
+            openChildForm(new Activity());
+            //openChildForm(new ChiTietUngHo_Form("1"));
         }
 
         private void button_ThongTin_Click(object sender, EventArgs e)

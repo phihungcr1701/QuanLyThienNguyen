@@ -31,7 +31,7 @@ namespace QuanLyThienNguyen.DAL
         {
             using (var context = new DataContext())
             {
-                var chiTietUngHo = context.ChiTietUngHoes.SingleOrDefault(ct => ct.MaCTUH == item.MaCTUH);
+                var chiTietUngHo = context.ChiTietUngHos.SingleOrDefault(ct => ct.MaCTUH == item.MaCTUH);
                 if (chiTietUngHo != null)
                 {
                     chiTietUngHo.SoLuongUH += item.SoLuongUH.Value;

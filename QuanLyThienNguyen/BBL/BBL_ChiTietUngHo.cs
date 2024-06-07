@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -254,6 +256,26 @@ namespace QuanLyThienNguyen.BBL
         public void DeleteActivity(string maCTUH)
         {
             DAL_ChiTietUngHo.Instance.Delete(GetChiTietUngHoByMaCTUH(maCTUH));
+        }
+
+        public byte[] ImageToByteArray(Image img)
+        {
+            MemoryStream m = new MemoryStream();
+            img.Save(m, System.Drawing.Imaging.ImageFormat.Png);
+            return m.ToArray();
+        }
+        // chuyen tu byte sang img
+        public Image ByteArrayToImage(byte[] b)
+        {
+            if (b == null || b.Length == 0)
+            {
+                throw new ArgumentException("Dữ liệu byte không hợp lệ.");
+            }
+
+            using (MemoryStream m = new MemoryStream(b))
+            {
+                return Image.FromStream(m);
+            }
         }
     }
 }

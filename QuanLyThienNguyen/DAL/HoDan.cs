@@ -17,7 +17,7 @@ namespace QuanLyThienNguyen.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HoDan()
         {
-            this.ChiTietUngHoes = new HashSet<ChiTietUngHo>();
+            this.ChiTietUngHos = new HashSet<ChiTietUngHo>();
         }
     
         public string MaHD { get; set; }
@@ -29,6 +29,6 @@ namespace QuanLyThienNguyen.DAL
         public string DienGiaDinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietUngHo> ChiTietUngHoes { get; set; }
+        public virtual ICollection<ChiTietUngHo> ChiTietUngHos { get; set; }
     }
 }

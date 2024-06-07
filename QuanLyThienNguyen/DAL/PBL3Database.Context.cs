@@ -26,10 +26,10 @@ namespace QuanLyThienNguyen.DAL
         }
     
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<ChiTietUngHo> ChiTietUngHoes { get; set; }
-        public virtual DbSet<DonViUngHo> DonViUngHoes { get; set; }
-        public virtual DbSet<DotUngHo> DotUngHoes { get; set; }
-        public virtual DbSet<HinhThucUngHo> HinhThucUngHoes { get; set; }
+        public virtual DbSet<ChiTietUngHo> ChiTietUngHos { get; set; }
+        public virtual DbSet<DonViUngHo> DonViUngHos { get; set; }
+        public virtual DbSet<DotUngHo> DotUngHos { get; set; }
+        public virtual DbSet<HinhThucUngHo> HinhThucUngHos { get; set; }
         public virtual DbSet<HoDan> HoDans { get; set; }
         public virtual DbSet<ThanhVienDVUH> ThanhVienDVUHs { get; set; }
         public virtual DbSet<ThongKe> ThongKes { get; set; }

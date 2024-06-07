@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyThienNguyen.GUI;
+using QuanLyThienNguyen.GUI.Admin;
 
 namespace QuanLyThienNguyen
 {
