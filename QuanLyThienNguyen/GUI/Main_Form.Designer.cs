@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.panelLeft = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnChiTiet = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.labelUser = new System.Windows.Forms.Label();
             this.button_ThongKe = new Guna.UI2.WinForms.Guna2Button();
@@ -49,6 +50,7 @@
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.panelLeft.Controls.Add(this.btnChiTiet);
             this.panelLeft.Controls.Add(this.guna2ImageButton1);
             this.panelLeft.Controls.Add(this.labelUser);
             this.panelLeft.Controls.Add(this.button_ThongKe);
@@ -61,6 +63,29 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(199, 664);
             this.panelLeft.TabIndex = 0;
+            // 
+            // btnChiTiet
+            // 
+            this.btnChiTiet.AutoRoundedCorners = true;
+            this.btnChiTiet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnChiTiet.BorderRadius = 20;
+            this.btnChiTiet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChiTiet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChiTiet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChiTiet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChiTiet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnChiTiet.ForeColor = System.Drawing.Color.Black;
+            this.btnChiTiet.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnChiTiet.HoverState.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnChiTiet.Location = new System.Drawing.Point(-21, 392);
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.PressedColor = System.Drawing.Color.White;
+            this.btnChiTiet.Size = new System.Drawing.Size(170, 42);
+            this.btnChiTiet.TabIndex = 9;
+            this.btnChiTiet.Text = "Chi tiết";
+            this.btnChiTiet.Visible = false;
+            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
             // guna2ImageButton1
             // 
@@ -230,12 +255,14 @@
             // 
             // labelNgayThang
             // 
+            this.labelNgayThang.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelNgayThang.AutoSize = true;
-            this.labelNgayThang.Location = new System.Drawing.Point(848, 5);
+            this.labelNgayThang.Location = new System.Drawing.Point(847, 5);
             this.labelNgayThang.Name = "labelNgayThang";
             this.labelNgayThang.Size = new System.Drawing.Size(85, 13);
             this.labelNgayThang.TabIndex = 0;
             this.labelNgayThang.Text = "labelNgayThang";
+            this.labelNgayThang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Main_Form
             // 
@@ -273,5 +300,6 @@
         private System.Windows.Forms.Label labelNgayThang;
         private System.Windows.Forms.Label labelUser;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2Button btnChiTiet;
     }
 }

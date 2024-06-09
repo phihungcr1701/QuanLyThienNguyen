@@ -14,10 +14,12 @@ namespace QuanLyThienNguyen.GUI
 {
     public partial class Activity : Form
     {
-        public Activity()
+        private Main_Form main_form;
+        public Activity(Main_Form main_form)
         {
             InitializeComponent();
             SetView();
+            this.main_form = main_form;
         }
         public void SetView()
         {
@@ -40,11 +42,10 @@ namespace QuanLyThienNguyen.GUI
             if (button != null)
             {
                 string mactuh = button.Tag.ToString();
-                Main_Form form = new Main_Form();
-                //form.openChildForm(new ChiTietUngHo_Form(mactuh));
-                ChiTietUngHo_Form form1 = new ChiTietUngHo_Form(mactuh);
-                form1.Show();
-                //MessageBox.Show("Xem hoạt động button clicked for MaCTUH: " + maCTUH);
+                main_form.openChildForm(new ChiTietUngHo_Form(mactuh));
+                //ChiTietUngHo_Form form1 = new ChiTietUngHo_Form(mactuh);
+                //form1.Show();
+                //MessageBox.Show(form.currentChildForm == null ? "1" : "2");
             }
         }
 

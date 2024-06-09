@@ -37,10 +37,10 @@ namespace QuanLyThienNguyen.GUI
             combobox_TenHTUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_TK().ToArray());
             if  (combobox_TenHTUH.Items.Count != 0)
             {
-                combobox_TenHTUH.SelectedIndex = 0;
-                combobox_TenHTUH_SelectedIndexChanged(sender, e);
                 BBL_ThongKe.Instance.DeleteAll();
                 BBL_ThongKe.Instance.Add();
+                combobox_TenHTUH.SelectedIndex = 0;
+                combobox_TenHTUH_SelectedIndexChanged(sender, e);
             }    
         }
 

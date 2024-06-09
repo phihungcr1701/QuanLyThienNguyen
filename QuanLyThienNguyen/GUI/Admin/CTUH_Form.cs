@@ -39,6 +39,9 @@ namespace QuanLyThienNguyen.GUI.Admin
                 cbb_MaHTUH.SelectedItem = item.MaHTUH.ToString();
                 txt_SoLuongUH.Text = item.SoLuongUH.ToString();
                 txt_SoLuongNUH.Text = item.SoLuongNUH.ToString();
+                txtNameActivity.Text = item.TenHoatDong;
+                txtMoTa.Text = item.MoTa;
+                PictureActivity.Image = BBL_ChiTietUngHo.Instance.ByteArrayToImage(item.AnhHoatDong);
             }
         }
 

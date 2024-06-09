@@ -117,4 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lbMoTa.Text" xml:space="preserve">
+    <value>Giúp đỡ nhiều bệnh nhi với Chiến dịch gây quỹ “Cánh Diều Hi Vọng Tuổi Thơ,Hè 2024” Chiến dịch gây quỹ “Cánh Diều Hi Vọng Tuổi Thơ,Hè 2024” do Quỹ Nâng Bước Tuổi Thơ tổ chức là cơ hội để mỗi cá nhân, tổ chức và doanh nghiệp chung tay hỗ trợ các bệnh nhi có được sự chăm sóc y tế chất lượng cao kịp thời.
+
+Nhu cầu y tế cấp thiết cho trẻ em
+
+Theo thống kê gần nhất của cơ quan y tế, mỗi năm Việt Nam có khoảng 41.000 trẻ em bị dị tật bẩm sinh. Tỉ lệ này tương đương cứ 13 phút lại có một trẻ mắc dị tật bẩm sinh được sinh ra. Trong đó có khoảng 1.400-1.800 trẻ bị mắc bệnh Down, 1.000-1.500 trẻ bị dị tật ống thần kinh, 300-400 trẻ bị suy giáp bẩm sinh, khoảng 2.200 trẻ bị bệnh tan máu bẩm sinh… Con số này chưa bao gồm các trẻ em bị mắc tai nạn và bệnh tật do các yếu tố bên ngoài.
+
+Chi phí y tế cho con em không may gặp các tình huống trên của các gia đình là rất lớn. Do đó, ngay từ năm 2006, Quỹ Nâng Bước Tuổi Thơ đã được sáng lập nhằm cung cấp chuyên môn điều trị bệnh lý và phẫu thuật đa khoa theo tiêu chuẩn quốc tế cho trẻ em dị tật bẩm sinh có hoàn cảnh khó khăn. Tổ chức này ra đời với sứ mệnh tạo nên sức mạnh của tình yêu thương, giúp trẻ em có hoàn cảnh khó khăn trên khắp Việt Nam vượt qua những khiếm khuyết của cơ thể thông qua điều trị y tế bài bản, có cơ hội phát triển hết tiềm năng của mình cho một cuộc sống mới tốt đẹp hơn.
+
+Trong 18 năm hoạt động tại Việt Nam, Quỹ Nâng Bước Tuổi Thơ đã giúp hơn 800 trẻ em có hoàn cảnh khó khăn, mắc dị tật bẩm sinh và thương tật do tai nạn có thể tiếp cận điều trị tại những cơ sở y tế tốt nhất Việt Nam nhờ sự đóng góp của các doanh nghiệp, các nhà hảo tâm trong và ngoài nước. Nguồn gây quỹ được sử dụng để chu cấp trọn vẹn trong suốt quá trình điều trị, từ khi phẫu thuật cho đến khi các em hồi phục các khiếm khuyết (bao gồm cả chi phí đi lại và ăn ở cho người thân nuôi bệnh).</value>
+  </data>
 </root>

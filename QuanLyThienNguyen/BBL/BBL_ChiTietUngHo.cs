@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
 
@@ -37,7 +38,8 @@ namespace QuanLyThienNguyen.BBL
             foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAll())
             {
                 DTO_Activity activity = new DTO_Activity(item.MaCTUH, item.MaDUH,
-                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value);
+                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value,
+                    item.TenHoatDong, item.MoTa, item.AnhHoatDong);
                 result.Add(activity);
             }
             return result;
@@ -48,7 +50,8 @@ namespace QuanLyThienNguyen.BBL
             foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAll())
             {
                 DTO_Activity activity = new DTO_Activity(item.MaCTUH, item.MaDUH,
-                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value);
+                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value,
+                    item.TenHoatDong, item.MoTa, item.AnhHoatDong);
                 if (activity.NgayKetThuc >= DateTime.Now && activity.NgayBatDau < DateTime.Now)
                 {
                     result.Add(activity);
@@ -63,7 +66,8 @@ namespace QuanLyThienNguyen.BBL
             foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAll())
             {
                 DTO_Activity activity = new DTO_Activity(item.MaCTUH, item.MaDUH,
-                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value);
+                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value,
+                    item.TenHoatDong, item.MoTa, item.AnhHoatDong);
                 if (activity.NgayKetThuc < DateTime.Now)
                 {
                     result.Add(activity);
@@ -79,7 +83,8 @@ namespace QuanLyThienNguyen.BBL
             foreach (ChiTietUngHo item in DAL_ChiTietUngHo.Instance.GetAll())
             {
                 DTO_Activity activity = new DTO_Activity(item.MaCTUH, item.MaDUH,
-                    item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value);
+                     item.MaDVUH, item.MaHD, item.MaHTUH, item.SoLuongUH.Value, item.SoLuongNUH.Value,
+                     item.TenHoatDong, item.MoTa, item.AnhHoatDong);
                 if (activity.NgayBatDau > DateTime.Now)
                 {
                     result.Add(activity);
@@ -183,33 +188,42 @@ namespace QuanLyThienNguyen.BBL
                 if (sodu >= item.SoLuongNUH)
                     DAL_ChiTietUngHo.Instance.Update(item);
                 else
-                    MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
+                    System.Windows.MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
             }
 
         }
         public void AddActivity(ChiTietUngHo item)
         {
+            DialogResult result = System.Windows.Forms.MessageBox.Show("Các trường MaDVUH, MaHD, MaHTUH, MaDUH đã tồn tại. Bạn có muốn" +
+                " cộng SoLuongUH, SoLuongNUH vào record đã có không?", "Thông báo", (MessageBoxButtons)MessageBoxButton.YesNo);
+            DialogResult rs = (DialogResult)System.Windows.MessageBox.Show("Bạn có chắc chắn thêm không", "Thông báo", MessageBoxButton.YesNo);
             double sodu = SoDu(item.MaCTUH, item.MaHTUH) + item.SoLuongUH.Value;
             if (GetChiTietUngHoByMaCTUH(item.MaCTUH) == null)
             {
                 if (CheckChiTietUngHo(item))
                 {
-                    if (sodu >= item.SoLuongNUH)
-                        DAL_ChiTietUngHo.Instance.AddCombine(item);
-                    else
-                        MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
+                    if (result == DialogResult.Yes)
+                    {
+                        if (sodu >= item.SoLuongNUH)
+                            DAL_ChiTietUngHo.Instance.AddCombine(item);
+                        else
+                            System.Windows.MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
+                    }
                 }
                 else
                 {
-                    if (sodu >= item.SoLuongNUH)
-                        DAL_ChiTietUngHo.Instance.Add(item);
-                    else
-                        MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
+                    if (result == DialogResult.Yes)
+                    {
+                        if (sodu >= item.SoLuongNUH)
+                            DAL_ChiTietUngHo.Instance.Add(item);
+                        else
+                            System.Windows.MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
+                    }    
                 }
             }
             else
             {
-                MessageBox.Show("MaCTUH đã tồn tại!");
+                System.Windows.MessageBox.Show("MaCTUH đã tồn tại!","Thông báo");
             }
         }
         public bool CheckChiTietUngHo(ChiTietUngHo item)

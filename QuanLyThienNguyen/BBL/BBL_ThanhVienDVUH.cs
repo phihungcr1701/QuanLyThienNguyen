@@ -89,5 +89,17 @@ namespace QuanLyThienNguyen.BBL
                 DAL_ThanhVienDVUH.Instance.Delete(tvdvuh);
             }
         }
+        public List<ThanhVienDVUH> GetAllThanhVienDonViFromMaDVUH(string ma)
+        {
+            List<ThanhVienDVUH> item = new List<ThanhVienDVUH>();
+            foreach(ThanhVienDVUH i in DAL_ThanhVienDVUH.Instance.GetAll())
+            {
+                if (i.MaDVUH == ma)
+                {
+                    item.Add(i);
+                }
+            }
+            return item;
+        }
     }
 }

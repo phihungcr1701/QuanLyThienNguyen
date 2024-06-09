@@ -31,12 +31,16 @@ namespace QuanLyThienNguyen.DAL
         {
             using (var context = new DataContext())
             {
-                var chiTietUngHo = context.ChiTietUngHos.SingleOrDefault(ct => ct.MaCTUH == item.MaCTUH);
+                var chiTietUngHo = context.ChiTietUngHos.Single(ct => ct.MaDVUH == item.MaDVUH 
+                                                                         && ct.MaHD == item.MaHD
+                                                                         && ct.MaHTUH == item.MaHTUH
+                                                                         && ct.MaDUH == item.MaDUH);
                 if (chiTietUngHo != null)
                 {
-                    chiTietUngHo.SoLuongUH += item.SoLuongUH.Value;
-                    chiTietUngHo.SoLuongNUH += item.SoLuongNUH.Value;
+                    chiTietUngHo.SoLuongUH = chiTietUngHo.SoLuongUH + item.SoLuongUH.Value;
+                    chiTietUngHo.SoLuongNUH = chiTietUngHo.SoLuongNUH + item.SoLuongNUH.Value;
                     context.SaveChanges();
+                    context.Entry(chiTietUngHo).Reload();
                 }
             }
         }

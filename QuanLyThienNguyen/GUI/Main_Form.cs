@@ -5,7 +5,7 @@ namespace QuanLyThienNguyen.GUI
 {
     public partial class Main_Form : Form
     {
-        private Form currentChildForm;
+        public Form currentChildForm;
         bool check = false;
 
         public Main_Form()
@@ -35,16 +35,7 @@ namespace QuanLyThienNguyen.GUI
 
         private void button_HoatDong_Click(object sender, EventArgs e)
         {
-            //if (btnLogin.Text == "Đăng xuất")
-            //{
-            //    openChildForm(new Activity_Form_Admin());
-            //}
-            //else
-            //{
-            //    openChildForm(new Activity_Form());
-            //}
-            openChildForm(new Activity());
-            //openChildForm(new ChiTietUngHo_Form("1"));
+            openChildForm(new Activity(this));
         }
 
         private void button_ThongTin_Click(object sender, EventArgs e)
@@ -77,10 +68,12 @@ namespace QuanLyThienNguyen.GUI
                     btnLogin.Text = "Đăng xuất";
                     labelUser.Text = "Chào Admin!";
                     buttonHome_Click(sender, e);
+                    btnChiTiet.Visible = true;
                 }
             }
             else
             {
+                btnChiTiet.Visible = false;
                 btnLogin.Text = "Đăng nhập";
                 labelUser.Text = "Chào User!";
                 buttonHome_Click(sender, e);
@@ -90,6 +83,11 @@ namespace QuanLyThienNguyen.GUI
         private void Main_Form_Load(object sender, EventArgs e)
         {
             labelNgayThang.Text = "Đà Nẵng, Ngày " + DateTime.Now.ToString("dd, MM/yyyy");
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Activity_Form_Admin());
         }
     }
 }

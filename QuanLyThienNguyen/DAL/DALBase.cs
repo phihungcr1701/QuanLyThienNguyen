@@ -11,7 +11,7 @@ namespace QuanLyThienNguyen.DAL
         protected DataContext db = new DataContext();
         public List<T> GetAll()
         {
-            return db.Set<T>().ToList();
+            return db.Set<T>().AsNoTracking().ToList();
         }
         public void Add(T item)
         {
