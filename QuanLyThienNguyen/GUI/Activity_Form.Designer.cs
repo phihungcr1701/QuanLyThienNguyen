@@ -7,7 +7,7 @@ using QuanLyThienNguyen.DAL;
 
 namespace QuanLyThienNguyen.GUI
 {
-    partial class Activity
+    partial class Activity_Form
     {
         /// <summary>
         /// Required designer variable.

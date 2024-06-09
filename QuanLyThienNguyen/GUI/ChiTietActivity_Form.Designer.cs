@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThienNguyen.GUI
 {
-    partial class ChiTietUngHo_Form
+    partial class ChiTietActivity_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChiTietUngHo_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChiTietActivity_Form));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();

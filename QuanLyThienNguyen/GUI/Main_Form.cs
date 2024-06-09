@@ -35,7 +35,7 @@ namespace QuanLyThienNguyen.GUI
 
         private void button_HoatDong_Click(object sender, EventArgs e)
         {
-            openChildForm(new Activity(this));
+            openChildForm(new Activity_Form(this));
         }
 
         private void button_ThongTin_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace QuanLyThienNguyen.GUI
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            openChildForm(new Activity_Form_Admin());
+            openChildForm(new ChiTiet_Form());
         }
     }
 }

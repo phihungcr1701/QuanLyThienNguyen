@@ -13,10 +13,10 @@ using QuanLyThienNguyen.DAL;
 
 namespace QuanLyThienNguyen.GUI
 {
-    public partial class ChiTietUngHo_Form : Form
+    public partial class ChiTietActivity_Form : Form
     {
         string mactuh;
-        public ChiTietUngHo_Form(string ma)
+        public ChiTietActivity_Form(string ma)
         {
             InitializeComponent();
             this.mactuh = ma;

@@ -12,10 +12,10 @@ using QuanLyThienNguyen.DAL;
 
 namespace QuanLyThienNguyen.GUI
 {
-    public partial class Activity : Form
+    public partial class Activity_Form : Form
     {
         private Main_Form main_form;
-        public Activity(Main_Form main_form)
+        public Activity_Form(Main_Form main_form)
         {
             InitializeComponent();
             SetView();
@@ -42,7 +42,7 @@ namespace QuanLyThienNguyen.GUI
             if (button != null)
             {
                 string mactuh = button.Tag.ToString();
-                main_form.openChildForm(new ChiTietUngHo_Form(mactuh));
+                main_form.openChildForm(new ChiTietActivity_Form(mactuh));
                 //ChiTietUngHo_Form form1 = new ChiTietUngHo_Form(mactuh);
                 //form1.Show();
                 //MessageBox.Show(form.currentChildForm == null ? "1" : "2");

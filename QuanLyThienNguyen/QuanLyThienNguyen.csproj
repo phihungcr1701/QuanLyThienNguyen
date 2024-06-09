@@ -132,11 +132,11 @@
     <Compile Include="DTO\DTO_ThongKe.cs" />
     <Compile Include="DTO\DTO_ThanhVienDVUH.cs" />
     <Compile Include="DTO\DTO_Activity.cs" />
-    <Compile Include="GUI\Activity.cs">
+    <Compile Include="GUI\Activity_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Activity.Designer.cs">
-      <DependentUpon>Activity.cs</DependentUpon>
+    <Compile Include="GUI\Activity_Form.Designer.cs">
+      <DependentUpon>Activity_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\Information_Form_Admin.cs">
       <SubType>Form</SubType>
@@ -174,11 +174,11 @@
     <Compile Include="GUI\Admin\TV_DVUH_Form.Designer.cs">
       <DependentUpon>TV_DVUH_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ChiTietUngHo_Form.cs">
+    <Compile Include="GUI\ChiTietActivity_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ChiTietUngHo_Form.Designer.cs">
-      <DependentUpon>ChiTietUngHo_Form.cs</DependentUpon>
+    <Compile Include="GUI\ChiTietActivity_Form.Designer.cs">
+      <DependentUpon>ChiTietActivity_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Guest\Information_Form.cs">
       <SubType>Form</SubType>
@@ -186,17 +186,11 @@
     <Compile Include="GUI\Guest\Information_Form.Designer.cs">
       <DependentUpon>Information_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Guest\Activity_Form.cs">
+    <Compile Include="GUI\Admin\ChiTiet_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Guest\Activity_Form.Designer.cs">
-      <DependentUpon>Activity_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Admin\Activity_Form_Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Admin\Activity_Form_Admin.Designer.cs">
-      <DependentUpon>Activity_Form_Admin.cs</DependentUpon>
+    <Compile Include="GUI\Admin\ChiTiet_Form.Designer.cs">
+      <DependentUpon>ChiTiet_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\DVUH_Form.cs">
       <SubType>Form</SubType>
@@ -230,8 +224,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\Activity.resx">
-      <DependentUpon>Activity.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Activity_Form.resx">
+      <DependentUpon>Activity_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Information_Form_Admin.resx">
       <DependentUpon>Information_Form_Admin.cs</DependentUpon>
@@ -251,17 +245,14 @@
     <EmbeddedResource Include="GUI\Admin\TV_DVUH_Form.resx">
       <DependentUpon>TV_DVUH_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ChiTietUngHo_Form.resx">
-      <DependentUpon>ChiTietUngHo_Form.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\ChiTietActivity_Form.resx">
+      <DependentUpon>ChiTietActivity_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Guest\Information_Form.resx">
       <DependentUpon>Information_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Guest\Activity_Form.resx">
-      <DependentUpon>Activity_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\Activity_Form_Admin.resx">
-      <DependentUpon>Activity_Form_Admin.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Admin\ChiTiet_Form.resx">
+      <DependentUpon>ChiTiet_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\DVUH_Form.resx">
       <DependentUpon>DVUH_Form.cs</DependentUpon>
