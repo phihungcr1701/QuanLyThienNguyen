@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Forms;
 using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
+using MessageBox = System.Windows.MessageBox;
 
 namespace QuanLyThienNguyen.BBL
 {
@@ -178,44 +179,75 @@ namespace QuanLyThienNguyen.BBL
             list.Sort(comparison);
             return list;
         }
-        public void EditActivity(ChiTietUngHo item)
+        public void EditActivity(ChiTietUngHo item, out bool formClose)
         {
+            formClose = false;
             ChiTietUngHo itemOld = GetChiTietUngHoByMaCTUH(item.MaCTUH);
-            double sodu = SoDu(item.MaCTUH, item.MaHTUH) + item.SoLuongUH.Value; // - SLUH cu + SLNUH cu + SLUH moi
+            double sodu = SoDu(item.MaDVUH, item.MaHTUH) + item.SoLuongUH.Value - item.SoLuongNUH.Value; // - SLUH cu + SLNUH cu + SLUH moi
             if (GetChiTietUngHoByMaCTUH(item.MaCTUH) != null)
             {
                 sodu = sodu - itemOld.SoLuongUH.Value + itemOld.SoLuongNUH.Value;
-                if (sodu >= item.SoLuongNUH)
-                    DAL_ChiTietUngHo.Instance.Update(item);
-                else
-                    System.Windows.MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
-            }
-
-        }
-        public void AddActivity(ChiTietUngHo item)
-        {
-            DialogResult result = System.Windows.Forms.MessageBox.Show("Các trường MaDVUH, MaHD, MaHTUH, MaDUH đã tồn tại. Bạn có muốn" +
-                " cộng SoLuongUH, SoLuongNUH vào record đã có không?", "Thông báo", (MessageBoxButtons)MessageBoxButton.YesNo);
-            DialogResult rs = (DialogResult)System.Windows.MessageBox.Show("Bạn có chắc chắn thêm không", "Thông báo", MessageBoxButton.YesNo);
-            double sodu = SoDu(item.MaCTUH, item.MaHTUH) + item.SoLuongUH.Value;
-            if (GetChiTietUngHoByMaCTUH(item.MaCTUH) == null)
-            {
                 if (CheckChiTietUngHo(item))
                 {
+                    DialogResult result = System.Windows.Forms.MessageBox.Show("Các trường MaDVUH, MaHD, MaHTUH, MaDUH đã tồn tại. Bạn có muốn" +
+                    " cộng SoLuongUH, SoLuongNUH vào record đã có và xóa record này không?", "Thông báo", (MessageBoxButtons)MessageBoxButton.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        if (sodu >= item.SoLuongNUH)
+                        if (sodu >= 0)
+                        {
                             DAL_ChiTietUngHo.Instance.AddCombine(item);
+                            DAL_ChiTietUngHo.Instance.Delete(itemOld);
+                            formClose = true;
+                        }
                         else
                             System.Windows.MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
                     }
                 }
                 else
                 {
+                    if (sodu >= 0)
+                    {
+                        DAL_ChiTietUngHo.Instance.Update(item);
+                        formClose = true;
+                    }    
+                    else
+                        System.Windows.MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
+                }
+            }
+
+        }
+        public void AddActivity(ChiTietUngHo item, out bool formClose)
+        {
+            formClose = false;
+            double sodu = SoDu(item.MaDVUH, item.MaHTUH) + item.SoLuongUH.Value;
+            if (GetChiTietUngHoByMaCTUH(item.MaCTUH) == null)
+            {
+                if (CheckChiTietUngHo(item))
+                {
+                    DialogResult result = System.Windows.Forms.MessageBox.Show("Các trường MaDVUH, MaHD, MaHTUH, MaDUH đã tồn tại. Bạn có muốn" +
+                    " cộng SoLuongUH, SoLuongNUH vào record đã có không?", "Thông báo", (MessageBoxButtons)MessageBoxButton.YesNo);
                     if (result == DialogResult.Yes)
                     {
                         if (sodu >= item.SoLuongNUH)
+                        {
+                            DAL_ChiTietUngHo.Instance.AddCombine(item);
+                            formClose = true;
+                        }    
+                        else
+                            System.Windows.MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
+                    }
+                }
+                else
+                {
+                    DialogResult rs = (DialogResult)System.Windows.MessageBox.Show("Bạn có chắc chắn thêm không", "Thông báo", MessageBoxButton.YesNo);
+
+                    if (rs == DialogResult.Yes)
+                    {
+                        if (sodu >= item.SoLuongNUH)
+                        {
                             DAL_ChiTietUngHo.Instance.Add(item);
+                            formClose = true;
+                        }    
                         else
                             System.Windows.MessageBox.Show("Số lượng nhận ủng hộ vượt quá số lượng ủng hộ");
                     }    
@@ -223,7 +255,7 @@ namespace QuanLyThienNguyen.BBL
             }
             else
             {
-                System.Windows.MessageBox.Show("MaCTUH đã tồn tại!","Thông báo");
+                MessageBox.Show("MaCTUH đã tồn tại", "Thông báo", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Error);
             }
         }
         public bool CheckChiTietUngHo(ChiTietUngHo item)
@@ -269,7 +301,10 @@ namespace QuanLyThienNguyen.BBL
         }
         public void DeleteActivity(string maCTUH)
         {
-            DAL_ChiTietUngHo.Instance.Delete(GetChiTietUngHoByMaCTUH(maCTUH));
+            DialogResult result = (DialogResult)MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == DialogResult.Yes)
+                DAL_ChiTietUngHo.Instance.Delete(GetChiTietUngHoByMaCTUH(maCTUH));
         }
 
         public byte[] ImageToByteArray(Image img)

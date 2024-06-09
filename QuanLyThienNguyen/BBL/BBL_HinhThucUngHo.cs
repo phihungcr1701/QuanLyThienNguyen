@@ -80,8 +80,28 @@ namespace QuanLyThienNguyen.BBL
             HinhThucUngHo htuh = GetHinhThucUngHo(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + htuh.MaHTUH + " | " + htuh.TenHTUH + " | " + htuh.DonViTinh, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_HinhThucUngHo.Instance.Delete(htuh);
+                if (!IsHTUHInChiTietUngHo(htuh))
+                    DAL_HinhThucUngHo.Instance.Delete(htuh);
+                else
+                {
+                    MessageBox.Show("Hình thức ủng hộ này tồn tại trong chi tiết ủng hộ, bạn cần xóa chi tiết" +
+                        " ủng hộ chứa hình thức ủng hộ này trước khi thực hiện thao tác này!!", "Thông báo");
+                }
+               
             }
+        }
+        public bool IsHTUHInChiTietUngHo(HinhThucUngHo htuh)
+        {
+            bool check = false;
+            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAll())
+            {
+                if (i.MaHTUH == htuh.MaHTUH)
+                {
+                    check = true;
+                    break;
+                }
+            }
+            return check;
         }
     }
 }

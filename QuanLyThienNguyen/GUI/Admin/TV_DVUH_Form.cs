@@ -17,6 +17,11 @@ namespace QuanLyThienNguyen.GUI.Admin
         private string ma { get; set; }
         private void button_ThucHien_Click(object sender, EventArgs e)
         {
+            if (!this.IsInputValid())
+            {
+                MessageBox.Show("Điền đầy đủ thông tin !!!", "Thông báo");
+                return;
+            }    
             ThanhVienDVUH tvdvuh = new ThanhVienDVUH
             {
                 MaTVDVUH = textbox_MaTVDVUH.Text,
@@ -29,21 +34,14 @@ namespace QuanLyThienNguyen.GUI.Admin
             };
             if (ma == null)
             {
-                if (combobox_MaDVUH.SelectedItem == null || textbox_MaTVDVUH.Text == "" || textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
+                if (BBL.BBL_ThanhVienDVUH.Instance.GetThanhVienDVUH(textbox_MaTVDVUH.Text) == null)
                 {
-                    MessageBox.Show("Điền đầy đủ thông tin !!!");
+                    BBL_ThanhVienDVUH.Instance.Add(tvdvuh);
+                    this.Close();
                 }
                 else
-                {       
-                    if (BBL.BBL_ThanhVienDVUH.Instance.GetThanhVienDVUH(textbox_MaTVDVUH.Text) == null)
-                    {
-                        BBL_ThanhVienDVUH.Instance.Add(tvdvuh);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Đã tồn tại !!!");
-                    }
+                {
+                    MessageBox.Show("Đã tồn tại !!!");
                 }
             }
             else
@@ -85,6 +83,15 @@ namespace QuanLyThienNguyen.GUI.Admin
             datagridview_DVUH.Rows.Add("Tên đơn vị", dvuh.TenDonVi);
             datagridview_DVUH.Rows.Add("Địa chỉ", dvuh.DiaChiDonVi);
             datagridview_DVUH.Rows.Add("Số điện thoại", dvuh.SDTDonVi);
+        }
+        private bool IsInputValid()
+        {
+            return !string.IsNullOrWhiteSpace(textbox_MaTVDVUH.Text) &&
+                   !string.IsNullOrWhiteSpace(textbox_HoTen.Text) &&
+                   combobox_MaDVUH.SelectedItem != null &&
+                   !string.IsNullOrWhiteSpace(textbox_CCCD.Text) &&
+                   !string.IsNullOrWhiteSpace(textbox_DiaChi.Text) &&
+                   !string.IsNullOrWhiteSpace(textbox_SDT.Text);
         }
     }
 }

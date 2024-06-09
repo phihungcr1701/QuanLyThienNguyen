@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using QuanLyThienNguyen.BBL;
 using QuanLyThienNguyen.DAL;
 using QuanLyThienNguyen.DTO;
@@ -28,7 +30,7 @@ namespace QuanLyThienNguyen.GUI.Admin
             cbb_MaDVUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_DVUH().ToArray());
             cbb_MaHD.Items.AddRange(BBL_ComboBox.Instance.Combobox_HoDan().ToArray());
             cbb_MaHTUH.Items.AddRange(BBL_ComboBox.Instance.Combobox_HTUH().ToArray());
-            ChiTietUngHo item = BBL_ChiTietUngHo.Instance.GetChiTietUngHoByMaCTUH(MaCTUH);
+            ChiTietUngHo item = BBL_ChiTietUngHo.Instance.GetChiTietUngHoByMaCTUH(this.MaCTUH);
             if (item != null)
             {
                 txt_MaCTUH.ReadOnly = true;
@@ -47,6 +49,25 @@ namespace QuanLyThienNguyen.GUI.Admin
 
         private void btn_ThucHien_Click(object sender, EventArgs e)
         {
+            if (!IsInputValid())
+            {
+                MessageBox.Show("Hãy điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            double soluonguh = 0;
+            double soluongnuh = 0;
+            try
+            {
+                soluonguh = Convert.ToDouble(txt_SoLuongUH.Text);
+                soluongnuh = Convert.ToDouble(txt_SoLuongNUH.Text);
+            }
+            catch (FormatException i)
+            {
+                MessageBox.Show("SoLuongUH hoặc SoLuongNUH không hợp lệ! Hãy thử lại", "Thông báo", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
             ChiTietUngHo chitietungho = new ChiTietUngHo
             {
                 MaCTUH = txt_MaCTUH.Text,
@@ -55,30 +76,25 @@ namespace QuanLyThienNguyen.GUI.Admin
                 MaDUH = cbb_MaDUH.SelectedItem.ToString(),
                 MaHD = cbb_MaHD.SelectedItem.ToString(),
                 MaHTUH = cbb_MaHTUH.SelectedItem.ToString(),
-                SoLuongUH = Convert.ToDouble(txt_SoLuongUH.Text),
-                SoLuongNUH = Convert.ToDouble(txt_SoLuongNUH.Text),
+                SoLuongUH = soluonguh,
+                SoLuongNUH = soluongnuh,
                 MoTa = txtMoTa.Text,
                 AnhHoatDong = BBL_ChiTietUngHo.Instance.ImageToByteArray(PictureActivity.Image)
             };
-            if (MaCTUH == null)
+
+            bool formClose = false;
+            if (this.MaCTUH == null)
             {
-                if (txt_MaCTUH.Text.Equals("") || cbb_MaDUH == null || cbb_MaHD == null || cbb_MaDVUH == null
-                    || cbb_MaHD == null || cbb_MaHTUH == null || txt_SoLuongUH.Text.Equals("")
-                    || txt_SoLuongNUH.Text.Equals(""))
-                {
-                    MessageBox.Show("Hãy điền đầy đủ thông tin");
-                }
-                else
-                {
-                    BBL_ChiTietUngHo.Instance.AddActivity(chitietungho);
-                }
+                BBL_ChiTietUngHo.Instance.AddActivity(chitietungho, out formClose);
             }
             else
             {
-                BBL_ChiTietUngHo.Instance.EditActivity(chitietungho);
+                BBL_ChiTietUngHo.Instance.EditActivity(chitietungho, out formClose);
             }
-            this.Dispose();
-
+            if (formClose)
+            {
+                this.Dispose();
+            }    
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
@@ -123,6 +139,19 @@ namespace QuanLyThienNguyen.GUI.Admin
             {
                 PictureActivity.Image = Image.FromFile(open.FileName);
             }
+        }
+        private bool IsInputValid()
+        {
+            return !string.IsNullOrWhiteSpace(txt_MaCTUH.Text) &&
+                   !string.IsNullOrWhiteSpace(txtNameActivity.Text) &&
+                   cbb_MaDVUH.SelectedItem != null &&
+                   cbb_MaHD.SelectedItem != null &&
+                   cbb_MaHTUH.SelectedItem != null &&
+                   cbb_MaDUH.SelectedItem != null &&
+                   !string.IsNullOrWhiteSpace(txt_SoLuongUH.Text) &&
+                   !string.IsNullOrWhiteSpace(txt_SoLuongNUH.Text) &&
+                   !string.IsNullOrWhiteSpace(txtMoTa.Text) &&
+                   PictureActivity.Image != null;
         }
     }
 }

@@ -92,8 +92,28 @@ namespace QuanLyThienNguyen.BBL
             HoDan hd = GetHoDan(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + hd.MaHD + " | " + hd.HoTenChuHo + " | " + hd.GioiTinh + " | " + hd.CCCD + " | " + hd.DiaChi + " | " + hd.SDT, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_HoDan.Instance.Delete(hd);
+                if (!IsHDInChiTietUngHo(hd))
+                    DAL_HoDan.Instance.Delete(hd);
+                else
+                {
+                    MessageBox.Show("Hộ dân này tồn tại trong chi tiết ủng hộ, bạn cần xóa chi tiết" +
+                        " ủng hộ chứa hộ dân này trước khi thực hiện thao tác này!!", "Thông báo");
+                }
+               
             }
+        }
+        public bool IsHDInChiTietUngHo(HoDan hd)
+        {
+            bool check = false;
+            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAll())
+            {
+                if (i.MaHD == hd.MaHD)
+                {
+                    check = true;
+                    break;
+                }
+            }
+            return check;
         }
     }
 }

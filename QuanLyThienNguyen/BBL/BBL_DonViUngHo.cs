@@ -81,8 +81,27 @@ namespace QuanLyThienNguyen.BBL
             DonViUngHo dvuh = GetDonViUngHo(ma);
             if (MessageBox.Show("Bạn chắc chắn muốn xóa hàng dữ liệu này: \n " + dvuh.MaDVUH + " | " + dvuh.TenDonVi + " | " + dvuh.DiaChiDonVi + " | " + dvuh.SDTDonVi, "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
-                DAL_DonViUngHo.Instance.Delete(dvuh);
+                if (!IsDVUHInChiTietUngHo(GetDonViUngHo(ma)))
+                    DAL_DonViUngHo.Instance.Delete(dvuh);
+                else
+                {
+                    MessageBox.Show("Đơn vị ủng hộ này tồn tại trong chi tiết ủng hộ, bạn cần xóa chi tiết" +
+                        " ủng hộ chứa đơn vị ủng hộ này trước khi thực hiện thao tác này!!", "Thông báo");
+                }
             }
+        }
+        public bool IsDVUHInChiTietUngHo(DonViUngHo dvuh)
+        {
+            bool check = false;
+            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAll())
+            {
+                if (i.MaDVUH == dvuh.MaDVUH)
+                {
+                    check = true;
+                    break;
+                }
+            }
+            return check;
         }
     }
 }
