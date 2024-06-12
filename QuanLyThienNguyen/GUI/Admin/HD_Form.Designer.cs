@@ -105,7 +105,7 @@
             this.groupbox_DienGiaDinh.Location = new System.Drawing.Point(503, 178);
             this.groupbox_DienGiaDinh.Name = "groupbox_DienGiaDinh";
             this.groupbox_DienGiaDinh.Size = new System.Drawing.Size(177, 70);
-            this.groupbox_DienGiaDinh.TabIndex = 12;
+            this.groupbox_DienGiaDinh.TabIndex = 7;
             this.groupbox_DienGiaDinh.TabStop = false;
             this.groupbox_DienGiaDinh.Text = "Diện gia đình";
             // 
@@ -203,7 +203,7 @@
             this.textbox_SDT.PlaceholderText = "";
             this.textbox_SDT.SelectedText = "";
             this.textbox_SDT.Size = new System.Drawing.Size(200, 36);
-            this.textbox_SDT.TabIndex = 13;
+            this.textbox_SDT.TabIndex = 4;
             // 
             // textbox_DiaChi
             // 
@@ -224,7 +224,7 @@
             this.textbox_DiaChi.PlaceholderText = "";
             this.textbox_DiaChi.SelectedText = "";
             this.textbox_DiaChi.Size = new System.Drawing.Size(200, 36);
-            this.textbox_DiaChi.TabIndex = 12;
+            this.textbox_DiaChi.TabIndex = 6;
             // 
             // groupbox_GioiTinh
             // 
@@ -233,7 +233,7 @@
             this.groupbox_GioiTinh.Location = new System.Drawing.Point(503, 21);
             this.groupbox_GioiTinh.Name = "groupbox_GioiTinh";
             this.groupbox_GioiTinh.Size = new System.Drawing.Size(177, 70);
-            this.groupbox_GioiTinh.TabIndex = 11;
+            this.groupbox_GioiTinh.TabIndex = 5;
             this.groupbox_GioiTinh.TabStop = false;
             this.groupbox_GioiTinh.Text = "Giới tính";
             // 
@@ -294,7 +294,7 @@
             this.textbox_MaHD.PlaceholderText = "";
             this.textbox_MaHD.SelectedText = "";
             this.textbox_MaHD.Size = new System.Drawing.Size(200, 36);
-            this.textbox_MaHD.TabIndex = 7;
+            this.textbox_MaHD.TabIndex = 1;
             // 
             // textbox_CCCD
             // 
@@ -316,7 +316,7 @@
             this.textbox_CCCD.PlaceholderText = "";
             this.textbox_CCCD.SelectedText = "";
             this.textbox_CCCD.Size = new System.Drawing.Size(200, 36);
-            this.textbox_CCCD.TabIndex = 10;
+            this.textbox_CCCD.TabIndex = 3;
             // 
             // label_MaHD
             // 
@@ -347,7 +347,7 @@
             this.textbox_HoTen.PlaceholderText = "";
             this.textbox_HoTen.SelectedText = "";
             this.textbox_HoTen.Size = new System.Drawing.Size(200, 36);
-            this.textbox_HoTen.TabIndex = 9;
+            this.textbox_HoTen.TabIndex = 2;
             // 
             // label_DiaChi
             // 
@@ -396,6 +396,10 @@
             this.ClientSize = new System.Drawing.Size(784, 518);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 557);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 557);
             this.Name = "HD_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HD_Form";

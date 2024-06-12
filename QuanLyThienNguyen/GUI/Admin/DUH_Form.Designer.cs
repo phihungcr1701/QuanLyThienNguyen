@@ -163,6 +163,8 @@
             this.textbox_MaDUH.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_MaDUH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_MaDUH.Location = new System.Drawing.Point(160, 35);
+            this.textbox_MaDUH.MaximumSize = new System.Drawing.Size(200, 36);
+            this.textbox_MaDUH.MinimumSize = new System.Drawing.Size(200, 36);
             this.textbox_MaDUH.Name = "textbox_MaDUH";
             this.textbox_MaDUH.PasswordChar = '\0';
             this.textbox_MaDUH.PlaceholderText = "";
@@ -207,6 +209,10 @@
             this.ClientSize = new System.Drawing.Size(784, 364);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 403);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 403);
             this.Name = "DUH_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DUH_Form";

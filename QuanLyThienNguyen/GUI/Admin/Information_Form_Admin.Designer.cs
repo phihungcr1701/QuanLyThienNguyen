@@ -209,7 +209,7 @@
             this.combobox_SapXep.Location = new System.Drawing.Point(781, 32);
             this.combobox_SapXep.Name = "combobox_SapXep";
             this.combobox_SapXep.Size = new System.Drawing.Size(200, 36);
-            this.combobox_SapXep.TabIndex = 18;
+            this.combobox_SapXep.TabIndex = 3;
             this.combobox_SapXep.SelectedIndexChanged += new System.EventHandler(this.combobox_SapXep_SelectedIndexChanged);
             // 
             // button_CapNhat
@@ -266,7 +266,7 @@
             this.textbox_TimKiem.PlaceholderText = "";
             this.textbox_TimKiem.SelectedText = "";
             this.textbox_TimKiem.Size = new System.Drawing.Size(218, 36);
-            this.textbox_TimKiem.TabIndex = 17;
+            this.textbox_TimKiem.TabIndex = 1;
             this.textbox_TimKiem.TextChanged += new System.EventHandler(this.textbox_TimKiem_TextChanged);
             // 
             // combobox_TimKiem
@@ -289,7 +289,7 @@
             this.combobox_TimKiem.Location = new System.Drawing.Point(574, 32);
             this.combobox_TimKiem.Name = "combobox_TimKiem";
             this.combobox_TimKiem.Size = new System.Drawing.Size(201, 36);
-            this.combobox_TimKiem.TabIndex = 16;
+            this.combobox_TimKiem.TabIndex = 2;
             this.combobox_TimKiem.SelectedIndexChanged += new System.EventHandler(this.combobox_TimKiem_SelectedIndexChanged);
             // 
             // Information_Form_Admin

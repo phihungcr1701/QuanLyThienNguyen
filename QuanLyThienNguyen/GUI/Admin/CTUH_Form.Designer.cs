@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -50,8 +50,8 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.PictureActivity = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lbPicture = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtMoTa = new System.Windows.Forms.RichTextBox();
+            this.lbPicture = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbMoTa = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtNameActivity = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbNameActivity = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -133,7 +133,7 @@
             this.btn_ThucHien.Location = new System.Drawing.Point(373, 16);
             this.btn_ThucHien.Name = "btn_ThucHien";
             this.btn_ThucHien.Size = new System.Drawing.Size(121, 45);
-            this.btn_ThucHien.TabIndex = 30;
+            this.btn_ThucHien.TabIndex = 10;
             this.btn_ThucHien.Text = "Thực hiện";
             this.btn_ThucHien.Click += new System.EventHandler(this.btn_ThucHien_Click);
             // 
@@ -151,7 +151,7 @@
             this.btn_Huy.Location = new System.Drawing.Point(564, 16);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(121, 45);
-            this.btn_Huy.TabIndex = 31;
+            this.btn_Huy.TabIndex = 11;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
@@ -166,16 +166,16 @@
             // 
             // DataGridView1
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -187,14 +187,14 @@
             this.Column7,
             this.Column8,
             this.Column9});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
             this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -319,6 +319,15 @@
             this.PictureActivity.TabStop = false;
             this.PictureActivity.Click += new System.EventHandler(this.PictureActivity_Click);
             // 
+            // txtMoTa
+            // 
+            this.txtMoTa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMoTa.Location = new System.Drawing.Point(731, 19);
+            this.txtMoTa.Name = "txtMoTa";
+            this.txtMoTa.Size = new System.Drawing.Size(216, 99);
+            this.txtMoTa.TabIndex = 9;
+            this.txtMoTa.Text = "";
+            // 
             // lbPicture
             // 
             this.lbPicture.BackColor = System.Drawing.Color.Transparent;
@@ -328,15 +337,6 @@
             this.lbPicture.Size = new System.Drawing.Size(92, 18);
             this.lbPicture.TabIndex = 47;
             this.lbPicture.Text = "Ảnh hoạt động:";
-            // 
-            // txtMoTa
-            // 
-            this.txtMoTa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMoTa.Location = new System.Drawing.Point(731, 19);
-            this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(216, 99);
-            this.txtMoTa.TabIndex = 46;
-            this.txtMoTa.Text = "";
             // 
             // lbMoTa
             // 
@@ -362,12 +362,13 @@
             this.txtNameActivity.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNameActivity.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNameActivity.Location = new System.Drawing.Point(167, 92);
+            this.txtNameActivity.MaxLength = 50;
             this.txtNameActivity.Name = "txtNameActivity";
             this.txtNameActivity.PasswordChar = '\0';
             this.txtNameActivity.PlaceholderText = "";
             this.txtNameActivity.SelectedText = "";
             this.txtNameActivity.Size = new System.Drawing.Size(116, 36);
-            this.txtNameActivity.TabIndex = 42;
+            this.txtNameActivity.TabIndex = 2;
             // 
             // lbNameActivity
             // 
@@ -393,12 +394,13 @@
             this.txt_MaCTUH.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_MaCTUH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaCTUH.Location = new System.Drawing.Point(167, 31);
+            this.txt_MaCTUH.MaxLength = 10;
             this.txt_MaCTUH.Name = "txt_MaCTUH";
             this.txt_MaCTUH.PasswordChar = '\0';
             this.txt_MaCTUH.PlaceholderText = "";
             this.txt_MaCTUH.SelectedText = "";
             this.txt_MaCTUH.Size = new System.Drawing.Size(116, 36);
-            this.txt_MaCTUH.TabIndex = 40;
+            this.txt_MaCTUH.TabIndex = 1;
             this.txt_MaCTUH.TextChanged += new System.EventHandler(this.TextChanged);
             // 
             // cbb_MaDVUH
@@ -414,9 +416,10 @@
             this.cbb_MaDVUH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbb_MaDVUH.ItemHeight = 30;
             this.cbb_MaDVUH.Location = new System.Drawing.Point(167, 153);
+            this.cbb_MaDVUH.MaxLength = 10;
             this.cbb_MaDVUH.Name = "cbb_MaDVUH";
             this.cbb_MaDVUH.Size = new System.Drawing.Size(116, 36);
-            this.cbb_MaDVUH.TabIndex = 39;
+            this.cbb_MaDVUH.TabIndex = 3;
             this.cbb_MaDVUH.SelectedIndexChanged += new System.EventHandler(this.TextChanged);
             this.cbb_MaDVUH.TextChanged += new System.EventHandler(this.TextChanged);
             // 
@@ -445,7 +448,7 @@
             this.cbb_MaHTUH.Location = new System.Drawing.Point(456, 91);
             this.cbb_MaHTUH.Name = "cbb_MaHTUH";
             this.cbb_MaHTUH.Size = new System.Drawing.Size(116, 36);
-            this.cbb_MaHTUH.TabIndex = 37;
+            this.cbb_MaHTUH.TabIndex = 6;
             this.cbb_MaHTUH.SelectedIndexChanged += new System.EventHandler(this.TextChanged);
             this.cbb_MaHTUH.TextChanged += new System.EventHandler(this.TextChanged);
             // 
@@ -462,9 +465,10 @@
             this.cbb_MaHD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbb_MaHD.ItemHeight = 30;
             this.cbb_MaHD.Location = new System.Drawing.Point(456, 31);
+            this.cbb_MaHD.MaxLength = 10;
             this.cbb_MaHD.Name = "cbb_MaHD";
             this.cbb_MaHD.Size = new System.Drawing.Size(116, 36);
-            this.cbb_MaHD.TabIndex = 35;
+            this.cbb_MaHD.TabIndex = 5;
             this.cbb_MaHD.SelectedIndexChanged += new System.EventHandler(this.TextChanged);
             this.cbb_MaHD.TextChanged += new System.EventHandler(this.TextChanged);
             // 
@@ -481,9 +485,10 @@
             this.cbb_MaDUH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbb_MaDUH.ItemHeight = 30;
             this.cbb_MaDUH.Location = new System.Drawing.Point(167, 214);
+            this.cbb_MaDUH.MaxLength = 10;
             this.cbb_MaDUH.Name = "cbb_MaDUH";
             this.cbb_MaDUH.Size = new System.Drawing.Size(116, 36);
-            this.cbb_MaDUH.TabIndex = 34;
+            this.cbb_MaDUH.TabIndex = 4;
             this.cbb_MaDUH.SelectedIndexChanged += new System.EventHandler(this.TextChanged);
             this.cbb_MaDUH.TextChanged += new System.EventHandler(this.TextChanged);
             // 
@@ -526,7 +531,7 @@
             this.txt_SoLuongUH.PlaceholderText = "";
             this.txt_SoLuongUH.SelectedText = "";
             this.txt_SoLuongUH.Size = new System.Drawing.Size(116, 36);
-            this.txt_SoLuongUH.TabIndex = 28;
+            this.txt_SoLuongUH.TabIndex = 7;
             this.txt_SoLuongUH.TextChanged += new System.EventHandler(this.TextChanged);
             // 
             // lbMaDUH
@@ -558,7 +563,7 @@
             this.txt_SoLuongNUH.PlaceholderText = "";
             this.txt_SoLuongNUH.SelectedText = "";
             this.txt_SoLuongNUH.Size = new System.Drawing.Size(116, 36);
-            this.txt_SoLuongNUH.TabIndex = 29;
+            this.txt_SoLuongNUH.TabIndex = 8;
             this.txt_SoLuongNUH.TextChanged += new System.EventHandler(this.TextChanged);
             // 
             // lbMaDVUH
@@ -599,6 +604,10 @@
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1017, 554);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1017, 554);
             this.Name = "CTUH_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CTUH_Form";

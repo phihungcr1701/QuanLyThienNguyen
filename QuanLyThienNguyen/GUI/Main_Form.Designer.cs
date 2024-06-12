@@ -82,7 +82,7 @@
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.PressedColor = System.Drawing.Color.White;
             this.btnChiTiet.Size = new System.Drawing.Size(170, 42);
-            this.btnChiTiet.TabIndex = 9;
+            this.btnChiTiet.TabIndex = 5;
             this.btnChiTiet.Text = "Chi tiết";
             this.btnChiTiet.Visible = false;
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
@@ -151,7 +151,7 @@
             this.button_ThongTin.Name = "button_ThongTin";
             this.button_ThongTin.PressedColor = System.Drawing.Color.White;
             this.button_ThongTin.Size = new System.Drawing.Size(170, 42);
-            this.button_ThongTin.TabIndex = 6;
+            this.button_ThongTin.TabIndex = 3;
             this.button_ThongTin.Text = "Thông tin";
             this.button_ThongTin.Click += new System.EventHandler(this.button_ThongTin_Click);
             // 
@@ -174,7 +174,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.PressedColor = System.Drawing.Color.White;
             this.btnLogin.Size = new System.Drawing.Size(170, 42);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.button_Login_Click);
             // 
@@ -196,7 +196,7 @@
             this.button_HoatDong.Name = "button_HoatDong";
             this.button_HoatDong.PressedColor = System.Drawing.Color.White;
             this.button_HoatDong.Size = new System.Drawing.Size(170, 42);
-            this.button_HoatDong.TabIndex = 3;
+            this.button_HoatDong.TabIndex = 2;
             this.button_HoatDong.Text = "Hoạt động";
             this.button_HoatDong.Click += new System.EventHandler(this.button_HoatDong_Click);
             // 
@@ -218,7 +218,7 @@
             this.buttonHome.Name = "buttonHome";
             this.buttonHome.PressedColor = System.Drawing.Color.White;
             this.buttonHome.Size = new System.Drawing.Size(170, 42);
-            this.buttonHome.TabIndex = 2;
+            this.buttonHome.TabIndex = 1;
             this.buttonHome.Text = "Trang chủ";
             this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 

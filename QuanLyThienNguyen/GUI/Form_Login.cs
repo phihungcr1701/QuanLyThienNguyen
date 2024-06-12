@@ -24,7 +24,15 @@ namespace QuanLyThienNguyen
             }
             else
             {
-                MessageBox.Show("Sai mật khẩu");
+                MessageBox.Show("Sai mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Form_Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click((object)sender, e);
             }
         }
     }

@@ -121,7 +121,7 @@
             this.textbox_MaTVDVUH.PlaceholderText = "";
             this.textbox_MaTVDVUH.SelectedText = "";
             this.textbox_MaTVDVUH.Size = new System.Drawing.Size(200, 36);
-            this.textbox_MaTVDVUH.TabIndex = 19;
+            this.textbox_MaTVDVUH.TabIndex = 1;
             // 
             // label_MaTVDVUH
             // 
@@ -170,7 +170,7 @@
             this.combobox_MaDVUH.Location = new System.Drawing.Point(502, 33);
             this.combobox_MaDVUH.Name = "combobox_MaDVUH";
             this.combobox_MaDVUH.Size = new System.Drawing.Size(200, 36);
-            this.combobox_MaDVUH.TabIndex = 16;
+            this.combobox_MaDVUH.TabIndex = 4;
             this.combobox_MaDVUH.SelectedIndexChanged += new System.EventHandler(this.combobox_MaDVUH_SelectedIndexChanged);
             // 
             // button_Huy
@@ -229,7 +229,7 @@
             this.textbox_SDT.PlaceholderText = "";
             this.textbox_SDT.SelectedText = "";
             this.textbox_SDT.Size = new System.Drawing.Size(200, 36);
-            this.textbox_SDT.TabIndex = 13;
+            this.textbox_SDT.TabIndex = 6;
             // 
             // textbox_DiaChi
             // 
@@ -250,7 +250,7 @@
             this.textbox_DiaChi.PlaceholderText = "";
             this.textbox_DiaChi.SelectedText = "";
             this.textbox_DiaChi.Size = new System.Drawing.Size(200, 36);
-            this.textbox_DiaChi.TabIndex = 12;
+            this.textbox_DiaChi.TabIndex = 5;
             // 
             // groupbox_GioiTinh
             // 
@@ -259,7 +259,7 @@
             this.groupbox_GioiTinh.Location = new System.Drawing.Point(762, 157);
             this.groupbox_GioiTinh.Name = "groupbox_GioiTinh";
             this.groupbox_GioiTinh.Size = new System.Drawing.Size(163, 70);
-            this.groupbox_GioiTinh.TabIndex = 11;
+            this.groupbox_GioiTinh.TabIndex = 7;
             this.groupbox_GioiTinh.TabStop = false;
             this.groupbox_GioiTinh.Text = "Giới tính";
             // 
@@ -321,7 +321,7 @@
             this.textbox_CCCD.PlaceholderText = "";
             this.textbox_CCCD.SelectedText = "";
             this.textbox_CCCD.Size = new System.Drawing.Size(200, 36);
-            this.textbox_CCCD.TabIndex = 10;
+            this.textbox_CCCD.TabIndex = 3;
             // 
             // label_MaDVUH
             // 
@@ -352,7 +352,7 @@
             this.textbox_HoTen.PlaceholderText = "";
             this.textbox_HoTen.SelectedText = "";
             this.textbox_HoTen.Size = new System.Drawing.Size(200, 36);
-            this.textbox_HoTen.TabIndex = 9;
+            this.textbox_HoTen.TabIndex = 2;
             // 
             // label_DiaChi
             // 
@@ -402,6 +402,10 @@
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1009, 503);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1009, 503);
             this.Name = "TV_DVUH_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TV_DVUH_Form";

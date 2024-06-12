@@ -264,7 +264,7 @@ namespace QuanLyThienNguyen.BBL
             foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAll())
             {
                 if (item.MaDVUH == i.MaDVUH && item.MaDUH == i.MaDUH && item.MaHD == i.MaHD
-                    && item.MaHTUH == i.MaHTUH)
+                    && item.MaHTUH == i.MaHTUH && item.MaCTUH != i.MaCTUH)
                 {
                     check = true;
                     break;

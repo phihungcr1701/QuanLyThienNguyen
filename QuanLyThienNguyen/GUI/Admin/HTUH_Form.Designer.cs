@@ -135,7 +135,7 @@
             this.textbox_TenHTUH.PlaceholderText = "";
             this.textbox_TenHTUH.SelectedText = "";
             this.textbox_TenHTUH.Size = new System.Drawing.Size(200, 36);
-            this.textbox_TenHTUH.TabIndex = 12;
+            this.textbox_TenHTUH.TabIndex = 3;
             // 
             // textbox_MaHTUH
             // 
@@ -156,7 +156,7 @@
             this.textbox_MaHTUH.PlaceholderText = "";
             this.textbox_MaHTUH.SelectedText = "";
             this.textbox_MaHTUH.Size = new System.Drawing.Size(200, 36);
-            this.textbox_MaHTUH.TabIndex = 7;
+            this.textbox_MaHTUH.TabIndex = 1;
             // 
             // label_MaHTUH
             // 
@@ -187,7 +187,7 @@
             this.textbox_DonViTinh.PlaceholderText = "";
             this.textbox_DonViTinh.SelectedText = "";
             this.textbox_DonViTinh.Size = new System.Drawing.Size(200, 36);
-            this.textbox_DonViTinh.TabIndex = 9;
+            this.textbox_DonViTinh.TabIndex = 2;
             // 
             // label_TenHTUH
             // 
@@ -216,6 +216,10 @@
             this.ClientSize = new System.Drawing.Size(784, 365);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 404);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 404);
             this.Name = "HTUH_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HTUH_Form";

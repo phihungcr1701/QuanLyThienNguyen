@@ -95,7 +95,7 @@
             this.textbox_MaDVUH.PlaceholderText = "";
             this.textbox_MaDVUH.SelectedText = "";
             this.textbox_MaDVUH.Size = new System.Drawing.Size(200, 36);
-            this.textbox_MaDVUH.TabIndex = 16;
+            this.textbox_MaDVUH.TabIndex = 1;
             // 
             // button_Huy
             // 
@@ -153,7 +153,7 @@
             this.textbox_SDTDonVi.PlaceholderText = "";
             this.textbox_SDTDonVi.SelectedText = "";
             this.textbox_SDTDonVi.Size = new System.Drawing.Size(200, 36);
-            this.textbox_SDTDonVi.TabIndex = 13;
+            this.textbox_SDTDonVi.TabIndex = 4;
             // 
             // textbox_DiaChiDonVi
             // 
@@ -174,7 +174,7 @@
             this.textbox_DiaChiDonVi.PlaceholderText = "";
             this.textbox_DiaChiDonVi.SelectedText = "";
             this.textbox_DiaChiDonVi.Size = new System.Drawing.Size(200, 36);
-            this.textbox_DiaChiDonVi.TabIndex = 12;
+            this.textbox_DiaChiDonVi.TabIndex = 3;
             // 
             // label_MaDVUH
             // 
@@ -205,7 +205,7 @@
             this.textbox_TenDonVi.PlaceholderText = "";
             this.textbox_TenDonVi.SelectedText = "";
             this.textbox_TenDonVi.Size = new System.Drawing.Size(200, 36);
-            this.textbox_TenDonVi.TabIndex = 9;
+            this.textbox_TenDonVi.TabIndex = 2;
             // 
             // label_DiaChiDonVi
             // 
@@ -264,6 +264,10 @@
             this.ClientSize = new System.Drawing.Size(784, 384);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 423);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 423);
             this.Name = "DVUH_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVUH_Form";

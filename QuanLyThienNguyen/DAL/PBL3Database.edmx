@@ -25,7 +25,7 @@
           <Property Name="MaHTUH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SoLuongUH" Type="float" />
           <Property Name="SoLuongNUH" Type="float" />
-          <Property Name="MoTa" Type="nvarchar" MaxLength="1000" />
+          <Property Name="MoTa" Type="nvarchar(max)" />
           <Property Name="AnhHoatDong" Type="image" />
         </EntityType>
         <EntityType Name="DonViUngHo">
@@ -235,7 +235,7 @@
           <Property Name="MaHTUH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SoLuongUH" Type="Double" />
           <Property Name="SoLuongNUH" Type="Double" />
-          <Property Name="MoTa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AnhHoatDong" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="DotUngHo" Relationship="Self.FK__ChiTietUn__MaDUH__5AEE82B9" FromRole="ChiTietUngHo" ToRole="DotUngHo" />
           <NavigationProperty Name="DonViUngHo" Relationship="Self.FK__ChiTietUn__MaDVU__59FA5E80" FromRole="ChiTietUngHo" ToRole="DonViUngHo" />

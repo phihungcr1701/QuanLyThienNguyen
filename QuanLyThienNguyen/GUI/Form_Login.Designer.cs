@@ -107,7 +107,7 @@
             this.guna2Panel2.Location = new System.Drawing.Point(308, 0);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(334, 399);
-            this.guna2Panel2.TabIndex = 1;
+            this.guna2Panel2.TabIndex = 0;
             // 
             // guna2GroupBox1
             // 
@@ -144,7 +144,7 @@
             this.btnLogin.Location = new System.Drawing.Point(100, 160);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(113, 33);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -163,11 +163,11 @@
             this.txtPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPass.Location = new System.Drawing.Point(72, 110);
             this.txtPass.Name = "txtPass";
-            this.txtPass.PasswordChar = '\0';
+            this.txtPass.PasswordChar = '*';
             this.txtPass.PlaceholderText = "";
             this.txtPass.SelectedText = "";
             this.txtPass.Size = new System.Drawing.Size(171, 31);
-            this.txtPass.TabIndex = 3;
+            this.txtPass.TabIndex = 2;
             // 
             // txtUser
             // 
@@ -188,7 +188,7 @@
             this.txtUser.PlaceholderText = "";
             this.txtUser.SelectedText = "";
             this.txtUser.Size = new System.Drawing.Size(171, 31);
-            this.txtUser.TabIndex = 2;
+            this.txtUser.TabIndex = 1;
             // 
             // guna2PictureBox2
             // 
@@ -235,9 +235,11 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.Name = "Form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Login_KeyDown);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
