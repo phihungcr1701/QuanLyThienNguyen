@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_GioiThieu = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -84,7 +84,9 @@
             // 
             // combobox_LoaiThongKe
             // 
+            this.combobox_LoaiThongKe.AutoRoundedCorners = true;
             this.combobox_LoaiThongKe.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_LoaiThongKe.BorderRadius = 17;
             this.combobox_LoaiThongKe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combobox_LoaiThongKe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobox_LoaiThongKe.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -97,13 +99,15 @@
             "Số dư ủng hộ"});
             this.combobox_LoaiThongKe.Location = new System.Drawing.Point(197, 32);
             this.combobox_LoaiThongKe.Name = "combobox_LoaiThongKe";
-            this.combobox_LoaiThongKe.Size = new System.Drawing.Size(171, 36);
+            this.combobox_LoaiThongKe.Size = new System.Drawing.Size(212, 36);
             this.combobox_LoaiThongKe.TabIndex = 19;
             this.combobox_LoaiThongKe.SelectedIndexChanged += new System.EventHandler(this.combobox_LoaiThongKe_SelectedIndexChanged);
             // 
             // combobox_Chart
             // 
+            this.combobox_Chart.AutoRoundedCorners = true;
             this.combobox_Chart.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_Chart.BorderRadius = 17;
             this.combobox_Chart.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combobox_Chart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobox_Chart.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -125,7 +129,9 @@
             // combobox_TenHTUH
             // 
             this.combobox_TenHTUH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.combobox_TenHTUH.AutoRoundedCorners = true;
             this.combobox_TenHTUH.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_TenHTUH.BorderRadius = 17;
             this.combobox_TenHTUH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combobox_TenHTUH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobox_TenHTUH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -169,15 +175,15 @@
             // 
             // chart
             // 
-            chartArea2.AxisX.Title = "Đơn vị ủng hộ";
-            chartArea2.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea2);
+            chartArea1.AxisX.Title = "Đơn vị ủng hộ";
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart.Location = new System.Drawing.Point(20, 20);
             this.chart.Name = "chart";
-            series2.ChartArea = "ChartArea1";
-            series2.Name = "Series1";
-            this.chart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            this.chart.Series.Add(series1);
             this.chart.Size = new System.Drawing.Size(466, 402);
             this.chart.TabIndex = 0;
             this.chart.Text = "chart1";
