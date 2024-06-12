@@ -285,6 +285,18 @@ namespace QuanLyThienNguyen.BBL
             }
             return item;
         }
+        public double TongSoLuong(string madvuh, string mahtuh)
+        {
+            double sumUH = 0;
+            foreach (ChiTietUngHo i in DAL_ChiTietUngHo.Instance.GetAll())
+            {
+                if (i.MaDVUH.Equals(madvuh) && i.MaHTUH.Equals(mahtuh))
+                {
+                    sumUH = sumUH + i.SoLuongUH.Value;
+                }
+            }
+            return sumUH;
+        }
         public double SoDu(string madvuh, string mahtuh)
         {
             double sumUH = 0;

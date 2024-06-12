@@ -24,7 +24,7 @@ namespace QuanLyThienNguyen.GUI.Admin
                 CCCD = textbox_CCCD.Text,
                 DiaChi = textbox_DiaChi.Text,
                 SDT = textbox_SDT.Text,
-                DienGiaDinh = ratiobutton_Ngheo.Checked ? "Ngheo" : "Can Ngheo"
+                DienGiaDinh = ratiobutton_Ngheo.Checked ? "Nghèo" : "Cận Nghèo"
             };
             if (ma == null)
             {

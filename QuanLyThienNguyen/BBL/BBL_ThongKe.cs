@@ -34,6 +34,7 @@ namespace QuanLyThienNguyen.BBL
             Series series = new Series();
             string chartTypeString = chart;
             series.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), chartTypeString);
+            data.Add(0);
 
             foreach (DTO_ThongKe i in GetThongKeByTenHTUH(ten))
             {
@@ -69,14 +70,8 @@ namespace QuanLyThienNguyen.BBL
             foreach (string i in DAL_ThongKe.Instance.GetAllMaDVUH())
                 foreach (string j in DAL_ThongKe.Instance.GetAllMaHTUH())
                 {
-                    double TongSoluong = 0;
-                    double SoDu = 0;
-                    foreach (var item in DAL_ChiTietUngHo.Instance.GetAll())
-                        if (item.MaDVUH == i && item.MaHTUH == j)
-                        {
-                            TongSoluong += Convert.ToDouble(item.SoLuongUH);
-                            SoDu += Convert.ToDouble(item.SoLuongUH) - Convert.ToDouble(item.SoLuongNUH);
-                        }
+                    double TongSoluong = BBL_ChiTietUngHo.Instance.TongSoLuong(i, j);
+                    double SoDu = BBL_ChiTietUngHo.Instance.SoDu(i, j);
                     DAL_ThongKe.Instance.Add(new ThongKe
                     {
                         MaTK = ++count,
