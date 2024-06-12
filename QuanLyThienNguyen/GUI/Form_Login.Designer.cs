@@ -60,7 +60,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(308, 399);
-            this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel1.TabIndex = 3;
             // 
             // guna2HtmlLabel1
             // 
@@ -107,7 +107,7 @@
             this.guna2Panel2.Location = new System.Drawing.Point(308, 0);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(334, 399);
-            this.guna2Panel2.TabIndex = 0;
+            this.guna2Panel2.TabIndex = 4;
             // 
             // guna2GroupBox1
             // 
@@ -126,7 +126,7 @@
             this.guna2GroupBox1.Location = new System.Drawing.Point(22, 145);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.Size = new System.Drawing.Size(300, 208);
-            this.guna2GroupBox1.TabIndex = 3;
+            this.guna2GroupBox1.TabIndex = 5;
             this.guna2GroupBox1.Text = "Login";
             // 
             // btnLogin
@@ -144,7 +144,7 @@
             this.btnLogin.Location = new System.Drawing.Point(100, 160);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(113, 33);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -167,7 +167,7 @@
             this.txtPass.PlaceholderText = "";
             this.txtPass.SelectedText = "";
             this.txtPass.Size = new System.Drawing.Size(171, 31);
-            this.txtPass.TabIndex = 2;
+            this.txtPass.TabIndex = 1;
             // 
             // txtUser
             // 
@@ -188,7 +188,7 @@
             this.txtUser.PlaceholderText = "";
             this.txtUser.SelectedText = "";
             this.txtUser.Size = new System.Drawing.Size(171, 31);
-            this.txtUser.TabIndex = 1;
+            this.txtUser.TabIndex = 0;
             // 
             // guna2PictureBox2
             // 

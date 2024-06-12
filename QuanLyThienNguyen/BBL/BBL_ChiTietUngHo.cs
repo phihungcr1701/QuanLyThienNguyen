@@ -125,6 +125,7 @@ namespace QuanLyThienNguyen.BBL
         }
         public List<DTO_Activity> Search(string timkiem, List<DTO_Activity> list)
         {
+            timkiem.ToLower();
             List<DTO_Activity> result = new List<DTO_Activity>();
             foreach (DTO_Activity activity in list)
             {
@@ -149,28 +150,30 @@ namespace QuanLyThienNguyen.BBL
             switch (IndexSort)
             {
                 case 0:
-
-                    comparison = (a1, a2) => a1.TenDonVi.CompareTo(a2.TenDonVi);
+                    comparison = (a1, a2) => a1.MaCTUH.CompareTo(a2.MaCTUH);
                     break;
                 case 1:
-                    comparison = (a1, a2) => a1.HoTenChuHo.CompareTo(a2.HoTenChuHo);
+                    comparison = (a1, a2) => a1.TenDonVi.CompareTo(a2.TenDonVi);
                     break;
                 case 2:
-                    comparison = (a1, a2) => a1.TenHTUH.CompareTo(a2.TenHTUH);
+                    comparison = (a1, a2) => a1.HoTenChuHo.CompareTo(a2.HoTenChuHo);
                     break;
                 case 3:
-                    comparison = (a1, a2) => a1.SoLuongUH.CompareTo(a2.SoLuongUH);
+                    comparison = (a1, a2) => a1.TenHTUH.CompareTo(a2.TenHTUH);
                     break;
                 case 4:
-                    comparison = (a1, a2) => a1.SoLuongNUH.CompareTo(a2.SoLuongNUH);
+                    comparison = (a1, a2) => a1.SoLuongUH.CompareTo(a2.SoLuongUH);
                     break;
                 case 5:
-                    comparison = (a1, a2) => a1.DonViTinh.CompareTo(a2.DonViTinh);
+                    comparison = (a1, a2) => a1.SoLuongNUH.CompareTo(a2.SoLuongNUH);
                     break;
                 case 6:
-                    comparison = (a1, a2) => a1.NgayBatDau.CompareTo(a2.NgayBatDau);
+                    comparison = (a1, a2) => a1.DonViTinh.CompareTo(a2.DonViTinh);
                     break;
                 case 7:
+                    comparison = (a1, a2) => a1.NgayBatDau.CompareTo(a2.NgayBatDau);
+                    break;
+                case 8:
                     comparison = (a1, a2) => a1.NgayKetThuc.CompareTo(a2.NgayKetThuc);
                     break;
                 default:

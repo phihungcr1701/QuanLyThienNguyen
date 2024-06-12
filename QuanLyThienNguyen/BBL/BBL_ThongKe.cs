@@ -66,21 +66,36 @@ namespace QuanLyThienNguyen.BBL
         public void Add()
         {
             int count = 0;
+            var thongKeDict = new Dictionary<(string MaDVUH, string MaHTUH), (double TongSoLuong, double SoDu)>();
 
-            foreach (string i in DAL_ThongKe.Instance.GetAllMaDVUH())
-                foreach (string j in DAL_ThongKe.Instance.GetAllMaHTUH())
+            var allChiTietUngHo = DAL_ChiTietUngHo.Instance.GetAll();
+
+            foreach (var item in allChiTietUngHo)
+            {
+                var key = (item.MaDVUH, item.MaHTUH);
+                if (!thongKeDict.ContainsKey(key))
                 {
-                    double TongSoluong = BBL_ChiTietUngHo.Instance.TongSoLuong(i, j);
-                    double SoDu = BBL_ChiTietUngHo.Instance.SoDu(i, j);
-                    DAL_ThongKe.Instance.Add(new ThongKe
-                    {
-                        MaTK = ++count,
-                        MaDVUH = i,
-                        MaHTUH = j,
-                        TongSoLuongUH = TongSoluong,
-                        SoDuUH = SoDu
-                    });
+                    thongKeDict[key] = (0, 0);
                 }
+
+                var current = thongKeDict[key];
+                double soLuongUH = Convert.ToDouble(item.SoLuongUH);
+                double soLuongNUH = Convert.ToDouble(item.SoLuongNUH);
+
+                thongKeDict[key] = (current.TongSoLuong + soLuongUH, current.SoDu + soLuongUH - soLuongNUH);
+            }
+
+            foreach (var keyValue in thongKeDict)
+            {
+                DAL_ThongKe.Instance.Add(new ThongKe
+                {
+                    MaTK = ++count,
+                    MaDVUH = keyValue.Key.MaDVUH,
+                    MaHTUH = keyValue.Key.MaHTUH,
+                    TongSoLuongUH = keyValue.Value.TongSoLuong,
+                    SoDuUH = keyValue.Value.SoDu
+                });
+            }
         }
         public void DeleteAll()
         {

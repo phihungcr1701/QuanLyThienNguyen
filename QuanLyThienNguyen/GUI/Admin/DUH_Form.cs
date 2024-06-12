@@ -25,22 +25,24 @@ namespace QuanLyThienNguyen.GUI.Admin
             
             if (duh.NgayBatDau > duh.NgayKetThuc)
             {
-                MessageBox.Show("Không hợp lệ !!!");
+                MessageBox.Show("Ngày bắt đầu và ngày kết thúc không hợp lệ !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 if (ma == null)
                 {
-                    if (textbox_MaDUH == null) 
-                        MessageBox.Show("Điền đầy đủ thông tin !!!");
+                    if (textbox_MaDUH.Text == "") 
+                        MessageBox.Show("Điền đầy đủ thông tin !!!", "Thông báo");
                     else
+                    {
                         if (BBL_DotUngHo.Instance.GetDotUngHo(textbox_MaDUH.Text) != null)
-                            MessageBox.Show("Đã tồn tại !!!");
+                            MessageBox.Show("MaDUH đã tồn tại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
                         {
-                        BBL_DotUngHo.Instance.Add(duh);
-                            this.Close();
+                            BBL_DotUngHo.Instance.Add(duh);
+                                this.Close();
                         }
+                    }
                 }
                 else
                 {

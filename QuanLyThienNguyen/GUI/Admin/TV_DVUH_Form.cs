@@ -41,7 +41,7 @@ namespace QuanLyThienNguyen.GUI.Admin
                 }
                 else
                 {
-                    MessageBox.Show("Đã tồn tại !!!");
+                    MessageBox.Show("MaTV đã tồn tại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

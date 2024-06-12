@@ -244,8 +244,8 @@
             // 
             // panelInformation
             // 
-            this.panelInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelInformation.BorderColor = System.Drawing.Color.White;
+            this.panelInformation.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelInformation.BorderColor = System.Drawing.Color.Black;
             this.panelInformation.Controls.Add(this.labelNgayThang);
             this.panelInformation.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInformation.Location = new System.Drawing.Point(0, 0);
@@ -257,9 +257,12 @@
             // 
             this.labelNgayThang.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelNgayThang.AutoSize = true;
+            this.labelNgayThang.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelNgayThang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelNgayThang.ForeColor = System.Drawing.Color.OrangeRed;
             this.labelNgayThang.Location = new System.Drawing.Point(847, 5);
             this.labelNgayThang.Name = "labelNgayThang";
-            this.labelNgayThang.Size = new System.Drawing.Size(85, 13);
+            this.labelNgayThang.Size = new System.Drawing.Size(87, 15);
             this.labelNgayThang.TabIndex = 0;
             this.labelNgayThang.Text = "labelNgayThang";
             this.labelNgayThang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

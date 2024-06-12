@@ -116,6 +116,7 @@
             this.textbox_MaTVDVUH.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_MaTVDVUH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_MaTVDVUH.Location = new System.Drawing.Point(160, 33);
+            this.textbox_MaTVDVUH.MaxLength = 10;
             this.textbox_MaTVDVUH.Name = "textbox_MaTVDVUH";
             this.textbox_MaTVDVUH.PasswordChar = '\0';
             this.textbox_MaTVDVUH.PlaceholderText = "";

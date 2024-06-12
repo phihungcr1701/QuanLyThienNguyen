@@ -189,7 +189,9 @@
             // combobox_SapXep
             // 
             this.combobox_SapXep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.combobox_SapXep.AutoRoundedCorners = true;
             this.combobox_SapXep.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_SapXep.BorderRadius = 17;
             this.combobox_SapXep.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combobox_SapXep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobox_SapXep.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -251,6 +253,8 @@
             // textbox_TimKiem
             // 
             this.textbox_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_TimKiem.AutoRoundedCorners = true;
+            this.textbox_TimKiem.BorderRadius = 17;
             this.textbox_TimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textbox_TimKiem.DefaultText = "";
             this.textbox_TimKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -272,7 +276,9 @@
             // combobox_TimKiem
             // 
             this.combobox_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.combobox_TimKiem.AutoRoundedCorners = true;
             this.combobox_TimKiem.BackColor = System.Drawing.Color.Transparent;
+            this.combobox_TimKiem.BorderRadius = 17;
             this.combobox_TimKiem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combobox_TimKiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobox_TimKiem.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));

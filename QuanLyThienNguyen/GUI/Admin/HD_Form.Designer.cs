@@ -289,6 +289,7 @@
             this.textbox_MaHD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_MaHD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_MaHD.Location = new System.Drawing.Point(161, 40);
+            this.textbox_MaHD.MaxLength = 10;
             this.textbox_MaHD.Name = "textbox_MaHD";
             this.textbox_MaHD.PasswordChar = '\0';
             this.textbox_MaHD.PlaceholderText = "";

@@ -25,12 +25,12 @@ namespace QuanLyThienNguyen.GUI.Admin
             if (ma == null)
                 if (textbox_MaHTUH.Text == "" || textbox_TenHTUH.Text == "" || textbox_DonViTinh.Text == "")
                 {
-                    MessageBox.Show("Điền đầy đủ thông tin !!!");
+                    MessageBox.Show("Điền đầy đủ thông tin !!!", "Thông báo");
                 }
                 else
                 {
                     if (BBL_HinhThucUngHo.Instance.GetHinhThucUngHo(textbox_MaHTUH.Text) != null)
-                        MessageBox.Show("Đã tồn tại !!!");
+                        MessageBox.Show("MaHTUH đã tồn tại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
                         BBL_HinhThucUngHo.Instance.Add(htuh);
@@ -40,9 +40,9 @@ namespace QuanLyThienNguyen.GUI.Admin
             else
             {
                 BBL_HinhThucUngHo.Instance.Update(htuh);
+                this.Close();
             }
                 
-            this.Close();
         }
         private void button_Huy_Click(object sender, EventArgs e)
         {

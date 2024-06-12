@@ -30,12 +30,12 @@ namespace QuanLyThienNguyen.GUI.Admin
             {
                 if (textbox_HoTen.Text == "" || textbox_DiaChi.Text == "" || textbox_CCCD.Text == "" || textbox_SDT.Text == "")
                 {
-                    MessageBox.Show("Điền đầy đủ thông tin !!!");
+                    MessageBox.Show("Điền đầy đủ thông tin !!!", "Thông báo");
                 }
                 else
                 {
                     if (BBL_HoDan.Instance.GetHoDan(textbox_MaHD.Text) != null)
-                        MessageBox.Show("Đã tồn tại !!!");
+                        MessageBox.Show("MaHD đã tồn tại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
                         BBL_HoDan.Instance.Add(hd);

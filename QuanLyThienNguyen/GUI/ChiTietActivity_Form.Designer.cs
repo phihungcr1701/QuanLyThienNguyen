@@ -486,7 +486,8 @@
             // 
             this.lbNameActivity.AutoSize = true;
             this.lbNameActivity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbNameActivity.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbNameActivity.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbNameActivity.ForeColor = System.Drawing.Color.Red;
             this.lbNameActivity.Location = new System.Drawing.Point(6, 3);
             this.lbNameActivity.Name = "lbNameActivity";
             this.lbNameActivity.Size = new System.Drawing.Size(679, 94);
@@ -494,7 +495,7 @@
             this.lbNameActivity.Text = "Tên hoạt động";
             this.lbNameActivity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ChiTietUngHo_Form
+            // ChiTietActivity_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -504,7 +505,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ChiTietUngHo_Form";
+            this.Name = "ChiTietActivity_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChiTietUngHo_Form";
             this.guna2Panel1.ResumeLayout(false);

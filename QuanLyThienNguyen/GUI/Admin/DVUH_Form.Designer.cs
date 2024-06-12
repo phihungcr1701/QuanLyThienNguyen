@@ -90,6 +90,7 @@
             this.textbox_MaDVUH.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_MaDVUH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_MaDVUH.Location = new System.Drawing.Point(160, 35);
+            this.textbox_MaDVUH.MaxLength = 10;
             this.textbox_MaDVUH.Name = "textbox_MaDVUH";
             this.textbox_MaDVUH.PasswordChar = '\0';
             this.textbox_MaDVUH.PlaceholderText = "";

@@ -27,12 +27,12 @@ namespace QuanLyThienNguyen.GUI
             {
                 if (textbox_MaDVUH.Text == "" || textbox_TenDonVi.Text == "" || textbox_DiaChiDonVi.Text == "" || textbox_SDTDonVi.Text == "")
                 {
-                    MessageBox.Show("Điền đầy đủ thông tin !!!");
+                    MessageBox.Show("Điền đầy đủ thông tin !!!", "Thông báo");
                 }
                 else
                 {
                     if (BBL_DonViUngHo.Instance.GetDonViUngHo(textbox_MaDVUH.Text) != null)
-                        MessageBox.Show("Đã tồn tại !!!");
+                        MessageBox.Show("MaDVUH đã tồn tại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
                         BBL_DonViUngHo.Instance.Add(dvuh);

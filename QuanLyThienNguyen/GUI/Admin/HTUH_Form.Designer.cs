@@ -151,6 +151,7 @@
             this.textbox_MaHTUH.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textbox_MaHTUH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textbox_MaHTUH.Location = new System.Drawing.Point(160, 35);
+            this.textbox_MaHTUH.MaxLength = 10;
             this.textbox_MaHTUH.Name = "textbox_MaHTUH";
             this.textbox_MaHTUH.PasswordChar = '\0';
             this.textbox_MaHTUH.PlaceholderText = "";

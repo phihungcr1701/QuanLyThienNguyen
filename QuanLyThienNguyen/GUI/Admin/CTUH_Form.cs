@@ -51,7 +51,7 @@ namespace QuanLyThienNguyen.GUI.Admin
         {
             if (!IsInputValid())
             {
-                MessageBox.Show("Hãy điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Điền đầy đủ thông tin!!!", "Thông báo");
                 return;
             }
 
